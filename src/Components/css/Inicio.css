@@ -1,0 +1,52 @@
+.inicio-nav{
+    height: 100px;
+    background-color: transparent;
+    padding-right: 30px;
+    padding-left: 0px;
+}
+
+.logo-nav{
+    margin-right: 15px;
+
+}
+
+.inicio-link{
+    font-weight: bold;
+    color: white;
+    display: inline;
+    margin: 10px;
+}
+
+.inicio-app{
+    font-weight: bold;
+}
+
+.inicio-link:hover{
+    color: #ffc107;
+}
+
+.inicio-app:hover{
+    color: white;
+    font-weight: bold;
+}
+
+.inicio-options{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.link-btn{
+    background-color: white;
+    width: 200px;
+    height: 50px;
+    color: #000;
+    align-items: center;
+    font-weight: bold;
+}
+
+.link-btn:hover{
+    color: white;
+    background-color: transparent;
+    border: 1px solid white;
+}

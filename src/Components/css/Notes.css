@@ -1,0 +1,13 @@
+.letter-btn{
+    font-weight: bold;
+    height: 33px;
+  }
+  
+  .letter-btn:hover{
+    color: white;
+    font-weight: bold;
+  }
+
+  #home-side-bar{
+    padding-right: 0px;
+  }

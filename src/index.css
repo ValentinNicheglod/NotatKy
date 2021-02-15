@@ -1,13 +1,49 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+html, body, .App {
+    height: 100%;
+    box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.full-height {
+  height: 100%;
 }
+
+.total-width {
+  width: 314px;
+}
+
+  .title-font{
+    font-family: 'Yusei Magic', sans-serif;
+}
+
+.btn-round{
+  border-radius: 30px;
+}
+
+.card-round{
+  width: 400px;
+  height: 650px;
+  border-radius: 20px;
+  padding: 150px 3rem 3rem 3rem;
+}
+
+.white{
+  color: white;
+}
+
+.main-logo{
+  width: 182;
+  margin-left: 30px;
+}
+
+.sticky-vert {
+  position: fixed;
+  top: 0;
+  height: 100%;
+}
+
+.all-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

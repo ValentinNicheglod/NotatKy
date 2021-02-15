@@ -1,0 +1,48 @@
+#login-submit{
+    border-radius: 30px;
+}
+
+.login-bg{
+    background-image: linear-gradient(to bottom right, #2185D0, #A333C8);
+}
+
+.login-bs{
+    display: flex;
+    justify-content: center;
+    --bs-gutter-x: 0px;
+}
+
+.sign-up-btn{
+    color: #A333C8;
+    border-color: #A333C8;
+    border-radius: 30px;
+}
+
+.sign-up-btn:hover{
+    color: white;
+    background-color: #A333C8;
+}
+
+.login-p{
+    font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.reset-pw{
+    height: 300px;
+    width: 400px;
+    border-radius: 20px;
+    padding: 150px 3rem 3rem 3rem;
+}
+
+.login-logo{
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+    top: 10px;
+}
+
+.login-title{
+    top: 10px;
+    position: absolute;
+    color: white;
+}
