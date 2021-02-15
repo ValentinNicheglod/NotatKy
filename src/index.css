@@ -47,3 +47,11 @@ html, body, .App {
   align-items: center;
 }
 
+.blue-aside{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5px;
+  background-color: #AECFDF;
+  border-right: 8px dashed white;
+}

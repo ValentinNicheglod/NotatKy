@@ -15,11 +15,9 @@
   .profile-userpic img {
     float: none;
     margin: 0 auto;
-    width: 50%;
-    height: 50%;
-    -webkit-border-radius: 50% !important;
-    -moz-border-radius: 50% !important;
-    border-radius: 50% !important;
+    width: 180px;
+    height: 180px;
+    border-radius: 90px !important;
   }
   
   .profile-usertitle {
@@ -153,27 +151,31 @@
     border: 1px solid  #2185D0;
   }
 
-  .user-card{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 5px;
-    background-color: #AECFDF;
-    border-right: 8px dashed white;
-  }
-
-  .collection-card{
-    height: 50px;
-    width: 100%;
-    background-color: #eef0f2;
-    margin: 25px;
-    padding: 25px;
-    display: flex;
-    align-items: center;
-  }
-
   #tab-col-table{
     box-shadow: none;
     width: 100%;
     padding: 0;
+  }
+
+  #settings-side-bar{
+    padding-right: 0px;
+  }
+
+  #item-side-bar{
+    padding-left: 26px;
+  }
+
+  #settings-select-blue{
+    background-color: #AECFDF;
+    padding-left: 26px;
+  }
+
+  #settings-select{
+    background-color: #FFF;
+    padding-left: 26px;
+    color: #A333C8
+  }
+
+  .violet{
+    color: #A333C8
   }

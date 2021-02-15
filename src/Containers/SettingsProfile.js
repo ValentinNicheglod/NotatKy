@@ -31,7 +31,7 @@ const SettingsProfile = () => {
             <div className= "col-md-2 login-bg">
                <SettingsSideBar/> 
             </div>
-            <div className= "col-md-3 user-card">
+            <div className= "col-md-3 blue-aside">
                 <UserCard/>
             </div>
             <div className= "col-md-7">

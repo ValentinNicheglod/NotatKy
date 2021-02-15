@@ -1,22 +1,19 @@
 import React, { useState } from 'react'
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListOutlinedIcon from '@material-ui/icons/ListOutlined';
-import Collapse from '@material-ui/core/Collapse';
-import CollectionsBookmarkOutlinedIcon from '@material-ui/icons/CollectionsBookmarkOutlined';
+import { Collapse, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
+
 import ArchiveOutlinedIcon from '@material-ui/icons/ArchiveOutlined';
+import CollectionsBookmarkOutlinedIcon from '@material-ui/icons/CollectionsBookmarkOutlined';
 import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
-import LocalOfferOutlinedIcon from '@material-ui/icons/LocalOfferOutlined';
+import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import LabelOutlinedIcon from '@material-ui/icons/LabelOutlined';
+import ListOutlinedIcon from '@material-ui/icons/ListOutlined';
+import LocalOfferOutlinedIcon from '@material-ui/icons/LocalOfferOutlined';
 
 import "./css/Notes.css"
 
 import Logo from './Logo'
-import { Home } from '@material-ui/icons';
 
 const collections = ['Universidad', 'Personal', 'Trabajo'];
 const tags = ['Reforma', "Proyecto final", "Matematicas", "Informatica"]
@@ -46,7 +43,7 @@ const HomeSideBar = () => {
                 <List component="nav" className="white">
                     <ListItem button>
                         <ListItemIcon>
-                            <Home className="white"/>
+                            <HomeOutlinedIcon className="white"/>
                         </ListItemIcon>
                         <ListItemText primary="Inicio" />
                     </ListItem>

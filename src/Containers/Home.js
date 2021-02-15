@@ -1,6 +1,9 @@
 import React from 'react'
 
 import HomeSideBar from '../Components/HomeSideBar';
+import NavBarHome from '../Components/NavBarHome';
+import Notes from '../Components/Notes';
+
 import "../Components/css/Notes.css"
 
 const SettingsCollections = () => {
@@ -9,8 +12,9 @@ const SettingsCollections = () => {
             <div className= "col-md-2 login-bg" id="home-side-bar">
                 <HomeSideBar/> 
             </div>
-            <div className= "col-md-10 d-flex justify-content-center align-items-center">
-                <h1>UNDER CONSTRUCTION</h1>
+            <div className= "col-md-10 row">
+                <NavBarHome/>
+                <Notes/>
             </div>
         </div>
     )

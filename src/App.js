@@ -28,7 +28,7 @@ function App() {
         <Route exact path="/download" component={DownloadApp}/>
         <Route exact path="/edit profile" component={SettingsProfile}/>
         <Route exact path="/settings app" component={SettingsApp}/>
-        <Route exact path="/collections" component={SettingsCollections}/>
+        <Route exact path="/collections tags" component={SettingsCollections}/>
         <Route exact path="/home" component={Home}/>
       </Switch>
     </div>

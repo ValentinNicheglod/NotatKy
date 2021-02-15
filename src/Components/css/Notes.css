@@ -3,11 +3,62 @@
     height: 33px;
   }
   
-  .letter-btn:hover{
-    color: white;
-    font-weight: bold;
-  }
+.letter-btn:hover{
+  color: white;
+  font-weight: bold;
+}
 
-  #home-side-bar{
-    padding-right: 0px;
-  }
+#home-side-bar{
+  padding-right: 0px;
+}
+
+.nav-home{
+  width: '100%';
+  position: fixed;
+  height: 75px;
+  background-color: #2185D0;
+}
+
+#search-note{
+  width: 300px;
+  color: white;
+  text-transform: capitalize;
+  font-size: 16px;
+}
+
+#search-note::placeholder{
+  color: white;
+}
+
+.actions-note{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.greeting-note{
+  margin-bottom: 0px;
+  margin-top: 0px;
+  margin-right: 20px; 
+  color: white;
+}
+
+#btn-home{
+  margin-right: 30px;
+  color: white;
+}
+
+.note-card{
+  height: 100px;
+  width: 97%;
+  margin: 10px;
+  padding: 25px;
+  border-radius: 10px;
+}
+
+#notes-cont{
+  display: flex;
+  align-items: flex-start;
+  padding-left: 5px;
+  margin-top: 75px;
+}

@@ -6,7 +6,7 @@ const UserCard = () => {
 
     return (
         <div className="card card-edit p-3">
-        <Avatar className="mt-4" size={170} src="svg/card-img-1.svg"/>
+        <Avatar className="mt-4 profile-userpic" size={170} src="/profile.jpeg"/>
         <hr/>
         {
             editing === "profilePicture"
