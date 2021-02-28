@@ -28,17 +28,12 @@ const HomeSideBar = () => {
     };
 
     return (
-		<div className="row profile full-height sticky-vert d-flex justify-content-center">
+		<div className="row profile full-height sticky-vert d-flex align-items-start">
             <div className="profile-sidebar">
-                <div className= "col-md-4 inicio-logo">
+                <div className= "inicio-logo">
                     <Logo/>
                 </div>
             </div>
-            <div className="d-flex row justify-content-center p-4">
-                <button className="btn btn-outline-warning btn-round letter-btn mb-4">CREAR NOTA</button>
-                {/* <button className="btn btn-outline-warning btn-round inicio-app">NUEVA NOTA RAPIDA</button> */}
-            </div>
-
             <div id="home-side-bar">
                 <List component="nav" className="white">
                     <ListItem button>

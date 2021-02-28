@@ -9,7 +9,7 @@ import { Avatar, IconButton } from '@material-ui/core'
 const NavBarHome = () => {
     const history = useHistory()
     return (
-        <div className="nav-home d-flex align-items-center px-5">
+        <div className="nav-home d-flex align-items-center">
             
             <div className="ui transparent input col-md-6">
                 <SearchOutlinedIcon style={{color: "#FFF", marginRight: "20px"}}/>

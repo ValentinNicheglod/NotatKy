@@ -10,6 +10,7 @@
   .profile-sidebar {
     padding: 60px 0 10px 0;
     background: transparent;
+    height: 100px;
   }
   
   .profile-userpic img {
@@ -174,6 +175,18 @@
     background-color: #FFF;
     padding-left: 26px;
     color: #A333C8
+  }
+
+  .table-cell-col p{
+    font-size: 1rem;
+  }
+
+  .modal-col {
+    position: 'absolute';
+    width: 25%;
+    border-radius: 10px;
+    background-color: white;
+    padding: 2rem;
   }
 
   .violet{
