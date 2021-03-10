@@ -1,22 +1,27 @@
 import React from 'react';
+import axios from 'axios';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
 import { BrowserRouter } from 'react-router-dom';
 
 import App from './App';
-import reducer from './Redux/Reducers/Index'
+import store from './Redux/Index'
 
 import 'semantic-ui-css/semantic.min.css'
 import './index.css'
 
-let store = createStore(reducer);
+//const darkMode = localStorage.getItem('darkMode') === 'true'
+
 let root = document.getElementById('root');
+//var style = document.createAttribute("style"); 
+//style.value = darkMode ? '#343a40' : ''
+//root.setAttributeNode(style)
+axios.defaults.baseURL = `http://localhost:3001`;
 
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
-      <App />
+      <App/>
     </BrowserRouter>
   </Provider>,
   root

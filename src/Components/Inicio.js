@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import {useSelector, useDispatch} from 'react-redux'
+import {getOneNote} from '../Redux/Actions/Notes'
 //import { Icon } from 'semantic-ui-react'
 import CardInfo from './CardInfo'
 
@@ -7,6 +9,21 @@ import './css/Inicio.css'
 import Logo from './Logo'
 
 const Inicio = () => {
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getOneNote(3))
+    }, [])
+    
+
+    const notes = useSelector(state => state.notes)
+
+    setTimeout(() => {
+        console.log(notes.note)
+    }, 1000)
+    
+
     return (
         <div className="login-bg full-height row">
             <div className= "inicio-nav row d-flex align-items-center">

@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import clsx from 'clsx';
+import moment from 'moment';
 import {FormControl, FormControlLabel, FormLabel, IconButton, Input, InputAdornment, InputLabel, Radio, RadioGroup, TextField} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import {Visibility} from '@material-ui/icons';
@@ -67,24 +68,7 @@ function StyledRadio (props) {
     );
 }
 
-const Profile = ({editing, editionMode, mouseEnter, mouseLeave}) => {
-
-    const [visiblePassword, setVisiblePassword] = useState(false)
-    const [visibleNewPassword, setVisibleNewPassword] = useState(false)
-
-    const handleClickShowPassword = () => {
-        setVisiblePassword(!visiblePassword);
-    };
-
-    const handleClickShowNewPassword = () => {
-        setVisibleNewPassword(!visibleNewPassword);
-    };
-
-
-    
-    const handleMouseDownPassword = (event) => {
-        event.preventDefault();
-    };
+const Profile = ({editing, editionMode, handleChange, handleSubmit, information, mouseEnter, mouseLeave, user, visibilityPassword, visiblePassword}) => {
 
     const classes = useStyles();
 
@@ -121,16 +105,25 @@ const Profile = ({editing, editionMode, mouseEnter, mouseLeave}) => {
                                     className="w-75" 
                                     id="outlined-basic" 
                                     label="Nombre"
+                                    value={information.name}
+                                    name="name"
+                                    onChange={handleChange}
                                 />
                                 <TextField 
                                     className="w-75" 
                                     id="outlined-basic" 
                                     label="Apellido"
+                                    value={information.lastname}
+                                    name="lastname"
+                                    onChange={handleChange}
                                 />
                                 <TextField 
                                     className="w-75" 
                                     id="outlined-basic" 
                                     label="Ocupación"
+                                    value={information.ocupation}
+                                    name="ocupation"
+                                    onChange={handleChange}
                                 />
                                 <br/>
                                 <FormControl
@@ -141,9 +134,10 @@ const Profile = ({editing, editionMode, mouseEnter, mouseLeave}) => {
                                         Género
                                     </FormLabel>
                                     <RadioGroup 
-                                        defaultValue="male" 
+                                        defaultValue={user.gender} 
                                         aria-label="gender" 
-                                        name="customized-radios"
+                                        name="gender"
+                                        onChange={handleChange}
                                     >
                                         <FormControlLabel 
                                             value="female" 
@@ -163,7 +157,10 @@ const Profile = ({editing, editionMode, mouseEnter, mouseLeave}) => {
                                     </RadioGroup>
                                 </FormControl>
                                 <br/>
-                                <button className="btn w-25 btn-outline-success">
+                                <button 
+                                    className="btn w-25 btn-outline-success"
+                                    onClick={handleSubmit}
+                                >
                                     Actualizar datos
                                 </button>
                                 <button 
@@ -180,7 +177,7 @@ const Profile = ({editing, editionMode, mouseEnter, mouseLeave}) => {
                                         Nombre y apellido:&nbsp;&nbsp;&nbsp;
                                     </h4>
                                     <p>
-                                        Valentín Nicheglod
+                                        {`${user.name} ${user.lastname}`}
                                     </p>
                                 </div>
                                 <div className="d-flex flex-row">
@@ -188,7 +185,7 @@ const Profile = ({editing, editionMode, mouseEnter, mouseLeave}) => {
                                         Ocupación:&nbsp;&nbsp;&nbsp;
                                     </h4>
                                     <p>
-                                        Developer
+                                        {user.ocupation}
                                     </p>
                                 </div>
                                 <div className="d-flex flex-row">
@@ -196,7 +193,7 @@ const Profile = ({editing, editionMode, mouseEnter, mouseLeave}) => {
                                         Género:&nbsp;&nbsp;&nbsp;
                                     </h4>
                                     <p>
-                                        Masculino
+                                        {user.gender === "male" ? "Masculino" : user.gender === "female" ? "Femenino" : "Otro"}
                                     </p>
                                 </div>
                             </>
@@ -232,16 +229,23 @@ const Profile = ({editing, editionMode, mouseEnter, mouseLeave}) => {
                                     className="w-75" 
                                     id="outlined-basic" 
                                     label="Correo electrónico"
+                                    value={information.email}
+                                    name="email"
+                                    onChange={handleChange}
                                 />
                                 <TextField 
                                     className="w-75 mb-4" 
                                     id="outlined-basic" 
                                     label="Número de teléfono"
+                                    value={information.phone}
+                                    name="phone"
+                                    onChange={handleChange}
                                 />
                                 <br/>
                                 <button 
                                     type="submit" 
                                     className="btn w-25 btn-outline-success"
+                                    onClick={handleSubmit}
                                 >
                                     Actualizar datos
                                 </button>
@@ -258,13 +262,19 @@ const Profile = ({editing, editionMode, mouseEnter, mouseLeave}) => {
                                     <h4 className="d-inline mr-3">
                                         Correo electrónico:&nbsp;&nbsp;&nbsp;
                                     </h4>
-                                    <p>nicheglod69@gmail.com</p>
+                                    <p>{user.email}</p>
                                 </div>
-                                <div className="d-flex flex-row">
-                                    <h4 className="d-inline mr-3">
+                                <div className="d-flex flex-row align-items-center">
+                                    <h4 className="d-inline mr-3 mb-0">
                                         Celular:&nbsp;&nbsp;&nbsp;
                                     </h4>
-                                    <p>099 221 065</p>
+                                    <p>
+                                        {
+                                            !user.phone 
+                                            ? <button className="btn btn-round my-1 btn-sm btn-outline-primary">Agrega un celular</button> 
+                                            : user.phone
+                                        }
+                                    </p>
                                 </div>          
                             </div>
                         }
@@ -298,15 +308,15 @@ const Profile = ({editing, editionMode, mouseEnter, mouseLeave}) => {
                                     <InputLabel htmlFor="actual-password">Contraseña actual</InputLabel>
                                     <Input 
                                         id="actual-password"
-                                        type={visiblePassword ? 'text' : 'password'}
+                                        type={visiblePassword.password ? 'text' : 'password'}
                                         endAdornment={
                                             <InputAdornment position="end">
                                             <IconButton
                                                 aria-label="toggle password visibility"
-                                                onClick={handleClickShowPassword}
-                                                onMouseDown={handleMouseDownPassword}
+                                                onClick={() => visibilityPassword('password')}
+                                                onMouseDown={(e) => e.preventDefault()}
                                             >
-                                                {visiblePassword ? <Visibility /> : <VisibilityOff />}
+                                                {visiblePassword.password ? <Visibility /> : <VisibilityOff />}
                                             </IconButton>
                                             </InputAdornment>
                                         }
@@ -316,15 +326,15 @@ const Profile = ({editing, editionMode, mouseEnter, mouseLeave}) => {
                                     <InputLabel htmlFor="actual-password">Contraseña nueva</InputLabel>
                                     <Input 
                                         id="new-password"
-                                        type={visibleNewPassword ? 'text' : 'password'}
+                                        type={visiblePassword.newPassword ? 'text' : 'password'}
                                         endAdornment={
                                             <InputAdornment position="end">
                                             <IconButton
                                                 aria-label="toggle password visibility"
-                                                onClick={handleClickShowNewPassword}
-                                                onMouseDown={handleMouseDownPassword}
+                                                onClick={() => visibilityPassword('newPassword')}
+                                                onMouseDown={(e) => e.preventDefault()}
                                             >
-                                                {visibleNewPassword ? <Visibility /> : <VisibilityOff />}
+                                                {visiblePassword.newPassword ? <Visibility /> : <VisibilityOff />}
                                             </IconButton>
                                             </InputAdornment>
                                         }
@@ -334,15 +344,15 @@ const Profile = ({editing, editionMode, mouseEnter, mouseLeave}) => {
                                     <InputLabel htmlFor="actual-password">Repite la nueva contraseña</InputLabel>
                                     <Input 
                                         id="new-password"
-                                        type={visibleNewPassword ? 'text' : 'password'}
+                                        type={visiblePassword.newPassword ? 'text' : 'password'}
                                         endAdornment={
                                             <InputAdornment position="end">
                                             <IconButton
                                                 aria-label="toggle password visibility"
-                                                onClick={handleClickShowNewPassword}
-                                                onMouseDown={handleMouseDownPassword}
+                                                onClick={() => visibilityPassword('newPassword')}
+                                                onMouseDown={(e) => e.preventDefault()}
                                             >
-                                                {visibleNewPassword ? <Visibility /> : <VisibilityOff />}
+                                                {visiblePassword.newPassword ? <Visibility /> : <VisibilityOff />}
                                             </IconButton>
                                             </InputAdornment>
                                         }

@@ -1,8 +1,11 @@
 import React, {useState} from 'react'
+import moment from 'moment';
 import { Avatar} from 'antd';
 
-const UserCard = () => {
+const UserCard = ({user}) => {
     const [editing, setEditing] = useState('')
+
+    const creationDate = user.createdAt && moment(user.createdAt.slice(0, 10), "YYYY-MM-DD").format("DD/MM/YYYY");
 
     return (
         <div className="card card-edit p-3">
@@ -39,23 +42,23 @@ const UserCard = () => {
             </button>
         }
         <h1 className="display-6">
-            Valentín
+            {user.name}
         </h1>
         <h1 className="display-6">
-            Nicheglod
+            {user.lastname}
         </h1>
         <div className="user-data-card w-100 my-4">
             <div className="my-2">
                 <b className="d-inline px-2">Ocupación:&nbsp;&nbsp;</b>
                 <p className="d-inline profile-usertitle-job">
-                    Developer
+                    {user.ocupation}
                 </p>
             </div>
             <hr/>
             <div className="my-2">
                 <b className="d-inline px-2">Miembro desde:</b>
                 <p className="d-inline profile-usertitle-job">
-                    12/06/20
+                    {creationDate}
                 </p>                            
             </div>
         </div>                   

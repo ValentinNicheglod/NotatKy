@@ -15,10 +15,10 @@ import "./css/Notes.css"
 
 import Logo from './Logo'
 
-const collections = ['Universidad', 'Personal', 'Trabajo'];
-const tags = ['Reforma', "Proyecto final", "Matematicas", "Informatica"]
+/* const collections = ['Universidad', 'Personal', 'Trabajo'];
+const tags = ['Reforma', "Proyecto final", "Matematicas", "Informatica"] */
 
-const HomeSideBar = () => {
+const HomeSideBar = ({changeRoute, collections, filterTags, tags}) => {
 
     const [openTags, setOpenTags] = useState(true);
     const [openCollections, setOpenCollections] = useState(true);
@@ -36,7 +36,10 @@ const HomeSideBar = () => {
             </div>
             <div id="home-side-bar">
                 <List component="nav" className="white">
-                    <ListItem button>
+                    <ListItem 
+                        button
+                        onClick={() => changeRoute('/home')}
+                    >
                         <ListItemIcon>
                             <HomeOutlinedIcon className="white"/>
                         </ListItemIcon>
@@ -52,13 +55,13 @@ const HomeSideBar = () => {
                     </ListItem>
                     <Collapse in={openCollections} timeout="auto" unmountOnExit>
                         {
-                            collections.sort().map((collection) => (
+                            collections && collections.sort().map((collection) => (
                                 <List component="div" disablePadding>
                                     <ListItem button style={{paddingLeft: 40}}>
                                         <ListItemIcon>
                                             <ListOutlinedIcon className="white"/>
                                         </ListItemIcon>
-                                        <ListItemText primary={collection} />
+                                        <ListItemText primary={collection.name} />
                                     </ListItem>
                                 </List>
                             ))
@@ -74,27 +77,36 @@ const HomeSideBar = () => {
                     </ListItem>
                     <Collapse in={openTags} timeout="auto" unmountOnExit>
                         {
-                            tags.sort().map((tag) => (
+                            tags && tags.sort().map((tag) => (
                                 <List component="div" disablePadding>
-                                    <ListItem button style={{paddingLeft: 40}}>
+                                    <ListItem 
+                                        button 
+                                        onClick={() => filterTags(tag.id)}
+                                        style={{paddingLeft: 40}}>
                                         <ListItemIcon>
                                             <LabelOutlinedIcon className="white"/>
                                         </ListItemIcon>
-                                        <ListItemText primary={tag} />
+                                        <ListItemText primary={tag.name} />
                                     </ListItem>
                                 </List>
                             ))
                         }
                     </Collapse>
 
-                    <ListItem button>
+                    <ListItem 
+                        button
+                        onClick={() => changeRoute('/archive')}
+                    >
                         <ListItemIcon>
                             <ArchiveOutlinedIcon className="white"/>
                         </ListItemIcon>
                         <ListItemText primary="Notas archivadas" />
                     </ListItem>
 
-                    <ListItem button>
+                    <ListItem 
+                        button
+                        onClick={() => changeRoute('/trash')}
+                    >
                         <ListItemIcon>
                             <DeleteOutlineOutlinedIcon className="white"/>
                         </ListItemIcon>

@@ -30,6 +30,8 @@ function App() {
         <Route exact path="/settings app" component={SettingsApp}/>
         <Route exact path="/collections tags" component={SettingsCollections}/>
         <Route exact path="/home" component={Home}/>
+        <Route exact path="/trash" component={Home}/>
+        <Route exact path="/archive" component={Home}/>
       </Switch>
     </div>
   );

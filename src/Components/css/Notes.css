@@ -14,11 +14,13 @@
 
 .nav-home{
   width: '100%';
-  position: fixed;
+  top: 0px;
   height: 75px;
   background-color: #645BCC;
-  padding-left: 15px;
-  padding-right: 3rem;
+}
+
+.max-content{
+  height: 100%;
 }
 
 #search-note{
@@ -54,24 +56,36 @@
   height: 150px;
   width: 97%;
   margin: 10px;
+  margin-left: 0px;
   padding: 10px;
   border-radius: 10px;
   cursor: pointer;
 }
 
 #notes-cont{
-  display: flex;
-  align-items: flex-start;
+  /* display: flex;
+  align-items: flex-start; */
   padding-left: 15px;
-  padding-right: 25px;
-  margin-top: 75px;
+  /* overflow-y: scroll; */
+  height: 90%;
 }
 
 #notes-cont-2{
   display: flex;
   align-items: flex-start;
-  padding: 0px 15px 15px 25px;
-  margin-top: 75px;
+  padding: 0px;
+  height: 90%;
+  margin-right: 0px;
+}
+
+#notes-cont-3{
+  padding-bottom: 10px;
+  overflow-y: scroll;
+  height: 90%;
+}
+
+#notes-cont-4{
+  padding-right: 0px;
 }
 
 .card-footer{
@@ -102,5 +116,50 @@
 }
 
 .h-95{
-  height: 95%
+  height: 90%
+}
+
+.actions-notes{
+  height: 5%;
+  width: 100%;
+  bottom: 0px;
+}
+
+.input-search{
+  height: 50%;
+}
+
+.input-title{
+  height: 10%;
+  display: flex;
+  align-items: center;
+  padding-top: 2%;
+}
+
+.tab-indicator{
+  min-width: 100px;
+  width: fit-content;
+  height: 30px;
+  border-radius: 15px;
+  
+}
+
+.tab-indicator p{
+  margin: 0px;
+  margin-right: 10px;
+}
+
+.loop-out{
+  display: inline-block;
+  animation: rotation 1s infinite linear;
+  color: #FFFF;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
