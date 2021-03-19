@@ -6,13 +6,15 @@ import {
     GET_ONE_NOTE,
     CREATE_NOTE,
     UPDATE_NOTE,
-    DELETE_NOTE
+    DELETE_NOTE,
+    LOGOUT
 } from '../Constants/Index';
 
 const initialState = {
     note: {},
     notes: [],
-    message: ''
+    message: '',
+    response: ''
 };
 
 export const notesReducer = (state = initialState, action) => {
@@ -20,42 +22,56 @@ export const notesReducer = (state = initialState, action) => {
         case CHANGE_NOTE_STATE:
           return {
             ...state,
-            notes: action.notes
+            notes: action.notes,
+            response: action.response
           };
         case GET_ONE_NOTE:
           return {
             ...state,
-            note: action.note
+            note: action.note,
+            response: action.response
           };
         case GET_ALL_NOTES:
           return {
             ...state,
-            notes: action.notes
+            notes: action.notes,
+            response: action.response
           };
         case CREATE_NOTE:
           return {
             ...state,
-            note: action.note
+            note: action.note,
+            response: action.response
           };
           case UPDATE_NOTE:
           return {
             ...state,
-            note: action.note
+            note: action.note,
+            response: action.response
           };
           case DELETE_NOTE:
           return {
             ...state,
-            notes: action.notes
+            notes: action.notes,
+            response: action.response
           };
           case DELETE_NOTE_TAG:
             return {
               ...state,
               note: action.note,
+              response: action.response
             };
           case ADD_NOTE_TAG:
           return {
             ...state,
-            note: action.note
+            note: action.note,
+            response: action.response
+          };
+          case LOGOUT:
+          return {
+            note: {},
+            notes: [],
+            message: ''
           };
         default: return state;
     }

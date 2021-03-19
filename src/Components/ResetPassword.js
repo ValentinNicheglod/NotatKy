@@ -1,5 +1,8 @@
+import { TextField } from '@material-ui/core'
 import React from 'react'
-import { Button, Input } from 'semantic-ui-react'
+import { Button } from 'semantic-ui-react'
+import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
+
 
 import "./css/Login.css"
 import Logo from './Logo'
@@ -14,12 +17,15 @@ const ResetPassword = ({condition}) => {
                         <h3 className= "card-title d-flex justify-content-center">REESTABLECE TU CONTRASEÑA</h3>
                         <hr />
                         <p className= "login-p">Te enviaremos un correo electrónico para que puedas reestablecer tu contraseña...</p>
-                        <Input 
-                            className= "my-2 total-width"
-                            icon= "user" 
-                            iconPosition= "left" 
-                            placeholder= "Correo electrónico"
+                        <div className="d-flex align-items-end justify-content-between my-2">
+                        <AlternateEmailIcon/>
+                        <TextField
+                            className= "textfield"
+                            //icon= "mail" 
+                            //iconPosition= "left" 
+                            label= "Correo electrónico"
                         />
+                    </div>
                         <Button
                             color= "purple"
                             className= "total-width button my-2"

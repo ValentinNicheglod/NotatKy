@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import clsx from 'clsx';
-import moment from 'moment';
-import {FormControl, FormControlLabel, FormLabel, IconButton, Input, InputAdornment, InputLabel, Radio, RadioGroup, TextField} from '@material-ui/core';
+import {FormControl, FormControlLabel, FormLabel, IconButton, Input, InputAdornment, InputLabel, Radio, RadioGroup, Snackbar, TextField} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import {Visibility} from '@material-ui/icons';
-import {VisibilityOff} from '@material-ui/icons';
+import {HighlightOffOutlined, VisibilityOff, Menu} from '@material-ui/icons';
+//import HighlightOffOutlinedIcon from '@material-ui/icons/HighlightOffOutlined';
+
 
 import "./css/Settings.css"
 
@@ -68,29 +69,57 @@ function StyledRadio (props) {
     );
 }
 
-const Profile = ({editing, editionMode, handleChange, handleSubmit, information, mouseEnter, mouseLeave, user, visibilityPassword, visiblePassword}) => {
+const Profile = ({closeSnackbar, darkMode, editing, editionMode, handleChange, handlePasswordChange, handlePasswordSubmit, handleSubmit, 
+    information, largeWidth, mouseEnter, mouseLeave, password, setDrawerOpen, snackbar, 
+    user, visibilityPassword, visiblePassword}) => {
 
     const classes = useStyles();
+    const superSmallWidth = window.screen.width < 350
 
     return (
         <div className= "user-profile m-5 row">
-            <h1 className="display-1 settings-title">Editar perfil</h1>
-                <div className="pt-5 h-100">
+            <h1 className="display-1 settings-title" style={darkMode ? {height: '20%'} : null}>
+            {!largeWidth &&
+                <IconButton
+                    onClick={() => setDrawerOpen(true)}
+                    //id="btn-home"
+                    style={{color: 'inherit'}}
+                    className="btn mb-1"
+                >
+                    <Menu style={{color: 'inherit'}}/>
+                </IconButton>
+            }
+                &nbsp;Editar perfil
+            </h1>
+                <div className="pt-5 info-cont-settings" style={darkMode && largeWidth ? {overflowY: 'auto', height: 550} : null}>
                     <div>
                         <h1 
                             className="display-6 profile-section" 
                             onMouseEnter={(e) => mouseEnter(e)}
                             onMouseLeave={(e) => mouseLeave(e)}
                         >
-                            Información personal
-                            {
-                                !(editing === "PersonalInformation") && 
+                            {superSmallWidth ? "Datos personales" : "Información personal"}
+                            {largeWidth
+                                ? !(editing === "PersonalInformation") && 
                                 <button 
                                     className="btn btn-round mx-3 btn-sm btn-outline-primary profile-edit"
                                     onClick={() => editionMode("PersonalInformation")}
                                 >
                                     Editar
                                 </button>
+                                : !(editing === "PersonalInformation")
+                                ? <button 
+                                    className="btn btn-round mx-3 btn-sm btn-primary"
+                                    onClick={() => editionMode("PersonalInformation")}
+                                >
+                                    Editar
+                                </button>
+                                : <button 
+                                className="btn btn-round mx-3 btn-sm btn-danger"
+                                onClick={() => editionMode("")}
+                            >
+                                Cancelar
+                            </button>
                             }
                         </h1>
                         <hr/>
@@ -119,7 +148,7 @@ const Profile = ({editing, editionMode, handleChange, handleSubmit, information,
                                 />
                                 <TextField 
                                     className="w-75" 
-                                    id="outlined-basic" 
+                                    id="ocupation-textfield" 
                                     label="Ocupación"
                                     value={information.ocupation}
                                     name="ocupation"
@@ -158,18 +187,20 @@ const Profile = ({editing, editionMode, handleChange, handleSubmit, information,
                                 </FormControl>
                                 <br/>
                                 <button 
-                                    className="btn w-25 btn-outline-success"
+                                    className="btn w-25 btn-success btn-update"
                                     onClick={handleSubmit}
                                 >
                                     Actualizar datos
                                 </button>
-                                <button 
-                                    type="submit" 
-                                    className="btn w-25 btn-outline-danger"
-                                    onClick={() => editionMode("")}
-                                >
-                                    Cancelar
-                                </button>
+                                {largeWidth &&
+                                    <button 
+                                        type="submit" 
+                                        className="btn w-25 btn-outline-danger"
+                                        onClick={() => editionMode("")}
+                                    >
+                                        Cancelar
+                                    </button>
+                                }
                             </form>
                             : <>
                                 <div className="d-flex flex-row">
@@ -180,22 +211,39 @@ const Profile = ({editing, editionMode, handleChange, handleSubmit, information,
                                         {`${user.name} ${user.lastname}`}
                                     </p>
                                 </div>
-                                <div className="d-flex flex-row">
-                                    <h4 className="d-inline mr-3">
+                                <div className="d-flex flex-row align-items-center mb-3">
+                                    <h4 className="d-inline mr-3 mb-0">
                                         Ocupación:&nbsp;&nbsp;&nbsp;
                                     </h4>
                                     <p>
-                                        {user.ocupation}
+                                        {
+                                            !user.ocupation 
+                                            ? <button 
+                                                className="btn btn-round my-1 btn-sm btn-outline-primary"
+                                                onClick={() => {
+                                                    editionMode("PersonalInformation")
+                                                    setTimeout(() => {
+                                                        document.getElementById("ocupation-textfield").focus()
+                                                    }, 1000)
+                                                }}
+                                            >
+                                                Agrega una ocupación
+                                            </button> 
+                                            : user.ocupation
+                                        }
                                     </p>
+                                    
                                 </div>
-                                <div className="d-flex flex-row">
-                                    <h4 className="d-inline mr-3">
-                                        Género:&nbsp;&nbsp;&nbsp;
-                                    </h4>
-                                    <p>
-                                        {user.gender === "male" ? "Masculino" : user.gender === "female" ? "Femenino" : "Otro"}
-                                    </p>
-                                </div>
+                                {user.gender && 
+                                    <div className="d-flex flex-row">
+                                        <h4 className="d-inline mr-3">
+                                            Género:&nbsp;&nbsp;&nbsp;
+                                        </h4>
+                                        <p>
+                                            {user.gender === "male" ? "Masculino" : user.gender === "female" ? "Femenino" : "Otro"}
+                                        </p>
+                                    </div>
+                                }
                             </>
                                             
                         }
@@ -206,15 +254,28 @@ const Profile = ({editing, editionMode, handleChange, handleSubmit, information,
                             onMouseEnter={(e) => mouseEnter(e)}
                             onMouseLeave={(e) => mouseLeave(e)}
                         >
-                            Información de contacto
-                            {
-                                !(editing === "ContactInformation") && 
+                            {largeWidth ? "Información de contacto" : "Contacto"}
+                            {largeWidth
+                                ? !(editing === "ContactInformation") && 
                                 <button 
                                     className="btn btn-round mx-3 btn-sm btn-outline-primary profile-edit"
                                     onClick={() => editionMode("ContactInformation")}
                                 >
                                     Editar
                                 </button>
+                                : !(editing === "ContactInformation")
+                                ? <button 
+                                    className="btn btn-round mx-3 btn-sm btn-primary"
+                                    onClick={() => editionMode("ContactInformation")}
+                                >
+                                    Editar
+                                </button>
+                                : <button 
+                                className="btn btn-round mx-3 btn-sm btn-danger"
+                                onClick={() => editionMode("")}
+                            >
+                                Cancelar
+                            </button>
                             }
                         </h1>
                         <hr/>
@@ -235,7 +296,7 @@ const Profile = ({editing, editionMode, handleChange, handleSubmit, information,
                                 />
                                 <TextField 
                                     className="w-75 mb-4" 
-                                    id="outlined-basic" 
+                                    id="phone-textfield" 
                                     label="Número de teléfono"
                                     value={information.phone}
                                     name="phone"
@@ -244,18 +305,20 @@ const Profile = ({editing, editionMode, handleChange, handleSubmit, information,
                                 <br/>
                                 <button 
                                     type="submit" 
-                                    className="btn w-25 btn-outline-success"
+                                    className="btn w-25 btn-success btn-update"
                                     onClick={handleSubmit}
                                 >
                                     Actualizar datos
                                 </button>
-                                <button 
-                                    type="submit" 
-                                    className="btn w-25 btn-outline-danger"
-                                    onClick={() => editionMode("")}
-                                >
-                                    Cancelar
-                                </button>
+                                {largeWidth &&
+                                    <button 
+                                        type="submit" 
+                                        className="btn w-25 btn-outline-danger"
+                                        onClick={() => editionMode("")}
+                                    >
+                                        Cancelar
+                                    </button>
+                                }
                             </form>
                             : <div>
                                 <div className="d-flex flex-row">
@@ -264,14 +327,26 @@ const Profile = ({editing, editionMode, handleChange, handleSubmit, information,
                                     </h4>
                                     <p>{user.email}</p>
                                 </div>
-                                <div className="d-flex flex-row align-items-center">
+                                <div className="d-flex flex-row align-items-center mb-3">
                                     <h4 className="d-inline mr-3 mb-0">
                                         Celular:&nbsp;&nbsp;&nbsp;
                                     </h4>
                                     <p>
                                         {
                                             !user.phone 
-                                            ? <button className="btn btn-round my-1 btn-sm btn-outline-primary">Agrega un celular</button> 
+                                            ? <button 
+                                                className="btn btn-round my-1 btn-sm btn-outline-primary"
+                                                onClick={() => {
+                                                    editionMode("ContactInformation")
+                                                    setTimeout(() => {
+                                                        document.getElementById("phone-textfield").focus()
+                                                    }, 1000)
+                                                    
+                                                    
+                                                }}
+                                            >
+                                                Agrega un celular
+                                            </button> 
                                             : user.phone
                                         }
                                     </p>
@@ -286,15 +361,28 @@ const Profile = ({editing, editionMode, handleChange, handleSubmit, information,
                         onMouseLeave={(e) => mouseLeave(e)}
                     >
                         Contraseña
-                        {
-                            !(editing === "password") && 
-                            <button 
-                                className="btn btn-round mx-3 btn-sm btn-outline-primary profile-edit"
-                                onClick={() => editionMode("password")}
+                        {largeWidth
+                                ? !(editing === "password") && 
+                                <button 
+                                    className="btn btn-round mx-3 btn-sm btn-outline-primary profile-edit"
+                                    onClick={() => editionMode("password")}
+                                >
+                                    Editar
+                                </button>
+                                : !(editing === "password")
+                                ? <button 
+                                    className="btn btn-round mx-3 btn-sm btn-primary"
+                                    onClick={() => editionMode("password")}
+                                >
+                                    Editar
+                                </button>
+                                : <button 
+                                className="btn btn-round mx-3 btn-sm btn-danger"
+                                onClick={() => editionMode("")}
                             >
-                                Editar
+                                Cancelar
                             </button>
-                        }
+                            }
                     </h1>
                     <hr/>
                     {
@@ -320,6 +408,9 @@ const Profile = ({editing, editionMode, handleChange, handleSubmit, information,
                                             </IconButton>
                                             </InputAdornment>
                                         }
+                                        value={password.current}
+                                        name="current"
+                                        onChange={handlePasswordChange}
                                     />
                                 </FormControl>
                                 <FormControl className="w-75">
@@ -338,6 +429,9 @@ const Profile = ({editing, editionMode, handleChange, handleSubmit, information,
                                             </IconButton>
                                             </InputAdornment>
                                         }
+                                        value={password.new1}
+                                        name="new1"
+                                        onChange={handlePasswordChange}
                                     />
                                 </FormControl>
                                 <FormControl className="w-75">
@@ -356,24 +450,49 @@ const Profile = ({editing, editionMode, handleChange, handleSubmit, information,
                                             </IconButton>
                                             </InputAdornment>
                                         }
+                                        value={password.new2}
+                                        name="new2"
+                                        onChange={handlePasswordChange}
                                     />
                                 </FormControl>
                                 <br/>
-                                <button className="btn w-25 btn-success">
+                                <button 
+                                    className="btn w-25 btn-success btn-update"
+                                    onClick={handlePasswordSubmit}
+                                >
                                     Modificar contraseña
                                 </button>
-                                <button 
-                                    type="submit" 
-                                    className="btn w-25 btn-outline-danger"
-                                    onClick={() => editionMode("")}
-                                >
-                                    Cancelar
-                                </button>
+                                {largeWidth &&
+                                    <button 
+                                        type="submit" 
+                                        className="btn w-25 btn-outline-danger"
+                                        onClick={() => editionMode("")}
+                                    >
+                                        Cancelar
+                                    </button>
+                                }
                             </form>
                             : null
                     }   
                 </div>
             </div>
+            <Snackbar
+                anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'left',
+                }}
+                open={snackbar.open}
+                autoHideDuration={6000}
+                onClose={closeSnackbar}
+                message={snackbar.message}
+                action={
+                <>
+                    <IconButton size="small" color="inherit" onClick={closeSnackbar}>
+                    <HighlightOffOutlined fontSize="small" />
+                    </IconButton>
+                </>
+                }
+            />
         </div>
     )
 }

@@ -10,10 +10,8 @@ import store from './Redux/Index'
 import 'semantic-ui-css/semantic.min.css'
 import './index.css'
 
-//const darkMode = localStorage.getItem('darkMode') === 'true'
-
 let root = document.getElementById('root');
-//var style = document.createAttribute("style"); 
+
 //style.value = darkMode ? '#343a40' : ''
 //root.setAttributeNode(style)
 axios.defaults.baseURL = `http://localhost:3001`;

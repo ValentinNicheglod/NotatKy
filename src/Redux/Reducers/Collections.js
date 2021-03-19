@@ -3,7 +3,8 @@ import {
     GET_ONE_COLLECTION,
     CREATE_COLLECTION,
     UPDATE_COLLECTION,
-    DELETE_COLLECTION
+    DELETE_COLLECTION,
+    LOGOUT
 } from '../Constants/Index';
 
 const initialState = {
@@ -38,6 +39,10 @@ export const collectionsReducer = (state = initialState, action) => {
           return {
             ...state,
             message: action.message
+          };
+          case LOGOUT:
+          return {
+            state: initialState
           };
         default: return state;
     }

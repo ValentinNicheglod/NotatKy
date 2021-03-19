@@ -5,8 +5,9 @@ import EditSharpIcon from '@material-ui/icons/EditSharp';
 import DeleteSharpIcon from '@material-ui/icons/DeleteSharp';
 import CheckSharpIcon from '@material-ui/icons/CheckSharp';
 import AddIcon from '@material-ui/icons/Add';
+import MenuIcon from '@material-ui/icons/Menu';
 
-const Collections = ({collections, editing, handleChange, handleCreate, handleDelete, open, openModal, setEditing}) => {
+const Collections = ({collections, editing, handleChange, handleCreate, handleDelete, largeWidth, open, openModal, setDrawerOpen, setEditing}) => {
 
     const [newCollection, setNewCollection] = useState({
         name: '',
@@ -14,7 +15,7 @@ const Collections = ({collections, editing, handleChange, handleCreate, handleDe
     })
     const [editCollection, setEditCollection] = useState()
     const [openDialog, setOpenDialog] = useState(false)
-
+    
     const newData = (e) => {
         setNewCollection({
             ...newCollection,
@@ -60,9 +61,9 @@ const Collections = ({collections, editing, handleChange, handleCreate, handleDe
                 name="description"
                 onChange={newData}
             />
-            <div className="w-50 d-flex justify-content-between my-3">
+            <div className="modal-col-action d-flex justify-content-between my-3">
                 <button 
-                    className="btn btn-outline-success"
+                    className="btn btn-success"
                     style={{width: '45%'}}
                     onClick={() => {
                         handleCreate(newCollection)
@@ -90,15 +91,27 @@ const Collections = ({collections, editing, handleChange, handleCreate, handleDe
 
     return (
         <div className= "user-profile m-5 row d-flex justify-content-center">
-            <h1 className="display-1 settings-title">Colecciones</h1>
+            <h1 className="display-1 settings-title">
+                {!largeWidth &&
+                    <IconButton
+                        onClick={() => setDrawerOpen(true)}
+                        //id="btn-home"
+                        style={{color: 'inherit'}}
+                        className="btn mb-1"
+                    >
+                        <MenuIcon style={{color: 'inherit'}}/>
+                    </IconButton>
+                }
+                Colecciones
+            </h1>
             <div className="row h-75 d-flex justify-content-center my-2 p-0">
             
                 <TableContainer component={Paper} id="tab-col-table">
-                    <Table aria-label="caption table">
+                    <Table aria-label="caption table" id="tab-col-table">
                         <caption>Usa las colecciones como si fueran libretas, puedes guardar todas las notas relacionadas a un tema en especifico dentro de ellas.</caption>
                         <TableHead>
                             <TableRow>
-                                <TableCell><b>Nombre</b></TableCell>
+                                <TableCell id="table-cell-"><b>Nombre</b></TableCell>
                                 <TableCell><b>Descripción</b></TableCell>
                                 <TableCell/>
                             </TableRow>
@@ -182,12 +195,12 @@ const Collections = ({collections, editing, handleChange, handleCreate, handleDe
                             <TableRow>
                                 <TableCell className="table-cell-col">
                                     <button 
-                                        className="btn btn-add-col p-0"
+                                        className="btn btn-add-col p-0 all-center"
                                         onClick={() => openModal('col', true)}
                                     >
                                         <p>
                                             <AddIcon/>
-                                            &nbsp;&nbsp;Crear nueva colección
+                                            {largeWidth ? "  Crear nueva colección" : "  Nueva colección"}
                                         </p>
                                     </button>
                                 </TableCell>

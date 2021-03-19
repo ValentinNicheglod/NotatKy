@@ -17,7 +17,8 @@ export const getOneNote = (id) => {
 			axios.get(`/note/${id}`)
 			.then((response) => dispatch({
 				type: GET_ONE_NOTE,
-	  			note: response.data
+	  			note: response.data,
+				response: response.status
 			}));
 		} catch (err) {
 			console.log(err);
@@ -29,10 +30,14 @@ export const getAllNotes = (userId) => {
 	return (dispatch) => {
 		try {
 			axios.get(`/note/all/${userId}`)
-			.then((response) => dispatch({
+			.then((response) => {
+			console.log('RES: ', response)
+			console.log(response.status)
+			dispatch({
 				type: GET_ALL_NOTES,
-				notes: response.data
-			}));
+				notes: response.data,
+				response: response.status
+			})});
 		} catch (err) {
 			console.log(err);
 		}
@@ -42,11 +47,11 @@ export const getAllNotes = (userId) => {
 export const createNote = (data, userId) => {
 	return (dispatch) => {
 		try {
-			console.log(data)
 			axios.post(`/note/${userId}`, {data})
 			.then((response) => dispatch({
 				type: CREATE_NOTE,
-				note: response.data
+				note: response.data,
+				response: response.status
 			}));
 		} catch (err) {
 			console.log(err);
@@ -60,7 +65,8 @@ export const updateNote = (data) => {
 			axios.put(`/note/${data.id}`, {data})
 			.then((response) => dispatch({
 				type: UPDATE_NOTE,
-				note: response.data
+				note: response.data,
+				response: response.status
 			}));
 		} catch (err) {
 			console.log(err);
@@ -74,7 +80,8 @@ export const updateNoteState = (data) => {
 			axios.put(`/note/state/${data.id}`, {data})
 			.then((response) => dispatch({
 				type: CHANGE_NOTE_STATE,
-				notes: response.data
+				notes: response.data,
+				response: response.status
 			}));
 		} catch (err) {
 			console.log(err);
@@ -88,7 +95,8 @@ export const deleteNote = (noteId, userId) => {
 			axios.delete(`/note/${noteId}/${userId}`)
 			.then((response) => dispatch({
 				type: DELETE_NOTE,
-				notes: response.data
+				notes: response.data,
+				response: response.status
 			}));
 		} catch (err) {
 			console.log(err);
@@ -101,11 +109,11 @@ export const addNoteTag = (noteId, tagId) => {
 		try {
 			noteId && tagId 
 			? axios.post(`/tag/${noteId}/${tagId}`) 
-			.then((response) => {dispatch({
+			.then((response) => dispatch({
 				type: ADD_NOTE_TAG,
-				note: response.data
+				note: response.data,
+				response: response.status
 			})
-			console.log('res', response.data)}
 			)
 			: console.log('No se ha proporcionado la información necesaria')
 		} catch (err) {
@@ -119,11 +127,11 @@ export const deleteNoteTag = (noteId, tagId) => {
 		try {
 			noteId && tagId 
 			? axios.delete(`/tag/${noteId}/${tagId}`)
-			.then((response) => {dispatch({
+			.then((response) => dispatch({
 				type: DELETE_NOTE_TAG,
-				note: response.data
+				note: response.data,
+				response: response.status
 			})
-			console.log('res', response.data)}
 			)
 			: console.log('No se ha proporcionado la información necesaria')
 			

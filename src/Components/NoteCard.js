@@ -1,9 +1,10 @@
 import React from 'react'
 
-const NoteCard = ({collection, content, date, editNote, hour, id, title}) => {
+const NoteCard = ({collection, content, darkMode, date, editNote, hour, id, title}) => {
     return (
         <div 
-            className="card note-card"
+            className="card note-card" 
+            id={darkMode && "dark-blue"}
             onClick={() => editNote(id)}
         >
             <div className="card-title">
@@ -12,13 +13,16 @@ const NoteCard = ({collection, content, date, editNote, hour, id, title}) => {
             <div className="card-text d-flex h-100">
                 <p>{content.length > 100 ? `${content.slice(0, 100)}...` : content}</p>
             </div>
-            <div className="card-footer d-flex justify-content-between align-items-center px-0">
+            <div className="card-footer d-flex justify-content-between align-items-center px-0" id={darkMode && "dark-blue"}>
+                <div className="w-50">
                 {collection && 
-                    <div className="tab-indicator mx-1 px-2 all-center" style={{backgroundColor: '#645BCC'}}>
-                        {collection.name}
-                    </div>
+                    <span style={{backgroundColor: '#2185D0', borderRadius: 10}} className="uk-label">{collection.name}</span>
                 }
-                <p>{date} | {hour}</p>
+                </div>
+                <div className="w-50 d-flex justify-content-end">
+                    <p>{date} | {hour}</p>
+                </div>
+                
             </div>
         </div>
     )

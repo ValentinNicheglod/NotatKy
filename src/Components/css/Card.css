@@ -7,6 +7,28 @@
     transition: all 500ms ease-out;
 }
 
+.card-btn{
+    border-radius: 20px;
+    background-color: transparent;
+    border: none!important;
+    padding: 0;
+    font-size: large;
+    color: #333;
+    margin-top: 4%;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: all 300ms ease-out;
+}
+
+.card-btn:focus{
+    outline: none!important;
+}
+
+.card-btn:hover{
+    outline: none!important;
+    color: #1d3557;
+}
+
 @keyframes card-hover {
     0%{
         height: 550px;
@@ -17,7 +39,7 @@
     100%{
         height: 570px;
         width:420px;
-        padding: 30px;
+        padding: 40px;
         box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
     }
 }
@@ -27,6 +49,25 @@
     cursor: pointer;
     height: 570px;
     width: 420px;
-    padding: 30px;
+    padding: 40px;
     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+
+@media screen and (max-width: 600px){
+    .card-info{
+        height: fit-content;
+        width: 95%;
+        border-radius: 20px;
+        padding: 30px;
+        color: #1d3557;
+    }
+
+    .card-info:hover{
+        animation: none;
+        cursor: pointer;
+        height: 550px;
+        width: 95%;
+        padding: 30px;
+        box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+    }
 }

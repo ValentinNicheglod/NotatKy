@@ -6,10 +6,11 @@ import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import DeleteSharpIcon from '@material-ui/icons/DeleteSharp';
 import CheckSharpIcon from '@material-ui/icons/CheckSharp';
 import AddIcon from '@material-ui/icons/Add';
+import MenuIcon from '@material-ui/icons/Menu';
 
 const colors = ['#B592A0', '#79ADDC', '#FFC09F', '#FFEE93', '#ADF7B6','#DCB6D5', '#F2F7F2']
 
-const Tags = ({tags, editing, handleChange, handleCreate, handleDelete, open, openModal, setEditing}) => {
+const Tags = ({tags, editing, handleChange, handleCreate, handleDelete, largeWidth, open, openModal, setDrawerOpen, setEditing}) => {
 
     const [newTag, setNewTag] = useState({
         name: '',
@@ -17,8 +18,6 @@ const Tags = ({tags, editing, handleChange, handleCreate, handleDelete, open, op
     })
     const [editTag, setEditTag] = useState()
     const [openDialog, setOpenDialog] = useState(false)
-
-    console.log(editTag)
 
     const newData = (e) => {
         setNewTag({
@@ -56,6 +55,8 @@ const Tags = ({tags, editing, handleChange, handleCreate, handleDelete, open, op
         return 0;
     });
 
+    const superSmallWidth = window.screen.width < 350
+
     const modal = (
         <div className="modal-col">
             <h2 id="simple-modal-title">Crear una etiqueta...</h2>
@@ -74,20 +75,20 @@ const Tags = ({tags, editing, handleChange, handleCreate, handleDelete, open, op
                 <div className="d-flex justify-content-center">
                     {colors.map((dot, index) => (
                         <IconButton
-                            className="p-2"
+                            className={largeWidth ? "p-2" : "p-0"}
                             onClick={() => newColor(dot, 'create')}
                             key={index}
                         >
                             <FiberManualRecordIcon 
-                                style={{color: dot, fontSize: 35}}
+                                style={{color: dot, fontSize: superSmallWidth ? 25 : 35}}
                             />
                         </IconButton>
                     ))}
                 </div>
             </div>
-            <div className="w-50 d-flex justify-content-between my-3">
+            <div className="modal-col-action d-flex justify-content-between my-3">
                 <button 
-                    className="btn btn-outline-success"
+                    className="btn btn-success"
                     style={{width: '45%'}}
                     onClick={() => {
                         handleCreate(newTag)
@@ -116,7 +117,19 @@ const Tags = ({tags, editing, handleChange, handleCreate, handleDelete, open, op
 
     return (
         <div className= "user-profile m-5 row d-flex justify-content-center">
-            <h1 className="display-1 settings-title">Etiquetas</h1>
+            <h1 className="display-1 settings-title">
+                {!largeWidth &&
+                    <IconButton
+                        onClick={() => setDrawerOpen(true)}
+                        //id="btn-home"
+                        style={{color: 'inherit'}}
+                        className="btn mb-1"
+                    >
+                        <MenuIcon style={{color: 'inherit'}}/>
+                    </IconButton>
+                }
+                Etiquetas
+            </h1>
             <div className="row h-75 d-flex justify-content-center my-2 p-0">
                 <TableContainer component={Paper} id="tab-col-table">
                     <Table aria-label="caption table">
@@ -215,7 +228,7 @@ const Tags = ({tags, editing, handleChange, handleCreate, handleDelete, open, op
                                     >
                                         <p>
                                             <AddIcon/>
-                                            &nbsp;&nbsp;Crear nueva etiqueta
+                                            {largeWidth ? "  Crear nueva etiqueta" : "  Nueva etiqueta"}
                                         </p>
                                     </button>
                                 </TableCell>

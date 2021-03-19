@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { Route, Switch } from 'react-router-dom';
+import { useSelector } from 'react-redux'
 
 import 'semantic-ui-css/semantic.min.css'
 import './index.css'
@@ -18,6 +19,15 @@ import Home from './Containers/Home';
 //import Navbar from './Components/Navbar';
 
 function App() {
+const darkMode = useSelector(state => state.users.darkMode)
+//let darkMode = localStorage.getItem('darkMode') === 'true'
+const body = document.getElementsByTagName('body')[0]
+
+useEffect(() => {
+  console.log(darkMode)
+  body.setAttribute('id', darkMode ?  'dark': 'light');
+}, [darkMode, body])
+
   return (
     <div className="App full-height">
       <Switch>
@@ -28,7 +38,7 @@ function App() {
         <Route exact path="/download" component={DownloadApp}/>
         <Route exact path="/edit profile" component={SettingsProfile}/>
         <Route exact path="/settings app" component={SettingsApp}/>
-        <Route exact path="/collections tags" component={SettingsCollections}/>
+        <Route exact path="/collections tags/:type?" component={SettingsCollections}/>
         <Route exact path="/home" component={Home}/>
         <Route exact path="/trash" component={Home}/>
         <Route exact path="/archive" component={Home}/>

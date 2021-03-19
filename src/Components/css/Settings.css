@@ -1,9 +1,10 @@
 .profile{
-  width: 270px;
+  width: 100%;
+  overflow-y: auto;
 }
 
 .user-profile{
-  height: 82%;
+  height: fit-content;
 }
 /* Profile container */  
   /* Profile sidebar */
@@ -11,6 +12,19 @@
     padding: 60px 0 10px 0;
     background: transparent;
     height: 100px;
+  }
+
+  .profile-userpic {
+    width: 70%!important;
+    height: auto!important;
+    aspect-ratio: 1/1!important;
+    font-size: 10vh!important;
+    font-family:sans-serif!important;
+    letter-spacing: -5px;
+  }
+
+  .blue{
+    background-color: #2185D0!important;
   }
   
   .profile-userpic img {
@@ -27,14 +41,14 @@
   }
   
   .profile-usertitle-name {
-    font-size: 16px;
+    font-size: 20px;
     font-weight: bold;
-    margin-bottom: 7px;
+    margin-bottom: 15px;
   }
   
   .profile-usertitle-job {
     text-transform: uppercase;
-    color: #5b9bd1;
+    color: #E0E0E0;
     font-size: 12px;
     font-weight: 600;
     margin-bottom: 15px;
@@ -62,7 +76,7 @@
     display: flex;
     flex-direction: row;
     width: 177px;
-    color: white;
+    color: inherit;
   }
   
   .profile-usermenu ul li {
@@ -105,7 +119,7 @@
     display: flex;
     align-items: center;
     width: 300px;
-    height: 500px;
+    height: fit-content;
     border-radius: 20px;
     padding: 150px 3rem 3rem 3rem;
     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
@@ -113,6 +127,10 @@
 
   .settings-title{
     border-bottom: 3px solid #2185D0;
+  }
+
+  .user-data-card{
+    color: inherit;
   }
 
   .form-mid{
@@ -166,15 +184,35 @@
     padding-left: 26px;
   }
 
-  #settings-select-blue{
-    background-color: #AECFDF;
-    padding-left: 26px;
+  .settings-select-blue{
+    background-color: #AECFDF!important;
+    padding-left: 26px!important;
+    border-top-right-radius: 21px!important;
+    border-bottom-right-radius: 21px!important;
   }
 
-  #settings-select{
-    background-color: #FFF;
-    padding-left: 26px;
-    color: #A333C8
+  .settings-select{
+    background-color: #FFFF!important;
+    padding-left: 26px!important;
+    color: #A333C8!important;
+    border-top-right-radius: 21px!important;
+    border-bottom-right-radius: 21px!important;
+  }
+
+  .settings-select-dark{
+    background-color: #343a40!important;
+    padding-left: 26px!important;
+    color: #A333C8!important;
+    border-top-right-radius: 21px!important;
+    border-bottom-right-radius: 21px!important;
+  }
+
+  .settings-select span{
+    font-weight: bold!important;
+  }
+
+  .settings-select-dark span{
+    font-weight: bold!important;
   }
 
   .table-cell-col p{
@@ -192,3 +230,94 @@
   .violet{
     color: #A333C8
   }
+
+  #tab-col-table{
+    background-color: inherit;
+    color: inherit!important;
+  }
+
+  .MuiTableCell-head{
+    color: inherit!important;
+  }
+
+  .MuiTableCell-body{
+    color: inherit!important;
+  }
+
+  .MuiTableCell-body button{
+    color: inherit!important;
+  }
+
+  .MuiInputBase-root{
+    color: inherit!important;
+  }
+
+  .modal-col-action{
+    width: 50%;
+  }
+
+  
+@media screen and (max-width: 600px){
+  .user-profile{
+    margin: 0!important;
+    padding: 1rem!important;
+    width: 100%;
+    --bs-gutter-x: 0!important;
+  }
+
+  .user-profile form{
+    --bs-gutter-x: 1.5rem;
+  }
+
+  .profile-section{
+    margin: 0!important;
+  }
+
+  .info-cont-settings{
+    padding-top: 1rem!important;
+  }
+
+  .info-cont-settings hr{
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .btn-update{
+    width: 98%!important;
+  }
+
+  .MuiFormControl-root{
+    width: 98%!important;
+  }
+
+  .dark{
+    background-color: #343a40!important;
+  }
+
+  .modal-col-action{
+    width: 100%;
+  }
+
+  .main-logo{
+    width: 100%;
+  }
+
+  .inputWrapper {
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+  }
+  .fileInput {
+      cursor: pointer;
+      height: 100%;
+      position:absolute;
+      top: 0;
+      right: 0;
+      z-index: 99;
+      font-size:50px;
+      opacity: 0;
+      -moz-opacity: 0;
+      filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0)
+  }
+}
+ 

@@ -1,11 +1,10 @@
 import {
-    ADD_NOTE_TAG,
     GET_ALL_TAGS,
     GET_ONE_TAG,
     CREATE_TAG,
     UPDATE_TAG,
-    DELETE_NOTE_TAG,
-    DELETE_TAG
+    DELETE_TAG,
+    LOGOUT
 } from '../Constants/Index';
 
 const initialState = {
@@ -40,6 +39,12 @@ export const tagsReducer = (state = initialState, action) => {
           return {
             ...state,
             message: action.message
+          };
+          case LOGOUT:
+          return {
+            tag: {},
+            tags: [],
+            message: ''
           };
 
         default: return state;

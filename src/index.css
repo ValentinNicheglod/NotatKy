@@ -19,20 +19,27 @@ html, body, .App {
   border-radius: 30px;
 }
 
+.overflow-hidden{
+  overflow: hidden;
+}
+
 .card-round{
   width: 400px;
   height: 650px;
   border-radius: 20px;
-  padding: 150px 3rem 3rem 3rem;
+  padding: 2rem;
 }
 
 .white{
-  color: white;
+  color: white!important;
 }
 
 .main-logo{
-  width: 182;
+  width: 200px;
   margin-left: 30px;
+  position: absolute;
+  top: 0px;
+  left: -25px;
 }
 
 .sticky-vert {
@@ -53,5 +60,71 @@ html, body, .App {
   align-items: center;
   padding-top: 5px;
   background-color: #AECFDF;
-  border-right: 10px dashed white;
+  border-right: 10px dashed #FFFF
 }
+
+.bs-gutter{
+  --bs-gutter-x: 0;
+}
+
+#dark-border{
+  border-right: 10px dashed #343a40;
+}
+
+#light{
+  background-color: #FFFF;
+  color: #383c3f;
+}
+
+#white-col{
+  color: #FFFF;
+}
+
+h1, h2, h3, h4, h5, h6, p, b, legend, input{
+  color: inherit;
+}
+
+input{
+  color: inherit!important;
+}
+
+textarea, input {
+  background-color: inherit;
+  color: inherit;
+}
+
+textarea::placeholder {
+  color: #A9AAAB;
+}
+
+.display6{
+  color: inherit!important;
+}
+
+.display5{
+  color: inherit!important;
+}
+
+.display4{
+  color: inherit!important;
+}
+
+.display1{
+  color: inherit!important;
+}
+
+#dark{
+  background-color: #343a40!important;
+  color: #FFFF
+}
+
+#dark-blue{
+  background-color: #1d3557;
+  color: #FFFF
+}
+
+#dark-blue h1 h2 h3 h4 h5 h6 p b {
+  color: #FFFF
+}
+
+

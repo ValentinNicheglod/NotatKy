@@ -10,15 +10,13 @@ import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import LabelOutlinedIcon from '@material-ui/icons/LabelOutlined';
 import ListOutlinedIcon from '@material-ui/icons/ListOutlined';
 import LocalOfferOutlinedIcon from '@material-ui/icons/LocalOfferOutlined';
+import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
 
 import "./css/Notes.css"
 
 import Logo from './Logo'
 
-/* const collections = ['Universidad', 'Personal', 'Trabajo'];
-const tags = ['Reforma', "Proyecto final", "Matematicas", "Informatica"] */
-
-const HomeSideBar = ({changeRoute, collections, filterTags, tags}) => {
+const HomeSideBar = ({changeRoute, collections, filterCollections, filterTags, largeWidth, pathname, tags}) => {
 
     const [openTags, setOpenTags] = useState(true);
     const [openCollections, setOpenCollections] = useState(true);
@@ -28,7 +26,7 @@ const HomeSideBar = ({changeRoute, collections, filterTags, tags}) => {
     };
 
     return (
-		<div className="row profile full-height sticky-vert d-flex align-items-start">
+		<div className="row profile full-height m-0 d-flex align-items-start">
             <div className="profile-sidebar">
                 <div className= "inicio-logo">
                     <Logo/>
@@ -38,6 +36,7 @@ const HomeSideBar = ({changeRoute, collections, filterTags, tags}) => {
                 <List component="nav" className="white">
                     <ListItem 
                         button
+                        id={pathname === '/home' && "home-select"}
                         onClick={() => changeRoute('/home')}
                     >
                         <ListItemIcon>
@@ -55,9 +54,13 @@ const HomeSideBar = ({changeRoute, collections, filterTags, tags}) => {
                     </ListItem>
                     <Collapse in={openCollections} timeout="auto" unmountOnExit>
                         {
-                            collections && collections.sort().map((collection) => (
-                                <List component="div" disablePadding>
-                                    <ListItem button style={{paddingLeft: 40}}>
+                            collections && collections.sort().map((collection, index) => (
+                                <List component="div" disablePadding  key={index}>
+                                    <ListItem 
+                                        button 
+                                        onClick={() => filterCollections(collection.id)}
+                                        style={{paddingLeft: 40}}
+                                    >
                                         <ListItemIcon>
                                             <ListOutlinedIcon className="white"/>
                                         </ListItemIcon>
@@ -77,8 +80,8 @@ const HomeSideBar = ({changeRoute, collections, filterTags, tags}) => {
                     </ListItem>
                     <Collapse in={openTags} timeout="auto" unmountOnExit>
                         {
-                            tags && tags.sort().map((tag) => (
-                                <List component="div" disablePadding>
+                            tags && tags.sort().map((tag, index) => (
+                                <List component="div" disablePadding key={index}>
                                     <ListItem 
                                         button 
                                         onClick={() => filterTags(tag.id)}
@@ -95,6 +98,7 @@ const HomeSideBar = ({changeRoute, collections, filterTags, tags}) => {
 
                     <ListItem 
                         button
+                        id={pathname === '/archive' && "home-select"}
                         onClick={() => changeRoute('/archive')}
                     >
                         <ListItemIcon>
@@ -105,6 +109,7 @@ const HomeSideBar = ({changeRoute, collections, filterTags, tags}) => {
 
                     <ListItem 
                         button
+                        id={pathname === '/trash' && "home-select"}
                         onClick={() => changeRoute('/trash')}
                     >
                         <ListItemIcon>
@@ -112,6 +117,18 @@ const HomeSideBar = ({changeRoute, collections, filterTags, tags}) => {
                         </ListItemIcon>
                         <ListItemText primary="Papelera de reciclaje" />
                     </ListItem>
+                    {!largeWidth &&
+                        <ListItem 
+                            button
+                            onClick={() => changeRoute('/edit profile')}
+                        >
+                            <ListItemIcon>
+                                <SettingsOutlinedIcon className="white"/>
+                            </ListItemIcon>
+                            <ListItemText primary="Configuración" />
+                    </ListItem> 
+                    }
+                    
                 </List>
             </div>
 		</div>

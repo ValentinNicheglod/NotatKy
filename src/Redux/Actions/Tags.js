@@ -1,12 +1,10 @@
 import axios from 'axios';
 
 import {
-	ADD_NOTE_TAG,
     GET_ALL_TAGS,
     GET_ONE_TAG,
     CREATE_TAG,
     UPDATE_TAG,
-	DELETE_NOTE_TAG,
     DELETE_TAG
 } from '../Constants/Index';
 

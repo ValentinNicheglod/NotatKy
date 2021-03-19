@@ -3,11 +3,13 @@ import {
     GET_ALL_USERS,
     GET_ONE_USER,
     CREATE_USER,
-    UPDATE_USER
+    UPDATE_USER,
+    LOGOUT,
+    LOGIN
 } from '../Constants/Index';
 
 const initialState = {
-    darkMode: false,
+    darkMode: '',
     user: {},
     users: []
 };
@@ -38,6 +40,17 @@ export const usersReducer = (state = initialState, action) => {
           return {
             ...state,
             user: action.user
+          };
+          case LOGOUT:
+          return {
+            ...state,
+            user: {},
+            users: []
+          };
+          case LOGIN:
+          return { 
+            ...state,
+            logged: action.token
           };
         default: return state;
     }
