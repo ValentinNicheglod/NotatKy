@@ -159,7 +159,7 @@ const Notes = ({
                 <>
                   <img
                     draggable={false}
-                    src="/svg/oops.svg"
+                    src="svg/oops.svg"
                     width="50%"
                     alt="not-found"
                     style={{ marginBottom: '10%' }}
@@ -172,7 +172,7 @@ const Notes = ({
                 <>
                   <img
                     draggable={false}
-                    src="/svg/oops.svg"
+                    src="svg/oops.svg"
                     width="50%"
                     alt="not-found"
                     style={{ marginBottom: '10%' }}

@@ -4,7 +4,7 @@ const Logo = () => (
   <div className="main-logo">
     <h1 className="font-title login-title unselectable" id="white-col">
       <img
-        src="/logos/logo-wo-bg.png"
+        src="logos/logo-wo-bg.png"
         alt="logo"
         width="60"
         height="60"

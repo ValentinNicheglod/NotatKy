@@ -100,7 +100,7 @@ const Tags = ({
       <hr />
       <div className="all-center">
         <img
-          src="/svg/tag.svg"
+          src="svg/tag.svg"
           width="90%"
           alt=""
           className="mb-2"

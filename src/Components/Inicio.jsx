@@ -98,7 +98,7 @@ const Inicio = () => {
       ) : (
         <div className="px-4 my-3 d-flex justify-content-between align-items-center">
           <img
-            src="/logos/logo-wo-bg.png"
+            src="logos/logo-wo-bg.png"
             alt="logo"
             width="60"
             height="60"
@@ -131,7 +131,7 @@ const Inicio = () => {
             }
           >
             <CardInfo
-              image={`/svg/card-img-${card.img}.svg`}
+              image={`svg/card-img-${card.img}.svg`}
               title={card.title}
               description={card.description}
               color={card.color}

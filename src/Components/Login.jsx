@@ -88,7 +88,7 @@ const Login = () => {
         <hr />
         <div className="all-center">
           <img
-            src="/svg/login-info.svg"
+            src="svg/login-info.svg"
             width={largeWidth ? '60%' : '100%'}
             alt=""
             className="mb-2"
@@ -133,7 +133,7 @@ const Login = () => {
           <hr className="bs-gutter" />
           <div className="all-center">
             <img
-              src="/svg/login.svg"
+              src="svg/login.svg"
               width="90%"
               alt=""
               className="mb-2"

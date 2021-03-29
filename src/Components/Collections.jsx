@@ -73,7 +73,7 @@ const Collections = ({
       <hr />
       <div className="all-center">
         <img
-          src="/svg/collection.svg"
+          src="svg/collection.svg"
           width="90%"
           alt=""
           className="mb-2"

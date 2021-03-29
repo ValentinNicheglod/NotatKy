@@ -95,7 +95,7 @@ const EditNote = ({
           <div className="all-center row w-100 m-0">
             <div className="all-center">
               <img
-                src="/svg/empty.svg"
+                src="svg/empty.svg"
                 width="80%"
                 alt=""
               />
@@ -187,7 +187,7 @@ const EditNote = ({
           <div className="all-center row w-100 m-0">
             <div className="all-center">
               <img
-                src="/svg/empty.svg"
+                src="svg/empty.svg"
                 width="80%"
                 alt=""
               />
@@ -479,7 +479,7 @@ const EditNote = ({
           {mainDashboardNotes && mainDashboardNotes.length === 0 ? (
             <>
               <img
-                src="/svg/add-note.svg"
+                src="svg/add-note.svg"
                 alt=""
                 style={{ height: '75%' }}
                 draggable={false}
@@ -499,7 +499,7 @@ const EditNote = ({
           ) : notes && notes.length === 0 ? (
             <>
               <img
-                src="/svg/not-found.svg"
+                src="svg/not-found.svg"
                 alt=""
                 style={{ height: '80%' }}
                 draggable={false}
@@ -509,7 +509,7 @@ const EditNote = ({
           ) : (
             <>
               <img
-                src="/svg/select.svg"
+                src="svg/select.svg"
                 alt=""
                 style={{ height: '80%' }}
                 draggable={false}

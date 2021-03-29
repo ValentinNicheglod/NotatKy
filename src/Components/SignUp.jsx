@@ -109,7 +109,7 @@ const SignUp = () => {
               <hr />
               <div className="all-center">
                 <img
-                  src="/svg/celebration.svg"
+                  src="svg/celebration.svg"
                   width="60%"
                   alt=""
                   className="mb-2"
@@ -141,7 +141,7 @@ const SignUp = () => {
               <hr />
               <div className="all-center">
                 <img
-                  src="/svg/error.svg"
+                  src="svg/error.svg"
                   width="60%"
                   alt=""
                   className="mb-2"
@@ -173,7 +173,7 @@ const SignUp = () => {
           <hr />
           <div className="all-center">
             <img
-              src="/svg/sign-up.svg"
+              src="svg/sign-up.svg"
               width="90%"
               alt=""
               className="mb-2"
