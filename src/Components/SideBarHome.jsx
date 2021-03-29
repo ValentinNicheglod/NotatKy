@@ -13,7 +13,6 @@ import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined'
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
-import LabelOutlinedIcon from '@material-ui/icons/LabelOutlined';
 import ListOutlinedIcon from '@material-ui/icons/ListOutlined';
 import LocalOfferOutlinedIcon from '@material-ui/icons/LocalOfferOutlined';
 import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';

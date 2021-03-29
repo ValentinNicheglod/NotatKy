@@ -18,32 +18,14 @@ import NotFound from './Components/NotFound';
 
 function App() {
   const darkMode = useSelector((state) => state.users.darkMode);
-  const users = useSelector((state) => state.users);
   const body = document.getElementsByTagName('body')[0];
-  const token = sessionStorage.getItem('token') || localStorage.getItem('token');
 
   useEffect(() => {
     body.setAttribute('id', darkMode ? 'dark' : 'light');
   }, [darkMode, body]);
 
-  useEffect(() => {
-    return () => {
-      console.log('eiii');
-    };
-  }, []);
-
-  // eslint-disable-next-line func-names
-  window.addEventListener('beforeunload', function (event) {
-    console.log(event);
-  });
-
-  // window.BeforeUnloadEvent()
-  const event = () => {
-    console.log('golosa');
-  };
-
   return (
-    <div className="App full-height" BeforeUnloadEvent={event}>
+    <div className="App full-height">
       <Switch>
         <Route exact path="/" component={Inicio} />
         <Route exact path="/login" component={Login} />

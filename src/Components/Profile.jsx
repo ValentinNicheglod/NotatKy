@@ -22,15 +22,12 @@ import {
   Menu,
 } from '@material-ui/icons';
 
-// import HighlightOffOutlinedIcon from '@material-ui/icons/HighlightOffOutlined';
-
 import './css/Settings.css';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
       margin: theme.spacing(1),
-      // width: '25ch',
     },
     '&:hover': {
       backgroundColor: 'transparent',
@@ -84,6 +81,7 @@ function StyledRadio(props) {
       color="default"
       checkedIcon={<span className={clsx(classes.icon, classes.checkedIcon)} />}
       icon={<span className={classes.icon} />}
+      // eslint-disable-next-line react/jsx-props-no-spreading
       {...props}
     />
   );
@@ -123,7 +121,6 @@ const Profile = ({
         {!largeWidth && (
           <IconButton
             onClick={() => setDrawerOpen(true)}
-            // id="btn-home"
             style={{ color: 'inherit' }}
             className="btn mb-1"
           >

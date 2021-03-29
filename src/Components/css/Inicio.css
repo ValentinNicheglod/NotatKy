@@ -74,10 +74,6 @@
         flex-direction: row;
     }
 
-    .sign-up{
-        height: fit-content;
-    }
-
     .log-in{
         height: fit-content;
     }

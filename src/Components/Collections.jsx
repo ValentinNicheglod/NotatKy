@@ -140,7 +140,6 @@ const Collections = ({
         {!largeWidth && (
           <IconButton
             onClick={() => setDrawerOpen(true)}
-            // id="btn-home"
             style={{ color: 'inherit' }}
             className="btn mb-1"
           >
@@ -231,7 +230,6 @@ const Collections = ({
                     >
                       {editing.col === index ? (
                         <CheckSharpIcon
-                          // onClick={handleChange}
                           style={{ color: '#198754' }}
                         />
                       ) : (
@@ -253,9 +251,9 @@ const Collections = ({
                 </TableRow>
               ))}
               <TableRow>
-                <TableCell className="table-cell-col">
+                <TableCell className="table-cell-col add">
                   <button
-                    className="btn btn-add-col p-0 all-center"
+                    className="btn btn-add-col p-0"
                     onClick={() => openModal('col', true)}
                     type="button"
                   >

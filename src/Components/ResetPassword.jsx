@@ -36,9 +36,9 @@ const ResetPassword = () => {
   const [code, setCode] = useState([...Array(length)].map(() => ''));
   const [loading, setLoading] = useState(false);
   const inputs = useRef([]);
+  const largeWidth = window.screen.width > 600;
 
   const users = useSelector((state) => state.users);
-  // const message = useSelector((state) => state.users.message);
 
   useEffect(() => {
     if (users.code === 'verified') {
@@ -75,6 +75,7 @@ const ResetPassword = () => {
   };
 
   const steps = ['Ingresa tu correo', 'Ingresa el codigo de verificación', 'Cambia tu contraseña'];
+  const stepsMobile = ['Correo', 'Verificación', 'Contraseña'];
 
   const handleChange = (e) => {
     setEmail(e.target.value);
@@ -88,14 +89,6 @@ const ResetPassword = () => {
     });
     if (/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
       dispatch(resetPassword(email));
-      setTimeout(() => {
-        if (step === 1) {
-          setSnackbar({
-            message: 'Ocurrio un error' || users.message,
-            open: true
-          });
-        }
-      }, 5000);
     } else {
       setSnackbar({
         message: 'Ingrese un correo válido',
@@ -155,10 +148,10 @@ const ResetPassword = () => {
   };
 
   return (
-    <div className="login-bg full-height d-flex justify-content-center align-items-center row position-relative">
-      <Logo />
-      <div className="d-flex full-height justify-content-center align-items-end row">
-        <div className="reset-pw card d-flex p-5 justify-content-center">
+    <div className="login-bg full-height d-flex justify-content-center align-items-center row">
+      {largeWidth && <Logo />}
+      <div className="d-flex full-height justify-content-center align-items-end row p-0">
+        <div className="reset-pw card card-round d-flex justify-content-between">
           <form>
             <h3 className="card-title d-flex justify-content-center">
               REESTABLECE TU CONTRASEÑA
@@ -191,10 +184,7 @@ const ResetPassword = () => {
                     color="purple"
                     className="total-width button mt-3"
                     id="login-submit"
-                    // onChange={handleChange}
                     onClick={sendMail}
-                    // type="submit"
-                    // value={email}
                   >
                     ENVIAR
                   </Button>
@@ -241,9 +231,7 @@ const ResetPassword = () => {
                     color="purple"
                     className="total-width button mt-3"
                     id="login-submit"
-                    // onChange={handleChange}
                     onClick={verifyCode}
-                    // type="submit"
                     value={email}
                   >
                     VERIFICAR
@@ -289,10 +277,7 @@ const ResetPassword = () => {
                     color="purple"
                     className="total-width button mt-3"
                     id="login-submit"
-                    // onChange={handleChange}
                     onClick={changePassword}
-                    // type="submit"
-                    // value={email}
                   >
                     ACTUALIZAR
                   </Button>
@@ -300,7 +285,21 @@ const ResetPassword = () => {
                 )
             }
           </form>
+          {!largeWidth
+        && (
+        <div className="d-flex all-center w-100">
+          <Stepper activeStep={step - 1} alternativeLabel className="w-100">
+            {stepsMobile.map((label) => (
+              <Step key={label}>
+                <StepLabel>{label}</StepLabel>
+              </Step>
+            ))}
+          </Stepper>
         </div>
+        )}
+        </div>
+        {largeWidth
+        && (
         <div className="d-flex all-center stepper-pw">
           <Stepper activeStep={step - 1} alternativeLabel className="w-50">
             {steps.map((label) => (
@@ -310,6 +309,7 @@ const ResetPassword = () => {
             ))}
           </Stepper>
         </div>
+        )}
       </div>
       <Snackbar
         anchorOrigin={{

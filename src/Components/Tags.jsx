@@ -172,7 +172,6 @@ const Tags = ({
         {!largeWidth && (
           <IconButton
             onClick={() => setDrawerOpen(true)}
-            // id="btn-home"
             style={{ color: 'inherit' }}
             className="btn mb-1"
           >
@@ -282,7 +281,7 @@ const Tags = ({
                 </TableRow>
               ))}
               <TableRow>
-                <TableCell className="table-cell-col">
+                <TableCell className="table-cell-col add">
                   <button
                     className="btn btn-add-col p-0"
                     onClick={() => openModal('tag', true)}

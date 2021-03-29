@@ -82,12 +82,14 @@ const Login = () => {
   const modal = (
     <div className={largeWidth ? 'modal-col w-50' : 'modal-col w-100 h-100'}>
       <>
-        <h2 id="simple-modal-title" className="all-center display-6">¿RECORDAR INFORMACIÓN DE SESIÓN?</h2>
+        <h2 id="simple-modal-title" className="all-center display-6">
+          {largeWidth ? '¿RECORDAR INFORMACIÓN DE SESIÓN?' : 'RECORDAR DATOS'}
+        </h2>
         <hr />
         <div className="all-center">
           <img
             src="/svg/login-info.svg"
-            width="60%"
+            width={largeWidth ? '60%' : '100%'}
             alt=""
             className="mb-2"
             draggable="false"
@@ -96,13 +98,10 @@ const Login = () => {
         <div className="w-100 my-3">
           <b className="all-center">Para tu comodidad, no te solicitaremos los datos al ingresar nuevamente.</b>
         </div>
-        {/* <div className="w-100 my-3">
-          <b className="all-center">Bienvenido a NotatKy</b>
-        </div> */}
         <div className="my-3 d-flex justify-content-center w-100">
           <Button
             color="green"
-            className="textfield button my-2 mx-3 w-25"
+            className={largeWidth ? 'textfield button my-2 w-25' : 'textfield button my-2 w-50'}
             id="login-submit"
             onClick={(e) => handleSubmit(e, true)}
             type="button"
@@ -111,7 +110,7 @@ const Login = () => {
           </Button>
           <Button
             color="red"
-            className="textfield button my-2 w-25"
+            className={largeWidth ? 'textfield button my-2 w-25' : 'textfield button my-2 w-50'}
             id="login-submit"
             onClick={(e) => handleSubmit(e, false)}
             type="button"

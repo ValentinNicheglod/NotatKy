@@ -28,6 +28,10 @@ html, body, .App {
   overflow: hidden;
 }
 
+.overflow-y{
+  overflow-y: auto;
+}
+
 .card-round{
   width: 400px;
   height: 650px;

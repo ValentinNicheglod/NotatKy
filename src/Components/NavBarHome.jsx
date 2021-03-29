@@ -2,14 +2,10 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
 import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
-// import HelpOutlineOutlinedIcon from '@material-ui/icons/HelpOutlineOutlined';
 import LoopOutlinedIcon from '@material-ui/icons/LoopOutlined';
-import SaveOutlinedIcon from '@material-ui/icons/SaveOutlined';
 import MenuIcon from '@material-ui/icons/Menu';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import CollectionsBookmarkOutlinedIcon from '@material-ui/icons/CollectionsBookmarkOutlined';
 import CloudUploadOutlinedIcon from '@material-ui/icons/CloudUploadOutlined';
-import AddIcon from '@material-ui/icons/Add';
 import { Avatar, Chip, IconButton } from '@material-ui/core';
 
 const NavBarHome = ({
@@ -22,7 +18,6 @@ const NavBarHome = ({
   note,
   onEdition,
   openNote,
-  saveNote,
   setDrawerOpen,
   setOpenColModal,
   user,
@@ -34,23 +29,22 @@ const NavBarHome = ({
       {!largeWidth && (
         <div>
           {openNote ? (
-            <IconButton onClick={closeNote} id="btn-home" className="btn">
-              <ArrowBackIcon /* className="w-100" */ />
+            <IconButton onClick={closeNote} className="btn white">
+              <ArrowBackIcon />
             </IconButton>
           ) : (
-            <IconButton
-              onClick={() => setDrawerOpen(true)}
-              className="btn white"
-            >
+            <IconButton onClick={() => setDrawerOpen(true)} className="btn white">
               <MenuIcon />
             </IconButton>
           )}
         </div>
       )}
       <div className="ui transparent input input-search col-md-6">
+        {largeWidth && (
         <SearchOutlinedIcon
           style={{ color: '#FFF', marginRight: '20px', height: '100%' }}
         />
+        )}
         <input
           type="text"
           placeholder="Buscar..."
@@ -61,7 +55,7 @@ const NavBarHome = ({
       </div>
 
       <div className={largeWidth ? 'col-md-4 actions-note' : 'actions-note'}>
-        {loading
+        {largeWidth && (loading
           ? onEdition.id && <LoopOutlinedIcon className="loop-out" />
           : onEdition.id && (
           <IconButton
@@ -72,7 +66,7 @@ const NavBarHome = ({
           >
             <CloudUploadOutlinedIcon />
           </IconButton>
-          )}
+          ))}
         {largeWidth && (
           <IconButton
             id="btn-home"
@@ -88,21 +82,19 @@ const NavBarHome = ({
               <Chip
                 clickable
                 variant="outlined"
-                icon={
-                  <CollectionsBookmarkOutlinedIcon style={{ color: '#FFFF' }} />
-                }
                 label={collection.name}
                 className="chip-out"
                 onClick={() => setOpenColModal(true)}
+                size="small"
               />
             ) : (
               <Chip
                 clickable
                 color="secondary"
                 id="back-blue"
-                icon={<AddIcon />}
                 label="Añadir colección"
                 onClick={() => setOpenColModal(true)}
+                size="small"
               />
             )}
           </div>

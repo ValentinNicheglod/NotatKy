@@ -7,9 +7,10 @@
 }
 
 .profile-sidebar {
-  padding: 60px 0 10px 0;
+  /* padding: 60px 0 10px 0; */
   background: transparent;
-  height: 100px;
+  height: 100%;
+  padding: 0;
 }
 
 .profile-userpic {
@@ -283,9 +284,9 @@ li{
     width: 98%!important;
   }
 
-  .MuiFormControl-root{
+  /* .MuiFormControl-root{
     width: 98%!important;
-  }
+  } */
 
   .dark{
     background-color: #343a40!important;
@@ -315,6 +316,15 @@ li{
       opacity: 0;
       -moz-opacity: 0;
       filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0)
+  }
+
+  .add{
+    padding: 0!important;
+    padding-left: 15px!important;
+  }
+
+  .profile-sidebar{
+    height: 100%;
   }
 }
  

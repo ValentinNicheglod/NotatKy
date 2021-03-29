@@ -70,7 +70,6 @@ const SettingsCollections = ({ match }) => {
 
   const handleChangeCollection = (data) => {
     dispatch(updateCollection(data));
-    // updateInformation();
     setEditing({
       ...editing,
       col: undefined,
@@ -87,7 +86,6 @@ const SettingsCollections = ({ match }) => {
       ...open,
       col: false,
     });
-    // updateInformation();
     setSnackbar({
       open: true,
       message: 'Colección creada',
@@ -135,7 +133,6 @@ const SettingsCollections = ({ match }) => {
       ...open,
       tag: false,
     });
-    // updateInformation();
     setSnackbar({
       open: true,
       message: 'Etiqueta creada',

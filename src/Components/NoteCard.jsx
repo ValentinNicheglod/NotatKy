@@ -14,9 +14,9 @@ const NoteCard = ({
     className="card note-card"
     id={darkMode && 'dark-blue'}
     onClick={() => editNote(id)}
-    onKeyDown={() => editNote(id)} //!
-    role="button" //!
-    tabIndex={0} //!
+    onKeyDown={() => editNote(id)}
+    role="button"
+    tabIndex={0}
   >
     <div className="card-title">
       <h3>{title.length > 20 ? `${title.slice(0, 20)}...` : title || 'Sin título'}</h3>

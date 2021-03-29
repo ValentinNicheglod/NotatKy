@@ -132,17 +132,19 @@ const SettingsCollections = () => {
   const largeWidth = window.screen.width > 600;
 
   const showSnackBar = (message, status, undo) => {
-    status === 201
-      ? setSnackbar({
+    if (status === 201) {
+      setSnackbar({
         open: true,
         message,
         undo,
-      })
-      : setSnackbar({
+      });
+    } else {
+      setSnackbar({
         open: true,
         message: 'Ha ocurrido un error',
         undo: false,
       });
+    }
   };
 
   const saveNote = () => {
@@ -215,15 +217,11 @@ const SettingsCollections = () => {
         userId,
       ),
     );
-    /* setOnEdition({
-      title: '',
-      content: '',
-    }); */
   };
 
   const duplicateNote = () => {
-    onEdition.id
-      && dispatch(
+    if (onEdition.id) {
+      dispatch(
         createNote(
           {
             ...notes.note,
@@ -231,12 +229,10 @@ const SettingsCollections = () => {
             content: onEdition.content,
           },
           userId,
-        ),
+        )
       );
+    }
     showSnackBar('Nota duplicada', notes.response, false);
-    /* setTimeout(() => {
-      dispatch(getAllNotes(userId));
-    }, 500); */
   };
 
   const editNoteCollection = (id) => {
@@ -246,18 +242,15 @@ const SettingsCollections = () => {
         collectionId: id,
       }),
     );
-    /* setTimeout(() => {
-      dispatch(getAllNotes(userId));
-    }, 500); */
   };
 
   const editNote = (id) => {
     const noteById = notes.notes.filter((note) => note.id === id);
-    onEdition.id && saveNote();
+    if (onEdition.id) saveNote();
     setTimeout(() => {
       setOnEdition(noteById[0]);
       dispatch(getOneNote(id));
-      !largeWidth && setOpenNote(true);
+      if (!largeWidth) setOpenNote(true);
     }, 500);
   };
 
@@ -267,13 +260,13 @@ const SettingsCollections = () => {
       type: 'Colección',
       name: collections.collections.filter((col) => col.id === id)[0].name,
     });
-    pathname === '/trash'
-      ? setFilter(trashNotes.filter((note) => note.collectionId === id))
-      : pathname === '/archive'
-        ? setFilter(archivedNotes.filter((note) => note.collectionId === id))
-        : setFilter(
-          mainDashboardNotes.filter((note) => note.collectionId === id),
-        );
+    if (pathname === '/trash') {
+      setFilter(trashNotes.filter((note) => note.collectionId === id));
+    } else if (pathname === '/archive') {
+      setFilter(archivedNotes.filter((note) => note.collectionId === id));
+    } else {
+      setFilter(mainDashboardNotes.filter((note) => note.collectionId === id));
+    }
   };
 
   const filterTags = (id) => {
@@ -282,17 +275,19 @@ const SettingsCollections = () => {
       type: 'Etiqueta',
       name: tags.tags.filter((tag) => tag.id === id)[0].name,
     });
-    pathname === '/trash'
-      ? setFilter(
+    if (pathname === '/trash') {
+      setFilter(
         trashNotes.filter((note) => note.tags.some((tag) => tag.id === id)),
-      )
-      : pathname === '/archive'
-        ? setFilter(
-          archivedNotes.filter((note) => note.tags.some((tag) => tag.id === id)),
-        )
-        : setFilter(
-          mainDashboardNotes.filter((note) => note.tags.some((tag) => tag.id === id)),
-        );
+      );
+    } else if (pathname === '/archive') {
+      setFilter(
+        archivedNotes.filter((note) => note.tags.some((tag) => tag.id === id)),
+      );
+    } else {
+      setFilter(
+        mainDashboardNotes.filter((note) => note.tags.some((tag) => tag.id === id)),
+      );
+    }
   };
 
   const handleChange = (e) => {

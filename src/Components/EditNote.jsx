@@ -14,13 +14,11 @@ import FileCopyOutlinedIcon from '@material-ui/icons/FileCopyOutlined';
 import LocalOfferIcon from '@material-ui/icons/LocalOffer';
 import CloseIcon from '@material-ui/icons/Close';
 // import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
-// import MoreVertOutlinedIcon from '@material-ui/icons/MoreVertOutlined';
 import CollectionsBookmarkOutlinedIcon from '@material-ui/icons/CollectionsBookmarkOutlined';
 import CheckSharpIcon from '@material-ui/icons/CheckSharp';
 
 const EditNote = ({
   addTag,
-  automaticSave,
   changeRoute,
   collection,
   collections,
@@ -412,7 +410,6 @@ const EditNote = ({
                     </IconButton>
                     {/* <IconButton
                         className="btn"
-                        //onClick={duplicate}
                         title="Favorito"
                     >
                         <FavoriteBorderOutlinedIcon/>

@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import './css/Inicio.css';
 import LoopOutlinedIcon from '@material-ui/icons/LoopOutlined';
 import { IconButton, Snackbar } from '@material-ui/core';
 import { chargeGuestUser, login } from '../Redux/Actions/Users';
 
 import CardInfo from './CardInfo';
 import Logo from './Logo';
+import './css/Inicio.css';
 
 const cards = [
   {
@@ -93,18 +93,12 @@ const Inicio = () => {
                 INGRESAR COMO INVITADO
               </button>
             </div>
-            {/* <div className ="d-inline">
-              <Icon name="world"/>
-              <b className= "inicio-link">
-                  ES | EN
-              </b>
-          </div> */}
           </div>
         </div>
       ) : (
         <div className="px-4 my-3 d-flex justify-content-between align-items-center">
           <img
-            src="logo-wo-bg.png"
+            src="/logos/logo-wo-bg.png"
             alt="logo"
             width="60"
             height="60"
@@ -112,7 +106,7 @@ const Inicio = () => {
           />
           <div className="d-inline">
             <Link to="/login" className="inicio-link">
-              INICIAR SESIÓN
+              INICIAR
             </Link>
             <p className="inicio-link2">|</p>
             <Link to="/sign-up" className="inicio-link">
@@ -137,7 +131,7 @@ const Inicio = () => {
             }
           >
             <CardInfo
-              image={`svg/card-img-${card.img}.svg`}
+              image={`/svg/card-img-${card.img}.svg`}
               title={card.title}
               description={card.description}
               color={card.color}

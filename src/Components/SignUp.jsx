@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 import {
   IconButton, InputAdornment, Modal, Snackbar, TextField
 } from '@material-ui/core';
