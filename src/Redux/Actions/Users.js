@@ -107,7 +107,7 @@ export const login = (user, rememberInfo) => (dispatch) => {
           sessionStorage.setItem('token', response.data.token);
           sessionStorage.setItem('id', response.data.user.id);
         }
-        history.push('/home');
+        history.push('/NotatKy/#/home');
       });
   } catch (err) {
     console.log(err);
