@@ -13,6 +13,18 @@
   padding-left: 0px;
 }
 
+#side-bar--cont{
+  height: 90%;
+  overflow-y: auto;
+  padding-right: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .nav-home{
   width: 100%;
   top: 0px;
@@ -24,15 +36,48 @@
   height: 100%;
 }
 
+.spinner-border{
+  color: #A333C8!important;
+  width: 2%;
+  aspect-ratio: 1/1;
+  height: auto;
+}
+
+.spinner-border-2{
+  color: #645BCC!important;
+  width: 4%!important;
+  height: auto;
+  position: absolute;
+}
+
+.spinner-border-3{
+  color: #A333C8!important;
+  width: 6%!important;
+  height: auto;
+  position: absolute;
+}
+
+.spinner-border-4{
+  color: #645BCC!important;
+  width: 8%!important;
+  height: auto;
+  position: absolute;
+}
+
+.spinner-grow{
+  color: #645BCC!important;
+  position: absolute;
+}
+
 #search-note{
   width: 300px;
-  color: white;
+  color: white!important;
   text-transform: capitalize;
   font-size: 16px;
 }
 
 #search-note::placeholder{
-  color: white;
+  color: white!important;
 }
 
 .actions-note{
@@ -54,13 +99,38 @@
 }
 
 .note-card{
-  height: 150px;
+  min-height: 150px;
+  max-height: 250px;
+  height: fit-content;
   width: 97%;
   margin: 10px;
   margin-left: 0px;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 5px;
   cursor: pointer;
+}
+
+.note-card:focus {
+  outline: none!important;
+}
+
+.uk-label{
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.card-text p {
+  max-width: 100%;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.card-title {
+  height: max-content;
+}
+
+.card-text {
+  min-height: 80px;
 }
 
 input::placeholder {
@@ -106,8 +176,13 @@ input::placeholder {
 
 .filter-selected{
   height: fit-content!important;
-  padding-top: 4px;
-  padding-bottom: 4px;
+  min-height: 25px;
+  background-color: #6C63FF!important;
+}
+
+.filter-selected svg{
+  height: 17px!important;
+  width: 17px!important;
 }
 
 #note-title::placeholder{
@@ -231,6 +306,11 @@ input::placeholder {
   }
 }
 
+.home-sidebar{
+  background: transparent;
+  height: 10%;
+}
+
 @media screen and (max-width: 600px){
   .nav-home{
     padding-left: 10px;
@@ -243,6 +323,10 @@ input::placeholder {
     height: 50px;
   }
 
+  #btn-home{
+    margin: 0px;
+  }
+
   .notes-cont{
     display: flex;
     justify-content: center;
@@ -252,6 +336,10 @@ input::placeholder {
     padding-top: 10px;
     padding-left: 5px;
     padding-right: 5px;
+  }
+
+  #search-note{
+    width: auto;
   }
 
   .chip-out{
@@ -348,6 +436,10 @@ input::placeholder {
     left: 10px!important;
     right: 10px!important;
     width: 95%!important;
+  }
+
+  .MuiDrawer-paper{
+    overflow-x: hidden!important;
   }
 
   .input-search{

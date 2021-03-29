@@ -18,9 +18,49 @@
     border-radius: 30px;
 }
 
+.MuiFormLabel-root.Mui-focused{
+    color: #A333C8!important;
+}
+
+.MuiInput-underline:after{
+    border-bottom: 2px solid #A333C8!important;
+}
+
+.MuiFormLabel-root.Mui-error {
+    color: #f44336!important;
+}
+
+.MuiStepLabel-label{
+    color: white!important;
+}
+
+.green-label{
+    color: green!important;
+}
+
+.MuiInput-underline.Mui-error:after {
+    border-bottom-color: #f44336!important;
+}
+
 .sign-up-btn:hover{
     color: white;
     background-color: #A333C8;
+}
+
+.MuiStepper-root{
+    background: transparent!important;
+    padding-top: 0px!important;
+}
+
+.MuiStepIcon-root.MuiStepIcon-completed {
+    color: #2185D0!important;
+}
+
+#popper{
+    border: 1px solid;
+    padding: 1rem;
+    background-color: #FFFF;
+    margin-left: 10px;
 }
 
 .login-p{
@@ -28,10 +68,11 @@
 }
 
 .reset-pw{
-    height: 300px;
+    height: fit-content;
     width: 400px;
     border-radius: 20px;
-    padding: 150px 3rem 3rem 3rem;
+    padding: 3rem;
+    color: #383c3f;
 }
 
 .login-logo{
@@ -46,3 +87,42 @@
     position: absolute;
     color: white;
 }
+
+.code-input {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+  .code-label {
+    margin-bottom: 16px;
+  }
+  .code-inputs {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  }
+  .code-inputs input {
+    border: none;
+    background-image: none;
+    background-color: transparent;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    text-align: center;
+    height: 40px;
+    width: 40px;
+    border-radius: 10px;
+    margin: 0 4px;
+    border: 1px solid #4f5b66;
+    font-size: 25px;
+  }
+  .code-inputs input:focus {
+    outline: none;
+  }
+  .code-inputs input:nth-child(3n) {
+    margin-right: 24px;
+  }
+
+  .stepper-pw{
+      height: fit-content!important;
+  }
