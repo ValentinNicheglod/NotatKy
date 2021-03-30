@@ -294,10 +294,15 @@ const Collections = ({
               </DialogContentText>
             </DialogContent>
             <DialogActions>
-              <Button onClick={() => setOpenDialog(false)} color="primary">
+              <Button
+                className="btn"
+                onClick={() => setOpenDialog(false)}
+                color="primary"
+              >
                 Cancelar
               </Button>
               <Button
+                className="btn"
                 onClick={() => {
                   handleDelete(editCollection.id);
                   setOpenDialog(false);

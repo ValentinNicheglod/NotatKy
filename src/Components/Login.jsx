@@ -138,6 +138,7 @@ const Login = () => {
               alt=""
               className="mb-2"
               draggable="false"
+              style={{ pointerEvents: 'none' }}
             />
           </div>
           <p className="login-p">Ingresa con tu correo...</p>
@@ -211,10 +212,7 @@ const Login = () => {
                 : 'w-50 d-flex justify-content-center'
             }
           >
-            <p className="login-p">¿No tienes cuenta?</p>
-          </div>
-          <div className={largeWidth ? 'col-md-3 p-0 mt-2' : 'w-25  mt-2'}>
-            <hr />
+            <p className="login-p">¿No tienes una cuenta?</p>
           </div>
           <Link to="/sign-up" className="sign-up-btn ui btn mt-3 ">
             REGISTRATE
@@ -222,7 +220,7 @@ const Login = () => {
           <hr className="mt-4 mb-3" />
           <Link
             to="/reset-password"
-            className="d-flex justify-content-center login-p"
+            className="d-flex justify-content-center login-p mb-3"
           >
             ¿Olvidaste tu contraseña?
           </Link>

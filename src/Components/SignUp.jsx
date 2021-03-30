@@ -166,7 +166,8 @@ const SignUp = () => {
     <div className="login-bg full-height d-flex justify-content-center align-items-center row">
       {largeWidth && <Logo />}
       <div className="card-round card d-flex justify-content-center sign-up">
-        <form>
+        { /* !!Agrego clases */ }
+        <form className="all-center row">
           <h3 className="card-title d-flex justify-content-center">
             CREAR USUARIO
           </h3>
@@ -178,6 +179,7 @@ const SignUp = () => {
               alt=""
               className="mb-2"
               draggable="false"
+              style={{ pointerEvents: 'none' }}
             />
           </div>
           <p className="login-p">Completa el formulario con tus datos...</p>

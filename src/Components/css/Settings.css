@@ -166,7 +166,7 @@ li{
 .btn-outline-primary:hover{
   background-color: transparent;
   color:  #2185D0;
-  border: 1px solid  #2185D0;
+  border: 2px solid  #2185D0;
 }
 
 #tab-col-table{

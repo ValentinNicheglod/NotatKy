@@ -85,6 +85,7 @@ const SideBarSettings = ({ setDrawerOpen }) => {
       <div className="profile-sidebar full-height">
         <div
           onClick={() => changeRoute('/home')}
+          className="btn"
           style={{ cursor: 'pointer', height: '15%' }}
           onKeyDown={() => changeRoute('/home')}
           role="button"
