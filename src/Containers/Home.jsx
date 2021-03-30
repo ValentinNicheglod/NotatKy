@@ -187,6 +187,7 @@ const SettingsCollections = () => {
   };
 
   const closeNote = () => {
+    saveNote();
     setOpenNote(false);
     setTimeout(() => {
       setOnEdition({

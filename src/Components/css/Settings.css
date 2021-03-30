@@ -14,9 +14,8 @@
 }
 
 .profile-userpic {
-  width: 70%!important;
-  height: auto!important;
-  aspect-ratio: 1/1!important;
+  width: 25vw!important;
+  height: 25vw!important;
   font-size: 10vh!important;
   font-family:sans-serif!important;
   letter-spacing: -5px;
@@ -294,6 +293,12 @@ li{
 
   .modal-col-action{
     width: 100%;
+  }
+
+  .modal-col{
+    height: fit-content;
+    max-height: 90%;
+    overflow-y: auto;
   }
 
   .main-logo{

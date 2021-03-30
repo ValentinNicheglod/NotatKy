@@ -162,7 +162,7 @@ const Notes = ({
                     src="svg/oops.svg"
                     width="50%"
                     alt="not-found"
-                    style={{ marginBottom: '10%' }}
+                    style={{ marginBottom: '10%', pointerEvents: 'none' }}
                   />
                   <p className="all-center">
                     <b>No hay coincidencias</b>
@@ -175,7 +175,7 @@ const Notes = ({
                     src="svg/oops.svg"
                     width="50%"
                     alt="not-found"
-                    style={{ marginBottom: '10%' }}
+                    style={{ marginBottom: '10%', pointerEvents: 'none' }}
                   />
                   <p className="all-center">
                     <b>No hay notas</b>

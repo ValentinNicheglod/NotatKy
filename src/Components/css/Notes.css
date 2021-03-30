@@ -38,29 +38,28 @@ input::-webkit-inner-spin-button {
 
 .spinner-border{
   color: #A333C8!important;
-  width: 2%;
-  aspect-ratio: 1/1;
-  height: auto;
+  width: 10vh!important;
+  height: 10vh!important;
 }
 
 .spinner-border-2{
   color: #645BCC!important;
-  width: 4%!important;
-  height: auto;
+  width: 12vh!important;
+  height: 12vh!important;
   position: absolute;
 }
 
 .spinner-border-3{
   color: #A333C8!important;
-  width: 6%!important;
-  height: auto;
+  width: 14vh!important;
+  height: 14vh!important;
   position: absolute;
 }
 
 .spinner-border-4{
   color: #645BCC!important;
-  width: 8%!important;
-  height: auto;
+  width: 16vh!important;
+  height: 16vh!important;
   position: absolute;
 }
 
@@ -342,6 +341,14 @@ input::placeholder {
     width: auto;
   }
 
+  #dark-border{
+    background-color: #6b705c;
+  }
+
+  .h-95{
+    height: 85%
+  }
+
   .chip-out{
     border-color: white!important;
     border-width: 2px!important;
@@ -418,6 +425,7 @@ input::placeholder {
     font-size: 2rem;
     height: 2rem;
     margin-top: 10px;
+    margin-bottom: 10px;
   }
 
   #note-title::placeholder{
@@ -448,5 +456,32 @@ input::placeholder {
 
   #side-bar--cont{
     padding-left: 0;
+  }
+
+  .spinner-border{
+    color: #A333C8!important;
+    width: 15vh!important;
+    height: 15vh!important;
+  }
+  
+  .spinner-border-2{
+    color: #645BCC!important;
+    width: 17vh!important;
+    height: 17vh!important;
+    position: absolute;
+  }
+  
+  .spinner-border-3{
+    color: #A333C8!important;
+    width: 19h;
+    height: 19vh!important;
+    position: absolute;
+  }
+  
+  .spinner-border-4{
+    color: #645BCC!important;
+    width: 21vh!important;
+    height: 21vh!important;
+    position: absolute;
   }
 }
