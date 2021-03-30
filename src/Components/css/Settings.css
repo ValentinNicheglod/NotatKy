@@ -28,8 +28,8 @@
 .profile-userpic img {
   float: none;
   margin: 0 auto;
-  width: 180px;
-  height: 180px;
+  width: 25vw;
+  height: 25vw;
   border-radius: 90px !important;
 }
 
@@ -330,6 +330,11 @@ li{
 
   .profile-sidebar{
     height: 100%;
+  }
+
+  .profile-userpic{
+    width: 35vw!important;
+    height: 35vw!important;
   }
 }
  

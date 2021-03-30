@@ -341,10 +341,6 @@ input::placeholder {
     width: auto;
   }
 
-  #dark-border{
-    background-color: #6b705c;
-  }
-
   .h-95{
     height: 85%
   }
@@ -437,6 +433,8 @@ input::placeholder {
 
   #dark-border{
     border: none;
+    background-color: #343a40;
+    height: 100%;
   }
   
   .MuiSnackbar-root{
