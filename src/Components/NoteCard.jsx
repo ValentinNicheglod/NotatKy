@@ -22,7 +22,7 @@ const NoteCard = ({
       <h3>{title.length > 20 ? `${title.slice(0, 20)}...` : title || 'Sin título'}</h3>
     </div>
     <div className="card-text d-flex h-100">
-      <p>{content.length > 100 ? `${content.slice(0, 100)}...` : content}</p>
+      <p>{content.length > 150 ? `${content.slice(0, 100)}...` : content}</p>
     </div>
     <div
       className="card-footer d-flex justify-content-between align-items-center px-0"

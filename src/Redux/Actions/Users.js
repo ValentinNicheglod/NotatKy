@@ -108,6 +108,8 @@ export const login = (user, rememberInfo) => (dispatch) => {
           sessionStorage.setItem('id', response.data.user.id);
         }
         history.push('/NotatKy/#/home');
+        // eslint-disable-next-line no-restricted-globals
+        location.reload();
       });
   } catch (err) {
     console.log(err);

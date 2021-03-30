@@ -43,6 +43,8 @@ const Inicio = () => {
   useEffect(() => {
     if (token) {
       history.push('/home');
+      // eslint-disable-next-line no-restricted-globals
+      location.reload();
     }
   });
 
