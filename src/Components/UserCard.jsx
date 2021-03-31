@@ -26,9 +26,7 @@ const UserCard = ({
         <Avatar
           alt="profile_photo"
           className="my-3 profile-userpic"
-          imgProps={{
-            draggable: false
-          }}
+          draggable={false}
           sizes={180}
           src={`data:${
             user.profile_photo && user.profile_photo.contentType

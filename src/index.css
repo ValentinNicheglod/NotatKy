@@ -44,10 +44,6 @@ html, body, .App {
   color: white!important;
 }
 
-.main-logo{
-  height: 100%;
-}
-
 .sticky-vert {
   position: fixed;
   top: 0;
@@ -125,6 +121,10 @@ textarea::placeholder {
 
 .display1{
   color: inherit!important;
+}
+
+.none{
+  display: none;
 }
 
 #dark{

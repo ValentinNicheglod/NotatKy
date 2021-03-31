@@ -14,8 +14,8 @@
 }
 
 .profile-userpic {
-  width: 25vw!important;
-  height: 25vw!important;
+  width: 25vh!important;
+  height: 25vh!important;
   font-size: 10vh!important;
   font-family:sans-serif!important;
   letter-spacing: -5px;
@@ -28,8 +28,8 @@
 .profile-userpic img {
   float: none;
   margin: 0 auto;
-  width: 25vw;
-  height: 25vw;
+  width: 25vh;
+  height: 25vh;
   border-radius: 90px !important;
 }
 

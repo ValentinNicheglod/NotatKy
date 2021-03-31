@@ -177,7 +177,7 @@ const SignUp = () => {
               src="svg/sign-up.svg"
               width="90%"
               alt=""
-              className="mb-2"
+              className="mb-2 img-card"
               draggable="false"
               style={{ pointerEvents: 'none' }}
             />

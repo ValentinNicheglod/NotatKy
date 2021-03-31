@@ -492,12 +492,24 @@ input::placeholder {
     overflow-y: hidden;
   }
 
+  .inicio-logo .main-logo {
+    height: 100%;
+  }
+
   .tag-cont hr{
     margin: 0!important;
   }
 
+  .img-card{
+    display: none;
+  }
+
   .btn-add-col{
     font-size: 12px;
+  }
+
+  .card-img-top{
+    
   }
 
   #search-note{

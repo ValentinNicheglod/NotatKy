@@ -136,7 +136,7 @@ const Login = () => {
               src="svg/login.svg"
               width="90%"
               alt=""
-              className="mb-2"
+              className="mb-2 img-card"
               draggable="false"
               style={{ pointerEvents: 'none' }}
             />
@@ -202,19 +202,25 @@ const Login = () => {
                 </div> */}
 
         <div className="login-sign-up my-3 row bs-gutter">
-          <div className={largeWidth ? 'col-md-3 p-0 mt-2' : 'w-25  mt-2'}>
+          <div className={largeWidth ? 'col-md-3 p-0 mt-2' : 'none'}>
             <hr />
           </div>
           <div
             className={
               largeWidth
                 ? 'col-md-6 d-flex justify-content-center'
-                : 'w-50 d-flex justify-content-center'
+                : 'w-100 d-flex justify-content-center'
             }
           >
             <p className="login-p">¿No tienes una cuenta?</p>
           </div>
-          <Link to="/sign-up" className="sign-up-btn ui btn mt-3 ">
+          <div className={largeWidth ? 'col-md-3 p-0 mt-2' : 'none'}>
+            <hr />
+          </div>
+          <Link
+            to="/sign-up"
+            className={largeWidth ? 'sign-up-btn ui btn mt-3' : 'd-flex justify-content-center login-p mt-3'}
+          >
             REGISTRATE
           </Link>
           <hr className="mt-4 mb-3" />
