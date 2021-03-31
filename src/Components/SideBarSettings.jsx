@@ -86,14 +86,14 @@ const SideBarSettings = ({ setDrawerOpen }) => {
         <div
           onClick={() => changeRoute('/home')}
           className="btn"
-          style={{ cursor: 'pointer', height: '15%' }}
+          style={{ cursor: 'pointer', height: '10%' }}
           onKeyDown={() => changeRoute('/home')}
           role="button"
           tabIndex={0}
         >
           <Logo />
         </div>
-        <div className="overflow-y" style={{ height: '85%' }}>
+        <div className="overflow-y" style={{ height: '90%' }}>
           {(path !== '/edit profile' || !largeWidth) && (
             <>
               {user.profile_photo ? (

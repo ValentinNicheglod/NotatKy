@@ -287,6 +287,12 @@ li{
     width: 98%!important;
   } */
 
+  .user-profile .btn-outline-success{
+    border-radius: 30px;
+    font-weight: bolder;
+    text-transform: uppercase;
+  }
+
   .dark{
     background-color: #343a40!important;
   }
@@ -333,8 +339,8 @@ li{
   }
 
   .profile-userpic{
-    width: 35vw!important;
-    height: 35vw!important;
+    width: 35vh!important;
+    height: 35vh!important;
   }
 }
  

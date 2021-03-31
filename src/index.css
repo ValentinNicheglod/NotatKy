@@ -45,11 +45,7 @@ html, body, .App {
 }
 
 .main-logo{
-  width: 200px;
-  margin-left: 30px;
-  position: absolute;
-  top: 0px;
-  left: -25px;
+  height: 100%;
 }
 
 .sticky-vert {

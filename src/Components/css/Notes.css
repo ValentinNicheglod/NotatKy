@@ -377,6 +377,7 @@ input::placeholder {
   .modal-col{
     min-width: 80%;
     max-width: 90%;
+    height: 80%;
   }
 
   .actions-notes{
@@ -418,14 +419,12 @@ input::placeholder {
   }
 
   #note-title{
-    font-size: 2rem;
-    height: 2rem;
+    height: fit-content;
     margin-top: 10px;
     margin-bottom: 10px;
   }
 
   #note-title::placeholder{
-    font-size: 2rem;
     font-weight: 300;
     line-height: 1.2;
     font-family: Lato,'Helvetica Neue', Arial, Helvetica, sans-serif;
@@ -458,28 +457,50 @@ input::placeholder {
 
   .spinner-border{
     color: #A333C8!important;
-    width: 15vh!important;
-    height: 15vh!important;
+    width: 10vh!important;
+    height: 10vh!important;
   }
   
   .spinner-border-2{
     color: #645BCC!important;
-    width: 17vh!important;
-    height: 17vh!important;
-    position: absolute;
+    width: 13vh!important;
+    height: 13vh!important;
+    position: absolute!important;
   }
   
   .spinner-border-3{
     color: #A333C8!important;
-    width: 19h;
-    height: 19vh!important;
-    position: absolute;
+    width: 16vh;
+    height: 16vh!important;
+    position: absolute!important;
   }
   
   .spinner-border-4{
     color: #645BCC!important;
-    width: 21vh!important;
-    height: 21vh!important;
-    position: absolute;
+    width: 19vh!important;
+    height: 19vh!important;
+    position: absolute!important;
+  }
+}
+
+@media screen and (max-height: 665px){
+  .modal-col{
+    min-width: 80%;
+    max-width: 90%;
+    height: 90%;
+    padding: 1rem;
+    overflow-y: hidden;
+  }
+
+  .tag-cont hr{
+    margin: 0!important;
+  }
+
+  .btn-add-col{
+    font-size: 12px;
+  }
+
+  #search-note{
+    font-size: 12px;
   }
 }
