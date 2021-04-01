@@ -6,8 +6,6 @@ const Logo = () => (
       <img
         src="logos/logo-wo-bg.png"
         alt="logo"
-        width="10vh"
-        height="10vh"
         className="logo-nav"
         draggable="false"
         style={{ pointerEvents: 'none' }}

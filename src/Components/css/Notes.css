@@ -265,6 +265,10 @@ input::placeholder {
   border-bottom-right-radius: 21px!important;
 }
 
+.note-cont-4{
+  height: 90%!important;
+}
+
 #back-blue{
   background-color: #2185D0;
 }

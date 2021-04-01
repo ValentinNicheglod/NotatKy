@@ -76,14 +76,16 @@ const SignUp = () => {
   };
 
   const handleFocusOut = () => {
-    if (/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(data.email)) {
-      setError({ ...error, email: false });
-      setError({
-        ...error,
-        duplicatedEmail: users.users[0] && users.users.includes(data.email)
-      });
-    } else {
-      setError({ ...error, email: true });
+    if (data.email.length > 0) {
+      if (/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(data.email)) {
+        setError({ ...error, email: false });
+        setError({
+          ...error,
+          duplicatedEmail: users.users[0] && users.users.includes(data.email)
+        });
+      } else {
+        setError({ ...error, email: true });
+      }
     }
   };
 
@@ -164,9 +166,12 @@ const SignUp = () => {
 
   return (
     <div className="login-bg full-height d-flex justify-content-center align-items-center row">
-      {largeWidth && <Logo />}
+      {largeWidth && (
+      <div style={{ position: 'absolute', top: '10px', left: '10px' }}>
+        <Logo />
+      </div>
+      )}
       <div className="card-round card d-flex justify-content-center sign-up">
-        { /* !!Agrego clases */ }
         <form className="all-center row">
           <h3 className="card-title d-flex justify-content-center">
             CREAR USUARIO
@@ -187,6 +192,9 @@ const SignUp = () => {
             <FaceIcon />
             <TextField
               className="textfield name"
+              InputProps={{
+                autoComplete: 'name'
+              }}
               label="Nombre"
               name="name"
               onChange={handleChange}
@@ -194,6 +202,9 @@ const SignUp = () => {
             />
             <TextField
               className="textfield name"
+              InputProps={{
+                autoComplete: 'family-name'
+              }}
               label="Apellido"
               name="lastname"
               onChange={handleChange}
@@ -223,7 +234,7 @@ const SignUp = () => {
                 className: (!error.email && error.duplicatedEmail === false) && 'green-label'
               }}
               InputProps={{
-                autoComplete: 'newPassword',
+                autoComplete: 'email',
                 endAdornment: (
                   <InputAdornment aria-describedby="popper" id="input-ador" position="end">
                     {
@@ -244,6 +255,9 @@ const SignUp = () => {
               className="textfield"
               error={error.password}
               helperText={error.password && 'La contraseña debe tener al menos seis caracteres'}
+              InputProps={{
+                autoComplete: 'new-password'
+              }}
               label="Contraseña"
               name="password"
               onChange={handleChange}
@@ -257,6 +271,9 @@ const SignUp = () => {
               className="textfield"
               error={error.confirmPassword}
               helperText={error.confirmPassword && 'Las contraseñas no coínciden'}
+              InputProps={{
+                autoComplete: 'new-password'
+              }}
               type="password"
               label="Repite la contraseña"
               name="confirmPassword"

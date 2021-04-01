@@ -124,7 +124,11 @@ const Login = () => {
 
   return (
     <div className="login-bg full-height d-flex justify-content-center align-items-center row">
-      {largeWidth && <Logo />}
+      {largeWidth && (
+      <div style={{ position: 'absolute', top: '10px', left: '10px' }}>
+        <Logo />
+      </div>
+      )}
       <div className="card-round card d-flex justify-content-between p-5">
         <form className="all-center row">
           <h3 className="card-title d-flex justify-content-center">
@@ -146,6 +150,9 @@ const Login = () => {
             <AlternateEmailIcon />
             <TextField
               className="textfield"
+              InputProps={{
+                autoComplete: 'email'
+              }}
               label="Correo electrónico"
               name="email"
               onChange={handleChange}
@@ -157,6 +164,9 @@ const Login = () => {
             <VpnKeyIcon />
             <TextField
               className="textfield"
+              InputProps={{
+                autoComplete: 'current-password'
+              }}
               label="Contraseña"
               name="password"
               value={data.password}
