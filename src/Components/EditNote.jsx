@@ -44,10 +44,12 @@ const EditNote = ({
 }) => {
   const colModal = (
     <div className="modal-col">
-      <h2 id="simple-modal-title" className="display-6">
-        {note.collectionId ? 'Editar colección' : 'Añadir colección'}
-      </h2>
-      <hr />
+      <div>
+        <h2 id="simple-modal-title" className="display-6">
+          {note.collectionId ? 'Editar colección' : 'Añadir colección'}
+        </h2>
+        <hr />
+      </div>
       <div className="tag-cont">
         {collections.length > 0 ? (
           collections
@@ -141,10 +143,12 @@ const EditNote = ({
 
   const tagModal = (
     <div className="modal-col">
-      <h2 id="simple-modal-title" className="display-6">
-        {largeWidth ? 'Añadir etiquetas' : 'Editar etiquetas'}
-      </h2>
-      <hr />
+      <div>
+        <h2 id="simple-modal-title" className="display-6">
+          {largeWidth ? 'Añadir etiquetas' : 'Editar etiquetas'}
+        </h2>
+        <hr />
+      </div>
       <div className="tag-cont">
         {tags.length > 0 ? (
           tags

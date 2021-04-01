@@ -201,10 +201,6 @@ input::placeholder {
   border-width: 0px;
 }
 
-.h-95{
-  height: 91%
-}
-
 .actions-notes{
   height: 5%;
   width: 100%;
@@ -371,6 +367,7 @@ input::placeholder {
   .note-cont-4{
     width: 100%!important;
     margin: 0;
+    height: 90%!important;
     padding: 0;
   }
 
@@ -383,6 +380,8 @@ input::placeholder {
   .actions-notes{
     padding: 1!important;
     --bs-gutter-x: 0;
+    position: absolute;
+    bottom: 10px;
   }
 
   .tag-cont-show{
@@ -470,7 +469,7 @@ input::placeholder {
   
   .spinner-border-3{
     color: #A333C8!important;
-    width: 16vh;
+    width: 16vh!important;
     height: 16vh!important;
     position: absolute!important;
   }

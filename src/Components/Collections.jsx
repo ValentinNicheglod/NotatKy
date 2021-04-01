@@ -69,8 +69,10 @@ const Collections = ({
 
   const modal = (
     <div className="modal-col">
-      <h2 id="simple-modal-title" className="display-6">Crear una colección...</h2>
-      <hr />
+      <div>
+        <h2 id="simple-modal-title" className="display-6">Crear una colección...</h2>
+        <hr />
+      </div>
       <div className="all-center">
         <img
           src="svg/collection.svg"
