@@ -123,7 +123,7 @@ const Tags = ({
         onChange={newData}
       />
       <div className="w-100 row my-3">
-        <p style={{ fontSize: '1rem' }}>Color</p>
+        {!superSmallWidth && <p style={{ fontSize: '1rem' }}>Color</p>}
         <div className="d-flex justify-content-between w-100">
           {colors.map((dot) => (
             <IconButton

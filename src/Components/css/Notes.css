@@ -83,6 +83,8 @@ input::-webkit-inner-spin-button {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  width: 100%;
+  bottom: 0px;
 }
 
 .greeting-note{
@@ -199,12 +201,6 @@ input::placeholder {
 .note-content:focus{
   outline: none;
   border-width: 0px;
-}
-
-.actions-notes{
-  height: 5%;
-  width: 100%;
-  bottom: 0px;
 }
 
 .input-search{
@@ -375,6 +371,7 @@ input::placeholder {
     min-width: 80%;
     max-width: 90%;
     height: 80%;
+    max-height: 90%;
   }
 
   .actions-notes{
@@ -480,15 +477,33 @@ input::placeholder {
     height: 19vh!important;
     position: absolute!important;
   }
+
+  .card-img-top{
+    height: auto!important;
+  }
+
+  .total-width{
+    width: 100%!important;
+  }
+
+  .reset-pw img{
+    width: 70%!important;
+    margin-left: 15%;
+  }
 }
 
 @media screen and (max-height: 665px){
+  hr{
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
   .modal-col{
     min-width: 80%;
     max-width: 90%;
     height: 90%;
     padding: 1rem;
     overflow-y: hidden;
+    max-height: 90%;
   }
 
   .inicio-logo .main-logo {
@@ -507,11 +522,37 @@ input::placeholder {
     font-size: 12px;
   }
 
-  .card-img-top{
-    
-  }
-
   #search-note{
     font-size: 12px;
+  }
+
+/*   .tag-cont-show{
+    width: 50%!important;
+  } */
+
+  .actions-notes{
+    width: -webkit-fill-available;
+  }
+
+  .MuiIconButton-root{
+    padding: 6px!important;
+  }
+
+  .MuiList-root hr{
+    margin-bottom: 5px!important;
+    margin-top: 5px!important;
+  }
+
+  .MuiListItem-root{
+    padding-top: 4px!important;
+    padding-bottom: 4px!important;
+  }
+
+  #home-side-bar{
+    margin-top: 10px;
+  }
+
+  .add{
+    padding: 0!important;
   }
 }

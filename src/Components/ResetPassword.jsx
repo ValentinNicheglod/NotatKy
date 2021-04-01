@@ -37,6 +37,8 @@ const ResetPassword = () => {
   const [loading, setLoading] = useState(false);
   const inputs = useRef([]);
   const largeWidth = window.screen.width > 600;
+  const superSmallWidth = window.screen.width < 350;
+
 
   const users = useSelector((state) => state.users);
 
@@ -154,7 +156,7 @@ const ResetPassword = () => {
         <div className="reset-pw card card-round d-flex justify-content-between">
           <form>
             <h3 className="card-title d-flex justify-content-center">
-              REESTABLECE TU CONTRASEÑA
+              RESTABLECER CONTRASEÑA
             </h3>
             <hr />
             {
@@ -285,7 +287,7 @@ const ResetPassword = () => {
                 )
             }
           </form>
-          {!largeWidth
+          {!largeWidth && !superSmallWidth
         && (
         <div className="d-flex all-center w-100">
           <Stepper activeStep={step - 1} alternativeLabel className="w-100">
