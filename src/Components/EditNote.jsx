@@ -357,7 +357,7 @@ const EditNote = ({
                   : 'm-0 d-flex justify-content-between align-items-center'
               }
             >
-              {!largeWidth ? (
+              {!largeWidth && (
                 <div className="d-flex align-items-center tag-cont-show">
                   {note.tags
                     && note.tags.map(
@@ -400,9 +400,6 @@ const EditNote = ({
                       <LocalOfferIcon />
                     </IconButton>
                   )}
-                </div>
-                : <div>
-                  
                 </div>
               )}
               <div>

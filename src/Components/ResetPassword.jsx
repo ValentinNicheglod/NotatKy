@@ -39,7 +39,6 @@ const ResetPassword = () => {
   const largeWidth = window.screen.width > 600;
   const superSmallWidth = window.screen.width < 350;
 
-
   const users = useSelector((state) => state.users);
 
   useEffect(() => {
