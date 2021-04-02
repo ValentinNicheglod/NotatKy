@@ -75,7 +75,7 @@ const Login = () => {
             message: 'Los datos ingresados no son correctos'
           });
         }
-      }, 2000);
+      }, 4000);
     }
   };
 
@@ -88,7 +88,7 @@ const Login = () => {
         <hr />
         <div className="all-center">
           <img
-            src="svg/login-info.svg"
+            src="svg/save-data.svg"
             width={largeWidth ? '60%' : '100%'}
             alt=""
             className="mb-2"

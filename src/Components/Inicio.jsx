@@ -69,7 +69,7 @@ const Inicio = () => {
   };
 
   return (
-    <div className={largeWidth ? 'login-bg full-height row' : 'login-bg row'}>
+    <div className={largeWidth ? 'login-bg full-height row' : 'login-bg row overflow-hidden'}>
       {largeWidth ? (
         <div className="inicio-nav row d-flex align-items-center">
           <div className="col-md-4 logo-cont pl-2">
@@ -121,7 +121,7 @@ const Inicio = () => {
         className={
           largeWidth
             ? 'd-flex row d-flex align-items-start'
-            : 'd-flex row d-flex justify-content-center w-100 m-0'
+            : 'd-flex row d-flex justify-content-center w-100 m-0 overflow-y'
         }
       >
         {cards.map((card) => (

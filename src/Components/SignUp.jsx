@@ -193,7 +193,7 @@ const SignUp = () => {
             <TextField
               className="textfield name"
               InputProps={{
-                autoComplete: 'name'
+                autoComplete: 'given-name'
               }}
               label="Nombre"
               name="name"
