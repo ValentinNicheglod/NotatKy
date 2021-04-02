@@ -83,7 +83,6 @@ input::-webkit-inner-spin-button {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  width: 100%;
   bottom: 0px;
 }
 
@@ -307,6 +306,9 @@ input::placeholder {
 }
 
 @media screen and (max-width: 600px){
+  #hidden-overflow{
+    overflow: hidden;
+  }
   .nav-home{
     padding-left: 10px;
     padding-right: 10px;
@@ -510,16 +512,8 @@ input::placeholder {
     max-height: 90%;
   }
 
-  .inicio-logo .main-logo {
-    height: 100%;
-  }
-
   .tag-cont hr{
     margin: 0!important;
-  }
-
-  .img-card{
-    display: none;
   }
 
   .btn-add-col{
@@ -547,16 +541,38 @@ input::placeholder {
     margin-top: 5px!important;
   }
 
-  .MuiListItem-root{
-    padding-top: 4px!important;
-    padding-bottom: 4px!important;
-  }
-
   #home-side-bar{
-    margin-top: 10px;
+    padding-top: 10px;
   }
 
   .add{
     padding: 0!important;
+  }
+}
+
+@media screen and (max-height: 616px){
+  .img-card{
+    width: 70%!important;
+  }
+
+  .MuiListItem-root{
+    padding-top: 4px!important;
+    padding-bottom: 4px!important;
+  }
+}
+
+@media screen and (max-height: 575px){
+  .login-p{
+    display: none;
+  }
+
+  .hr-pad{
+    margin: 2px!important;
+  }
+}
+
+@media screen and (max-height: 500px){
+  .img-card{
+    display: none;
   }
 }

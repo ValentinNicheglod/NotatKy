@@ -125,11 +125,11 @@ const Login = () => {
   return (
     <div className="login-bg full-height d-flex justify-content-center align-items-center row">
       {largeWidth && (
-      <div style={{ position: 'absolute', top: '10px', left: '10px' }}>
+      <div className="logo-cont">
         <Logo />
       </div>
       )}
-      <div className="card-round card d-flex justify-content-between p-5">
+      <div className="card-round card d-flex justify-content-between p-5 no-pad">
         <form className="all-center row">
           <h3 className="card-title d-flex justify-content-center">
             INICIO DE SESIÓN
@@ -176,6 +176,7 @@ const Login = () => {
           </div>
           <Button
             color="purple"
+            disabled={data.email.length === 0 || data.password.length === 0}
             className="total-width button my-2"
             id="login-submit"
             type="button"
@@ -233,7 +234,7 @@ const Login = () => {
           >
             REGISTRATE
           </Link>
-          <hr className="mt-4 mb-3" />
+          <hr className="mt-4 mb-3 hr-pad" />
           <Link
             to="/reset-password"
             className="d-flex justify-content-center login-p mb-3"

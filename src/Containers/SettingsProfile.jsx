@@ -217,7 +217,7 @@ const SettingsProfile = () => {
                 <SideBarSettings />
               </div>
             ) : (
-              <Drawer open={drawerOpen} onClose={() => setDrawerOpen(false)}>
+              <Drawer open={drawerOpen} onClose={() => setDrawerOpen(false)} id="hidden-overflow">
                 <div className="col-md-2 login-bg p-0 full-height">
                   <SideBarSettings setDrawerOpen={setDrawerOpen} />
                 </div>

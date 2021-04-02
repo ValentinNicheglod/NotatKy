@@ -28,6 +28,17 @@ html, body, .App {
   overflow: hidden;
 }
 
+.h-90{
+  height: 90%;
+}
+
+.logo-cont{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 0;
+}
+
 .overflow-y{
   overflow-y: auto;
 }

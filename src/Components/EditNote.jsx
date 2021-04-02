@@ -60,7 +60,7 @@ const EditNote = ({
                 className="d-flex justify-content-between align-items-center px-2"
               >
                 <p className="d-inline m-0">
-                  <CollectionsBookmarkOutlinedIcon />
+                  <CollectionsBookmarkOutlinedIcon style={{ color: '#2185D0' }} />
                   &nbsp;&nbsp;&nbsp;
                   {col.name}
                 </p>
@@ -243,7 +243,7 @@ const EditNote = ({
     <div className="full-height">
       {onEdition.id ? (
         <>
-          <div className="row w-100 h-95">
+          <div className="row w-100 h-90">
             <div className="ui transparent input input-title mx-3 w-100">
               <Modal
                 open={openColModal}
@@ -293,11 +293,11 @@ const EditNote = ({
                 </div>
               )}
             </div>
-            <div className="ui transparent textarea w-100 h-95 mx-3">
+            <div className="ui transparent textarea w-100 h-90 mx-3">
               <textarea
                 placeholder="Deja fluír tus ideas..."
-                className="note-content w-100 h-95"
-                style={{ height: '95%', paddingTop: '2%' }}
+                className="note-content w-100"
+                style={{ height: '100%', paddingTop: '2%' }}
                 value={onEdition.content || ''}
                 name="content"
                 onChange={handleChange}
@@ -307,7 +307,7 @@ const EditNote = ({
             </div>
           </div>
 
-          <div className="actions-notes p-0 px-3 row">
+          <div className="actions-notes p-0 px-3 row w-100">
             {largeWidth && (
               <div className="col-md-9 m-0 d-flex align-items-center">
                 {note.tags

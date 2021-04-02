@@ -167,7 +167,7 @@ const SignUp = () => {
   return (
     <div className="login-bg full-height d-flex justify-content-center align-items-center row">
       {largeWidth && (
-      <div style={{ position: 'absolute', top: '10px', left: '10px' }}>
+      <div className="logo-cont">
         <Logo />
       </div>
       )}

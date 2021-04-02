@@ -134,6 +134,10 @@
     color: #383c3f;
   }
 
+  .no-pad{
+    padding-bottom: 0px!important;
+  }
+
   .res-pw{
       justify-content: space-between!important;
   }

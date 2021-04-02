@@ -10,7 +10,6 @@ import Login from './Components/Login';
 import ResetPassword from './Components/ResetPassword';
 import SignUp from './Components/SignUp';
 import Inicio from './Components/Inicio';
-import DownloadApp from './Components/DownloadApp';
 import SettingsProfile from './Containers/SettingsProfile';
 import SettingsCollections from './Containers/SettingsCollections';
 import Home from './Containers/Home';
@@ -31,7 +30,6 @@ function App() {
         <Route exact path="/login" component={Login} />
         <Route exact path="/reset-password" component={ResetPassword} />
         <Route exact path="/sign-up" component={SignUp} />
-        <Route exact path="/download" component={DownloadApp} />
         <Route exact path="/edit profile" component={SettingsProfile} />
         <Route
           exact

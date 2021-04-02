@@ -72,7 +72,7 @@ const Inicio = () => {
     <div className={largeWidth ? 'login-bg full-height row' : 'login-bg row'}>
       {largeWidth ? (
         <div className="inicio-nav row d-flex align-items-center">
-          <div className="col-md-4 inicio-logo pl-2">
+          <div className="col-md-4 logo-cont pl-2">
             <Logo />
           </div>
           <div className="col-md-3" />
