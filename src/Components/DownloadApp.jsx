@@ -12,7 +12,7 @@ const DownloadApp = () => (
     <h5 className="d-flex justify-content-center white">
       Te enviaremos un correo electrónico cuando hayamos finalizado
     </h5>
-    <Link className="d-flex justify-content-center link-btn btn-round" to="/">
+    <Link className="d-flex  justify-content-center link-btn btn-round" to="/">
       VOLVER AL INICIO
     </Link>
   </div>
