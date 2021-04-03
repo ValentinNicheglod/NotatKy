@@ -1,8 +1,8 @@
 .inicio-nav{
     height: 100px;
     background-color: transparent;
-    padding-right: 30px;
     padding-left: 0px;
+    justify-content: space-between;
 }
 
 .logo-nav{
@@ -72,6 +72,7 @@
     .inicio-logo{
         display: flex;
         flex-direction: row;
+        text-align: left!important;
     }
 
     .log-in{
