@@ -132,7 +132,7 @@ const Tags = ({
           maxLength: 20
         }}
         label="Nombre"
-        value={editTag ? editTag.name : newTag.name}
+        value={newTag.name}
         name="name"
         onChange={newData}
       />
@@ -170,6 +170,7 @@ const Tags = ({
                 });
                 setEditTag(null);
               }, 1500);
+              openModal('tag', false);
             }}
             type="button"
           >
@@ -323,52 +324,18 @@ const Tags = ({
                         </>
                       )
                       : (
-                        <>
-                          <IconButton
-                            className="p-2 btn"
-                            aria-controls="simple-menu"
-                            aria-haspopup="true"
-                            onClick={() => {
-                              setEditTag(tags.tags[index]);
-                              openModal('tag', true);
-                            }}
-                          >
-                            <EditSharpIcon />
-                          </IconButton>
-                          {/* <Menu
-                            id="simple-menu"
-                            anchorEl={anchorEl}
-                            keepMounted
-                            open={Boolean(anchorEl)}
-                            onClose={handleClose}
-                          >
-                            <MenuItem onClick={(i = index) => {
-                              setEditTag(tags.tags[i]);
-                              setEditing({
-                                ...editing,
-                                tag: i,
-                                col: undefined,
-                              });
-                              handleClose();
-                            }}
-                            >
-                              <ListItemIcon>
-                                <EditSharpIcon fontSize="small" />
-                              </ListItemIcon>
-                              <Typography variant="inherit">Editar</Typography>
-                            </MenuItem>
-                            <MenuItem onClick={() => {
-                              setEditTag(tags.tags[index]);
-                              setOpenDialog(true);
-                            }}
-                            >
-                              <ListItemIcon>
-                                <DeleteSharpIcon fontSize="small" />
-                              </ListItemIcon>
-                              <Typography variant="inherit">Eliminar</Typography>
-                            </MenuItem>
-                          </Menu> */}
-                        </>
+                        <IconButton
+                          className="p-2 btn"
+                          onClick={() => {
+                            setEditTag(tags.tags[index]);
+                            setNewTag({
+                              name: editTag.name
+                            });
+                            openModal('tag', true);
+                          }}
+                        >
+                          <EditSharpIcon />
+                        </IconButton>
                       )}
                   </TableCell>
                 </TableRow>
@@ -398,6 +365,10 @@ const Tags = ({
             onClose={() => {
               openModal('tag', false);
               setEditTag(null);
+              setNewTag({
+                name: '',
+                color: '',
+              });
             }}
             className="d-flex w-100 justify-content-center align-items-center"
           >
