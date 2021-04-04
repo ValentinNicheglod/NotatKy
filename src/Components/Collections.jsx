@@ -145,7 +145,7 @@ const Collections = ({
             style={{ color: 'inherit' }}
             className="btn mb-1 p-0"
           >
-            <MenuIcon style={{ color: 'inherit', width: '60%', height: '60%' }} />
+            <MenuIcon style={{ color: 'inherit' }} />
           </IconButton>
         )}
         Colecciones

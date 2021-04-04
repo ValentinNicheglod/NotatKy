@@ -266,6 +266,10 @@ li{
   width: 50%;
 }
 
+.color-dot:focus{
+  background-color: lightgray!important;
+}
+
 @media screen and (max-width: 600px){
   .user-profile{
     margin: 0!important;

@@ -191,7 +191,7 @@ const Tags = ({
             style={{ color: 'inherit' }}
             className="btn mb-1 p-0"
           >
-            <MenuIcon style={{ color: 'inherit', width: '60%', height: '60%' }} />
+            <MenuIcon style={{ color: 'inherit' }} />
           </IconButton>
         )}
         Etiquetas
@@ -245,9 +245,7 @@ const Tags = ({
                     {editing.tag === index ? (
                       colors.map((dot) => (
                         <IconButton
-                          className={
-                            tag.color === dot ? 'p-0 selected-color' : 'p-0'
-                          }
+                          className="color-dot"
                           onClick={() => newColor(dot, 'update')}
                         >
                           <FiberManualRecordIcon style={{ color: dot }} />
@@ -303,22 +301,22 @@ const Tags = ({
                             ? (
                               <IconButton
                                 className="p-2 btn"
-                                aria-controls="simple-menu"
-                                aria-haspopup="true"
-                                onClick={handleClick}
-                              >
-                                <MoreVertIcon />
-                              </IconButton>
-                            )
-                            : (
-                              <IconButton
-                                className="p-2 btn"
                                 onClick={() => {
                                   handleChange(editTag);
                                   handleClose();
                                 }}
                               >
                                 <CheckSharpIcon style={{ color: '#198754' }} />
+                              </IconButton>
+                            )
+                            : (
+                              <IconButton
+                                className="p-2 btn"
+                                aria-controls="simple-menu"
+                                aria-haspopup="true"
+                                onClick={handleClick}
+                              >
+                                <MoreVertIcon />
                               </IconButton>
                             )}
                           <Menu
