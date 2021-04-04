@@ -53,8 +53,8 @@ const Tags = ({
   setEditing,
 }) => {
   const [newTag, setNewTag] = useState({
-    name: '',
     color: '',
+    name: '',
   });
   const [editTag, setEditTag] = useState();
   const [openDialog, setOpenDialog] = useState(false);
@@ -132,7 +132,7 @@ const Tags = ({
           maxLength: 20
         }}
         label="Nombre"
-        value={newTag.name}
+        value={editTag ? editTag.name : newTag.name}
         name="name"
         onChange={newData}
       />
@@ -159,7 +159,10 @@ const Tags = ({
             style={{ width: '45%' }}
             disabled={newTag.name.length === 0}
             onClick={() => {
-              handleChange(editTag);
+              handleChange({
+                ...newTag,
+                id: editTag.id
+              });
               setTimeout(() => {
                 setNewTag({
                   name: '',
@@ -170,7 +173,7 @@ const Tags = ({
             }}
             type="button"
           >
-            Editar
+            Guardar
           </button>
         ) : (
           <button
@@ -195,7 +198,10 @@ const Tags = ({
           type="submit"
           className="btn btn-outline-danger ml-3"
           style={{ width: '45%' }}
-          onClick={() => openModal('tag', false)}
+          onClick={() => {
+            openModal('tag', false);
+            setEditTag(null);
+          }}
         >
           Cancelar
         </button>
@@ -389,7 +395,10 @@ const Tags = ({
           </Table>
           <Modal
             open={open.tag}
-            onClose={() => openModal('tag', false)}
+            onClose={() => {
+              openModal('tag', false);
+              setEditTag(null);
+            }}
             className="d-flex w-100 justify-content-center align-items-center"
           >
             {modal}
