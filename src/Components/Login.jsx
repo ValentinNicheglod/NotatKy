@@ -212,7 +212,7 @@ const Login = () => {
 
                 </div> */}
 
-        <div className="login-sign-up my-3 row bs-gutter">
+        <div className="login-sign-up mt-3 row bs-gutter">
           <div className={largeWidth ? 'col-md-3 p-0 mt-2' : 'none'}>
             <hr />
           </div>
@@ -237,7 +237,7 @@ const Login = () => {
           <hr className="mt-4 mb-3 hr-pad" />
           <Link
             to="/reset-password"
-            className="d-flex justify-content-center login-p mb-3"
+            className="d-flex justify-content-center login-p"
           >
             ¿Olvidaste tu contraseña?
           </Link>

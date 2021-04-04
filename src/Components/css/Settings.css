@@ -13,6 +13,10 @@
   padding: 0;
 }
 
+.MuiTableCell-root p{
+  display: inline-flex!important;
+}
+
 .profile-userpic {
   width: 25vh!important;
   height: 25vh!important;
@@ -125,6 +129,14 @@ li{
 
 .settings-title{
   border-bottom: 3px solid #2185D0;
+  height: 12%;
+  margin-bottom: 0px;
+}
+
+.conf-2{
+  height: 80%;
+  padding-bottom: 10%;
+  overflow-y: auto;
 }
 
 .user-data-card{

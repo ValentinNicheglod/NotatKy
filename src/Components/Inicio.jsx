@@ -120,7 +120,7 @@ const Inicio = () => {
       <div
         className={
           largeWidth
-            ? 'd-flex row d-flex align-items-start'
+            ? 'd-flex row d-flex align-items-center h-90'
             : 'd-flex row d-flex justify-content-center w-100 m-0 overflow-y'
         }
       >

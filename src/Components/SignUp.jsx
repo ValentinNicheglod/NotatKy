@@ -188,7 +188,7 @@ const SignUp = () => {
             />
           </div>
           <p className="login-p">Completa el formulario con tus datos...</p>
-          <div className="d-flex align-items-end justify-content-between my-2">
+          <div className="d-flex align-items-end justify-content-between">
             <FaceIcon />
             <TextField
               className="textfield name"
@@ -211,7 +211,7 @@ const SignUp = () => {
               value={data.lastname}
             />
           </div>
-          <div className="d-flex align-items-end justify-content-between my-2">
+          <div className="d-flex align-items-end justify-content-between">
             <AlternateEmailIcon />
             <TextField
               className="textfield"
@@ -249,7 +249,7 @@ const SignUp = () => {
               }}
             />
           </div>
-          <div className="d-flex align-items-end justify-content-between my-2">
+          <div className="d-flex align-items-end justify-content-between">
             <VpnKeyIcon />
             <TextField
               className="textfield"
@@ -265,7 +265,7 @@ const SignUp = () => {
               value={data.password.one}
             />
           </div>
-          <div className="d-flex align-items-end justify-content-between my-2 mb-4">
+          <div className="d-flex align-items-end justify-content-between mb-4">
             <VpnKeyIcon />
             <TextField
               className="textfield"

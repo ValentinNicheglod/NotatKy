@@ -182,7 +182,7 @@ const Tags = ({
         )}
         Etiquetas
       </h1>
-      <div className="row h-75 d-flex justify-content-center my-2 p-0">
+      <div className="row d-flex justify-content-center my-2 conf-2">
         <TableContainer component={Paper} id="tab-col-table">
           <Table aria-label="caption table">
             <caption>

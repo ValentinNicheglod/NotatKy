@@ -32,14 +32,14 @@ const NoteCard = ({
         {collection && (
           <span
             style={{ backgroundColor: '#2185D0', borderRadius: 10 }}
-            className="uk-label"
+            className="uk-label col-label"
           >
             {collection.name}
           </span>
         )}
       </div>
       <div className="w-50 d-flex justify-content-end">
-        <p>{`${date} | ${hour}`}</p>
+        <p className="date">{`${date} | ${hour}`}</p>
       </div>
     </div>
   </div>

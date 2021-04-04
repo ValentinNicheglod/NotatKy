@@ -508,14 +508,6 @@ input::placeholder {
     margin-top: 5px;
     margin-bottom: 5px;
   }
-  .modal-col{
-    min-width: 80%;
-    max-width: 90%;
-    height: 90%;
-    padding: 1rem;
-    overflow-y: hidden;
-    max-height: 90%;
-  }
 
   .tag-cont hr{
     margin: 0!important;
@@ -529,8 +521,13 @@ input::placeholder {
     font-size: 12px;
   }
 
-/*   .tag-cont-show{
-    width: 50%!important;
+  /* .modal-col{
+    min-width: 80%;
+    max-width: 90%;
+    height: 90%;
+    padding: 1rem;
+    overflow-y: hidden;
+    max-height: 90%;
   } */
 
   .actions-notes{
@@ -552,6 +549,23 @@ input::placeholder {
 
   .add{
     padding: 0!important;
+  }
+}
+
+@media screen and (max-height: 665px) and (orientation: portrait){
+  .modal-col{
+    min-width: 80%;
+    max-width: 90%;
+    height: 90%;
+    padding: 1rem;
+    overflow-y: hidden;
+    max-height: 90%;
+  }
+}
+
+@media screen and (max-height: 665px) and (orientation: landscape){
+  .date, .col-label{
+    font-size: 10px!important;
   }
 }
 
