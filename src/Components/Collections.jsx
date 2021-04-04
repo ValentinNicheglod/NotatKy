@@ -70,7 +70,7 @@ const Collections = ({
   const modal = (
     <div className="modal-col">
       <div>
-        <h2 id="simple-modal-title" className="display-6">Crear una colección...</h2>
+        <h2 id="simple-modal-title" className="display-6">{editCollection ? 'Editar etiqueta' : 'Crear una etiqueta...'}</h2>
         <hr />
       </div>
       <div className="all-center">
@@ -107,23 +107,48 @@ const Collections = ({
         onChange={newData}
       />
       <div className="modal-col-action d-flex justify-content-between my-3 w-100">
-        <button
-          className="btn btn-success"
-          style={{ width: '45%' }}
-          disabled={newCollection.name.length === 0}
-          onClick={() => {
-            handleCreate(newCollection);
-            setTimeout(() => {
-              setNewCollection({
-                name: '',
-                description: '',
+        {editCollection ? (
+          <button
+            className="btn btn-success"
+            style={{ width: '45%' }}
+            disabled={newCollection.name.length === 0}
+            onClick={() => {
+              handleChange({
+                ...newCollection,
+                id: editCollection.id
               });
-            }, 1000);
-          }}
-          type="button"
-        >
-          Crear
-        </button>
+              setTimeout(() => {
+                setNewCollection({
+                  name: '',
+                  description: '',
+                });
+                setEditCollection(null);
+              }, 1500);
+              openModal('col', false);
+            }}
+            type="button"
+          >
+            Guardar
+          </button>
+        ) : (
+          <button
+            className="btn btn-success"
+            style={{ width: '45%' }}
+            disabled={newCollection.name.length === 0}
+            onClick={() => {
+              handleCreate(newCollection);
+              setTimeout(() => {
+                setNewCollection({
+                  name: '',
+                  description: '',
+                });
+              }, 1000);
+            }}
+            type="button"
+          >
+            Crear
+          </button>
+        )}
         <button
           className="btn btn-outline-danger ml-3"
           style={{ width: '45%' }}
@@ -169,7 +194,6 @@ const Collections = ({
               </TableRow>
             </TableHead>
             <TableBody>
-              { /* TRATAR DE COLOCAR OVERFLOW ACA */ }
               {collections.collections.map((collection, index) => (
                 <TableRow key={collection.id}>
                   <TableCell
@@ -216,9 +240,12 @@ const Collections = ({
                     )}
                   </TableCell>
                   <TableCell align="right" className="p-0">
-                    <IconButton
-                      className="p-2 btn"
-                      onClick={
+                    {largeWidth
+                      ? (
+                        <>
+                          <IconButton
+                            className="p-2 btn"
+                            onClick={
                         editing.col === index
                           ? () => handleChange(editCollection)
                           : () => {
@@ -230,26 +257,42 @@ const Collections = ({
                             });
                           }
                       }
-                    >
-                      {editing.col === index ? (
-                        <CheckSharpIcon
-                          style={{ color: '#198754' }}
-                        />
+                          >
+                            {editing.col === index ? (
+                              <CheckSharpIcon
+                                style={{ color: '#198754' }}
+                              />
+                            ) : (
+                              <EditSharpIcon style={{ color: '#2185D0' }} />
+                            )}
+                          </IconButton>
+                          <IconButton
+                            className="p-2 btn"
+                            onClick={() => {
+                              setEditCollection(collections.collections[index]);
+                              setOpenDialog(true);
+                            }}
+                          >
+                            {editing.col === index && (
+                            <DeleteSharpIcon style={{ color: '#dc3545' }} />
+                            )}
+                          </IconButton>
+                        </>
                       ) : (
-                        <EditSharpIcon style={{ color: '#2185D0' }} />
+                        <IconButton
+                          className="p-2 btn"
+                          onClick={() => {
+                            setEditCollection(collections.collections[index]);
+                            openModal('col', true);
+                            setNewCollection({
+                              name: editCollection.name,
+                              description: editCollection.description
+                            });
+                          }}
+                        >
+                          <EditSharpIcon />
+                        </IconButton>
                       )}
-                    </IconButton>
-                    <IconButton
-                      className="p-2 btn"
-                      onClick={() => {
-                        setEditCollection(collections.collections[index]);
-                        setOpenDialog(true);
-                      }}
-                    >
-                      {editing.col === index && (
-                        <DeleteSharpIcon style={{ color: '#dc3545' }} />
-                      )}
-                    </IconButton>
                   </TableCell>
                 </TableRow>
               ))}
@@ -283,7 +326,14 @@ const Collections = ({
           </Modal>
           <Dialog
             open={openDialog}
-            onClose={() => setOpenDialog(false)}
+            onClose={() => {
+              setOpenDialog(false);
+              setEditCollection(null);
+              setNewCollection({
+                name: '',
+                description: '',
+              });
+            }}
             aria-labelledby="alert-dialog-title"
             aria-describedby="alert-dialog-description"
           >

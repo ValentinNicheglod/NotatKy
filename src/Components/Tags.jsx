@@ -328,10 +328,10 @@ const Tags = ({
                           className="p-2 btn"
                           onClick={() => {
                             setEditTag(tags.tags[index]);
+                            openModal('tag', true);
                             setNewTag({
                               name: editTag.name
                             });
-                            openModal('tag', true);
                           }}
                         >
                           <EditSharpIcon />
