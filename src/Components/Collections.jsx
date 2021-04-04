@@ -150,7 +150,7 @@ const Collections = ({
         )}
         Colecciones
       </h1>
-      <div className="row d-flex justify-content-center mt-2 conf-2">
+      <div className="row d-flex justify-content-center my-2 conf-2">
         <TableContainer component={Paper} id="tab-col-table">
           <Table aria-label="caption table" id="tab-col-table">
             <caption>

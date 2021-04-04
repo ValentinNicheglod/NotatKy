@@ -11,7 +11,6 @@
 }
 
 .profile-sidebar {
-  /* padding: 60px 0 10px 0; */
   background: transparent;
   height: 100%;
   padding: 0;
@@ -31,6 +30,11 @@
 
 .blue{
   background-color: #2185D0!important;
+}
+
+.info-cont-settings{
+  height: 75%!important;
+  overflow-y: auto;
 }
 
 .profile-userpic img {
@@ -306,8 +310,11 @@ li{
   .btn-update{
     width: 98%!important;
     border-radius: 30px;
-    font-weight: bolder;
     text-transform: uppercase;
+  }
+
+  .user-tag{
+    height: auto!important;
   }
 
   /* .MuiFormControl-root{

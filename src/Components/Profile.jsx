@@ -113,7 +113,7 @@ const Profile = ({
   const superSmallWidth = window.screen.width < 350;
 
   return (
-    <div className="user-profile m-5 row">
+    <div className="user-profile h-100 m-4 row">
       <h1
         className="display-1 settings-title"
         style={darkMode ? { height: '20%' } : null}
@@ -130,7 +130,7 @@ const Profile = ({
         &nbsp;Editar perfil
       </h1>
       <div
-        className="pt-5 info-cont-settings"
+        className="pt-4 info-cont-settings"
         style={
           darkMode && largeWidth ? { overflowY: 'auto', height: 550 } : null
         }

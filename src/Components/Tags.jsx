@@ -98,20 +98,20 @@ const Tags = ({
     return 0;
   });
 
-  const handleClick = (e) => {
+  /* const handleClick = (e) => {
     setAnchorEl(e.currentTarget);
   };
 
   const handleClose = () => {
     setAnchorEl(null);
-  };
+  }; */
 
   const superSmallWidth = window.screen.width < 350;
 
   const modal = (
     <div className="modal-col">
       <div>
-        <h2 id="simple-modal-title" className="display-6">Crear una etiqueta...</h2>
+        <h2 id="simple-modal-title" className="display-6">{editTag.id ? 'Editar etiqueta' : 'Crear una etiqueta...'}</h2>
         <hr />
       </div>
       <div className="all-center">
@@ -153,23 +153,44 @@ const Tags = ({
         </div>
       </div>
       <div className="modal-col-action d-flex justify-content-between my-3 w-100">
-        <button
-          className="btn btn-success"
-          style={{ width: '45%' }}
-          disabled={newTag.name.length === 0}
-          onClick={() => {
-            handleCreate(newTag);
-            setTimeout(() => {
-              setNewTag({
-                name: '',
-                color: '',
-              });
-            }, 1500);
-          }}
-          type="button"
-        >
-          Crear
-        </button>
+        {editTag.id ? (
+          <button
+            className="btn btn-success"
+            style={{ width: '45%' }}
+            disabled={newTag.name.length === 0}
+            onClick={() => {
+              handleChange(editTag);
+              setTimeout(() => {
+                setNewTag({
+                  name: '',
+                  color: '',
+                });
+                setEditTag(null);
+              }, 1500);
+            }}
+            type="button"
+          >
+            Editar
+          </button>
+        ) : (
+          <button
+            className="btn btn-success"
+            style={{ width: '45%' }}
+            disabled={newTag.name.length === 0}
+            onClick={() => {
+              handleCreate(newTag);
+              setTimeout(() => {
+                setNewTag({
+                  name: '',
+                  color: '',
+                });
+              }, 1500);
+            }}
+            type="button"
+          >
+            Crear
+          </button>
+        )}
         <button
           type="submit"
           className="btn btn-outline-danger ml-3"
@@ -297,29 +318,18 @@ const Tags = ({
                       )
                       : (
                         <>
-                          {editing.tag === index
-                            ? (
-                              <IconButton
-                                className="p-2 btn"
-                                onClick={() => {
-                                  handleChange(editTag);
-                                  handleClose();
-                                }}
-                              >
-                                <CheckSharpIcon style={{ color: '#198754' }} />
-                              </IconButton>
-                            )
-                            : (
-                              <IconButton
-                                className="p-2 btn"
-                                aria-controls="simple-menu"
-                                aria-haspopup="true"
-                                onClick={handleClick}
-                              >
-                                <MoreVertIcon />
-                              </IconButton>
-                            )}
-                          <Menu
+                          <IconButton
+                            className="p-2 btn"
+                            aria-controls="simple-menu"
+                            aria-haspopup="true"
+                            onClick={() => {
+                              setEditTag(tags.tags[index]);
+                              openModal('tag', true);
+                            }}
+                          >
+                            <EditSharpIcon />
+                          </IconButton>
+                          {/* <Menu
                             id="simple-menu"
                             anchorEl={anchorEl}
                             keepMounted
@@ -351,7 +361,7 @@ const Tags = ({
                               </ListItemIcon>
                               <Typography variant="inherit">Eliminar</Typography>
                             </MenuItem>
-                          </Menu>
+                          </Menu> */}
                         </>
                       )}
                   </TableCell>

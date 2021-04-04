@@ -11,12 +11,14 @@ const CardInfo = ({
 
   return (
     <div className="card card-info" style={{ backgroundColor: color }}>
-      <img
-        src={image}
-        alt="icon"
-        className="card-img-top"
-        style={{ height: '60%', pointerEvents: 'none' }}
-      />
+      <div className="h-50 all-center">
+        <img
+          src={image}
+          alt="icon"
+          className="card-img-top"
+          style={{ height: '100%', pointerEvents: 'none' }}
+        />
+      </div>
       <div className="card-body">
         <h3 className="card-title">{title}</h3>
         <hr />

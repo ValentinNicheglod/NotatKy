@@ -234,7 +234,7 @@ const SettingsProfile = () => {
               </div>
             )}
             <div
-              className={largeWidth ? 'col-md-7' : 'bs-gutter'}
+              className={largeWidth ? 'col-md-7 h-100' : 'bs-gutter'}
               id={darkMode && 'dark'}
             >
               <Profile

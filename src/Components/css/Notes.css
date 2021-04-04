@@ -291,6 +291,15 @@ input::placeholder {
   left: 25%;
 }
 
+.home-sidebar{
+  background: transparent;
+  height: 10%;
+}
+
+.actions-note button{
+  color: inherit!important;
+}
+
 @keyframes rotation {
   0% {
     transform: rotate(360deg);
@@ -298,11 +307,6 @@ input::placeholder {
   100% {
     transform: rotate(0deg);
   }
-}
-
-.home-sidebar{
-  background: transparent;
-  height: 10%;
 }
 
 @media screen and (max-width: 600px){
@@ -514,10 +518,6 @@ input::placeholder {
   }
 
   .btn-add-col{
-    font-size: 12px;
-  }
-
-  #search-note{
     font-size: 12px;
   }
 
