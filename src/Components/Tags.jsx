@@ -7,9 +7,9 @@ import {
   DialogContentText,
   DialogTitle,
   IconButton,
-  ListItemIcon,
-  Menu,
-  MenuItem,
+  // ListItemIcon,
+  // Menu,
+  // MenuItem,
   Modal,
   Paper,
   Table,
@@ -19,7 +19,7 @@ import {
   TableHead,
   TableRow,
   TextField,
-  Typography,
+  // Typography,
 } from '@material-ui/core';
 import LocalOfferOutlinedIcon from '@material-ui/icons/LocalOfferOutlined';
 import EditSharpIcon from '@material-ui/icons/EditSharp';
@@ -27,7 +27,7 @@ import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import DeleteSharpIcon from '@material-ui/icons/DeleteSharp';
 import CheckSharpIcon from '@material-ui/icons/CheckSharp';
 import AddIcon from '@material-ui/icons/Add';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
+// import MoreVertIcon from '@material-ui/icons/MoreVert';
 import MenuIcon from '@material-ui/icons/Menu';
 
 const colors = [
@@ -58,7 +58,7 @@ const Tags = ({
   });
   const [editTag, setEditTag] = useState();
   const [openDialog, setOpenDialog] = useState(false);
-  const [anchorEl, setAnchorEl] = useState(null);
+  // const [anchorEl, setAnchorEl] = useState(null);
 
   const newData = (e) => {
     setNewTag({
