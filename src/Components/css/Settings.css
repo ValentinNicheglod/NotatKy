@@ -135,7 +135,7 @@ li{
 
 .conf-2{
   height: 80%;
-  padding-bottom: 10%;
+  margin-bottom: 10%;
   overflow-y: auto;
 }
 
@@ -272,6 +272,10 @@ li{
     padding: 1rem!important;
     width: 100%;
     --bs-gutter-x: 0!important;
+  }
+
+  .MuiTableCell-root{
+    padding: 5px!important;
   }
 
   .user-profile form{

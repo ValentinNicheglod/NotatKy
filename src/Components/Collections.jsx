@@ -137,20 +137,20 @@ const Collections = ({
   );
 
   return (
-    <div className="user-profile m-5 row d-flex justify-content-center">
+    <div className="user-profile m-5 row d-flex justify-content-center full-height">
       <h1 className="display-1 settings-title">
         {!largeWidth && (
           <IconButton
             onClick={() => setDrawerOpen(true)}
             style={{ color: 'inherit' }}
-            className="btn mb-1"
+            className="btn mb-1 p-0"
           >
-            <MenuIcon style={{ color: 'inherit' }} />
+            <MenuIcon style={{ color: 'inherit', width: '60%', height: '60%' }} />
           </IconButton>
         )}
         Colecciones
       </h1>
-      <div className="row d-flex justify-content-center my-2 conf-2">
+      <div className="row d-flex justify-content-center mt-2 conf-2">
         <TableContainer component={Paper} id="tab-col-table">
           <Table aria-label="caption table" id="tab-col-table">
             <caption>
@@ -178,7 +178,7 @@ const Collections = ({
                   >
                     {editing.col === index ? (
                       <TextField
-                        className="w-75"
+                        className="w-100"
                         id="outlined-basic"
                         inputProps={{
                           maxLength: 20
@@ -199,7 +199,7 @@ const Collections = ({
                   <TableCell className="table-cell-col">
                     {editing.col === index ? (
                       <TextField
-                        className="w-75"
+                        className="w-100"
                         id="outlined-basic"
                         inputProps={{
                           maxLength: 50
@@ -255,7 +255,7 @@ const Collections = ({
               <TableRow>
                 <TableCell className="table-cell-col add">
                   <button
-                    className="btn btn-add-col p-0"
+                    className="btn p-0 mt-2"
                     onClick={() => openModal('col', true)}
                     type="button"
                   >

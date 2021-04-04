@@ -122,9 +122,9 @@ const Profile = ({
           <IconButton
             onClick={() => setDrawerOpen(true)}
             style={{ color: 'inherit' }}
-            className="btn mb-1"
+            className="btn mb-1 p-0"
           >
-            <Menu style={{ color: 'inherit' }} />
+            <Menu style={{ color: 'inherit', width: '60%', height: '60%' }} />
           </IconButton>
         )}
         &nbsp;Editar perfil

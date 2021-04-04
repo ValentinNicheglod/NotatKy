@@ -129,7 +129,7 @@ const Login = () => {
         <Logo />
       </div>
       )}
-      <div className="card-round card d-flex justify-content-between p-5 no-pad">
+      <div className="card-round card d-flex justify-content-between no-pad">
         <form className="all-center row">
           <h3 className="card-title d-flex justify-content-center">
             INICIO DE SESIÓN
@@ -146,7 +146,7 @@ const Login = () => {
             />
           </div>
           <p className="login-p">Ingresa con tu correo...</p>
-          <div className="d-flex align-items-end justify-content-between my-2">
+          <div className="d-flex align-items-end justify-content-between">
             <AlternateEmailIcon />
             <TextField
               className="textfield"
@@ -160,7 +160,7 @@ const Login = () => {
               value={data.email}
             />
           </div>
-          <div className="d-flex align-items-end justify-content-between my-2 mb-4">
+          <div className="d-flex align-items-end justify-content-between mb-4">
             <VpnKeyIcon />
             <TextField
               className="textfield"

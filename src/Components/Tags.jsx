@@ -7,6 +7,9 @@ import {
   DialogContentText,
   DialogTitle,
   IconButton,
+  ListItemIcon,
+  Menu,
+  MenuItem,
   Modal,
   Paper,
   Table,
@@ -16,6 +19,7 @@ import {
   TableHead,
   TableRow,
   TextField,
+  Typography,
 } from '@material-ui/core';
 import LocalOfferOutlinedIcon from '@material-ui/icons/LocalOfferOutlined';
 import EditSharpIcon from '@material-ui/icons/EditSharp';
@@ -23,6 +27,7 @@ import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import DeleteSharpIcon from '@material-ui/icons/DeleteSharp';
 import CheckSharpIcon from '@material-ui/icons/CheckSharp';
 import AddIcon from '@material-ui/icons/Add';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
 import MenuIcon from '@material-ui/icons/Menu';
 
 const colors = [
@@ -53,6 +58,7 @@ const Tags = ({
   });
   const [editTag, setEditTag] = useState();
   const [openDialog, setOpenDialog] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
 
   const newData = (e) => {
     setNewTag({
@@ -91,6 +97,14 @@ const Tags = ({
     }
     return 0;
   });
+
+  const handleClick = (e) => {
+    setAnchorEl(e.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   const superSmallWidth = window.screen.width < 350;
 
@@ -169,15 +183,15 @@ const Tags = ({
   );
 
   return (
-    <div className="user-profile m-5 row d-flex justify-content-center">
+    <div className="user-profile m-5 row d-flex justify-content-center full-height">
       <h1 className="display-1 settings-title">
         {!largeWidth && (
           <IconButton
             onClick={() => setDrawerOpen(true)}
             style={{ color: 'inherit' }}
-            className="btn mb-1"
+            className="btn mb-1 p-0"
           >
-            <MenuIcon style={{ color: 'inherit' }} />
+            <MenuIcon style={{ color: 'inherit', width: '60%', height: '60%' }} />
           </IconButton>
         )}
         Etiquetas
@@ -210,8 +224,7 @@ const Tags = ({
                   >
                     {editing.tag === index ? (
                       <TextField
-                        className="w-75"
-                        id="outlined-basic"
+                        className="w-100"
                         placeholder="Nombre"
                         value={editTag.name}
                         onChange={onChange}
@@ -247,9 +260,12 @@ const Tags = ({
                     )}
                   </TableCell>
                   <TableCell align="right" className="p-0">
-                    <IconButton
-                      className="p-2 btn"
-                      onClick={
+                    {largeWidth
+                      ? (
+                        <>
+                          <IconButton
+                            className="p-2 btn"
+                            onClick={
                         editing.tag === index
                           ? () => handleChange(editTag)
                           : () => {
@@ -261,31 +277,91 @@ const Tags = ({
                             });
                           }
                       }
-                    >
-                      {editing.tag === index ? (
-                        <CheckSharpIcon style={{ color: '#198754' }} />
-                      ) : (
-                        <EditSharpIcon style={{ color: '#2185D0' }} />
+                          >
+                            {editing.tag === index ? (
+                              <CheckSharpIcon style={{ color: '#198754' }} />
+                            ) : (
+                              <EditSharpIcon style={{ color: '#2185D0' }} />
+                            )}
+                          </IconButton>
+                          <IconButton
+                            className="p-2 btn"
+                            onClick={() => {
+                              setEditTag(tags.tags[index]);
+                              setOpenDialog(true);
+                            }}
+                          >
+                            {editing.tag === index && (
+                            <DeleteSharpIcon style={{ color: '#dc3545' }} />
+                            )}
+                          </IconButton>
+                        </>
+                      )
+                      : (
+                        <>
+                          {editing.tag === index
+                            ? (
+                              <IconButton
+                                className="p-2 btn"
+                                aria-controls="simple-menu"
+                                aria-haspopup="true"
+                                onClick={handleClick}
+                              >
+                                <MoreVertIcon />
+                              </IconButton>
+                            )
+                            : (
+                              <IconButton
+                                className="p-2 btn"
+                                onClick={() => {
+                                  handleChange(editTag);
+                                  handleClose();
+                                }}
+                              >
+                                <CheckSharpIcon style={{ color: '#198754' }} />
+                              </IconButton>
+                            )}
+                          <Menu
+                            id="simple-menu"
+                            anchorEl={anchorEl}
+                            keepMounted
+                            open={Boolean(anchorEl)}
+                            onClose={handleClose}
+                          >
+                            <MenuItem onClick={() => {
+                              setEditTag(tags.tags[index]);
+                              setEditing({
+                                ...editing,
+                                tag: index,
+                                col: undefined,
+                              });
+                            }}
+                            >
+                              <ListItemIcon>
+                                <EditSharpIcon fontSize="small" />
+                              </ListItemIcon>
+                              <Typography variant="inherit">Editar</Typography>
+                            </MenuItem>
+                            <MenuItem onClick={() => {
+                              setEditTag(tags.tags[index]);
+                              setOpenDialog(true);
+                            }}
+                            >
+                              <ListItemIcon>
+                                <DeleteSharpIcon fontSize="small" />
+                              </ListItemIcon>
+                              <Typography variant="inherit">Eliminar</Typography>
+                            </MenuItem>
+                          </Menu>
+                        </>
                       )}
-                    </IconButton>
-                    <IconButton
-                      className="p-2 btn"
-                      onClick={() => {
-                        setEditTag(tags.tags[index]);
-                        setOpenDialog(true);
-                      }}
-                    >
-                      {editing.tag === index && (
-                        <DeleteSharpIcon style={{ color: '#dc3545' }} />
-                      )}
-                    </IconButton>
                   </TableCell>
                 </TableRow>
               ))}
               <TableRow>
                 <TableCell className="table-cell-col add">
                   <button
-                    className="btn btn-add-col p-0"
+                    className="btn p-0 mt-2"
                     onClick={() => openModal('tag', true)}
                     type="button"
                   >

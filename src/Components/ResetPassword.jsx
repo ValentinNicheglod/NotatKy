@@ -150,7 +150,11 @@ const ResetPassword = () => {
 
   return (
     <div className="login-bg full-height d-flex justify-content-center align-items-center row">
-      {largeWidth && <Logo />}
+      {largeWidth && (
+      <div className="logo-cont">
+        <Logo />
+      </div>
+      )}
       <div className="d-flex full-height justify-content-center align-items-end row p-0">
         <div className="reset-pw card card-round d-flex justify-content-between">
           <form>

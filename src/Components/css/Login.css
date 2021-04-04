@@ -71,7 +71,7 @@
     height: fit-content;
     width: 400px;
     border-radius: 20px;
-    padding: 3rem;
+    padding: 2rem;
     color: #383c3f;
 }
 
@@ -91,16 +91,20 @@
     display: flex;
     flex-direction: column;
     align-items: start;
-  }
-  .code-label {
+}
+
+.code-label {
     margin-bottom: 16px;
-  }
-  .code-inputs {
+}
+
+.code-inputs {
     display: flex;
     justify-content: start;
     align-items: center;
-  }
-  .code-inputs input {
+    margin-left: 24px;
+}
+
+.code-inputs input {
     border: none;
     background-image: none;
     background-color: transparent;
@@ -114,17 +118,20 @@
     margin: 0 4px;
     border: 1px solid #4f5b66;
     font-size: 25px;
-  }
-  .code-inputs input:focus {
-    outline: none;
-  }
-  .code-inputs input:nth-child(3n) {
-    margin-right: 24px;
-  }
+}
 
-  .stepper-pw{
-      height: fit-content!important;
-  }
+.code-inputs input:focus {
+    outline: none;
+}
+
+.code-inputs input:nth-child(3n) {
+    margin-right: 24px;
+}
+
+.stepper-pw{
+    height: fit-content!important;
+}
+
 @media screen and (max-width: 600px){
   .card-round{
     width: 100%;

@@ -223,7 +223,7 @@ const SettingsCollections = ({ match }) => {
         )
       ) : (
         <>
-          <div className="col-md-5">
+          <div className="col-md-5 full-height">
             <Collections
               collections={collections}
               darkMode={darkMode}
@@ -239,7 +239,7 @@ const SettingsCollections = ({ match }) => {
             />
           </div>
 
-          <div className="col-md-5">
+          <div className="col-md-5 full-height">
             <Tags
               darkMode={darkMode}
               editing={editing}

@@ -246,7 +246,7 @@ input::placeholder {
 }
 
 .modal-col{
-  max-height: 75%;
+  max-height: 80%;
 }
 
 .tag-cont{
@@ -534,10 +534,6 @@ input::placeholder {
     width: -webkit-fill-available;
   }
 
-  .MuiIconButton-root{
-    padding: 6px!important;
-  }
-
   .MuiList-root hr{
     margin-bottom: 5px!important;
     margin-top: 5px!important;
@@ -560,6 +556,14 @@ input::placeholder {
     padding: 1rem;
     overflow-y: hidden;
     max-height: 90%;
+  }
+
+  .MuiIconButton-root{
+    padding: 6px!important;
+  }
+
+  .MuiSvgIcon-root{
+    padding: 6px!important;
   }
 }
 
