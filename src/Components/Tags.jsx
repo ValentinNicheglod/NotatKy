@@ -111,7 +111,7 @@ const Tags = ({
   const modal = (
     <div className="modal-col">
       <div>
-        <h2 id="simple-modal-title" className="display-6">{editTag.id ? 'Editar etiqueta' : 'Crear una etiqueta...'}</h2>
+        <h2 id="simple-modal-title" className="display-6">{editTag ? 'Editar etiqueta' : 'Crear una etiqueta...'}</h2>
         <hr />
       </div>
       <div className="all-center">
@@ -153,7 +153,7 @@ const Tags = ({
         </div>
       </div>
       <div className="modal-col-action d-flex justify-content-between my-3 w-100">
-        {editTag.id ? (
+        {editTag ? (
           <button
             className="btn btn-success"
             style={{ width: '45%' }}
