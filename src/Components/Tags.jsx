@@ -7,9 +7,6 @@ import {
   DialogContentText,
   DialogTitle,
   IconButton,
-  // ListItemIcon,
-  // Menu,
-  // MenuItem,
   Modal,
   Paper,
   Table,
@@ -18,16 +15,15 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-  TextField,
-  // Typography,
+  TextField
 } from '@material-ui/core';
 import LocalOfferOutlinedIcon from '@material-ui/icons/LocalOfferOutlined';
 import EditSharpIcon from '@material-ui/icons/EditSharp';
+import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import DeleteSharpIcon from '@material-ui/icons/DeleteSharp';
 import CheckSharpIcon from '@material-ui/icons/CheckSharp';
 import AddIcon from '@material-ui/icons/Add';
-// import MoreVertIcon from '@material-ui/icons/MoreVert';
 import MenuIcon from '@material-ui/icons/Menu';
 
 const colors = [
@@ -58,7 +54,6 @@ const Tags = ({
   });
   const [editTag, setEditTag] = useState();
   const [openDialog, setOpenDialog] = useState(false);
-  // const [anchorEl, setAnchorEl] = useState(null);
 
   const newData = (e) => {
     setNewTag({
@@ -97,14 +92,6 @@ const Tags = ({
     }
     return 0;
   });
-
-  /* const handleClick = (e) => {
-    setAnchorEl(e.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  }; */
 
   const superSmallWidth = window.screen.width < 350;
 
@@ -327,14 +314,15 @@ const Tags = ({
                         <IconButton
                           className="p-2 btn"
                           onClick={() => {
-                            setEditTag(tags.tags[index]);
                             openModal('tag', true);
+                            setEditTag(tags.tags[index]);
                             setNewTag({
+                              color: editTag.color,
                               name: editTag.name
                             });
                           }}
                         >
-                          <EditSharpIcon />
+                          <EditOutlinedIcon />
                         </IconButton>
                       )}
                   </TableCell>

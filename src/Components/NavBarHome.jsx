@@ -59,8 +59,9 @@ const NavBarHome = ({
           ? onEdition.id && <LoopOutlinedIcon className="loop-out" />
           : onEdition.id && (
           <IconButton
+            id="btn-home"
             style={{ color: 'white' }}
-            className="btn white"
+            className="btn white m-0"
             onClick={() => {}}
             title="Se han guardado los cambios"
           >
@@ -70,7 +71,7 @@ const NavBarHome = ({
         {largeWidth && (
           <IconButton
             id="btn-home"
-            className="btn"
+            className="btn white"
             onClick={() => history.push('/edit profile')}
           >
             <SettingsOutlinedIcon />

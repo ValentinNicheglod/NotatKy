@@ -19,6 +19,7 @@ import {
 } from '@material-ui/core';
 import TocIcon from '@material-ui/icons/Toc';
 import EditSharpIcon from '@material-ui/icons/EditSharp';
+import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
 import DeleteSharpIcon from '@material-ui/icons/DeleteSharp';
 import CheckSharpIcon from '@material-ui/icons/CheckSharp';
 import AddIcon from '@material-ui/icons/Add';
@@ -290,7 +291,7 @@ const Collections = ({
                             });
                           }}
                         >
-                          <EditSharpIcon />
+                          <EditOutlinedIcon />
                         </IconButton>
                       )}
                   </TableCell>

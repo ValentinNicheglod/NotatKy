@@ -95,7 +95,7 @@ input::-webkit-inner-spin-button {
 
 #btn-home{
   margin-right: 30px;
-  color: white;
+  color: white!important;
 }
 
 .note-card{

@@ -274,6 +274,10 @@ li{
   width: 50%;
 }
 
+.color-dot{
+  padding: 0px!important;
+}
+
 .color-dot:focus{
   background-color: lightgray!important;
 }
