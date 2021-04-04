@@ -320,10 +320,10 @@ input::placeholder {
     width: 100%;
   }
 
-  .nav-notesel{
+/*   .nav-notesel{
     background-color: lightcoral;
     height: 50px;
-  }
+  } */
 
   #btn-home{
     margin: 0px;
@@ -559,10 +559,6 @@ input::placeholder {
   }
 
   .MuiIconButton-root{
-    padding: 6px!important;
-  }
-
-  .MuiSvgIcon-root{
     padding: 6px!important;
   }
 }

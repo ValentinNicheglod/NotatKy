@@ -183,7 +183,7 @@ const Tags = ({
   );
 
   return (
-    <div className="user-profile m-5 row d-flex justify-content-center full-height">
+    <div className="user-profile user-tag m-5 row d-flex justify-content-center">
       <h1 className="display-1 settings-title">
         {!largeWidth && (
           <IconButton
@@ -326,13 +326,14 @@ const Tags = ({
                             open={Boolean(anchorEl)}
                             onClose={handleClose}
                           >
-                            <MenuItem onClick={() => {
-                              setEditTag(tags.tags[index]);
+                            <MenuItem onClick={(i = index) => {
+                              setEditTag(tags.tags[i]);
                               setEditing({
                                 ...editing,
-                                tag: index,
+                                tag: i,
                                 col: undefined,
                               });
+                              handleClose();
                             }}
                             >
                               <ListItemIcon>

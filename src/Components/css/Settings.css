@@ -6,6 +6,10 @@
   height: fit-content;
 }
 
+.user-tag{
+  height: 90%!important;
+}
+
 .profile-sidebar {
   /* padding: 60px 0 10px 0; */
   background: transparent;
@@ -129,7 +133,7 @@ li{
 
 .settings-title{
   border-bottom: 3px solid #2185D0;
-  height: 12%;
+  height: 15%;
   margin-bottom: 0px;
 }
 

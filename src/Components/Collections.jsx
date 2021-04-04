@@ -137,7 +137,7 @@ const Collections = ({
   );
 
   return (
-    <div className="user-profile m-5 row d-flex justify-content-center full-height">
+    <div className="user-profile user-tag m-5 row d-flex justify-content-center">
       <h1 className="display-1 settings-title">
         {!largeWidth && (
           <IconButton
@@ -169,6 +169,7 @@ const Collections = ({
               </TableRow>
             </TableHead>
             <TableBody>
+              { /* TRATAR DE COLOCAR OVERFLOW ACA */ }
               {collections.collections.map((collection, index) => (
                 <TableRow key={collection.id}>
                   <TableCell

@@ -15,7 +15,7 @@ const CardInfo = ({
         src={image}
         alt="icon"
         className="card-img-top"
-        style={{ height: 300, pointerEvents: 'none' }}
+        style={{ height: '60%', pointerEvents: 'none' }}
       />
       <div className="card-body">
         <h3 className="card-title">{title}</h3>
