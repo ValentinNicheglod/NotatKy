@@ -85,11 +85,12 @@ const Collections = ({
       </div>
       <TextField
         autoComplete="off"
-        autoFocus
+        autoFocus={!!largeWidth}
         className="w-100 my-3"
         id="outlined-basic"
         inputProps={{
-          maxLength: 20
+          maxLength: 20,
+          autoComplete: 'off'
         }}
         label="Nombre"
         value={newCollection.name}
@@ -101,7 +102,8 @@ const Collections = ({
         id="outlined-basic"
         label="Descripción"
         inputProps={{
-          maxLength: 50
+          maxLength: 50,
+          autoComplete: 'off'
         }}
         value={newCollection.description}
         name="description"
@@ -322,8 +324,17 @@ const Collections = ({
               ))}
               <TableRow>
                 <TableCell className="table-cell-col add">
+                  {!largeWidth && (
                   <button
-                    className="btn p-0 mt-2"
+                    className="btn p-0 my-2"
+                    type="button"
+                    style={{ opacity: 0 }}
+                  >
+                    A
+                  </button>
+                  )}
+                  <button
+                    className="btn p-0 mt-2 btn-add"
                     onClick={() => openModal('col', true)}
                     type="button"
                   >

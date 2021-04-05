@@ -116,10 +116,7 @@ const Profile = ({
 
   return (
     <div className="user-profile pro m-4 row">
-      <h1
-        className="display-1 settings-title"
-        style={darkMode ? { height: '20%' } : null}
-      >
+      <h1 className="display-1 settings-title">
         {!largeWidth && (
           <IconButton
             onClick={() => setDrawerOpen(true)}
@@ -226,15 +223,26 @@ const Profile = ({
                 </RadioGroup>
               </FormControl>
               <br />
-              <div className="w-100 all-center">
+              {largeWidth ? (
                 <button
-                  className="btn w-100 btn-success btn-update"
+                  className="btn w-25 btn-success btn-update"
                   onClick={handleSubmit}
                   type="submit"
                 >
                   Actualizar datos
                 </button>
-              </div>
+              )
+                : (
+                  <div className="w-100 all-center p-0 m-0">
+                    <button
+                      className="btn w-100 btn-success btn-update"
+                      onClick={handleSubmit}
+                      type="submit"
+                    >
+                      Actualizar datos
+                    </button>
+                  </div>
+                )}
               {largeWidth && (
                 <button
                   className="btn w-25 btn-outline-danger"
@@ -349,13 +357,26 @@ const Profile = ({
                 type="number"
               />
               <br />
-              <button
-                type="submit"
-                className="btn w-25 btn-success btn-update"
-                onClick={handleSubmit}
-              >
-                Actualizar datos
-              </button>
+              {largeWidth ? (
+                <button
+                  type="submit"
+                  className="btn w-25 btn-success btn-update"
+                  onClick={handleSubmit}
+                >
+                  Actualizar datos
+                </button>
+              )
+                : (
+                  <div className="w-100 all-center p-0 m-0">
+                    <button
+                      className="btn w-100 btn-success btn-update"
+                      onClick={handleSubmit}
+                      type="submit"
+                    >
+                      Actualizar datos
+                    </button>
+                  </div>
+                )}
               {largeWidth && (
                 <button
                   type="button"
@@ -527,14 +548,28 @@ const Profile = ({
                 />
               </FormControl>
               <br />
-              <button
-                className="btn w-25 btn-success btn-update"
-                disabled={error.password}
-                onClick={handlePasswordSubmit}
-                type="submit"
-              >
-                Modificar contraseña
-              </button>
+              {largeWidth ? (
+                <button
+                  className="btn w-25 btn-success btn-update"
+                  disabled={error.password}
+                  onClick={handlePasswordSubmit}
+                  type="submit"
+                >
+                  Modificar contraseña
+                </button>
+              )
+                : (
+                  <div className="w-100 all-center p-0 m-0">
+                    <button
+                      className="btn w-100 btn-success btn-update"
+                      disabled={error.password}
+                      onClick={handlePasswordSubmit}
+                      type="submit"
+                    >
+                      Modificar contraseña
+                    </button>
+                  </div>
+                )}
               {largeWidth && (
                 <button
                   type="submit"

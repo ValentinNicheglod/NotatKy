@@ -113,11 +113,12 @@ const Tags = ({
       <div>
         <TextField
           autoComplete="off"
-          autoFocus
+          autoFocus={!!largeWidth}
           className="w-100 my-3"
           id="outlined-basic"
           inputProps={{
-            maxLength: 20
+            maxLength: 20,
+            autoComplete: 'off'
           }}
           label="Nombre"
           value={newTag.name}
@@ -131,6 +132,7 @@ const Tags = ({
           {colors.map((dot) => (
             <IconButton
               className={largeWidth ? 'p-2' : 'p-0'}
+              id={editTag.color === dot && 'selectedColor'}
               onClick={() => newColor(dot, 'create')}
               key={dot}
             >
@@ -357,8 +359,17 @@ const Tags = ({
               ))}
               <TableRow>
                 <TableCell className="table-cell-col add">
+                  {!largeWidth && (
                   <button
-                    className="btn p-0 mt-2"
+                    className="btn p-0 my-2"
+                    type="button"
+                    style={{ opacity: 0 }}
+                  >
+                    A
+                  </button>
+                  )}
+                  <button
+                    className="btn p-0 mt-2 btn-add"
                     onClick={() => openModal('tag', true)}
                     type="button"
                   >

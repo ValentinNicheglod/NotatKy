@@ -32,6 +32,10 @@
   letter-spacing: -5px;
 }
 
+#selected-color{
+  background-color: lightgray;
+}
+
 .blue{
   background-color: #2185D0!important;
 }
@@ -39,6 +43,7 @@
 .info-cont-settings{
   height: 75%!important;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .profile-userpic img {
@@ -293,6 +298,14 @@ li{
     width: 100%;
     height: fit-content;
     --bs-gutter-x: 0!important;
+  }
+
+  .btn-add{
+    position: absolute;
+    width: 75vw;
+    left: 15px;
+    text-align: left;
+    margin-bottom: 50px;
   }
 
   .menu-icon{
