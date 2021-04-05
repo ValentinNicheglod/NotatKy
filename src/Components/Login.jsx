@@ -18,6 +18,7 @@ const Login = () => {
   const history = useHistory();
   const token = sessionStorage.getItem('token') || localStorage.getItem('token');
   const largeWidth = window.screen.width > 600;
+  const midWidth = window.screen.width > 350;
   const dispatch = useDispatch();
 
   const [openModal, setOpenModal] = useState(false);
@@ -129,7 +130,7 @@ const Login = () => {
         <Logo />
       </div>
       )}
-      <div className="card-round card d-flex justify-content-between no-pad">
+      <div className="card-round card d-flex justify-content-between">
         <form className="all-center row">
           <h3 className="card-title d-flex justify-content-center">
             INICIO DE SESIÓN
@@ -230,7 +231,7 @@ const Login = () => {
           </div>
           <Link
             to="/sign-up"
-            className={largeWidth ? 'sign-up-btn ui btn mt-3' : 'd-flex justify-content-center login-p mt-3'}
+            className={midWidth ? 'sign-up-btn ui btn mt-3' : 'd-flex justify-content-center login-p mt-3'}
           >
             REGISTRATE
           </Link>

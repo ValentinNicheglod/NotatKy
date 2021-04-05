@@ -16,6 +16,7 @@ import {
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import {
+  CloseSharp,
   Visibility,
   HighlightOffOutlined,
   VisibilityOff,
@@ -156,20 +157,20 @@ const Profile = ({
               )
             ) : !(editing === 'PersonalInformation') ? (
               <IconButton
-                className="btn mx-3 btn-sm"
+                className="btn mx-1 btn-sm"
                 onClick={() => editionMode('PersonalInformation')}
                 type="button"
               >
                 <EditSharp style={{ color: '#2185D0' }} />
               </IconButton>
             ) : (
-              <button
-                className="btn btn-round mx-3 btn-sm btn-danger"
+              <IconButton
+                className="btn btn-round mx-1 btn-sm btn-danger"
                 onClick={() => editionMode('')}
                 type="button"
               >
-                Cancelar
-              </button>
+                <CloseSharp style={{ color: '#DC3545' }} />
+              </IconButton>
             )}
           </h1>
           <hr />
@@ -310,20 +311,20 @@ const Profile = ({
               )
             ) : !(editing === 'ContactInformation') ? (
               <IconButton
-                className="btn mx-3"
+                className="btn mx-1"
                 onClick={() => editionMode('ContactInformation')}
                 type="button"
               >
                 <EditSharp style={{ color: '#2185D0' }} />
               </IconButton>
             ) : (
-              <button
-                className="btn btn-round mx-3 btn-sm btn-danger"
+              <IconButton
+                className="btn btn-round mx-1 btn-sm btn-danger"
                 onClick={() => editionMode('')}
                 type="button"
               >
-                Cancelar
-              </button>
+                <CloseSharp style={{ color: '#DC3545' }} />
+              </IconButton>
             )}
           </h1>
           <hr />
@@ -418,20 +419,20 @@ const Profile = ({
               )
             ) : !(editing === 'password') ? (
               <IconButton
-                className="btn mx-3"
+                className="btn mx-1"
                 onClick={() => editionMode('password')}
                 type="button"
               >
                 <EditSharp style={{ color: '#2185D0' }} />
               </IconButton>
             ) : (
-              <button
-                className="btn btn-round mx-3 btn-sm btn-danger"
+              <IconButton
+                className="btn btn-round mx-1 btn-sm btn-danger"
                 onClick={() => editionMode('')}
                 type="button"
               >
-                Cancelar
-              </button>
+                <CloseSharp style={{ color: '#DC3545' }} />
+              </IconButton>
             )}
           </h1>
           <hr />

@@ -316,17 +316,14 @@ const Tags = ({
                       : (
                         <IconButton
                           className="p-2 btn"
-                          onClick={async () => {
+                          onClick={() => {
                             setEditTag(tags.tags[index]);
-                            setTimeout(() => {
-                              setNewTag({
-                                ...newTag,
-                                name: editTag.name
-                              });
-                            }, 600);
-                            setTimeout(() => {
-                              openModal('tag', true, false);
-                            }, 1000);
+                            console.log(tags.tags[index]);
+                            setNewTag({
+                              ...newTag,
+                              name: tags.tags[index].name
+                            });
+                            openModal('tag', true, false);
                           }}
                         >
                           <EditOutlinedIcon />

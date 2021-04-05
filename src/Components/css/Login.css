@@ -132,6 +132,13 @@
     height: fit-content!important;
 }
 
+@media screen and (min-width: 350px) and (min-height: 660px){
+    .field{
+        margin-top: 1rem;
+    }
+}
+
+
 @media screen and (max-width: 600px){
   .card-round{
     width: 100%;
@@ -139,10 +146,6 @@
     border-radius: 0px;
     padding: 2rem;
     color: #383c3f;
-  }
-
-  .no-pad{
-    padding-bottom: 0px!important;
   }
 
   .res-pw{
