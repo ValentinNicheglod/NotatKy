@@ -295,6 +295,13 @@ li{
     --bs-gutter-x: 0!important;
   }
 
+  .menu-icon{
+    color: inherit;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+  }
+
   .pro{
     height: fit-content!important;
   }

@@ -156,7 +156,8 @@ const Tags = ({
             onClick={() => {
               handleChange({
                 ...newTag,
-                id: editTag.id
+                id: editTag.id,
+                userId: editTag.userId
               });
               setTimeout(() => {
                 setNewTag({
@@ -210,6 +211,10 @@ const Tags = ({
           onClick={() => {
             openModal('tag', false);
             setEditTag(null);
+            setNewTag({
+              name: '',
+              color: '',
+            });
           }}
         >
           Cancelar
@@ -227,10 +232,7 @@ const Tags = ({
             style={{ color: 'inherit' }}
             className="btn mb-1 p-0"
           >
-            <MenuIcon style={{
-              color: 'inherit', width: '35px', height: '40px', marginRight: '5px'
-            }}
-            />
+            <MenuIcon className="menu-icon" />
           </IconButton>
         )}
         Etiquetas

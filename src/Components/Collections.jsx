@@ -170,6 +170,10 @@ const Collections = ({
           onClick={() => {
             openModal('col', false);
             setEditCollection(null);
+            setNewCollection({
+              name: '',
+              description: '',
+            });
           }}
           type="button"
         >
@@ -189,7 +193,7 @@ const Collections = ({
             className="btn mb-1 p-0"
             iconStyle={{ width: '35px', height: '40px', marginRight: '5px' }}
           >
-            <MenuIcon style={{ color: 'inherit' }} />
+            <MenuIcon className="menu-icon" />
           </IconButton>
         )}
         Colecciones
@@ -339,7 +343,14 @@ const Collections = ({
 
           <Modal
             open={open.col}
-            onClose={() => openModal('col', false)}
+            onClose={() => {
+              openModal('col', false);
+              setEditCollection(null);
+              setNewCollection({
+                name: '',
+                description: '',
+              });
+            }}
             className="d-flex w-100 justify-content-center align-items-center"
           >
             {modal}
@@ -379,6 +390,7 @@ const Collections = ({
                 onClick={() => {
                   handleDelete(editCollection.id);
                   setOpenDialog(false);
+                  if (!largeWidth) openModal('col', false);
                 }}
                 color="primary"
               >

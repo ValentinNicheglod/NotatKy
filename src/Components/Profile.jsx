@@ -127,7 +127,7 @@ const Profile = ({
             className="btn mb-1 p-0"
             iconStyle={{ width: '35px', height: '40px', marginRight: '5px' }}
           >
-            <Menu style={{ color: 'inherit' }} />
+            <Menu className="menu-icon" />
           </IconButton>
         )}
         &nbsp;Editar perfil
