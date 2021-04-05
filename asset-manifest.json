@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/NotatKy/static/css/main.cc2edd2d.chunk.css",
-    "main.js": "/NotatKy/static/js/main.5439a601.chunk.js",
-    "main.js.map": "/NotatKy/static/js/main.5439a601.chunk.js.map",
+    "main.js": "/NotatKy/static/js/main.8d95aaae.chunk.js",
+    "main.js.map": "/NotatKy/static/js/main.8d95aaae.chunk.js.map",
     "runtime-main.js": "/NotatKy/static/js/runtime-main.f2da9b29.js",
     "runtime-main.js.map": "/NotatKy/static/js/runtime-main.f2da9b29.js.map",
     "static/css/2.9c6631d9.chunk.css": "/NotatKy/static/css/2.9c6631d9.chunk.css",
@@ -19,6 +19,6 @@
     "static/css/2.9c6631d9.chunk.css",
     "static/js/2.d347eb7c.chunk.js",
     "static/css/main.cc2edd2d.chunk.css",
-    "static/js/main.5439a601.chunk.js"
+    "static/js/main.8d95aaae.chunk.js"
   ]
 }
