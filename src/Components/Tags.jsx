@@ -321,8 +321,10 @@ const Tags = ({
                                 color: editTag.color,
                                 name: editTag.name
                               });
+                            }, 600);
+                            setTimeout(() => {
                               openModal('tag', true, false);
-                            }, 300);
+                            }, 1000);
                           }}
                         >
                           <EditOutlinedIcon />

@@ -20,6 +20,7 @@ import {
   HighlightOffOutlined,
   VisibilityOff,
   Menu,
+  EditSharp
 } from '@material-ui/icons';
 
 import './css/Settings.css';
@@ -154,13 +155,13 @@ const Profile = ({
                 </button>
               )
             ) : !(editing === 'PersonalInformation') ? (
-              <button
-                className="btn btn-round mx-3 btn-sm btn-primary"
+              <IconButton
+                className="btn mx-3 btn-sm"
                 onClick={() => editionMode('PersonalInformation')}
                 type="button"
               >
-                Editar
-              </button>
+                <EditSharp style={{ color: '#2185D0' }} />
+              </IconButton>
             ) : (
               <button
                 className="btn btn-round mx-3 btn-sm btn-danger"
@@ -308,13 +309,13 @@ const Profile = ({
                 </button>
               )
             ) : !(editing === 'ContactInformation') ? (
-              <button
-                className="btn btn-round mx-3 btn-sm btn-primary"
+              <IconButton
+                className="btn mx-3"
                 onClick={() => editionMode('ContactInformation')}
                 type="button"
               >
-                Editar
-              </button>
+                <EditSharp style={{ color: '#2185D0' }} />
+              </IconButton>
             ) : (
               <button
                 className="btn btn-round mx-3 btn-sm btn-danger"
@@ -416,13 +417,13 @@ const Profile = ({
                 </button>
               )
             ) : !(editing === 'password') ? (
-              <button
-                className="btn btn-round mx-3 btn-sm btn-primary"
+              <IconButton
+                className="btn mx-3"
                 onClick={() => editionMode('password')}
                 type="button"
               >
-                Editar
-              </button>
+                <EditSharp style={{ color: '#2185D0' }} />
+              </IconButton>
             ) : (
               <button
                 className="btn btn-round mx-3 btn-sm btn-danger"

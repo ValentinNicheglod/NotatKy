@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
 import { Route, Switch } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import 'semantic-ui-css/semantic.min.css';
 import './index.css';
@@ -14,14 +14,20 @@ import SettingsProfile from './Containers/SettingsProfile';
 import SettingsCollections from './Containers/SettingsCollections';
 import Home from './Containers/Home';
 import NotFound from './Components/NotFound';
+import { chargeGuestUser } from './Redux/Actions/Users';
 
 function App() {
+  const dispatch = useDispatch();
   const darkMode = useSelector((state) => state.users.darkMode);
   const body = document.getElementsByTagName('body')[0];
 
   useEffect(() => {
     body.setAttribute('id', darkMode ? 'dark' : 'light');
   }, [darkMode, body]);
+
+  setInterval(() => {
+    dispatch(chargeGuestUser);
+  }, 200000);
 
   return (
     <div className="App full-height">
