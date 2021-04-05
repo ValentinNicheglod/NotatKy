@@ -59,7 +59,7 @@ const EditNote = ({
                 key={col.id}
                 className="d-flex justify-content-between align-items-center px-2"
               >
-                <p className="d-inline m-0">
+                <p className="d-flex m-0">
                   <CollectionsBookmarkOutlinedIcon style={{ color: '#2185D0' }} />
                   &nbsp;&nbsp;&nbsp;
                   {col.name}

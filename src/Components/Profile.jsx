@@ -123,6 +123,7 @@ const Profile = ({
             onClick={() => setDrawerOpen(true)}
             style={{ color: 'inherit' }}
             className="btn mb-1 p-0"
+            iconStyle={{ width: '35px', height: '40px', marginRight: '5px' }}
           >
             <Menu style={{ color: 'inherit' }} />
           </IconButton>
@@ -382,6 +383,7 @@ const Profile = ({
                         editionMode('ContactInformation');
                         setTimeout(() => {
                           document.getElementById('phone-textfield').focus();
+                          document.getElementById('phone-textfield').click();
                         }, 1000);
                       }}
                       type="button"

@@ -299,6 +299,10 @@ li{
     height: fit-content!important;
   }
 
+  .conf-2{
+    padding: 0!important;
+  }
+
   .MuiTableCell-root{
     padding: 5px!important;
   }
@@ -363,16 +367,16 @@ li{
     cursor: pointer;
   }
   .fileInput {
-      cursor: pointer;
-      height: 100%;
-      position:absolute;
-      top: 0;
-      right: 0;
-      z-index: 99;
-      font-size:50px;
-      opacity: 0;
-      -moz-opacity: 0;
-      filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0)
+    cursor: pointer;
+    height: 100%;
+    position:absolute;
+    top: 0;
+    right: 0;
+    z-index: 99;
+    font-size:50px;
+    opacity: 0;
+    -moz-opacity: 0;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0)
   }
 
   .add{
@@ -385,8 +389,8 @@ li{
   }
 
   .profile-userpic{
-    width: 30vh!important;
-    height: 30vh!important;
+    width: 25vh!important;
+    height: 25vh!important;
   }
 
   .MuiTableCell-root p{

@@ -205,6 +205,7 @@ const Tags = ({
             onClick={() => setDrawerOpen(true)}
             style={{ color: 'inherit' }}
             className="btn mb-1 p-0"
+            iconStyle={{ width: '35px', height: '40px', marginRight: '5px' }}
           >
             <MenuIcon style={{ color: 'inherit' }} />
           </IconButton>
@@ -313,13 +314,15 @@ const Tags = ({
                       : (
                         <IconButton
                           className="p-2 btn"
-                          onClick={() => {
+                          onClick={async () => {
                             setEditTag(tags.tags[index]);
-                            setNewTag({
-                              color: editTag.color,
-                              name: editTag.name
-                            });
-                            openModal('tag', true, false);
+                            setTimeout(() => {
+                              setNewTag({
+                                color: editTag.color,
+                                name: editTag.name
+                              });
+                              openModal('tag', true, false);
+                            }, 300);
                           }}
                         >
                           <EditOutlinedIcon />

@@ -170,6 +170,7 @@ const Collections = ({
             onClick={() => setDrawerOpen(true)}
             style={{ color: 'inherit' }}
             className="btn mb-1 p-0"
+            iconStyle={{ width: '35px', height: '40px', marginRight: '5px' }}
           >
             <MenuIcon style={{ color: 'inherit' }} />
           </IconButton>
@@ -284,11 +285,13 @@ const Collections = ({
                           className="p-2 btn"
                           onClick={() => {
                             setEditCollection(collections.collections[index]);
-                            setNewCollection({
-                              name: editCollection.name,
-                              description: editCollection.description
-                            });
-                            openModal('col', true, false);
+                            setTimeout(() => {
+                              setNewCollection({
+                                name: editCollection.name,
+                                description: editCollection.description
+                              });
+                              openModal('col', true, false);
+                            }, 300);
                           }}
                         >
                           <EditOutlinedIcon />
