@@ -151,7 +151,7 @@ const Tags = ({
         {editTag ? (
           <button
             className="btn btn-success"
-            style={editTag ? { width: '25%' } : { width: '45%' }}
+            style={{ width: '30%', paddingLeft: 0, paddingRight: 0 }}
             disabled={newTag.name.length === 0}
             onClick={() => {
               handleChange({
@@ -195,7 +195,7 @@ const Tags = ({
         <button
           type="submit"
           className="btn btn-outline-danger ml-3"
-          style={{ width: '25%' }}
+          style={{ width: '30%', paddingLeft: 0, paddingRight: 0 }}
           onClick={() => {
             setOpenDialog(true);
           }}
@@ -206,7 +206,7 @@ const Tags = ({
         <button
           type="submit"
           className="btn btn-outline-danger ml-3"
-          style={editTag ? { width: '25%' } : { width: '45%' }}
+          style={editTag ? { width: '30%', paddingLeft: 0, paddingRight: 0 } : { width: '45%' }}
           onClick={() => {
             openModal('tag', false);
             setEditTag(null);

@@ -111,7 +111,7 @@ const Collections = ({
         {editCollection ? (
           <button
             className="btn btn-success"
-            style={{ width: '45%' }}
+            style={{ width: '30%', paddingLeft: 0, paddingRight: 0 }}
             disabled={newCollection.name.length === 0}
             onClick={() => {
               handleChange({
@@ -151,9 +151,22 @@ const Collections = ({
             Crear
           </button>
         )}
+        {editCollection
+        && (
+        <button
+          type="submit"
+          className="btn btn-outline-danger ml-3"
+          style={{ width: '30%', paddingLeft: 0, paddingRight: 0 }}
+          onClick={() => {
+            setOpenDialog(true);
+          }}
+        >
+          Eliminar
+        </button>
+        )}
         <button
           className="btn btn-outline-danger ml-3"
-          style={{ width: '45%' }}
+          style={editCollection ? { width: '30%', paddingLeft: 0, paddingRight: 0 } : { width: '45%' }}
           onClick={() => {
             openModal('col', false);
             setEditCollection(null);
