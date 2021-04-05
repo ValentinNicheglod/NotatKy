@@ -132,7 +132,7 @@ const Tags = ({
           {colors.map((dot) => (
             <IconButton
               className={largeWidth ? 'p-2' : 'p-0'}
-              id={editTag.color && editTag.color === dot && 'selectedColor'}
+              id={editTag.color && (editTag.color === dot) ? 'selectedColor' : null}
               onClick={() => newColor(dot, 'create')}
               key={dot}
             >
