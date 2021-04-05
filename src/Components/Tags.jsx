@@ -110,21 +110,23 @@ const Tags = ({
           draggable="false"
         />
       </div>
-      <TextField
-        autoComplete="off"
-        autoFocus
-        className="w-100 my-3"
-        id="outlined-basic"
-        inputProps={{
-          maxLength: 20
-        }}
-        label="Nombre"
-        value={newTag.name}
-        name="name"
-        onChange={newData}
-      />
+      <div>
+        <TextField
+          autoComplete="off"
+          autoFocus
+          className="w-100 my-3"
+          id="outlined-basic"
+          inputProps={{
+            maxLength: 20
+          }}
+          label="Nombre"
+          value={newTag.name}
+          name="name"
+          onChange={newData}
+        />
+      </div>
       <div className="w-100 row my-3">
-        {!superSmallWidth && <p style={{ fontSize: '1rem' }}>Color</p>}
+        {!superSmallWidth && <p className="MuiFormLabel-root" style={{ fontSize: '1rem' }}>Color</p>}
         <div className="d-flex justify-content-between w-100">
           {colors.map((dot) => (
             <IconButton
@@ -139,11 +141,17 @@ const Tags = ({
           ))}
         </div>
       </div>
+      <div className="w-100 row my-3">
+        {editTag
+        && (
+        <div />
+        )}
+      </div>
       <div className="modal-col-action d-flex justify-content-between my-3 w-100">
         {editTag ? (
           <button
             className="btn btn-success"
-            style={{ width: '45%' }}
+            style={editTag ? { width: '25%' } : { width: '45%' }}
             disabled={newTag.name.length === 0}
             onClick={() => {
               handleChange({
@@ -182,10 +190,23 @@ const Tags = ({
             Crear
           </button>
         )}
+        {editTag
+        && (
         <button
           type="submit"
           className="btn btn-outline-danger ml-3"
-          style={{ width: '45%' }}
+          style={{ width: '25%' }}
+          onClick={() => {
+            setOpenDialog(true);
+          }}
+        >
+          Eliminar
+        </button>
+        )}
+        <button
+          type="submit"
+          className="btn btn-outline-danger ml-3"
+          style={editTag ? { width: '25%' } : { width: '45%' }}
           onClick={() => {
             openModal('tag', false);
             setEditTag(null);
@@ -394,6 +415,7 @@ const Tags = ({
                 onClick={() => {
                   handleDelete(editTag.id);
                   setOpenDialog(false);
+                  if (!largeWidth) openModal('tag', false);
                 }}
                 color="primary"
               >

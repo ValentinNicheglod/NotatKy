@@ -71,7 +71,7 @@ const Collections = ({
   const modal = (
     <div className="modal-col">
       <div>
-        <h2 id="simple-modal-title" className="display-6">{editCollection ? 'Editar etiqueta' : 'Crear una etiqueta...'}</h2>
+        <h2 id="simple-modal-title" className="display-6">{editCollection ? 'Editar colección' : 'Crear una colección...'}</h2>
         <hr />
       </div>
       <div className="all-center">
@@ -154,7 +154,10 @@ const Collections = ({
         <button
           className="btn btn-outline-danger ml-3"
           style={{ width: '45%' }}
-          onClick={() => openModal('col', false)}
+          onClick={() => {
+            openModal('col', false);
+            setEditCollection(null);
+          }}
           type="button"
         >
           Cancelar

@@ -11,6 +11,7 @@
 #home-side-bar{
   padding-right: 0px;
   padding-left: 0px;
+  margin-top: 40px;
 }
 
 #side-bar--cont{
@@ -535,6 +536,7 @@ input::placeholder {
 
   #home-side-bar{
     padding-top: 10px;
+    margin-top: 0px;
   }
 
   .add{
@@ -553,7 +555,7 @@ input::placeholder {
   }
 
   .MuiIconButton-root{
-    padding: 9px!important;
+    padding: 9px;
   }
 }
 
@@ -576,6 +578,10 @@ input::placeholder {
 
   .hr-pad{
     margin: 2px!important;
+  }
+
+  #home-side-bar{
+    margin-top: 0px;
   }
 }
 

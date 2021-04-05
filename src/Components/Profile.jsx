@@ -178,7 +178,6 @@ const Profile = ({
             <form className={classes.root} noValidate autoComplete="off">
               <TextField
                 className="w-75"
-                id="outlined-basic"
                 label="Nombre"
                 value={information.name}
                 name="name"
@@ -202,7 +201,7 @@ const Profile = ({
               />
               <br />
               <FormControl component="fieldset" className="my-3">
-                <FormLabel component="legend">Género</FormLabel>
+                <FormLabel component="legend" className="MuiFormLabel-root">Género</FormLabel>
                 <RadioGroup
                   defaultValue={user.gender}
                   aria-label="gender"
@@ -227,13 +226,15 @@ const Profile = ({
                 </RadioGroup>
               </FormControl>
               <br />
-              <button
-                className="btn w-25 btn-success btn-update"
-                onClick={handleSubmit}
-                type="submit"
-              >
-                Actualizar datos
-              </button>
+              <div className="w-100 all-center">
+                <button
+                  className="btn w-100 btn-success btn-update"
+                  onClick={handleSubmit}
+                  type="submit"
+                >
+                  Actualizar datos
+                </button>
+              </div>
               {largeWidth && (
                 <button
                   className="btn w-25 btn-outline-danger"
