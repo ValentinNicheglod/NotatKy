@@ -55,6 +55,8 @@ const SideBarSettings = ({ setDrawerOpen }) => {
   }, [darkMode, dispatch]);
 
   const largeWidth = window.screen.width > 600;
+  const midLargeHeight = window.screen.width > 575;
+
   const superSmallWidth = window.screen.width < 350;
 
   const changeRoute = (url) => {
@@ -214,7 +216,7 @@ const SideBarSettings = ({ setDrawerOpen }) => {
                 )}
             </>
           )}
-          <div id="home-side-bar" style={{ marginTop: 40 }}>
+          <div id="home-side-bar" style={midLargeHeight && { marginTop: 40 }}>
             <List component="nav" className="white">
               <ListItem
                 button

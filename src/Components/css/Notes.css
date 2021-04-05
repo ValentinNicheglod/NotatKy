@@ -121,8 +121,10 @@ input::-webkit-inner-spin-button {
 
 .card-text p {
   max-width: 100%;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 12px;
+  white-space: pre-line;
+  -webkit-text-stroke-width: thin;
 }
 
 .card-title {
@@ -312,6 +314,11 @@ input::placeholder {
 @media screen and (max-width: 600px){
   #hidden-overflow{
     overflow: hidden;
+  }
+
+  .note-content{
+    padding-top: 4%!important;
+    padding-left: 0px;
   }
 
   #notes-cont-3 b{
@@ -546,7 +553,7 @@ input::placeholder {
   }
 
   .MuiIconButton-root{
-    padding: 6px!important;
+    padding: 9px!important;
   }
 }
 

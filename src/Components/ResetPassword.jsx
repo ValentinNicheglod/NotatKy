@@ -88,6 +88,12 @@ const ResetPassword = () => {
       message: 'Cargando...',
       open: true
     });
+    if (email === 'admin@admin.com') {
+      setSnackbar({
+        message: 'No se puede cambiar la contraseña de esta cuenta',
+        open: true
+      });
+    }
     if (/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
       dispatch(resetPassword(email));
     } else {

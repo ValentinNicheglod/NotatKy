@@ -133,6 +133,12 @@ const SettingsProfile = () => {
           message: 'Ingrese un correo válido',
         });
       }
+    } else if (users.user.id === 1) {
+      dispatch(updateUser({
+        ...information,
+        email: 'admin@admin.com',
+        password: 'aDmIn123'
+      }));
     } else {
       dispatch(updateUser(information));
       setEditing('');

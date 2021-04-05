@@ -30,11 +30,11 @@ const NavBarHome = ({
         <div>
           {openNote ? (
             <IconButton onClick={closeNote} className="btn white">
-              <ArrowBackIcon />
+              <ArrowBackIcon style={{ width: '35px', height: '40px' }} />
             </IconButton>
           ) : (
             <IconButton onClick={() => setDrawerOpen(true)} className="btn white">
-              <MenuIcon />
+              <MenuIcon style={{ width: '35px', height: '40px' }} />
             </IconButton>
           )}
         </div>

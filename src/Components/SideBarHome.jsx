@@ -32,7 +32,7 @@ const SideBarHome = ({
   tags,
 }) => {
   const [openTags, setOpenTags] = useState(true);
-  const [openCollections, setOpenCollections] = useState(true);
+  const [openCollections, setOpenCollections] = useState(false);
 
   const handleClick = (type) => {
     if (type === 'tag') {

@@ -116,7 +116,8 @@ const Collections = ({
             onClick={() => {
               handleChange({
                 ...newCollection,
-                id: editCollection.id
+                id: editCollection.id,
+                userId: editCollection.userId
               });
               setTimeout(() => {
                 setNewCollection({
@@ -286,6 +287,7 @@ const Collections = ({
                           onClick={() => {
                             setEditCollection(collections.collections[index]);
                             setNewCollection({
+                              ...newCollection,
                               name: collections.collections[index].name,
                               description: collections.collections[index].description
                             });
