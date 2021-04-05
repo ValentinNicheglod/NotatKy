@@ -205,9 +205,11 @@ const Tags = ({
             onClick={() => setDrawerOpen(true)}
             style={{ color: 'inherit' }}
             className="btn mb-1 p-0"
-            iconStyle={{ width: '35px', height: '40px', marginRight: '5px' }}
           >
-            <MenuIcon style={{ color: 'inherit' }} />
+            <MenuIcon style={{
+              color: 'inherit', width: '35px', height: '40px', marginRight: '5px'
+            }}
+            />
           </IconButton>
         )}
         Etiquetas
@@ -318,7 +320,7 @@ const Tags = ({
                             setEditTag(tags.tags[index]);
                             setTimeout(() => {
                               setNewTag({
-                                color: editTag.color,
+                                ...newTag,
                                 name: editTag.name
                               });
                             }, 600);
