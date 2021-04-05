@@ -160,14 +160,12 @@ const SettingsCollections = ({ match }) => {
     }
   };
 
-  const openModal = (type, state, edit = true) => {
-    if (edit) {
-      setEditing({
-        ...editing,
-        tag: undefined,
-        col: undefined,
-      });
-    }
+  const openModal = (type, state) => {
+    setEditing({
+      ...editing,
+      tag: undefined,
+      col: undefined,
+    });
     setOpen({
       ...open,
       [type]: state,

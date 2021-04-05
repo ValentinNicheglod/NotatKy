@@ -318,12 +318,12 @@ const Tags = ({
                           className="p-2 btn"
                           onClick={() => {
                             setEditTag(tags.tags[index]);
-                            console.log(tags.tags[index]);
                             setNewTag({
                               ...newTag,
-                              name: tags.tags[index].name
+                              name: tags.tags[index].name,
+                              color: tags.tags[index].color
                             });
-                            openModal('tag', true, false);
+                            openModal('tag', true);
                           }}
                         >
                           <EditOutlinedIcon />
