@@ -113,7 +113,7 @@ const Profile = ({
   const superSmallWidth = window.screen.width < 350;
 
   return (
-    <div className="user-profile h-100 m-4 row">
+    <div className="user-profile pro m-4 row">
       <h1
         className="display-1 settings-title"
         style={darkMode ? { height: '20%' } : null}

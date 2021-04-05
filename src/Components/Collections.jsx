@@ -284,11 +284,11 @@ const Collections = ({
                           className="p-2 btn"
                           onClick={() => {
                             setEditCollection(collections.collections[index]);
-                            openModal('col', true);
                             setNewCollection({
                               name: editCollection.name,
                               description: editCollection.description
                             });
+                            openModal('col', true, false);
                           }}
                         >
                           <EditOutlinedIcon />

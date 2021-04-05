@@ -314,12 +314,12 @@ const Tags = ({
                         <IconButton
                           className="p-2 btn"
                           onClick={() => {
-                            openModal('tag', true);
                             setEditTag(tags.tags[index]);
                             setNewTag({
                               color: editTag.color,
                               name: editTag.name
                             });
+                            openModal('tag', true, false);
                           }}
                         >
                           <EditOutlinedIcon />

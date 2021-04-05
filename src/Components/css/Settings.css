@@ -16,6 +16,10 @@
   padding: 0;
 }
 
+.pro{
+  height: 100%!important;
+}
+
 .MuiTableCell-root p{
   display: inline-flex!important;
 }
@@ -287,7 +291,12 @@ li{
     margin: 0!important;
     padding: 1rem!important;
     width: 100%;
+    height: fit-content;
     --bs-gutter-x: 0!important;
+  }
+
+  .pro{
+    height: fit-content!important;
   }
 
   .MuiTableCell-root{
