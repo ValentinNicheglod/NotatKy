@@ -52,7 +52,7 @@ const Tags = ({
     color: '',
     name: '',
   });
-  const [editTag, setEditTag] = useState();
+  const [editTag, setEditTag] = useState(null);
   const [openDialog, setOpenDialog] = useState(false);
 
   const newData = (e) => {
@@ -132,7 +132,7 @@ const Tags = ({
           {colors.map((dot) => (
             <IconButton
               className={largeWidth ? 'p-2' : 'p-0'}
-              id={editTag.color && (editTag.color === dot) ? 'selectedColor' : null}
+              id={editTag && (editTag.color === dot) ? 'selectedColor' : null}
               onClick={() => newColor(dot, 'create')}
               key={dot}
             >
