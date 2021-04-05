@@ -366,7 +366,7 @@ const SettingsCollections = () => {
         : (
           <>
             {largeWidth ? (
-              <div className="col-md-2 login-bg full-height" id="home-side-bar">
+              <div className="col-md-2 login-bg full-height p-0">
                 <SideBarHome
                   changeRoute={changeRoute}
                   filterTags={filterTags}
