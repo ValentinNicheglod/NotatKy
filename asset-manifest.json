@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/NotatKy/static/css/main.6c9245f4.chunk.css",
-    "main.js": "/NotatKy/static/js/main.fffb1f68.chunk.js",
-    "main.js.map": "/NotatKy/static/js/main.fffb1f68.chunk.js.map",
+    "main.css": "/NotatKy/static/css/main.d41215df.chunk.css",
+    "main.js": "/NotatKy/static/js/main.25d1b929.chunk.js",
+    "main.js.map": "/NotatKy/static/js/main.25d1b929.chunk.js.map",
     "runtime-main.js": "/NotatKy/static/js/runtime-main.f2da9b29.js",
     "runtime-main.js.map": "/NotatKy/static/js/runtime-main.f2da9b29.js.map",
     "static/css/2.9c6631d9.chunk.css": "/NotatKy/static/css/2.9c6631d9.chunk.css",
-    "static/js/2.d347eb7c.chunk.js": "/NotatKy/static/js/2.d347eb7c.chunk.js",
-    "static/js/2.d347eb7c.chunk.js.map": "/NotatKy/static/js/2.d347eb7c.chunk.js.map",
+    "static/js/2.32399bfe.chunk.js": "/NotatKy/static/js/2.32399bfe.chunk.js",
+    "static/js/2.32399bfe.chunk.js.map": "/NotatKy/static/js/2.32399bfe.chunk.js.map",
     "index.html": "/NotatKy/index.html",
     "static/css/2.9c6631d9.chunk.css.map": "/NotatKy/static/css/2.9c6631d9.chunk.css.map",
-    "static/css/main.6c9245f4.chunk.css.map": "/NotatKy/static/css/main.6c9245f4.chunk.css.map",
-    "static/js/2.d347eb7c.chunk.js.LICENSE.txt": "/NotatKy/static/js/2.d347eb7c.chunk.js.LICENSE.txt",
+    "static/css/main.d41215df.chunk.css.map": "/NotatKy/static/css/main.d41215df.chunk.css.map",
+    "static/js/2.32399bfe.chunk.js.LICENSE.txt": "/NotatKy/static/js/2.32399bfe.chunk.js.LICENSE.txt",
     "static/media/semantic.min.css": "/NotatKy/static/media/outline-icons.ddae9b1b.woff"
   },
   "entrypoints": [
     "static/js/runtime-main.f2da9b29.js",
     "static/css/2.9c6631d9.chunk.css",
-    "static/js/2.d347eb7c.chunk.js",
-    "static/css/main.6c9245f4.chunk.css",
-    "static/js/main.fffb1f68.chunk.js"
+    "static/js/2.32399bfe.chunk.js",
+    "static/css/main.d41215df.chunk.css",
+    "static/js/main.25d1b929.chunk.js"
   ]
 }
