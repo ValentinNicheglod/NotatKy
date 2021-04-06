@@ -1,3 +1,4 @@
+/* eslint-disable import/no-named-as-default-member */
 import React, { useEffect, useState } from 'react';
 import bcrypt from 'bcryptjs';
 import { useDispatch, useSelector } from 'react-redux';
@@ -190,16 +191,20 @@ const SettingsProfile = () => {
   };
 
   const mouseEnter = (e) => {
-    const children = e.target.children[0];
-    if (children) {
-      children.className = 'btn btn-round mx-3 btn-sm btn-outline-primary profile-edit-active';
+    if (largeWidth) {
+      const children = e.target.children[0];
+      if (children) {
+        children.className = 'btn btn-round mx-3 btn-sm btn-outline-primary profile-edit-active';
+      }
     }
   };
 
   const mouseLeave = (e) => {
-    const children = e.target.children[0];
-    if (children) {
-      children.className = 'btn btn-round mx-3 btn-sm btn-outline-primary profile-edit';
+    if (largeWidth) {
+      const children = e.target.children[0];
+      if (children) {
+        children.className = 'btn btn-round mx-3 btn-sm btn-outline-primary profile-edit';
+      }
     }
   };
 

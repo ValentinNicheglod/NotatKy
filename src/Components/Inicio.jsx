@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import { Button } from 'semantic-ui-react';
 import { useDispatch } from 'react-redux';
 import LoopOutlinedIcon from '@material-ui/icons/LoopOutlined';
-import { IconButton, Snackbar } from '@material-ui/core';
+import { IconButton, Modal, Snackbar } from '@material-ui/core';
 import { chargeGuestUser, login } from '../Redux/Actions/Users';
 
 import CardInfo from './CardInfo';
@@ -39,6 +40,7 @@ const Inicio = () => {
   const token = sessionStorage.getItem('token') || localStorage.getItem('token');
 
   const [openSnackbar, setOpenSnackbar] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
 
   useEffect(() => {
     if (token) {
@@ -55,6 +57,7 @@ const Inicio = () => {
   }, []);
 
   const largeWidth = window.screen.width > 600;
+  const midWidth = window.screen.width < 350;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -67,6 +70,69 @@ const Inicio = () => {
       }, false));
     }, 2000);
   };
+
+  const modal = (
+    <div className={largeWidth ? 'modal-col w-50' : 'modal-col w-100 h-100'}>
+      <>
+        <h2 id="simple-modal-title" className="all-center display-6">
+          MODO INVITADO
+        </h2>
+        <hr />
+        <div className="row w-100">
+          <div className="w-50">
+            <div className="w-100 my-3">
+              <b>Al ingresar en modo invitado tendrás ciertas restricciones...</b>
+            </div>
+            <div className="px-2">
+              <ul>
+                <li>
+                  Debido a que el modo invitado es meramente presentacional,
+                  al recargar la ventana o salir de la página los cambios realizados
+                  durante la sesión se eliminarán.
+                </li>
+                <li>
+                  Podrás crear y editar colecciones, etiquetas y notas pero no podrás eliminarlas.
+                </li>
+                <li>
+                  No será posible editar el correo electrónico ni la contraseña del usuario.
+                </li>
+                <li>
+                  No será posible cambiar la foto de perfil.
+                </li>
+              </ul>
+            </div>
+            <div className="w-100 my-2">
+              <p>
+                Puedes optar por continuar o&nbsp;
+                <a href="https://valentinnicheglod.github.io/NotatKy/#/sign-up" style={{ texDecoration: 'underline' }}>crearte una cuenta</a>
+                &nbsp;para disfrutar de todas las funcionalidades...
+              </p>
+            </div>
+            <div className="my-3 d-flex justify-content-center w-100">
+              <Button
+                color="violet"
+                className={largeWidth ? 'textfield button my-2 w-100' : 'textfield button my-2 w-50'}
+                id="login-submit"
+                onClick={handleSubmit}
+                type="button"
+              >
+                Continuar como invitado
+              </Button>
+            </div>
+          </div>
+          <div className="w-50 all-center">
+            <img
+              src="/svg/terms.svg"
+              width="100%"
+              alt=""
+              className="mb-2"
+              draggable="false"
+            />
+          </div>
+        </div>
+      </>
+    </div>
+  );
 
   return (
     <div className={largeWidth ? 'login-bg full-height row' : 'login-bg row overflow-hidden'}>
@@ -89,7 +155,7 @@ const Inicio = () => {
             <div className="d-inline">
               <button
                 className="btn btn-outline-warning btn-round inicio-app px-4"
-                onClick={handleSubmit}
+                onClick={() => setOpenModal(true)}
                 type="submit"
               >
                 INGRESAR COMO INVITADO
@@ -142,6 +208,59 @@ const Inicio = () => {
           </div>
         ))}
       </div>
+      {
+        !largeWidth && (
+        <div className="d-flex row d-flex justify-content-center w-100 m-0 overflow-y">
+          <h6 className="display-6 all-center my-2 white">{midWidth ? 'MODO INVITADO' : 'INGRESAR COMO INVITADO'}</h6>
+          <hr />
+          <div className="all-center mb-2 w-100 row">
+            <div className="w-100 my-3 list-restrictions">
+              <b>Al ingresar en modo invitado tendrás ciertas restricciones...</b>
+            </div>
+            <div className="list-restrictions">
+              <ul>
+                <li>
+                  Debido a que el modo invitado es meramente presentacional,
+                  al recargar la ventana o salir de la página los cambios realizados
+                  durante la sesión se eliminarán.
+                </li>
+                <li>
+                  Podrás crear y editar colecciones, etiquetas y notas pero no podrás eliminarlas.
+                </li>
+                <li>
+                  No será posible editar el correo electrónico ni la contraseña del usuario.
+                </li>
+                <li>
+                  No será posible cambiar la foto de perfil.
+                </li>
+              </ul>
+            </div>
+            <div className="my-3 d-flex justify-content-center w-100 row">
+              <small className="m-0 white">Si estas de acuerdo con esto puedes</small>
+              <Button
+                color="yellow"
+                className="textfield button my-2 w-100"
+                id="login-submit"
+                onClick={handleSubmit}
+                type="button"
+              >
+                Ingresar como invitado
+              </Button>
+              <small className="all-center m-0 line-aside">o</small>
+              <Button
+                color="orange"
+                className="textfield button my-2 w-100"
+                id="login-submit"
+                onClick={() => history.push('/sign-up')}
+                type="button"
+              >
+                Crear una cuenta
+              </Button>
+            </div>
+          </div>
+        </div>
+        )
+      }
       <Snackbar
         anchorOrigin={{
           vertical: 'bottom',
@@ -161,6 +280,13 @@ const Inicio = () => {
           </IconButton>
             )}
       />
+      <Modal
+        open={openModal}
+        onClose={() => setOpenModal(false)}
+        className="d-flex w-100 justify-content-center align-items-center"
+      >
+        {modal}
+      </Modal>
     </div>
   );
 };

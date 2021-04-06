@@ -1,6 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import {
+  Avatar,
   FormControl,
   FormControlLabel,
   FormHelperText,
@@ -25,6 +26,7 @@ import {
 } from '@material-ui/icons';
 
 import './css/Settings.css';
+import moment from 'moment';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -113,6 +115,8 @@ const Profile = ({
 }) => {
   const classes = useStyles();
   const superSmallWidth = window.screen.width < 350;
+  const creationDate = user.createdAt
+    && moment(user.createdAt.slice(0, 10), 'YYYY-MM-DD').format('DD/MM/YY');
 
   return (
     <div className="user-profile pro m-4 row">
@@ -129,6 +133,56 @@ const Profile = ({
         )}
         &nbsp;Editar perfil
       </h1>
+      {!largeWidth && (
+        <div className="mobile-user-card-cont pt-4">
+          <div className="mobile-user-card login-bg row">
+            <div className="mobile-user-card-1 all-center">
+              {user.profile_photo ? (
+                <Avatar
+                  alt="profile_photo"
+                  style={{ pointerEvents: 'none' }}
+                  className="mobile-user-card-avatar"
+                  imgProps={{
+                    draggable: false
+                  }}
+                  src={`data:${
+                    user.profile_photo && user.profile_photo.contentType
+                  };base64, ${user.profile_photo && user.profile_photo.image}`}
+                />
+              ) : (
+                <Avatar alt="profile_photo" className="blue">
+                  {user.name && user.name.slice(0, 1)}
+                  {' '}
+                  {user.lastname && user.lastname.slice(0, 1)}
+                </Avatar>
+              )}
+            </div>
+            <div className="mobile-user-card-2">
+              <p className="mb-0">{user.name}</p>
+              <p className="mb-0">{user.lastname}</p>
+            </div>
+            <div className="mobile-user-card-3 py-2 h-100">
+              <div className="row mobile-user-card-ocupation">
+                {user.ocupation ? (
+                  <>
+                    <small>Ocupación...</small>
+                    <p className="mb-0">{user.ocupation}</p>
+                  </>
+                ) : (
+                  <>
+                    <small>Correo electrónico...</small>
+                    <p className="mb-0">{user.email}</p>
+                  </>
+                )}
+              </div>
+              <div className="row mobile-user-card-date">
+                <small>Miembro desde...</small>
+                <p className="mb-0">{creationDate}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
       <div
         className="pt-4 info-cont-settings"
         style={

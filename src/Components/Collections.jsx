@@ -113,7 +113,7 @@ const Collections = ({
       <div className="modal-col-action d-flex justify-content-between my-3 w-100">
         {editCollection ? (
           <button
-            className="btn btn-success"
+            className="btn btn-success btn-round"
             style={{ width: '30%', paddingLeft: 0, paddingRight: 0 }}
             disabled={newCollection.name.length === 0}
             onClick={() => {
@@ -137,7 +137,7 @@ const Collections = ({
           </button>
         ) : (
           <button
-            className="btn btn-success"
+            className="btn btn-success btn-round"
             style={{ width: '45%' }}
             disabled={newCollection.name.length === 0}
             onClick={() => {
@@ -158,7 +158,7 @@ const Collections = ({
         && (
         <button
           type="submit"
-          className="btn btn-outline-danger ml-3"
+          className="btn btn-outline-danger ml-3 btn-round"
           style={{ width: '30%', paddingLeft: 0, paddingRight: 0 }}
           onClick={() => {
             setOpenDialog(true);
@@ -168,7 +168,7 @@ const Collections = ({
         </button>
         )}
         <button
-          className="btn btn-outline-danger ml-3"
+          className={editCollection ? 'btn btn-round btn-outline-dark ml-3' : 'btn btn-round btn-outline-danger ml-3'}
           style={editCollection ? { width: '30%', paddingLeft: 0, paddingRight: 0 } : { width: '45%' }}
           onClick={() => {
             openModal('col', false);
@@ -202,76 +202,78 @@ const Collections = ({
         Colecciones
       </h1>
       <div className="row d-flex justify-content-center my-2 conf-2">
-        <TableContainer component={Paper} id="tab-col-table">
-          <Table aria-label="caption table" id="tab-col-table">
-            <caption>
-              Usa las colecciones como si fueran libretas, puedes guardar todas
-              las notas relacionadas a un tema en especifico dentro de ellas.
-            </caption>
-            <TableHead>
-              <TableRow>
-                <TableCell id="table-cell-">
-                  <b>Nombre</b>
-                </TableCell>
-                <TableCell>
-                  <b>Descripción</b>
-                </TableCell>
-                <TableCell />
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {collections.collections.map((collection, index) => (
-                <TableRow key={collection.id}>
-                  <TableCell
-                    component="th"
-                    scope="row"
-                    className="table-cell-col"
-                  >
-                    {editing.col === index ? (
-                      <TextField
-                        className="w-100"
-                        id="outlined-basic"
-                        inputProps={{
-                          maxLength: 20
-                        }}
-                        placeholder="Nombre"
-                        value={editCollection.name}
-                        onChange={onChange}
-                        name="name"
-                      />
-                    ) : (
-                      <p>
-                        <TocIcon />
+        {collections.collections.length > 0
+          ? (
+            <TableContainer component={Paper} id="tab-col-table">
+              <Table aria-label="caption table" id="tab-col-table">
+                <caption>
+                  Usa las colecciones como si fueran libretas, puedes guardar todas
+                  las notas relacionadas a un tema en especifico dentro de ellas.
+                </caption>
+                <TableHead>
+                  <TableRow>
+                    <TableCell id="table-cell-">
+                      <b>Nombre</b>
+                    </TableCell>
+                    <TableCell>
+                      <b>Descripción</b>
+                    </TableCell>
+                    <TableCell />
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {collections.collections.map((collection, index) => (
+                    <TableRow key={collection.id}>
+                      <TableCell
+                        component="th"
+                        scope="row"
+                        className="table-cell-col"
+                      >
+                        {editing.col === index ? (
+                          <TextField
+                            className="w-100"
+                            id="outlined-basic"
+                            inputProps={{
+                              maxLength: 20
+                            }}
+                            placeholder="Nombre"
+                            value={editCollection.name}
+                            onChange={onChange}
+                            name="name"
+                          />
+                        ) : (
+                          <p>
+                            <TocIcon />
                         &nbsp;&nbsp;
-                        {collection.name}
-                      </p>
-                    )}
-                  </TableCell>
-                  <TableCell className="table-cell-col">
-                    {editing.col === index ? (
-                      <TextField
-                        className="w-100"
-                        id="outlined-basic"
-                        inputProps={{
-                          maxLength: 50
-                        }}
-                        placeholder="Descripción"
-                        value={editCollection.description}
-                        onChange={onChange}
-                        name="description"
-                        multiline
-                      />
-                    ) : (
-                      <p>{collection.description}</p>
-                    )}
-                  </TableCell>
-                  <TableCell align="right" className="p-0">
-                    {largeWidth
-                      ? (
-                        <>
-                          <IconButton
-                            className="p-2 btn"
-                            onClick={
+                            {collection.name}
+                          </p>
+                        )}
+                      </TableCell>
+                      <TableCell className="table-cell-col">
+                        {editing.col === index ? (
+                          <TextField
+                            className="w-100"
+                            id="outlined-basic"
+                            inputProps={{
+                              maxLength: 50
+                            }}
+                            placeholder="Descripción"
+                            value={editCollection.description}
+                            onChange={onChange}
+                            name="description"
+                            multiline
+                          />
+                        ) : (
+                          <p>{collection.description}</p>
+                        )}
+                      </TableCell>
+                      <TableCell align="right" className="p-0">
+                        {largeWidth
+                          ? (
+                            <>
+                              <IconButton
+                                className="p-2 btn"
+                                onClick={
                         editing.col === index
                           ? () => handleChange(editCollection)
                           : () => {
@@ -283,140 +285,168 @@ const Collections = ({
                             });
                           }
                       }
-                          >
-                            {editing.col === index ? (
-                              <CheckSharpIcon
-                                style={{ color: '#198754' }}
-                              />
-                            ) : (
-                              <EditSharpIcon style={{ color: '#2185D0' }} />
-                            )}
-                          </IconButton>
-                          <IconButton
-                            className="p-2 btn"
-                            onClick={() => {
-                              setEditCollection(collections.collections[index]);
-                              setOpenDialog(true);
-                            }}
-                          >
-                            {editing.col === index && (
-                            <DeleteSharpIcon style={{ color: '#dc3545' }} />
-                            )}
-                          </IconButton>
-                        </>
-                      ) : (
-                        <IconButton
-                          className="p-2 btn"
-                          onClick={() => {
-                            setEditCollection(collections.collections[index]);
-                            setNewCollection({
-                              ...newCollection,
-                              name: collections.collections[index].name,
-                              description: collections.collections[index].description
-                            });
-                            openModal('col', true);
-                          }}
-                        >
-                          <EditOutlinedIcon />
-                        </IconButton>
+                              >
+                                {editing.col === index ? (
+                                  <CheckSharpIcon
+                                    style={{ color: '#198754' }}
+                                  />
+                                ) : (
+                                  <EditSharpIcon style={{ color: '#2185D0' }} />
+                                )}
+                              </IconButton>
+                              <IconButton
+                                className="p-2 btn"
+                                onClick={() => {
+                                  setEditCollection(collections.collections[index]);
+                                  setOpenDialog(true);
+                                }}
+                              >
+                                {editing.col === index && (
+                                <DeleteSharpIcon style={{ color: '#dc3545' }} />
+                                )}
+                              </IconButton>
+                            </>
+                          ) : (
+                            <IconButton
+                              className="p-2 btn"
+                              onClick={() => {
+                                setEditCollection(collections.collections[index]);
+                                setNewCollection({
+                                  ...newCollection,
+                                  name: collections.collections[index].name,
+                                  description: collections.collections[index].description
+                                });
+                                openModal('col', true);
+                              }}
+                            >
+                              <EditOutlinedIcon />
+                            </IconButton>
+                          )}
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                  <TableRow>
+                    <TableCell className="table-cell-col add">
+                      {!largeWidth && (
+                      <button
+                        className="btn p-0 my-2"
+                        type="button"
+                        style={{ opacity: 0 }}
+                      >
+                        A
+                      </button>
                       )}
-                  </TableCell>
-                </TableRow>
-              ))}
-              <TableRow>
-                <TableCell className="table-cell-col add">
-                  {!largeWidth && (
+                      <button
+                        className="btn p-0 mt-2 btn-add"
+                        onClick={() => openModal('col', true)}
+                        type="button"
+                      >
+                        <p>
+                          <AddIcon />
+                          {largeWidth
+                            ? '  Crear nueva colección'
+                            : '  Nueva colección'}
+                        </p>
+                      </button>
+                    </TableCell>
+                    <TableCell />
+                    <TableCell />
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
+          )
+          : (
+            <div className="no-data-cont all-center row">
+              <div>
+                <img
+                  draggable={false}
+                  src="svg/alert.svg"
+                  width="100%"
+                  alt="not-found"
+                  style={{ marginBottom: '10%', pointerEvents: 'none' }}
+                />
+                <p className="all-center">
+                  <b>No hay colecciones</b>
+                </p>
+                <div className="all-center">
                   <button
-                    className="btn p-0 my-2"
-                    type="button"
-                    style={{ opacity: 0 }}
-                  >
-                    A
-                  </button>
-                  )}
-                  <button
-                    className="btn p-0 mt-2 btn-add"
+                    className="btn btn-round my-3 btn-sm btn-primary all-center create-btn"
                     onClick={() => openModal('col', true)}
                     type="button"
                   >
-                    <p>
-                      <AddIcon />
-                      {largeWidth
-                        ? '  Crear nueva colección'
-                        : '  Nueva colección'}
-                    </p>
+                    <AddIcon />
+                    &nbsp;&nbsp;Crea tu primera colección
                   </button>
-                </TableCell>
-                <TableCell />
-                <TableCell />
-              </TableRow>
-            </TableBody>
-          </Table>
+                </div>
+              </div>
+            </div>
+          )}
 
-          <Modal
-            open={open.col}
-            onClose={() => {
-              openModal('col', false);
-              setEditCollection(null);
-              setNewCollection({
-                name: '',
-                description: '',
-              });
-            }}
-            className="d-flex w-100 justify-content-center align-items-center"
-          >
-            {modal}
-          </Modal>
-          <Dialog
-            open={openDialog}
-            onClose={() => {
-              setOpenDialog(false);
-              setEditCollection(null);
-              setNewCollection({
-                name: '',
-                description: '',
-              });
-            }}
-            aria-labelledby="alert-dialog-title"
-            aria-describedby="alert-dialog-description"
-          >
-            <DialogTitle id="alert-dialog-title">
-              ¿Desea eliminar la colección?
-            </DialogTitle>
-            <DialogContent>
-              <DialogContentText id="alert-dialog-description">
-                Tenga en cuenta que una vez que elimine la colección la misma no
-                podrá ser recuperada.
-              </DialogContentText>
-            </DialogContent>
-            <DialogActions>
-              <Button
-                className="btn"
-                onClick={() => setOpenDialog(false)}
-                color="primary"
-              >
-                Cancelar
-              </Button>
-              <Button
-                className="btn"
-                onClick={() => {
-                  handleDelete(editCollection.id);
-                  setOpenDialog(false);
-                  if (!largeWidth) {
-                    openModal('col', false);
-                    setNewCollection({
-                      name: '',
-                      description: '',
-                    });
-                  }
-                }}
-                color="primary"
-              >
-                Eliminar
-              </Button>
-            </DialogActions>
-          </Dialog>
-        </TableContainer>
+        <Modal
+          open={open.col}
+          onClose={() => {
+            openModal('col', false);
+            setEditCollection(null);
+            setNewCollection({
+              name: '',
+              description: '',
+            });
+          }}
+          className="d-flex w-100 justify-content-center align-items-center"
+        >
+          {modal}
+        </Modal>
+        <Dialog
+          open={openDialog}
+          onClose={() => {
+            setOpenDialog(false);
+            setEditCollection(null);
+            setNewCollection({
+              name: '',
+              description: '',
+            });
+          }}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <DialogTitle id="alert-dialog-title">
+            ¿Desea eliminar la colección?
+          </DialogTitle>
+          <DialogContent>
+            <DialogContentText id="alert-dialog-description">
+              Tenga en cuenta que una vez que elimine la colección la misma no
+              podrá ser recuperada.
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button
+              className="btn"
+              onClick={() => setOpenDialog(false)}
+              color="primary"
+            >
+              Cancelar
+            </Button>
+            <Button
+              className="btn"
+              onClick={() => {
+                handleDelete(editCollection.id);
+                setOpenDialog(false);
+                if (!largeWidth) {
+                  openModal('col', false);
+                  setNewCollection({
+                    name: '',
+                    description: '',
+                  });
+                  setEditCollection(null);
+                }
+              }}
+              color="primary"
+            >
+              Eliminar
+            </Button>
+          </DialogActions>
+        </Dialog>
       </div>
     </div>
   );

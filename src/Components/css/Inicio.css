@@ -75,6 +75,28 @@
         text-align: left!important;
     }
 
+    .list-restrictions{
+        color: lavender;
+    }
+
+    .line-aside {
+        display: flex;
+        flex-direction: row;
+        color: white;
+      }
+      .line-aside:before, .line-aside:after{
+        content: "";
+        flex: 1 1;
+        border-bottom: 1px solid white;
+        margin: auto;
+      }
+      .line-aside:before {
+        margin-right: 10px
+      }
+      .line-aside:after {
+        margin-left: 10px
+      }
+
     .log-in{
         height: fit-content;
     }

@@ -127,13 +127,13 @@ const Tags = ({
           onChange={newData}
         />
       </div>
-      <div className="w-100 row my-3">
+      <div className="row my-3">
         {!superSmallWidth && <p className="MuiFormLabel-root" style={{ fontSize: '1rem' }}>Color</p>}
         <div className="d-flex justify-content-between w-100">
           {colors.map((dot) => (
             <IconButton
               className={largeWidth ? 'p-2' : 'p-0'}
-              id={editTag && (editTag.color === dot) ? 'selectedColor' : null}
+              id={newTag.color === dot ? 'selectedColor' : null}
               onClick={() => newColor(dot, 'create')}
               key={dot}
             >
@@ -147,7 +147,7 @@ const Tags = ({
       <div className="modal-col-action d-flex justify-content-between my-3 w-100">
         {editTag ? (
           <button
-            className="btn btn-success"
+            className="btn btn-success btn-round"
             style={{ width: '30%', paddingLeft: 0, paddingRight: 0 }}
             disabled={newTag.name.length === 0}
             onClick={() => {
@@ -165,13 +165,13 @@ const Tags = ({
               }, 1500);
               openModal('tag', false);
             }}
-            type="button"
+            type="submit"
           >
             Guardar
           </button>
         ) : (
           <button
-            className="btn btn-success"
+            className="btn btn-success btn-round"
             style={{ width: '45%' }}
             disabled={newTag.name.length === 0}
             onClick={() => {
@@ -183,7 +183,7 @@ const Tags = ({
                 });
               }, 1500);
             }}
-            type="button"
+            type="submit"
           >
             Crear
           </button>
@@ -192,7 +192,7 @@ const Tags = ({
         && (
         <button
           type="submit"
-          className="btn btn-outline-danger ml-3"
+          className="btn btn-outline-danger ml-3 btn-round"
           style={{ width: '30%', paddingLeft: 0, paddingRight: 0 }}
           onClick={() => {
             setOpenDialog(true);
@@ -203,7 +203,7 @@ const Tags = ({
         )}
         <button
           type="submit"
-          className="btn btn-outline-danger ml-3"
+          className={editTag ? 'btn btn-outline-dark ml-3 btn-round' : 'btn btn-outline-danger ml-3 btn-round'}
           style={editTag ? { width: '30%', paddingLeft: 0, paddingRight: 0 } : { width: '45%' }}
           onClick={() => {
             openModal('tag', false);
@@ -235,73 +235,75 @@ const Tags = ({
         Etiquetas
       </h1>
       <div className="row d-flex justify-content-center my-2 conf-2">
-        <TableContainer component={Paper} id="tab-col-table">
-          <Table aria-label="caption table">
-            <caption>
-              Usa las etiquetas para ordenar tus notas por categoría, de esta
-              forma podrás encontrar la nota que buscas rapidamente.
-            </caption>
-            <TableHead>
-              <TableRow>
-                <TableCell>
-                  <b>Nombre</b>
-                </TableCell>
-                <TableCell>
-                  <b>Color</b>
-                </TableCell>
-                <TableCell />
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {tags.tags.map((tag, index) => (
-                <TableRow key={tag.name}>
-                  <TableCell
-                    component="th"
-                    scope="row"
-                    className="table-cell-col"
-                  >
-                    {editing.tag === index ? (
-                      <TextField
-                        className="w-100"
-                        placeholder="Nombre"
-                        value={editTag.name}
-                        onChange={onChange}
-                        name="name"
-                        inputProps={{
-                          maxLength: 20
-                        }}
-                      />
-                    ) : (
-                      <p>
-                        <LocalOfferOutlinedIcon />
+        {tags.tags.length > 0
+          ? (
+            <TableContainer component={Paper} id="tab-col-table">
+              <Table aria-label="caption table">
+                <caption>
+                  Usa las etiquetas para ordenar tus notas por categoría, de esta
+                  forma podrás encontrar la nota que buscas rapidamente.
+                </caption>
+                <TableHead>
+                  <TableRow>
+                    <TableCell>
+                      <b>Nombre</b>
+                    </TableCell>
+                    <TableCell>
+                      <b>Color</b>
+                    </TableCell>
+                    <TableCell />
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {tags.tags.map((tag, index) => (
+                    <TableRow key={tag.name}>
+                      <TableCell
+                        component="th"
+                        scope="row"
+                        className="table-cell-col"
+                      >
+                        {editing.tag === index ? (
+                          <TextField
+                            className="w-100"
+                            placeholder="Nombre"
+                            value={editTag.name}
+                            onChange={onChange}
+                            name="name"
+                            inputProps={{
+                              maxLength: 20
+                            }}
+                          />
+                        ) : (
+                          <p>
+                            <LocalOfferOutlinedIcon />
                         &nbsp;&nbsp;
-                        {tag.name}
-                      </p>
-                    )}
-                  </TableCell>
-                  <TableCell className="table-cell-col">
-                    {editing.tag === index ? (
-                      colors.map((dot) => (
-                        <IconButton
-                          className="color-dot"
-                          onClick={() => newColor(dot, 'update')}
-                        >
-                          <FiberManualRecordIcon style={{ color: dot }} />
-                        </IconButton>
-                      ))
-                    ) : (
-                      <>
-                        <FiberManualRecordIcon style={{ color: tag.color }} />
-                      </>
-                    )}
-                  </TableCell>
-                  <TableCell align="right" className="p-0">
-                    {largeWidth
-                      ? (
-                        <>
-                          <IconButton
-                            className="p-2 btn"
-                            onClick={
+                            {tag.name}
+                          </p>
+                        )}
+                      </TableCell>
+                      <TableCell className="table-cell-col">
+                        {editing.tag === index ? (
+                          colors.map((dot) => (
+                            <IconButton
+                              className="color-dot"
+                              onClick={() => newColor(dot, 'update')}
+                            >
+                              <FiberManualRecordIcon style={{ color: dot }} />
+                            </IconButton>
+                          ))
+                        ) : (
+                          <>
+                            <FiberManualRecordIcon style={{ color: tag.color }} />
+                          </>
+                        )}
+                      </TableCell>
+                      <TableCell align="right" className="p-0">
+                        {largeWidth
+                          ? (
+                            <>
+                              <IconButton
+                                className="p-2 btn"
+                                onClick={
                         editing.tag === index
                           ? () => handleChange(editTag)
                           : () => {
@@ -313,131 +315,160 @@ const Tags = ({
                             });
                           }
                       }
-                          >
-                            {editing.tag === index ? (
-                              <CheckSharpIcon style={{ color: '#198754' }} />
-                            ) : (
-                              <EditSharpIcon style={{ color: '#2185D0' }} />
-                            )}
-                          </IconButton>
-                          <IconButton
-                            className="p-2 btn"
-                            onClick={() => {
-                              setEditTag(tags.tags[index]);
-                              setOpenDialog(true);
-                            }}
-                          >
-                            {editing.tag === index && (
-                            <DeleteSharpIcon style={{ color: '#dc3545' }} />
-                            )}
-                          </IconButton>
-                        </>
-                      )
-                      : (
-                        <IconButton
-                          className="p-2 btn"
-                          onClick={() => {
-                            setEditTag(tags.tags[index]);
-                            setNewTag({
-                              ...newTag,
-                              name: tags.tags[index].name,
-                              color: tags.tags[index].color
-                            });
-                            openModal('tag', true);
-                          }}
-                        >
-                          <EditOutlinedIcon />
-                        </IconButton>
+                              >
+                                {editing.tag === index ? (
+                                  <CheckSharpIcon style={{ color: '#198754' }} />
+                                ) : (
+                                  <EditSharpIcon style={{ color: '#2185D0' }} />
+                                )}
+                              </IconButton>
+                              <IconButton
+                                className="p-2 btn"
+                                onClick={() => {
+                                  setEditTag(tags.tags[index]);
+                                  setOpenDialog(true);
+                                }}
+                              >
+                                {editing.tag === index && (
+                                <DeleteSharpIcon style={{ color: '#dc3545' }} />
+                                )}
+                              </IconButton>
+                            </>
+                          )
+                          : (
+                            <IconButton
+                              className="p-2 btn"
+                              onClick={() => {
+                                setEditTag(tags.tags[index]);
+                                setNewTag({
+                                  ...newTag,
+                                  name: tags.tags[index].name,
+                                  color: tags.tags[index].color
+                                });
+                                openModal('tag', true);
+                              }}
+                            >
+                              <EditOutlinedIcon />
+                            </IconButton>
+                          )}
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                  <TableRow>
+                    <TableCell className="table-cell-col add">
+                      {!largeWidth && (
+                      <button
+                        className="btn p-0 my-2"
+                        type="button"
+                        style={{ opacity: 0 }}
+                      >
+                        A
+                      </button>
                       )}
-                  </TableCell>
-                </TableRow>
-              ))}
-              <TableRow>
-                <TableCell className="table-cell-col add">
-                  {!largeWidth && (
+                      <button
+                        className="btn p-0 mt-2 btn-add"
+                        onClick={() => openModal('tag', true)}
+                        type="button"
+                      >
+                        <p>
+                          <AddIcon />
+                          {largeWidth
+                            ? '  Crear nueva etiqueta'
+                            : '  Nueva etiqueta'}
+                        </p>
+                      </button>
+                    </TableCell>
+                    <TableCell />
+                    <TableCell />
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
+          )
+          : (
+            <div className="no-data-cont all-center row">
+              <div>
+                <img
+                  draggable={false}
+                  src="svg/alert.svg"
+                  width="100%"
+                  alt="not-found"
+                  style={{ marginBottom: '10%', pointerEvents: 'none', transform: 'rotateY(180deg)' }}
+                />
+                <p className="all-center">
+                  <b>No hay etiquetas</b>
+                </p>
+                <div className="all-center">
                   <button
-                    className="btn p-0 my-2"
-                    type="button"
-                    style={{ opacity: 0 }}
-                  >
-                    A
-                  </button>
-                  )}
-                  <button
-                    className="btn p-0 mt-2 btn-add"
+                    className="btn btn-round my-3 btn-sm btn-primary all-center create-btn"
                     onClick={() => openModal('tag', true)}
                     type="button"
                   >
-                    <p>
-                      <AddIcon />
-                      {largeWidth
-                        ? '  Crear nueva etiqueta'
-                        : '  Nueva etiqueta'}
-                    </p>
+                    <AddIcon />
+                    &nbsp;&nbsp;Crea tu primera etiqueta
                   </button>
-                </TableCell>
-                <TableCell />
-                <TableCell />
-              </TableRow>
-            </TableBody>
-          </Table>
-          <Modal
-            open={open.tag}
-            onClose={() => {
-              openModal('tag', false);
-              setEditTag(null);
-              setNewTag({
-                name: '',
-                color: '',
-              });
-            }}
-            className="d-flex w-100 justify-content-center align-items-center"
-          >
-            {modal}
-          </Modal>
-          <Dialog
-            open={openDialog}
-            onClose={() => setOpenDialog(false)}
-            aria-labelledby="alert-dialog-title"
-            aria-describedby="alert-dialog-description"
-          >
-            <DialogTitle id="alert-dialog-title">
-              ¿Desea eliminar la etiqueta?
-            </DialogTitle>
-            <DialogContent>
-              <DialogContentText id="alert-dialog-description">
-                Tenga en cuenta que una vez que elimine la etiqueta la misma no
-                podrá ser recuperada.
-              </DialogContentText>
-            </DialogContent>
-            <DialogActions>
-              <Button
-                className="btn"
-                onClick={() => setOpenDialog(false)}
-                color="primary"
-              >
-                Cancelar
-              </Button>
-              <Button
-                className="btn"
-                onClick={() => {
-                  handleDelete(editTag.id);
-                  setOpenDialog(false);
-                  if (!largeWidth) {
-                    openModal('tag', false);
-                    setNewTag({
-                      name: '',
-                      color: '',
-                    });
-                  }
-                }}
-                color="primary"
-              >
-                Eliminar
-              </Button>
-            </DialogActions>
-          </Dialog>
-        </TableContainer>
+                </div>
+              </div>
+            </div>
+          )}
+        <Modal
+          open={open.tag}
+          onClose={() => {
+            openModal('tag', false);
+            setEditTag(null);
+            setNewTag({
+              name: '',
+              color: '',
+            });
+          }}
+          className="d-flex w-100 justify-content-center align-items-center"
+        >
+          {modal}
+        </Modal>
+        <Dialog
+          open={openDialog}
+          onClose={() => setOpenDialog(false)}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <DialogTitle id="alert-dialog-title">
+            ¿Desea eliminar la etiqueta?
+          </DialogTitle>
+          <DialogContent>
+            <DialogContentText id="alert-dialog-description">
+              Tenga en cuenta que una vez que elimine la etiqueta la misma no
+              podrá ser recuperada.
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button
+              className="btn"
+              onClick={() => setOpenDialog(false)}
+              color="primary"
+            >
+              Cancelar
+            </Button>
+            <Button
+              className="btn"
+              onClick={() => {
+                handleDelete(editTag.id);
+                setOpenDialog(false);
+                if (!largeWidth) {
+                  openModal('tag', false);
+                  setNewTag({
+                    name: '',
+                    color: '',
+                  });
+                  setEditTag(null);
+                }
+              }}
+              color="primary"
+            >
+              Eliminar
+            </Button>
+          </DialogActions>
+        </Dialog>
+
       </div>
     </div>
   );
