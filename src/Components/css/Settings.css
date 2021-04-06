@@ -102,6 +102,13 @@
   margin-top: 15px;
 }
 
+.card-edit small{
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: orange;
+  padding: 5px;
+}
+
 .profile-usermenu ul li:last-child {
   border-bottom: none;
 }

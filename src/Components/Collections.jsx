@@ -113,7 +113,7 @@ const Collections = ({
       <div className="modal-col-action d-flex justify-content-between my-3 w-100">
         {editCollection ? (
           <button
-            className="btn btn-success"
+            className="btn btn-success btn-round"
             style={{ width: '30%', paddingLeft: 0, paddingRight: 0 }}
             disabled={newCollection.name.length === 0}
             onClick={() => {
@@ -137,7 +137,7 @@ const Collections = ({
           </button>
         ) : (
           <button
-            className="btn btn-success"
+            className="btn btn-success btn-round"
             style={{ width: '45%' }}
             disabled={newCollection.name.length === 0}
             onClick={() => {
@@ -158,7 +158,7 @@ const Collections = ({
         && (
         <button
           type="submit"
-          className="btn btn-outline-danger ml-3"
+          className="btn btn-outline-danger ml-3 btn-round"
           style={{ width: '30%', paddingLeft: 0, paddingRight: 0 }}
           onClick={() => {
             setOpenDialog(true);
@@ -168,7 +168,7 @@ const Collections = ({
         </button>
         )}
         <button
-          className="btn btn-outline-danger ml-3"
+          className={editCollection ? 'btn btn-round btn-outline-dark ml-3' : 'btn btn-round btn-outline-danger ml-3'}
           style={editCollection ? { width: '30%', paddingLeft: 0, paddingRight: 0 } : { width: '45%' }}
           onClick={() => {
             openModal('col', false);
@@ -408,6 +408,7 @@ const Collections = ({
                       name: '',
                       description: '',
                     });
+                    setEditCollection(null);
                   }
                 }}
                 color="primary"
