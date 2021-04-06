@@ -108,6 +108,7 @@ const Tags = ({
           alt=""
           className="mb-2"
           draggable="false"
+          style={{ pointerEvents: 'none' }}
         />
       </div>
       <div>
@@ -118,7 +119,7 @@ const Tags = ({
           id="outlined-basic"
           inputProps={{
             maxLength: 20,
-            autoComplete: 'off'
+            autoComplete: 'new-password'
           }}
           label="Nombre"
           value={newTag.name}
@@ -142,12 +143,6 @@ const Tags = ({
             </IconButton>
           ))}
         </div>
-      </div>
-      <div className="w-100 row my-3">
-        {editTag
-        && (
-        <div />
-        )}
       </div>
       <div className="modal-col-action d-flex justify-content-between my-3 w-100">
         {editTag ? (
@@ -428,7 +423,13 @@ const Tags = ({
                 onClick={() => {
                   handleDelete(editTag.id);
                   setOpenDialog(false);
-                  if (!largeWidth) openModal('tag', false);
+                  if (!largeWidth) {
+                    openModal('tag', false);
+                    setNewTag({
+                      name: '',
+                      color: '',
+                    });
+                  }
                 }}
                 color="primary"
               >

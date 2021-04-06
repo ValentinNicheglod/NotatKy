@@ -81,6 +81,7 @@ const Collections = ({
           alt=""
           className="mb-2"
           draggable="false"
+          style={{ pointerEvents: 'none' }}
         />
       </div>
       <TextField
@@ -90,7 +91,7 @@ const Collections = ({
         id="outlined-basic"
         inputProps={{
           maxLength: 20,
-          autoComplete: 'off'
+          autoComplete: 'new-password'
         }}
         label="Nombre"
         value={newCollection.name}
@@ -103,7 +104,7 @@ const Collections = ({
         label="Descripción"
         inputProps={{
           maxLength: 50,
-          autoComplete: 'off'
+          autoComplete: 'new-password'
         }}
         value={newCollection.description}
         name="description"
@@ -401,7 +402,13 @@ const Collections = ({
                 onClick={() => {
                   handleDelete(editCollection.id);
                   setOpenDialog(false);
-                  if (!largeWidth) openModal('col', false);
+                  if (!largeWidth) {
+                    openModal('col', false);
+                    setNewCollection({
+                      name: '',
+                      description: '',
+                    });
+                  }
                 }}
                 color="primary"
               >

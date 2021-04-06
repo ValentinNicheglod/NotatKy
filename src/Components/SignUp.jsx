@@ -171,8 +171,8 @@ const SignUp = () => {
         <Logo />
       </div>
       )}
-      <div className="card-round card d-flex justify-content-center sign-up">
-        <form className="all-center row">
+      <div className="card-round card d-flex justify-content-between sign-up">
+        <form className="all-center row h-100">
           <h3 className="card-title d-flex justify-content-center">
             CREAR USUARIO
           </h3>
@@ -281,20 +281,20 @@ const SignUp = () => {
               value={data.password.two}
             />
           </div>
-          <div className="all-center">
-            <Button
-              color="purple"
-              className="textfield button my-2"
-              disabled={error.email || error.password
-                || error.confirmPassword || error.duplicatedEmail}
-              id="login-submit"
-              onClick={handleSubmit}
-              type="submit"
-            >
-              REGISTRARSE
-            </Button>
-          </div>
         </form>
+        <div className="all-center">
+          <Button
+            color="purple"
+            className="textfield button my-2"
+            disabled={error.email || error.password
+                || error.confirmPassword || error.duplicatedEmail}
+            id="login-submit"
+            onClick={handleSubmit}
+            type="submit"
+          >
+            REGISTRARSE
+          </Button>
+        </div>
         {/* <div className="textfield row m-1 login-bs">
             <div className="col-md-5 p-0">
                 <hr/>

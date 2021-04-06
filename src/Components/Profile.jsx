@@ -154,7 +154,7 @@ const Profile = ({
               )
             ) : !(editing === 'PersonalInformation') ? (
               <IconButton
-                className="btn mx-1 btn-sm"
+                className="btn mx-1"
                 onClick={() => editionMode('PersonalInformation')}
                 type="button"
               >
@@ -162,7 +162,7 @@ const Profile = ({
               </IconButton>
             ) : (
               <IconButton
-                className="btn btn-round mx-1 btn-sm btn-danger"
+                className="btn mx-1"
                 onClick={() => editionMode('')}
                 type="button"
               >
@@ -328,7 +328,7 @@ const Profile = ({
               </IconButton>
             ) : (
               <IconButton
-                className="btn btn-round mx-1 btn-sm btn-danger"
+                className="btn mx-1"
                 onClick={() => editionMode('')}
                 type="button"
               >
@@ -449,7 +449,7 @@ const Profile = ({
               </IconButton>
             ) : (
               <IconButton
-                className="btn btn-round mx-1 btn-sm btn-danger"
+                className="btn mx-1"
                 onClick={() => editionMode('')}
                 type="button"
               >

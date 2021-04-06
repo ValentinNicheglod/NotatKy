@@ -172,14 +172,16 @@ const ResetPassword = () => {
               step === 1
                 && (
                 <>
-                  <img
-                    src="svg/forgot_password.svg"
-                    width="90%"
-                    alt=""
-                    className="mb-3"
-                    draggable="false"
-                    style={{ pointerEvents: 'none', marginLeft: '5%' }}
-                  />
+                  <div className="all-center">
+                    <img
+                      src="svg/forgot_password.svg"
+                      width="90%"
+                      alt=""
+                      className="mb-3"
+                      draggable="false"
+                      style={{ pointerEvents: 'none' }}
+                    />
+                  </div>
                   <b className="all-center mb-3">¿No recuerdas tu contraseña?</b>
                   <p className="login-p">
                     Te enviaremos un correo electrónico para que puedas reestablecerla...
@@ -214,7 +216,7 @@ const ResetPassword = () => {
                       alt=""
                       className="mb-3"
                       draggable="false"
-                      style={{ pointerEvents: 'none', marginLeft: '10%' }}
+                      style={{ pointerEvents: 'none' }}
                     />
                   </div>
                   <b className="all-center mb-3">¡Revisa tu correo!</b>
@@ -256,14 +258,16 @@ const ResetPassword = () => {
               step === 3
                 && (
                 <>
-                  <img
-                    src="svg/password.svg"
-                    width="100%"
-                    alt=""
-                    className="mb-3"
-                    draggable="false"
-                    style={{ pointerEvents: 'none' }}
-                  />
+                  <div className="all-center">
+                    <img
+                      src="svg/password.svg"
+                      width="100%"
+                      alt=""
+                      className="mb-3"
+                      draggable="false"
+                      style={{ pointerEvents: 'none' }}
+                    />
+                  </div>
                   <p className="login-p">
                     Introduce una nueva contraseña...
                   </p>
@@ -271,7 +275,7 @@ const ResetPassword = () => {
                     <VpnKeyIcon />
                     <TextField
                       className="textfield"
-                      label="Contraseña"
+                      label="Contraseña nueva"
                       onChange={(e) => setPassword({ ...password, new1: e.target.value })}
                       type="password"
                       value={password.new1}

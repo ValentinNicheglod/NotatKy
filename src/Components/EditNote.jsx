@@ -114,7 +114,7 @@ const EditNote = ({
           <div className="w-100 my-3">
             <button
               className="btn btn-add-col p-0"
-              onClick={() => changeRoute('/collections tags')}
+              onClick={() => changeRoute('/collections tags/col')}
               type="button"
             >
               <p>

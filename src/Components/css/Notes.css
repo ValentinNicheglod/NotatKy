@@ -511,7 +511,6 @@ input::placeholder {
 
   .reset-pw img{
     width: 70%!important;
-    margin-left: 15%;
   }
 }
 
@@ -541,6 +540,26 @@ input::placeholder {
 
   .add{
     padding: 0!important;
+  }
+}
+
+@media screen and (min-height: 700px) and (max-width: 600px){
+  .nav-home{
+    height: 8%;
+  }
+
+  .note-cont-4{
+    height: 92%;
+  }
+
+  .actions-note{
+    padding-right: .5rem!important;
+    padding-left: .5rem!important;
+  }
+
+  .profile-userpic{
+    height: 20vh;
+    width: 20vh;
   }
 }
 
@@ -577,7 +596,7 @@ input::placeholder {
   }
 
   .hr-pad{
-    margin: 2px!important;
+    margin: 6px!important;
   }
 
   #home-side-bar{

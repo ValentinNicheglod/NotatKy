@@ -184,6 +184,10 @@ const SettingsCollections = () => {
       content: '',
     });
     setDrawerOpen(false);
+    setSelectedFilter({
+      name: '',
+      type: ''
+    });
   };
 
   const closeNote = () => {
@@ -379,7 +383,7 @@ const SettingsCollections = () => {
               </div>
             ) : (
               <Drawer open={drawerOpen} onClose={() => setDrawerOpen(false)}>
-                <div className="col-md-2 login-bg full-height" id="home-side-bar">
+                <div className="col-md-2 login-bg full-height">
                   <SideBarHome
                     changeRoute={changeRoute}
                     filterTags={filterTags}
