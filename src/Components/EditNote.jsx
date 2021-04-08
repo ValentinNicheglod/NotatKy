@@ -99,6 +99,7 @@ const EditNote = ({
               <img
                 src="svg/empty.svg"
                 width="80%"
+                draggable={false}
                 alt=""
               />
             </div>
@@ -193,6 +194,7 @@ const EditNote = ({
               <img
                 src="svg/empty.svg"
                 width="80%"
+                draggable={false}
                 alt=""
               />
             </div>

@@ -197,10 +197,21 @@
   border: 2px solid  #2185D0;
 }
 
+.cancel-btn-modal-edit{
+  width: 30%;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.cancel-btn-modal{
+  width: 45%;
+}
+
 #tab-col-table{
   box-shadow: none;
   width: 100%;
   padding: 0;
+  overflow-x: hidden;
 }
 
 #settings-side-bar{
@@ -285,10 +296,6 @@
 
 .color-dot{
   padding: 0px!important;
-}
-
-.color-dot:focus{
-  background-color: lightgray!important;
 }
 
 .mobile-user-card-cont{

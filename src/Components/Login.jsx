@@ -147,7 +147,7 @@ const Login = () => {
             />
           </div>
           <p className="login-p">Ingresa con tu correo...</p>
-          <div className="d-flex align-items-end justify-content-between">
+          <div className="d-flex align-items-end justify-content-between mb-4">
             <AlternateEmailIcon />
             <TextField
               className="textfield"

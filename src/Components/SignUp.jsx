@@ -78,12 +78,12 @@ const SignUp = () => {
   const handleFocusOut = () => {
     if (data.email.length > 0) {
       if (/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(data.email)) {
-        setError({ ...error, email: false });
         setError({
           ...error,
-          duplicatedEmail: users.users[0] && users.users.includes(data.email)
+          duplicatedEmail: users.users[0] && users.users.includes(data.email),
+          email: false
         });
-      } else {
+      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(data.email)) {
         setError({ ...error, email: true });
       }
     }

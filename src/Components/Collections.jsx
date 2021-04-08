@@ -77,7 +77,7 @@ const Collections = ({
   const modal = (
     <div className="modal-col">
       <div>
-        <h2 id="simple-modal-title" className="display-6">{editCollection ? 'Editar colección' : 'Crear una colección...'}</h2>
+        <h2 id="simple-modal-title" className="display-6">{editCollection && !largeWidth ? 'Editar colección' : 'Crear una colección...'}</h2>
         <hr />
       </div>
       <div className="all-center">
@@ -110,14 +110,14 @@ const Collections = ({
         label="Descripción"
         inputProps={{
           maxLength: 50,
-          autoComplete: 'new-password'
+          autoComplete: 'off'
         }}
         value={newCollection.description}
         name="description"
         onChange={newData}
       />
       <div className="modal-col-action d-flex justify-content-between my-3 w-100">
-        {editCollection ? (
+        {editCollection && !largeWidth ? (
           <button
             className="btn btn-success btn-round"
             style={{ width: '30%', paddingLeft: 0, paddingRight: 0 }}
@@ -160,12 +160,11 @@ const Collections = ({
             Crear
           </button>
         )}
-        {editCollection
+        {editCollection && !largeWidth
         && (
         <button
           type="submit"
-          className="btn btn-outline-danger ml-3 btn-round"
-          style={{ width: '30%', paddingLeft: 0, paddingRight: 0 }}
+          className="btn btn-outline-danger ml-3 btn-round cancel-btn-modal-edit"
           onClick={() => {
             setOpenDialog(true);
           }}
@@ -174,8 +173,7 @@ const Collections = ({
         </button>
         )}
         <button
-          className={editCollection ? 'btn btn-round btn-outline-dark ml-3' : 'btn btn-round btn-outline-danger ml-3'}
-          style={editCollection ? { width: '30%', paddingLeft: 0, paddingRight: 0 } : { width: '45%' }}
+          className={editCollection && !largeWidth ? 'btn btn-round btn-outline-dark ml-3 cancel-btn-modal-edit' : 'btn btn-round btn-outline-danger ml-3 cancel-btn-modal'}
           onClick={() => {
             openModal('col', false);
             setEditCollection(null);
@@ -248,11 +246,13 @@ const Collections = ({
                             name="name"
                           />
                         ) : (
-                          <p>
+                          <>
                             <TocIcon />
-                        &nbsp;&nbsp;
-                            {collection.name}
-                          </p>
+                            <p>
+                              &nbsp;&nbsp;
+                              {collection.name}
+                            </p>
+                          </>
                         )}
                       </TableCell>
                       <TableCell className="table-cell-col">
@@ -365,20 +365,22 @@ const Collections = ({
           : (
             loading
               ? (
-                <div style={{ height: '80vh', width: '100vw' }}>
+                <div style={largeWidth ? { height: '100%', width: '100%' } : { height: '80vh', width: '100vw' }}>
                   <Loading />
                 </div>
               )
               : (
                 <div className="no-data-cont all-center row">
                   <div>
-                    <img
-                      draggable={false}
-                      src="svg/alert.svg"
-                      width="100%"
-                      alt="not-found"
-                      style={{ marginBottom: '10%', pointerEvents: 'none' }}
-                    />
+                    <div className="d-flex justify-content-end w-100">
+                      <img
+                        draggable={false}
+                        src="svg/empty.svg"
+                        width="75%"
+                        alt="not-found"
+                        style={{ marginBottom: '10%', pointerEvents: 'none' }}
+                      />
+                    </div>
                     <p className="all-center">
                       <b>No hay colecciones</b>
                     </p>

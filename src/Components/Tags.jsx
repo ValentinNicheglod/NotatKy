@@ -104,7 +104,9 @@ const Tags = ({
   const modal = (
     <div className="modal-col">
       <div>
-        <h2 id="simple-modal-title" className="display-6">{editTag ? 'Editar etiqueta' : 'Crear una etiqueta...'}</h2>
+        <h2 id="simple-modal-title" className="display-6">
+          {editTag && !largeWidth ? 'Editar etiqueta' : 'Crear una etiqueta...'}
+        </h2>
         <hr />
       </div>
       <div className="all-center">
@@ -124,7 +126,7 @@ const Tags = ({
           id="outlined-basic"
           inputProps={{
             maxLength: 20,
-            autoComplete: 'new-password'
+            autoComplete: 'off'
           }}
           label="Nombre"
           value={newTag.name}
@@ -151,7 +153,7 @@ const Tags = ({
         </div>
       </div>
       <div className="modal-col-action d-flex justify-content-between my-3 w-100">
-        {editTag ? (
+        {editTag && !largeWidth ? (
           <button
             className="btn btn-success btn-round"
             style={{ width: '30%', paddingLeft: 0, paddingRight: 0 }}
@@ -194,12 +196,11 @@ const Tags = ({
             Crear
           </button>
         )}
-        {editTag
+        {editTag && !largeWidth
         && (
         <button
           type="submit"
-          className="btn btn-outline-danger ml-3 btn-round"
-          style={{ width: '30%', paddingLeft: 0, paddingRight: 0 }}
+          className="btn btn-outline-danger ml-3 btn-round cancel-btn-modal-edit"
           onClick={() => {
             setOpenDialog(true);
           }}
@@ -209,8 +210,7 @@ const Tags = ({
         )}
         <button
           type="submit"
-          className={editTag ? 'btn btn-outline-dark ml-3 btn-round' : 'btn btn-outline-danger ml-3 btn-round'}
-          style={editTag ? { width: '30%', paddingLeft: 0, paddingRight: 0 } : { width: '45%' }}
+          className={editTag ? 'btn btn-outline-dark ml-3 btn-round cancel-btn-modal-edit' : 'btn btn-outline-danger ml-3 btn-round cancel-btn-modal'}
           onClick={() => {
             openModal('tag', false);
             setEditTag(null);
@@ -292,7 +292,9 @@ const Tags = ({
                           colors.map((dot) => (
                             <IconButton
                               className="color-dot"
+                              id={editTag.color === dot ? 'selectedColor' : null}
                               onClick={() => newColor(dot, 'update')}
+                              style={{ borderColor: dot }}
                             >
                               <FiberManualRecordIcon style={{ color: dot }} />
                             </IconButton>
@@ -314,6 +316,7 @@ const Tags = ({
                           ? () => handleChange(editTag)
                           : () => {
                             setEditTag(tags.tags[index]);
+                            setNewTag(tags.tags[index]);
                             setEditing({
                               ...editing,
                               tag: index,
@@ -394,7 +397,7 @@ const Tags = ({
           : (
             loading
               ? (
-                <div style={{ height: '80vh', width: '100vw' }}>
+                <div style={largeWidth ? { height: '100%', width: '100%' } : { height: '80vh', width: '100vw' }}>
                   <Loading />
                 </div>
               )
@@ -403,8 +406,8 @@ const Tags = ({
                   <div>
                     <img
                       draggable={false}
-                      src="svg/alert.svg"
-                      width="100%"
+                      src="svg/empty.svg"
+                      width="75%"
                       alt="not-found"
                       style={{ marginBottom: '10%', pointerEvents: 'none', transform: 'rotateY(180deg)' }}
                     />
