@@ -28,6 +28,10 @@ html, body, .App {
   overflow: hidden;
 }
 
+button:focus{
+  outline: none!important;
+}
+
 .h-90{
   height: 90%;
 }

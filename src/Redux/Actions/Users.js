@@ -92,6 +92,20 @@ export const updateUser = (data) => (dispatch) => {
   }
 };
 
+export const updateUserPassword = (data) => (dispatch) => {
+  try {
+    axios.put(`/user/password/${data.id}`, { data }).then((response) => {
+      dispatch({
+        type: UPDATE_USER,
+        user: response.data,
+        response: response.status
+      });
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 export const login = (user, rememberInfo) => (dispatch) => {
   try {
     axios.post('/auth/login', user, { headers: { 'Access-Control-Allow-Origin': '*', } })

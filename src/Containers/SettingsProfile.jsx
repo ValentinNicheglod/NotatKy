@@ -7,7 +7,7 @@ import { useHistory } from 'react-router';
 import SideBarSettings from '../Components/SideBarSettings';
 import UserCard from '../Components/UserCard';
 import Profile from '../Components/Profile';
-import { getOneUser, updateUser } from '../Redux/Actions/Users';
+import { getOneUser, updateUser, updateUserPassword } from '../Redux/Actions/Users';
 import Loading from '../Components/Loading';
 
 const SettingsProfile = () => {
@@ -171,7 +171,7 @@ const SettingsProfile = () => {
           });
         } else {
           dispatch(
-            updateUser({
+            updateUserPassword({
               ...information,
               password: password.new1,
             }),

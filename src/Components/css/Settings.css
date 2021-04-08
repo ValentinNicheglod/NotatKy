@@ -104,6 +104,13 @@
   margin-top: 15px;
 }
 
+.card-edit small{
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: orange;
+  padding: 5px;
+}
+
 .profile-usermenu ul li:last-child {
   border-bottom: none;
 }
@@ -134,6 +141,7 @@
   border-radius: 20px;
   padding: 150px 3rem 3rem 3rem;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+  word-break: break-all;
 }
 
 .settings-title{

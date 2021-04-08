@@ -193,7 +193,8 @@ const SignUp = () => {
             <TextField
               className="textfield name"
               InputProps={{
-                autoComplete: 'given-name'
+                autoComplete: 'given-name',
+                spellCheck: false
               }}
               label="Nombre"
               name="name"
@@ -203,7 +204,8 @@ const SignUp = () => {
             <TextField
               className="textfield name"
               InputProps={{
-                autoComplete: 'family-name'
+                autoComplete: 'family-name',
+                spellCheck: false
               }}
               label="Apellido"
               name="lastname"

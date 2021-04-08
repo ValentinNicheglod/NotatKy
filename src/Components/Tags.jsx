@@ -119,7 +119,6 @@ const Tags = ({
       </div>
       <div>
         <TextField
-          autoComplete="off"
           autoFocus={!!largeWidth}
           className="w-100 my-3"
           id="outlined-basic"

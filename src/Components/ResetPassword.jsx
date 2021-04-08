@@ -18,7 +18,7 @@ import LoopOutlinedIcon from '@material-ui/icons/LoopOutlined';
 
 import './css/Login.css';
 import Logo from './Logo';
-import { resetPassword, updateUser } from '../Redux/Actions/Users';
+import { resetPassword, updateUserPassword } from '../Redux/Actions/Users';
 
 const ResetPassword = () => {
   const dispatch = useDispatch();
@@ -139,7 +139,7 @@ const ResetPassword = () => {
       });
     } else {
       dispatch(
-        updateUser({
+        updateUserPassword({
           ...users.user,
           password: password.new1,
         })

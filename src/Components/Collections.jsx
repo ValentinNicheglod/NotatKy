@@ -97,7 +97,7 @@ const Collections = ({
         id="outlined-basic"
         inputProps={{
           maxLength: 20,
-          autoComplete: 'new-password'
+          autoComplete: 'off'
         }}
         label="Nombre"
         value={newCollection.name}
@@ -396,7 +396,6 @@ const Collections = ({
                 </div>
               )
           )}
-
         <Modal
           open={open.col}
           onClose={() => {
