@@ -74,6 +74,7 @@ const NavBarHome = ({
             id="btn-home"
             className="btn white"
             onClick={() => history.push('/edit profile')}
+            title="Configuración"
           >
             <SettingsOutlinedIcon />
           </IconButton>

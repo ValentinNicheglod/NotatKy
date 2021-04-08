@@ -192,12 +192,18 @@ input::placeholder {
   font-size: 3rem;
   font-weight: 300;
   line-height: 1.2;
-  font-family: Lato,'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Lato';
 }
 
 .note-content{
   resize: none;
   border-width: 0px;
+  font-family: 'Noto Sans JP';
+  line-height: 1.5;
+  margin-left: 1.6rem;
+  padding-bottom: 2%;
+  padding-top: 2%;
+  height: 100%;
 }
 
 .note-content:focus{
@@ -337,6 +343,11 @@ input::placeholder {
 @media screen and (max-width: 600px){
   #hidden-overflow{
     overflow: hidden;
+  }
+
+  .tab-indicator p{
+    margin-left: 10px;
+    margin-right: 10px;
   }
 
   .greeting{
@@ -617,6 +628,11 @@ input::placeholder {
 @media screen and (max-height: 616px){
   .img-card{
     width: 70%!important;
+  }
+
+  .tab-indicator p{
+    margin-left: 5px;
+    margin-right: 5px;
   }
 }
 

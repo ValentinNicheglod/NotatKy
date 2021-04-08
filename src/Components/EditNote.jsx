@@ -113,13 +113,13 @@ const EditNote = ({
         {collections.length > 0 ? (
           <div className="w-100 my-3">
             <button
-              className="btn btn-add-col p-0"
+              className="btn btn-outline-primary btn-round btn-sm px-3"
               onClick={() => changeRoute('/collections tags/col')}
               type="button"
             >
               <p>
                 <AddIcon />
-                &nbsp;&nbsp;Crear nueva colección
+                &nbsp;&nbsp;Nueva colección
               </p>
             </button>
           </div>
@@ -127,7 +127,7 @@ const EditNote = ({
           <div className="w-100 my-3 all-center">
             <button
               className="btn btn-success"
-              onClick={() => changeRoute('/collections tags')}
+              onClick={() => changeRoute('/collections tags/col')}
               type="button"
             >
               <p>
@@ -205,21 +205,21 @@ const EditNote = ({
       {tags.length > 0 ? (
         <div className="w-100 d-flex justify-content-between align-items-center my-3">
           <button
-            className="btn btn-success w-25"
-            onClick={() => setOpenTagModal(false)}
-            type="button"
-          >
-            Listo
-          </button>
-          <button
-            className="btn btn-add-col p-0"
+            className="btn btn-outline-primary btn-round btn-sm px-3"
             onClick={() => changeRoute('/collections tags')}
             type="button"
           >
             <p>
               <AddIcon />
-              &nbsp;&nbsp;Crear nueva etiqueta
+              &nbsp;&nbsp;Nueva etiqueta
             </p>
+          </button>
+          <button
+            className="btn btn-success btn-round w-25"
+            onClick={() => setOpenTagModal(false)}
+            type="button"
+          >
+            Listo
           </button>
         </div>
       ) : (
@@ -293,11 +293,10 @@ const EditNote = ({
                 </div>
               )}
             </div>
-            <div className="ui transparent textarea w-100 h-90 mx-3">
+            <div className="ui transparent textarea w-100 h-90">
               <textarea
                 placeholder="Deja fluír tus ideas..."
                 className="note-content w-100"
-                style={{ height: '100%', paddingTop: '2%' }}
                 value={onEdition.content || ''}
                 name="content"
                 onChange={handleChange}
@@ -324,6 +323,7 @@ const EditNote = ({
                           className="p-0 btn"
                           id="delete-tag"
                           onClick={() => deleteTag(onEdition.id, tag.id)}
+                          title="Quitar etiqueta de la nota"
                         >
                           <HighlightOffOutlinedIcon />
                         </IconButton>

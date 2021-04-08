@@ -56,6 +56,7 @@ const Notes = ({
                     className="p-0 btn"
                     style={{ width: 45, height: 45 }}
                     onClick={newNote}
+                    title="Nueva nota"
                   >
                     <AddIcon className="w-75 h-75 white" />
                   </IconButton>

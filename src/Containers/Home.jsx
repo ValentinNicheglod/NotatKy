@@ -139,11 +139,9 @@ const SettingsCollections = () => {
 
   if (hour > 4 && hour < 12) {
     greeting = 'Buen día';
-  }
-  if (hour >= 12 && hour < 19) {
+  } else if (hour >= 12 && hour < 19) {
     greeting = 'Buenas tardes';
-  }
-  if (hour >= 19 || hour >= 0) {
+  } else {
     greeting = 'Buenas noches';
   }
 

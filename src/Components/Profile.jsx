@@ -17,7 +17,7 @@ import {
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import {
-  CloseSharp,
+  ExpandLess,
   Visibility,
   HighlightOffOutlined,
   VisibilityOff,
@@ -220,7 +220,7 @@ const Profile = ({
                 onClick={() => editionMode('')}
                 type="button"
               >
-                <CloseSharp style={{ color: '#DC3545' }} />
+                <ExpandLess style={{ color: '#2185D0' }} />
               </IconButton>
             )}
           </h1>
@@ -293,7 +293,7 @@ const Profile = ({
                       onClick={handleSubmit}
                       type="submit"
                     >
-                      Actualizar datos
+                      Actualizar
                     </button>
                   </div>
                 )}
@@ -386,7 +386,7 @@ const Profile = ({
                 onClick={() => editionMode('')}
                 type="button"
               >
-                <CloseSharp style={{ color: '#DC3545' }} />
+                <ExpandLess style={{ color: '#2185D0' }} />
               </IconButton>
             )}
           </h1>
@@ -427,7 +427,7 @@ const Profile = ({
                       onClick={handleSubmit}
                       type="submit"
                     >
-                      Actualizar datos
+                      Actualizar
                     </button>
                   </div>
                 )}
@@ -507,7 +507,7 @@ const Profile = ({
                 onClick={() => editionMode('')}
                 type="button"
               >
-                <CloseSharp style={{ color: '#DC3545' }} />
+                <ExpandLess style={{ color: '#2185D0' }} />
               </IconButton>
             )}
           </h1>
@@ -575,7 +575,7 @@ const Profile = ({
                   {error.password && 'La contraseña debe tener al menos seis caracteres'}
                 </FormHelperText>
               </FormControl>
-              <FormControl className="w-75">
+              <FormControl className="w-75 mb-4">
                 <InputLabel htmlFor="actual-password">
                   Repite la nueva contraseña
                 </InputLabel>
