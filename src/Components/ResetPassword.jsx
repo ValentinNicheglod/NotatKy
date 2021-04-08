@@ -206,7 +206,6 @@ const ResetPassword = () => {
                       alt=""
                       className="mb-3"
                       draggable="false"
-                      style={{ pointerEvents: 'none' }}
                     />
                   </div>
                   <b className="all-center mb-3">¿No recuerdas tu contraseña?</b>
@@ -243,7 +242,6 @@ const ResetPassword = () => {
                       alt=""
                       className="mb-3"
                       draggable="false"
-                      style={{ pointerEvents: 'none' }}
                     />
                   </div>
                   <b className="all-center mb-3">¡Revisa tu correo!</b>
@@ -292,7 +290,6 @@ const ResetPassword = () => {
                       alt=""
                       className="mb-3"
                       draggable="false"
-                      style={{ pointerEvents: 'none' }}
                     />
                   </div>
                   <p className="login-p">

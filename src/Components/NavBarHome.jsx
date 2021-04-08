@@ -116,7 +116,7 @@ const NavBarHome = ({
             {user.profile_photo ? (
               <Avatar
                 alt="profile_photo"
-                style={{ pointerEvents: 'none' }}
+                className="pe"
                 imgProps={{
                   draggable: false
                 }}

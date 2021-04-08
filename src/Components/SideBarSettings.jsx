@@ -103,7 +103,6 @@ const SideBarSettings = ({ setDrawerOpen }) => {
                     className="mt-4 profile-userpic"
                     sizes={180}
                     draggable={false}
-                    style={{ pointerEvents: 'none' }}
                     src={`data:${
                       user.profile_photo && user.profile_photo.contentType
                     };base64, ${user.profile_photo && user.profile_photo.image}`}

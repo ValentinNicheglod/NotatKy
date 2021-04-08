@@ -141,9 +141,8 @@ const Login = () => {
               src="svg/login.svg"
               width="90%"
               alt=""
-              className="mb-2 img-card"
+              className="mb-2 img-card pe"
               draggable="false"
-              style={{ pointerEvents: 'none' }}
             />
           </div>
           <p className="login-p">Ingresa con tu correo...</p>

@@ -140,8 +140,7 @@ const Profile = ({
               {user.profile_photo ? (
                 <Avatar
                   alt="profile_photo"
-                  style={{ pointerEvents: 'none' }}
-                  className="mobile-user-card-avatar"
+                  className="mobile-user-card-avatar pe"
                   imgProps={{
                     draggable: false
                   }}

@@ -87,7 +87,6 @@ const Collections = ({
           alt=""
           className="mb-2"
           draggable="false"
-          style={{ pointerEvents: 'none' }}
         />
       </div>
       <TextField
@@ -378,7 +377,7 @@ const Collections = ({
                         src="svg/empty.svg"
                         width="75%"
                         alt="not-found"
-                        style={{ marginBottom: '10%', pointerEvents: 'none' }}
+                        style={{ marginBottom: '10%' }}
                       />
                     </div>
                     <p className="all-center">

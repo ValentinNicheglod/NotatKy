@@ -15,8 +15,7 @@ const CardInfo = ({
         <img
           src={image}
           alt="icon"
-          className="card-img-top"
-          style={{ height: '100%', pointerEvents: 'none' }}
+          className="card-img-top h-100"
         />
       </div>
       <div className="card-body">

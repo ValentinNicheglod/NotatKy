@@ -8,7 +8,6 @@ const Logo = () => (
         alt="logo"
         className="logo-nav"
         draggable="false"
-        style={{ pointerEvents: 'none' }}
       />
       NotatKy
     </h1>

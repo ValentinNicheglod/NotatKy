@@ -3,6 +3,10 @@ html, body, .App {
     box-sizing: border-box;
 }
 
+img{
+  pointer-events: none;
+}
+
 .full-height {
   height: 100%;
 }
@@ -26,6 +30,14 @@ html, body, .App {
 
 .overflow-hidden{
   overflow: hidden;
+}
+
+.pe{
+  pointer-events: none!important;
+}
+
+.khula{
+  font-family: 'Khula';
 }
 
 button:focus{

@@ -241,6 +241,7 @@ input::placeholder {
   height: 30px!important;
   border-radius: 15px;
   color: rgb(44, 44, 44)!important;
+  max-width: 10vw;
 }
 
 .tab-indicator p{
@@ -476,6 +477,7 @@ input::placeholder {
     display: flex;
     justify-content: center;
     color: black!important;
+    max-width: 16vw;
   }
 
   #note-title{

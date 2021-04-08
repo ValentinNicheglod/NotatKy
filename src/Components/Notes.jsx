@@ -78,7 +78,7 @@ const Notes = ({
         {selectedFilter.name !== '' && (
           <div className="row d-flex align-items-center my-3">
             <div className="d-flex justify-content-between align-items-center">
-              <b className="m-0 white">{`${selectedFilter.type} seleccionada:`}</b>
+              <b className="m-0 white khula">{`${selectedFilter.type} seleccionada:`}</b>
               <Chip
                 label={selectedFilter.name}
                 onDelete={restartFilter}
@@ -193,7 +193,7 @@ const Notes = ({
                     src="svg/oops.svg"
                     width="50%"
                     alt="not-found"
-                    style={{ marginBottom: '10%', pointerEvents: 'none' }}
+                    style={{ marginBottom: '10%' }}
                   />
                   <p className="all-center">
                     <b>No hay coincidencias</b>
@@ -206,7 +206,7 @@ const Notes = ({
                     src="svg/oops.svg"
                     width="50%"
                     alt="not-found"
-                    style={{ marginBottom: '10%', pointerEvents: 'none' }}
+                    style={{ marginBottom: '10%' }}
                   />
                   <p className="all-center">
                     <b>No hay notas</b>
@@ -217,7 +217,7 @@ const Notes = ({
           )}
         </div>
         {!largeWidth && (
-          <Fab aria-label="add" className="fab-add btn">
+          <Fab aria-label="add" className="fab-add btn" onClick={newNote}>
             <AddIcon className="add-icon" />
           </Fab>
         )}

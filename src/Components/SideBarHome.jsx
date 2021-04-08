@@ -84,7 +84,7 @@ const SideBarHome = ({
                     <ListItemIcon>
                       <ListOutlinedIcon className="white" />
                     </ListItemIcon>
-                    <ListItemText primary={collection.name} />
+                    <ListItemText className="overflow-hidden" primary={collection.name} />
                   </ListItem>
                 </List>
               ))}
@@ -114,7 +114,7 @@ const SideBarHome = ({
                     <ListItemIcon>
                       <FiberManualRecordIcon style={{ color: tag.color }} />
                     </ListItemIcon>
-                    <ListItemText primary={tag.name} />
+                    <ListItemText className="overflow-hidden" primary={tag.name} />
                   </ListItem>
                 </List>
               ))}

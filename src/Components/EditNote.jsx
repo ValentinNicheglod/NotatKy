@@ -319,8 +319,8 @@ const EditNote = ({
                       className="tab-indicator mx-1 px-2"
                       style={{ backgroundColor: tag.color }}
                     >
-                      <div className="col d-flex align-items-center justify-content-between h-100">
-                        <p>{tag.name}</p>
+                      <div className="col d-flex align-items-center justify-content-between h-100 w-100">
+                        <p className="overflow-hidden">{tag.name}</p>
                         <IconButton
                           className="p-0 btn"
                           id="delete-tag"

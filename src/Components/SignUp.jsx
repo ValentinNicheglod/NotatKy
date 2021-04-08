@@ -23,8 +23,8 @@ const SignUp = () => {
   const dispatch = useDispatch();
   const token = sessionStorage.getItem('token') || localStorage.getItem('token');
 
-  const [openSnackbar, setOpenSnackbar] = useState(false);
-  const [openModal, setOpenModal] = useState(false);
+  const [onSnackbar, setOnSnackbar] = useState(false);
+  const [onModal, setOnModal] = useState(false);
 
   const [data, setData] = useState({
     name: '',
@@ -53,8 +53,8 @@ const SignUp = () => {
 
   useEffect(() => {
     if (data.name) {
-      setOpenModal(true);
-      setOpenSnackbar(false);
+      setOnModal(true);
+      setOnSnackbar(false);
     }
   }, [users.user]);
 
@@ -92,10 +92,10 @@ const SignUp = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (data.name === '' || data.lastname === '' || data.email === '' || data.password === '' || data.confirmPassword === '') {
-      setOpenSnackbar(1);
+      setOnSnackbar(1);
     } else {
       dispatch(createUser(data));
-      setOpenSnackbar(2);
+      setOnSnackbar(2);
     }
   };
 
@@ -114,7 +114,7 @@ const SignUp = () => {
                   src="svg/celebration.svg"
                   width="60%"
                   alt=""
-                  className="mb-2"
+                  className="mb-2 "
                   draggable="false"
                 />
               </div>
@@ -130,7 +130,7 @@ const SignUp = () => {
                   className="textfield button my-2 w-75"
                   id="login-submit"
                   onClick={() => history.push('/login')}
-                  type="button"
+                  ty="button"
                 >
                   INICIA SESIÓN
                 </Button>
@@ -146,7 +146,7 @@ const SignUp = () => {
                   src="svg/error.svg"
                   width="60%"
                   alt=""
-                  className="mb-2"
+                  className="mb-2 "
                   draggable="false"
                 />
               </div>
@@ -184,7 +184,6 @@ const SignUp = () => {
               alt=""
               className="mb-2 img-card"
               draggable="false"
-              style={{ pointerEvents: 'none' }}
             />
           </div>
           <p className="login-p">Completa el formulario con tus datos...</p>
@@ -194,7 +193,7 @@ const SignUp = () => {
               className="textfield name"
               InputProps={{
                 autoComplete: 'given-name',
-                spellCheck: false
+                sllCheck: false
               }}
               label="Nombre"
               name="name"
@@ -205,9 +204,9 @@ const SignUp = () => {
               className="textfield name"
               InputProps={{
                 autoComplete: 'family-name',
-                spellCheck: false
+                sllCheck: false
               }}
-              label="Apellido"
+              label="Allido"
               name="lastname"
               onChange={handleChange}
               value={data.lastname}
@@ -218,12 +217,12 @@ const SignUp = () => {
             <TextField
               className="textfield"
               error={error.email || error.duplicatedEmail}
-              helperText={
+              helrText={
                 error.duplicatedEmail !== '' && data.email.length > 5 && (
                   error.email
                     ? 'Ingrese un correo válido'
                     : error.duplicatedEmail
-                      ? 'Este correo electrónico pertenece a otra cuenta'
+                      ? 'Este correo electrónico rtenece a otra cuenta'
                       : 'Este correo electrónico se encuentra disponible'
                 )
               }
@@ -232,13 +231,13 @@ const SignUp = () => {
               onChange={handleChange}
               onBlur={handleFocusOut}
               value={data.email}
-              FormHelperTextProps={{
+              FormHelrTextProps={{
                 className: (!error.email && error.duplicatedEmail === false) && 'green-label'
               }}
               InputProps={{
                 autoComplete: 'email',
                 endAdornment: (
-                  <InputAdornment aria-describedby="popper" id="input-ador" position="end">
+                  <InputAdornment aria-describedby="popr" id="input-ador" position="end">
                     {
                       (!error.email && error.duplicatedEmail !== '') && (
                         error.duplicatedEmail
@@ -256,14 +255,14 @@ const SignUp = () => {
             <TextField
               className="textfield"
               error={error.password}
-              helperText={error.password && 'La contraseña debe tener al menos seis caracteres'}
+              helrText={error.password && 'La contraseña debe tener al menos seis caracteres'}
               InputProps={{
                 autoComplete: 'new-password'
               }}
               label="Contraseña"
               name="password"
               onChange={handleChange}
-              type="password"
+              ty="password"
               value={data.password.one}
             />
           </div>
@@ -272,11 +271,11 @@ const SignUp = () => {
             <TextField
               className="textfield"
               error={error.confirmPassword}
-              helperText={error.confirmPassword && 'Las contraseñas no coínciden'}
+              helrText={error.confirmPassword && 'Las contraseñas no coínciden'}
               InputProps={{
                 autoComplete: 'new-password'
               }}
-              type="password"
+              ty="password"
               label="Repite la contraseña"
               name="confirmPassword"
               onChange={handleChange}
@@ -292,7 +291,7 @@ const SignUp = () => {
                 || error.confirmPassword || error.duplicatedEmail}
             id="login-submit"
             onClick={handleSubmit}
-            type="submit"
+            ty="submit"
           >
             REGISTRARSE
           </Button>
@@ -327,24 +326,24 @@ const SignUp = () => {
           vertical: 'bottom',
           horizontal: 'left',
         }}
-        open={openSnackbar}
+        on={onSnackbar}
         autoHideDuration={5000}
-        onClose={() => setOpenSnackbar(false)}
-        message={openSnackbar === 1 ? 'Completa todos los campos' : 'Cargando...'}
+        onClose={() => setOnSnackbar(false)}
+        message={onSnackbar === 1 ? 'Completa todos los campos' : 'Cargando...'}
         action={(
           <IconButton
             className="btn"
             size="small"
             color="inherit"
-            onClick={() => setOpenSnackbar(false)}
+            onClick={() => setOnSnackbar(false)}
           >
             <HighlightOffOutlinedIcon fontSize="small" />
           </IconButton>
         )}
       />
       <Modal
-        open={openModal}
-        onClose={() => setOpenModal(false)}
+        on={onModal}
+        onClose={() => setOnModal(false)}
         className="d-flex w-100 justify-content-center align-items-center"
       >
         {modal}

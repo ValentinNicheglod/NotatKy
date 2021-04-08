@@ -116,7 +116,6 @@ const Tags = ({
           alt=""
           className="mb-2"
           draggable="false"
-          style={{ pointerEvents: 'none' }}
         />
       </div>
       <div>
@@ -409,7 +408,7 @@ const Tags = ({
                       src="svg/empty.svg"
                       width="75%"
                       alt="not-found"
-                      style={{ marginBottom: '10%', pointerEvents: 'none', transform: 'rotateY(180deg)' }}
+                      style={{ marginBottom: '10%', transform: 'rotateY(180deg)' }}
                     />
                     <p className="all-center">
                       <b>No hay etiquetas</b>
