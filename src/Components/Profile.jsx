@@ -227,14 +227,14 @@ const Profile = ({
           {editing === 'PersonalInformation' ? (
             <form className={classes.root} noValidate autoComplete="off">
               <TextField
-                className="w-75"
+                className="input-profile"
                 label="Nombre"
                 value={information.name}
                 name="name"
                 onChange={handleChange}
               />
               <TextField
-                className="w-75"
+                className="input-profile"
                 id="outlined-basic"
                 label="Apellido"
                 value={information.lastname}
@@ -242,7 +242,7 @@ const Profile = ({
                 onChange={handleChange}
               />
               <TextField
-                className="w-75"
+                className="input-profile"
                 id="ocupation-textfield"
                 label="Ocupación"
                 value={information.ocupation}
@@ -393,7 +393,7 @@ const Profile = ({
           {editing === 'ContactInformation' ? (
             <form className={classes.root} noValidate autoComplete="off">
               <TextField
-                className="w-75"
+                className="input-profile"
                 id="outlined-basic"
                 label="Correo electrónico"
                 value={information.email}
@@ -401,7 +401,7 @@ const Profile = ({
                 onChange={handleChange}
               />
               <TextField
-                className="w-75 mb-4"
+                className="input-profile mb-4"
                 id="phone-textfield"
                 label="Número de teléfono"
                 value={information.phone}
@@ -513,7 +513,7 @@ const Profile = ({
           <hr />
           {editing === 'password' ? (
             <form className={classes.root} noValidate autoComplete="off">
-              <FormControl className="w-75">
+              <FormControl className="input-profile">
                 <InputLabel htmlFor="actual-password">
                   Contraseña actual
                 </InputLabel>
@@ -541,7 +541,7 @@ const Profile = ({
                   onChange={handlePasswordChange}
                 />
               </FormControl>
-              <FormControl className="w-75" error={error.password}>
+              <FormControl className="input-profile" error={error.password}>
                 <InputLabel htmlFor="actual-password">
                   Contraseña nueva
                 </InputLabel>
@@ -574,7 +574,7 @@ const Profile = ({
                   {error.password && 'La contraseña debe tener al menos seis caracteres'}
                 </FormHelperText>
               </FormControl>
-              <FormControl className="w-75 mb-4">
+              <FormControl className="input-profile mb-4">
                 <InputLabel htmlFor="actual-password">
                   Repite la nueva contraseña
                 </InputLabel>

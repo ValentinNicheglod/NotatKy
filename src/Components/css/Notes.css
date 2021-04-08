@@ -632,6 +632,10 @@ input::placeholder {
     width: 70%!important;
   }
 
+  .list-names{
+    max-width: 20vw;
+  }
+
   .tab-indicator p{
     margin-left: 5px;
     margin-right: 5px;
@@ -667,5 +671,9 @@ input::placeholder {
   .MuiListItem-root{
     padding-top: 4px!important;
     padding-bottom: 4px!important;
+  }
+
+  .list-names{
+    max-width: 15vw;
   }
 }

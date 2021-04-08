@@ -22,6 +22,8 @@ const Notes = ({
 }) => {
   const register = [];
 
+  console.log(pathname);
+
   return (
     <div
       className={largeWidth ? 'blue-aside notes-cont' : 'notes-cont'}
@@ -216,7 +218,7 @@ const Notes = ({
             </div>
           )}
         </div>
-        {!largeWidth && (
+        {!largeWidth && pathname === '/home' && (
           <Fab aria-label="add" className="fab-add btn" onClick={newNote}>
             <AddIcon className="add-icon" />
           </Fab>

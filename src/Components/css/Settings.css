@@ -34,6 +34,10 @@
   letter-spacing: -5px;
 }
 
+.input-profile{
+  width: 75%!important;
+}
+
 #selected-color{
   background-color: lightgray;
 }
@@ -394,6 +398,10 @@
     --bs-gutter-x: 0!important;
   }
 
+  .input-profile{
+    width: 100%!important;
+  }
+
   .btn-outline-primary:hover {
     background-color: initial;
     color: initial;
@@ -602,7 +610,7 @@
     }
   }
 
-  @media screen and (max-height: 600px){
+  @media screen and (max-height: 570px){
     .mobile-user-card-ocupation{
       display: none;
     }

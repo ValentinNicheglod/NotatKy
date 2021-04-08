@@ -84,7 +84,7 @@ const SideBarHome = ({
                     <ListItemIcon>
                       <ListOutlinedIcon className="white" />
                     </ListItemIcon>
-                    <ListItemText className="overflow-hidden" primary={collection.name} />
+                    <ListItemText className="overflow-hidden list-names" primary={collection.name} />
                   </ListItem>
                 </List>
               ))}
@@ -114,7 +114,7 @@ const SideBarHome = ({
                     <ListItemIcon>
                       <FiberManualRecordIcon style={{ color: tag.color }} />
                     </ListItemIcon>
-                    <ListItemText className="overflow-hidden" primary={tag.name} />
+                    <ListItemText className="overflow-hidden list-names" primary={tag.name} />
                   </ListItem>
                 </List>
               ))}
@@ -130,7 +130,7 @@ const SideBarHome = ({
             </ListItemIcon>
             <ListItemText primary="Notas archivadas" />
           </ListItem>
-
+ 
           <ListItem
             button
             id={pathname === '/trash' && 'home-select'}

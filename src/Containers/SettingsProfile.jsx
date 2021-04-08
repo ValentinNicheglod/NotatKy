@@ -112,6 +112,7 @@ const SettingsProfile = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!largeWidth) setEditing('');
     if (!information.name) {
       setSnackbar({
         open: true,
