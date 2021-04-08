@@ -122,7 +122,7 @@ const Inicio = () => {
           </div>
           <div className="w-50 all-center">
             <img
-              src="/svg/terms.svg"
+              src="svg/terms.svg"
               width="100%"
               alt=""
               className="mb-2"

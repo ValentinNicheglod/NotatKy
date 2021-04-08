@@ -68,6 +68,32 @@
     border: 1px solid white;
 }
 
+.line-aside {
+    display: flex;
+    flex-direction: row;
+    color: white;
+  }
+  .line-aside:before, .line-aside:after{
+    content: "";
+    flex: 1 1;
+    border-bottom: 1px solid white;
+    margin: auto;
+  }
+  .line-aside:before {
+    margin-right: 10px
+  }
+  .line-aside:after {
+    margin-left: 10px
+  }
+
+  .line-aside-bl {
+    color: gray!important;
+  }
+
+  .line-aside-bl:before, .line-aside-bl:after{
+    border-bottom: 1px solid gray;
+  }
+
 @media screen and (max-width: 600px){
     .inicio-logo{
         display: flex;
@@ -78,24 +104,6 @@
     .list-restrictions{
         color: lavender;
     }
-
-    .line-aside {
-        display: flex;
-        flex-direction: row;
-        color: white;
-      }
-      .line-aside:before, .line-aside:after{
-        content: "";
-        flex: 1 1;
-        border-bottom: 1px solid white;
-        margin: auto;
-      }
-      .line-aside:before {
-        margin-right: 10px
-      }
-      .line-aside:after {
-        margin-left: 10px
-      }
 
     .log-in{
         height: fit-content;

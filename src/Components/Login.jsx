@@ -214,20 +214,8 @@ const Login = () => {
                 </div> */}
 
         <div className="login-sign-up mt-3 row bs-gutter">
-          <div className={largeWidth ? 'col-md-3 p-0 mt-2' : 'none'}>
-            <hr />
-          </div>
-          <div
-            className={
-              largeWidth
-                ? 'col-md-6 d-flex justify-content-center'
-                : 'w-100 d-flex justify-content-center'
-            }
-          >
-            <p className="login-p">¿No tienes una cuenta?</p>
-          </div>
-          <div className={largeWidth ? 'col-md-3 p-0 mt-2' : 'none'}>
-            <hr />
+          <div>
+            <p className="login-p line-aside line-aside-bl">¿No tienes una cuenta?</p>
           </div>
           <Link
             to="/sign-up"

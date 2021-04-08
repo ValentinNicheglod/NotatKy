@@ -25,6 +25,7 @@ import DeleteSharpIcon from '@material-ui/icons/DeleteSharp';
 import CheckSharpIcon from '@material-ui/icons/CheckSharp';
 import AddIcon from '@material-ui/icons/Add';
 import MenuIcon from '@material-ui/icons/Menu';
+import Loading from './Loading';
 
 const colors = [
   '#79ADDC',
@@ -54,6 +55,11 @@ const Tags = ({
   });
   const [editTag, setEditTag] = useState(null);
   const [openDialog, setOpenDialog] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  setTimeout(() => {
+    setLoading(false);
+  }, 2000);
 
   const newData = (e) => {
     setNewTag({
@@ -136,6 +142,7 @@ const Tags = ({
               id={newTag.color === dot ? 'selectedColor' : null}
               onClick={() => newColor(dot, 'create')}
               key={dot}
+              style={{ borderColor: dot }}
             >
               <FiberManualRecordIcon
                 style={{ color: dot, fontSize: superSmallWidth ? 25 : 35 }}
@@ -386,30 +393,38 @@ const Tags = ({
             </TableContainer>
           )
           : (
-            <div className="no-data-cont all-center row">
-              <div>
-                <img
-                  draggable={false}
-                  src="svg/alert.svg"
-                  width="100%"
-                  alt="not-found"
-                  style={{ marginBottom: '10%', pointerEvents: 'none', transform: 'rotateY(180deg)' }}
-                />
-                <p className="all-center">
-                  <b>No hay etiquetas</b>
-                </p>
-                <div className="all-center">
-                  <button
-                    className="btn btn-round my-3 btn-sm btn-primary all-center create-btn"
-                    onClick={() => openModal('tag', true)}
-                    type="button"
-                  >
-                    <AddIcon />
-                    &nbsp;&nbsp;Crea tu primera etiqueta
-                  </button>
+            loading
+              ? (
+                <div style={{ height: '80vh', width: '100vw' }}>
+                  <Loading />
                 </div>
-              </div>
-            </div>
+              )
+              : (
+                <div className="no-data-cont all-center row">
+                  <div>
+                    <img
+                      draggable={false}
+                      src="svg/alert.svg"
+                      width="100%"
+                      alt="not-found"
+                      style={{ marginBottom: '10%', pointerEvents: 'none', transform: 'rotateY(180deg)' }}
+                    />
+                    <p className="all-center">
+                      <b>No hay etiquetas</b>
+                    </p>
+                    <div className="all-center">
+                      <button
+                        className="btn btn-round my-3 btn-sm btn-primary all-center create-btn"
+                        onClick={() => openModal('tag', true)}
+                        type="button"
+                      >
+                        <AddIcon />
+                    &nbsp;&nbsp;Crea tu primera etiqueta
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )
           )}
         <Modal
           open={open.tag}

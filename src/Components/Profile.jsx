@@ -521,6 +521,7 @@ const Profile = ({
                 <Input
                   id="actual-password"
                   type={visiblePassword.password ? 'text' : 'password'}
+                  spellcheck={false}
                   endAdornment={(
                     <InputAdornment position="end">
                       <IconButton
@@ -581,6 +582,7 @@ const Profile = ({
                 <Input
                   id="new-password"
                   type={visiblePassword.newPassword ? 'text' : 'password'}
+                  spellcheck={false}
                   endAdornment={(
                     <InputAdornment position="end">
                       <IconButton

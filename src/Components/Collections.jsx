@@ -24,6 +24,7 @@ import DeleteSharpIcon from '@material-ui/icons/DeleteSharp';
 import CheckSharpIcon from '@material-ui/icons/CheckSharp';
 import AddIcon from '@material-ui/icons/Add';
 import MenuIcon from '@material-ui/icons/Menu';
+import Loading from './Loading';
 
 const Collections = ({
   collections,
@@ -43,6 +44,11 @@ const Collections = ({
   });
   const [editCollection, setEditCollection] = useState();
   const [openDialog, setOpenDialog] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  setTimeout(() => {
+    setLoading(false);
+  }, 2000);
 
   const newData = (e) => {
     setNewCollection({
@@ -357,30 +363,38 @@ const Collections = ({
             </TableContainer>
           )
           : (
-            <div className="no-data-cont all-center row">
-              <div>
-                <img
-                  draggable={false}
-                  src="svg/alert.svg"
-                  width="100%"
-                  alt="not-found"
-                  style={{ marginBottom: '10%', pointerEvents: 'none' }}
-                />
-                <p className="all-center">
-                  <b>No hay colecciones</b>
-                </p>
-                <div className="all-center">
-                  <button
-                    className="btn btn-round my-3 btn-sm btn-primary all-center create-btn"
-                    onClick={() => openModal('col', true)}
-                    type="button"
-                  >
-                    <AddIcon />
-                    &nbsp;&nbsp;Crea tu primera colección
-                  </button>
+            loading
+              ? (
+                <div style={{ height: '80vh', width: '100vw' }}>
+                  <Loading />
                 </div>
-              </div>
-            </div>
+              )
+              : (
+                <div className="no-data-cont all-center row">
+                  <div>
+                    <img
+                      draggable={false}
+                      src="svg/alert.svg"
+                      width="100%"
+                      alt="not-found"
+                      style={{ marginBottom: '10%', pointerEvents: 'none' }}
+                    />
+                    <p className="all-center">
+                      <b>No hay colecciones</b>
+                    </p>
+                    <div className="all-center">
+                      <button
+                        className="btn btn-round my-3 btn-sm btn-primary all-center create-btn"
+                        onClick={() => openModal('col', true)}
+                        type="button"
+                      >
+                        <AddIcon />
+                    &nbsp;&nbsp;Crea tu primera colección
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )
           )}
 
         <Modal

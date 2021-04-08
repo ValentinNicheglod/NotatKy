@@ -343,13 +343,11 @@
 }
 
 .mobile-user-card-avatar{
-  height: 95%!important;
-  width: initial!important;
-  object-fit: cover;
+  height: 16vw!important;
+  width: 16vw!important;
   margin-left: 10px;
-  aspect-ratio: 1/1;
-  max-height: 75px;
-  max-width: 75px;
+  max-height: 80px;
+  max-width: 80px;
 }
 
 .MuiFormLabel-root{
@@ -366,6 +364,10 @@
 
 .no-data-cont{
   height: 100%;
+}
+
+#selectedColor{
+  border: 3px solid;
 }
 
 @media screen and (max-width: 600px){
@@ -564,23 +566,26 @@
     }
     
     .mobile-user-card-avatar{
-      height: 95%!important;
-      width: initial!important;
-      object-fit: cover;
-      margin-left: 0px;
-      aspect-ratio: 1/1;
+      height: 16vw!important;
+      width: 16vw!important;
+      margin-left: 10px;
       max-height: 75px;
       max-width: 75px;
     }
-    
+
     .mobile-user-card-ocupation{
-      display: none;
       border-left: lightgray 1px solid;
     }
     
     .mobile-user-card-date{
       height: 100%;
       border-left: lightgray 1px solid;
+    }
+  }
+
+  @media screen and (max-height: 600px){
+    .mobile-user-card-ocupation{
+      display: none;
     }
   }
 }

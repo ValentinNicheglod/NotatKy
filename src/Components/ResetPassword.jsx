@@ -31,6 +31,10 @@ const ResetPassword = () => {
     new1: '',
     new2: ''
   });
+  const [error, setError] = useState({
+    new1: false,
+    new2: false
+  });
   const [email, setEmail] = useState('');
   const [step, setStep] = useState(1);
   const [code, setCode] = useState([...Array(length)].map(() => ''));
@@ -93,8 +97,7 @@ const ResetPassword = () => {
         message: 'No se puede cambiar la contraseña de esta cuenta',
         open: true
       });
-    }
-    if (/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+    } else if (/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
       dispatch(resetPassword(email));
     } else {
       setSnackbar({
@@ -129,12 +132,7 @@ const ResetPassword = () => {
 
   const changePassword = (e) => {
     e.preventDefault();
-    if (password.new1 !== password.new2) {
-      setSnackbar({
-        open: true,
-        message: 'Las contraseñas no coincíden',
-      });
-    } else if (!password.new1 || !password.new2) {
+    if (!password.new1 || !password.new2) {
       setSnackbar({
         open: true,
         message: 'Complete los campos requeridos',
@@ -151,6 +149,35 @@ const ResetPassword = () => {
         message: 'Contraseña actualizada',
       });
       setPassword({ new1: '', new2: '' });
+    }
+  };
+
+  const handleFocusOut = (type) => {
+    if (type === 1) {
+      if (password.new1.length < 6) {
+        setError({
+          ...error,
+          new1: true
+        });
+      } else {
+        setError({
+          ...error,
+          new1: false
+        });
+      }
+    }
+    if (type === 2) {
+      if (password.new1 !== password.new2) {
+        setError({
+          ...error,
+          new2: true
+        });
+      } else {
+        setError({
+          ...error,
+          new2: false
+        });
+      }
     }
   };
 
@@ -275,7 +302,10 @@ const ResetPassword = () => {
                     <VpnKeyIcon />
                     <TextField
                       className="textfield"
+                      error={error.new1}
+                      helperText={error.new1 && 'La contraseña debe tener al menos seis caracteres'}
                       label="Contraseña nueva"
+                      onBlur={() => handleFocusOut(1)}
                       onChange={(e) => setPassword({ ...password, new1: e.target.value })}
                       type="password"
                       value={password.new1}
@@ -285,7 +315,10 @@ const ResetPassword = () => {
                     <VpnKeyIcon />
                     <TextField
                       className="textfield"
+                      error={error.new2}
+                      helperText={error.new2 && 'Las contraseñas no coinciden'}
                       label="Repetir contraseña"
+                      onBlur={() => handleFocusOut(2)}
                       onChange={(e) => setPassword({ ...password, new2: e.target.value })}
                       type="password"
                       value={password.new2}
@@ -294,6 +327,7 @@ const ResetPassword = () => {
                   <Button
                     color="purple"
                     className="total-width button mt-3"
+                    disabled={error.new1 || error.new2}
                     id="login-submit"
                     onClick={changePassword}
                   >

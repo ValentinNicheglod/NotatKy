@@ -11,6 +11,7 @@ import { Avatar, Chip, IconButton } from '@material-ui/core';
 const NavBarHome = ({
   closeNote,
   collection,
+  greeting,
   handleChange,
   inputValue,
   largeWidth,
@@ -102,7 +103,14 @@ const NavBarHome = ({
         ) : (
           <>
             {largeWidth && (
-              <h4 className="greeting-note">{`Hola ${user.name}!`}</h4>
+              <div className="mx-3">
+                <b className="m-0 d-flex justify-content-end greeting white display-6">
+                  {`${greeting},`}
+                </b>
+                <b className="m-0 d-flex justify-content-end greeting-name white">
+                  {`${user.name}!`}
+                </b>
+              </div>
             )}
             {user.profile_photo ? (
               <Avatar

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-
+import moment from 'moment';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
@@ -32,7 +32,7 @@ import {
   updateNote,
 } from '../Redux/Actions/Notes';
 import { getAllTags } from '../Redux/Actions/Tags';
-import { getOneUser, setDarkMode } from '../Redux/Actions/Users';
+import { chargeGuestUser, getOneUser, setDarkMode } from '../Redux/Actions/Users';
 
 import '../Components/css/Notes.css';
 import EditNote from '../Components/EditNote';
@@ -101,6 +101,9 @@ const SettingsCollections = () => {
         title: onEdition.title,
         content: onEdition.content
       }));
+      if (users.user.id === 1) {
+        dispatch(chargeGuestUser());
+      }
     };
   }, []);
 
@@ -130,6 +133,19 @@ const SettingsCollections = () => {
   const trashNotes = notes.notes && notes.notes.filter((note) => note.state === 'trash');
 
   const largeWidth = window.screen.width > 600;
+
+  const hour = moment().hour();
+  let greeting = '';
+
+  if (hour > 4 && hour < 12) {
+    greeting = 'Buen día';
+  }
+  if (hour >= 12 && hour < 19) {
+    greeting = 'Buenas tardes';
+  }
+  if (hour >= 19 || hour >= 0) {
+    greeting = 'Buenas noches';
+  }
 
   const showSnackBar = (message, status, undo) => {
     if (status === 201) {
@@ -404,6 +420,7 @@ const SettingsCollections = () => {
                     (e) => e.id === notes.note.collectionId,
                   )[0]
                 }
+                greeting={greeting}
                 handleChange={handleSearchChange}
                 inputValue={inputValue}
                 largeWidth={largeWidth}
@@ -467,6 +484,7 @@ const SettingsCollections = () => {
                       collections={collections.collections}
                       darkMode={users.darkMode}
                       editNote={editNote}
+                      greeting={greeting}
                       inputValue={inputValue}
                       largeWidth={largeWidth}
                       newNote={newNote}
@@ -491,6 +509,7 @@ const SettingsCollections = () => {
                       pathname={pathname}
                       restartFilter={restartFilter}
                       selectedFilter={selectedFilter}
+                      user={users.user}
                     />
                   )}
                 </div>

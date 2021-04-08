@@ -303,6 +303,28 @@ input::placeholder {
   color: inherit!important;
 }
 
+.greeting{
+  color: gray;
+  font-size: 15px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.greeting-name{
+  font-size: 14px;
+}
+
+.fab-add{
+  position: absolute!important;
+  bottom: 3%;
+  right: 4%;
+  color: white!important;
+  background-image: linear-gradient(to bottom right, #2185D0, #bd5edd);
+}
+
+.add-icon{
+  transform: scale(1.7);
+}
+
 @keyframes rotation {
   0% {
     transform: rotate(360deg);
@@ -315,6 +337,14 @@ input::placeholder {
 @media screen and (max-width: 600px){
   #hidden-overflow{
     overflow: hidden;
+  }
+
+  .greeting{
+    font-size: 14px;
+  }
+  
+  .greeting-name{
+    font-size: 13px;
   }
 
   .note-content{

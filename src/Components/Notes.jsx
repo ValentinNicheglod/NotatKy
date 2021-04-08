@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import momenttz from 'moment-timezone';
-import { Chip, IconButton } from '@material-ui/core';
+import { Chip, Fab, IconButton } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import NoteCard from './NoteCard';
 
@@ -9,6 +9,7 @@ const Notes = ({
   collections,
   darkMode,
   editNote,
+  greeting,
   inputValue,
   largeWidth,
   newNote,
@@ -17,6 +18,7 @@ const Notes = ({
   pathname,
   restartFilter,
   selectedFilter,
+  user
 }) => {
   const register = [];
 
@@ -26,6 +28,20 @@ const Notes = ({
       id={darkMode && 'dark-border'}
     >
       <div className="row full-height w-100">
+        {/*
+          !largeWidth
+          && (
+          <div className="d-flex row justify-content-end">
+            <p className="m-0 d-flex justify-content-end">
+              {`${greeting},`}
+            </p>
+            <b className="m-0 d-flex justify-content-end">
+              {`${user.name}!`}
+            </b>
+            <hr className="my-1 w-25" />
+          </div>
+          )
+         */}
         <div className="col d-flex justify-content-between align-items-center directory">
           {pathname === '/archive' ? (
             <h4 className="display-6 white">Notas archivadas</h4>
@@ -34,13 +50,27 @@ const Notes = ({
           ) : (
             <>
               <h4 className="display-5 white">Notas</h4>
-              <IconButton
-                className="p-0 btn"
-                style={{ width: 45, height: 45 }}
-                onClick={newNote}
-              >
-                <AddIcon className="w-75 h-75 white" />
-              </IconButton>
+              {largeWidth
+                ? (
+                  <IconButton
+                    className="p-0 btn"
+                    style={{ width: 45, height: 45 }}
+                    onClick={newNote}
+                  >
+                    <AddIcon className="w-75 h-75 white" />
+                  </IconButton>
+                )
+                : (
+                  <div className="d-flex row justify-content-end">
+                    <b className="m-0 d-flex justify-content-end greeting display-6">
+                      {`${greeting},`}
+                    </b>
+                    <b className="m-0 d-flex justify-content-end greeting-name">
+                      {`${user.name}!`}
+                    </b>
+                    <hr className="my-1 w-25 pr-2" style={{ marginRight: '10px' }} />
+                  </div>
+                )}
             </>
           )}
         </div>
@@ -185,6 +215,11 @@ const Notes = ({
             </div>
           )}
         </div>
+        {!largeWidth && (
+          <Fab aria-label="add" className="fab-add btn">
+            <AddIcon className="add-icon" />
+          </Fab>
+        )}
       </div>
     </div>
   );
