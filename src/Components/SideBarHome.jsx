@@ -130,7 +130,7 @@ const SideBarHome = ({
             </ListItemIcon>
             <ListItemText primary="Notas archivadas" />
           </ListItem>
- 
+
           <ListItem
             button
             id={pathname === '/trash' && 'home-select'}

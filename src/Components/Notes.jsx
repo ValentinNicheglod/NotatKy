@@ -22,8 +22,6 @@ const Notes = ({
 }) => {
   const register = [];
 
-  console.log(pathname);
-
   return (
     <div
       className={largeWidth ? 'blue-aside notes-cont' : 'notes-cont'}
