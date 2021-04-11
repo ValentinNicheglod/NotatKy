@@ -141,6 +141,11 @@ const SettingsProfile = () => {
         email: 'admin@admin.com',
         password: 'aDmIn123'
       }));
+      setEditing('');
+      setSnackbar({
+        open: true,
+        message: 'Datos actualizados',
+      });
     } else {
       dispatch(updateUser(information));
       setEditing('');

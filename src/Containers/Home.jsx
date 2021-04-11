@@ -96,11 +96,13 @@ const SettingsCollections = () => {
       );
     }
     return () => {
-      dispatch(updateNote({
-        ...notes.note,
-        title: onEdition.title,
-        content: onEdition.content
-      }));
+      if (onEdition.id) {
+        dispatch(updateNote({
+          ...notes.note,
+          title: onEdition.title,
+          content: onEdition.content
+        }));
+      }
       if (users.user.id === 1) {
         dispatch(chargeGuestUser());
       }

@@ -55,7 +55,6 @@ export const createNote = (data, userId) => (dispatch) => {
 export const updateNote = (data) => (dispatch) => {
   try {
     axios.put(`/note/${data.id}`, { data }).then((response) => {
-      console.log(response);
       dispatch({
         message: response.data.message,
         note: response.data.note,
