@@ -11,10 +11,12 @@ import history from './history';
 import 'semantic-ui-css/semantic.min.css';
 import './index.css';
 
+console.log(process.env.EMAIL_GUEST);
+
 const root = document.getElementById('root');
 axios.defaults.baseURL = 'https://notatky.herokuapp.com';
-// axios.defaults.headers.common['Access-Control-Request-Headers'] = null;
-// axios.defaults.headers.common['Access-Control-Request-Method'] = null;
+axios.defaults.headers.common['Access-Control-Request-Headers'] = ['Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers'];
+axios.defaults.headers.common['Access-Control-Request-Method'] = ['GET,HEAD,OPTIONS,POST,PUT'];
 // axios.defaults.baseURL = 'http://localhost:3001';
 
 ReactDOM.render(
