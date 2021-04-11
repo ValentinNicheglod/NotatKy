@@ -55,6 +55,7 @@ export const collectionsReducer = (state = initialState, action) => {
         collection: {},
         collections: [],
         message: '',
+        response: ''
       };
     default:
       return state;

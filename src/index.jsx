@@ -13,8 +13,8 @@ import './index.css';
 
 const root = document.getElementById('root');
 axios.defaults.baseURL = 'https://notatky.herokuapp.com';
-axios.defaults.headers.common['Access-Control-Request-Headers'] = null;
-axios.defaults.headers.common['Access-Control-Request-Method'] = null;
+// axios.defaults.headers.common['Access-Control-Request-Headers'] = null;
+// axios.defaults.headers.common['Access-Control-Request-Method'] = null;
 // axios.defaults.baseURL = 'http://localhost:3001';
 
 ReactDOM.render(

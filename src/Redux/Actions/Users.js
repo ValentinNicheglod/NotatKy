@@ -108,7 +108,7 @@ export const updateUserPassword = (data) => (dispatch) => {
 
 export const login = (user, rememberInfo) => (dispatch) => {
   try {
-    axios.post('/auth/login', user, { headers: { 'Access-Control-Allow-Origin': '*', } })
+    axios.post('/auth/login', user, /* { headers: { 'Access-Control-Allow-Origin': '*', } } */)
       .then((response) => {
         dispatch({
           type: LOGIN,
