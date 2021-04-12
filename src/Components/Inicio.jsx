@@ -65,8 +65,8 @@ const Inicio = () => {
     dispatch(chargeGuestUser());
     setTimeout(() => {
       dispatch(login({
-        email: 'admin@admin.com',
-        password: 'aDmIn123'
+        email: process.env.REACT_APP_EMAIL_GUEST,
+        password: process.env.REACT_APP_PASSWORD_GUEST
       }, false));
     }, 2000);
   };

@@ -65,7 +65,7 @@ const Login = () => {
         message: 'Ingrese un correo válido'
       });
     } else {
-      if (data.email === 'admin@admin.com') {
+      if (data.email === process.env.REACT_APP_EMAIL_GUEST) {
         dispatch(chargeGuestUser());
       }
       dispatch(login(data, rememberInfo));
@@ -241,7 +241,7 @@ const Login = () => {
         onClose={() => setSnackbar(false)}
         message={snackbar.message}
         action={(
-          snackbar.message === 'Estamos verificando los datos...'
+          snackbar.message === 'Cargando...'
             ? (
               <IconButton
                 className="btn"

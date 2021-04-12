@@ -92,7 +92,7 @@ const ResetPassword = () => {
       message: 'Cargando...',
       open: true
     });
-    if (email === 'admin@admin.com') {
+    if (email === process.env.REACT_APP_EMAIL_GUEST) {
       setSnackbar({
         message: 'No se puede cambiar la contraseña de esta cuenta',
         open: true

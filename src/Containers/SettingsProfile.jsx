@@ -138,8 +138,8 @@ const SettingsProfile = () => {
     } else if (users.user.id === 1) {
       dispatch(updateUser({
         ...information,
-        email: 'admin@admin.com',
-        password: 'aDmIn123'
+        email: process.env.REACT_APP_EMAIL_GUEST,
+        password: process.env.REACT_APP_PASSWORD_GUEST
       }));
       setEditing('');
       setSnackbar({

@@ -206,7 +206,7 @@ const SignUp = () => {
                 autoComplete: 'family-name',
                 sllCheck: false
               }}
-              label="Allido"
+              label="Apellido"
               name="lastname"
               onChange={handleChange}
               value={data.lastname}

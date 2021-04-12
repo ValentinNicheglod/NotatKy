@@ -11,8 +11,6 @@ import history from './history';
 import 'semantic-ui-css/semantic.min.css';
 import './index.css';
 
-console.log(process.env.EMAIL_GUEST);
-
 const root = document.getElementById('root');
 axios.defaults.baseURL = 'https://notatky.herokuapp.com';
 // axios.defaults.headers.common['Access-Control-Request-Headers'] =

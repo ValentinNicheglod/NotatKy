@@ -53,7 +53,7 @@ const Notes = ({
               {largeWidth
                 ? (
                   <IconButton
-                    className="p-0 btn"
+                    className="p-0 btn btn-add-note"
                     style={{ width: 45, height: 45 }}
                     onClick={newNote}
                     title="Nueva nota"

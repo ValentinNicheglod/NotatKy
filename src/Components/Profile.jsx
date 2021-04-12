@@ -59,16 +59,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   checkedIcon: {
-    backgroundColor: '#137cbd',
-    backgroundImage:
-      'linear-gradient(180deg,hsla(0,0%,100%,.1),hsla(0,0%,100%,0))',
-    '&:before': {
-      display: 'block',
-      width: 16,
-      height: 16,
-      backgroundImage: 'radial-gradient(#fff,#fff 28%,transparent 32%)',
-      content: '""',
-    },
+    backgroundColor: '#2185D0',
     'input:hover ~ &': {
       backgroundColor: '#106ba3',
     },
@@ -278,7 +269,7 @@ const Profile = ({
               <br />
               {largeWidth ? (
                 <button
-                  className="btn w-25 btn-success btn-update"
+                  className="btn w-25 btn-success btn-round btn-update"
                   onClick={handleSubmit}
                   type="submit"
                 >
@@ -298,7 +289,7 @@ const Profile = ({
                 )}
               {largeWidth && (
                 <button
-                  className="btn w-25 btn-outline-danger"
+                  className="btn btn-outline-danger btn-round w-12"
                   onClick={() => editionMode('')}
                   type="button"
                 >
@@ -413,7 +404,7 @@ const Profile = ({
               {largeWidth ? (
                 <button
                   type="submit"
-                  className="btn w-25 btn-success btn-update"
+                  className="btn w-25 btn-success btn-update btn-round"
                   onClick={handleSubmit}
                 >
                   Actualizar datos
@@ -433,7 +424,7 @@ const Profile = ({
               {largeWidth && (
                 <button
                   type="button"
-                  className="btn w-25 btn-outline-danger"
+                  className="btn btn-outline-danger btn-round w-12"
                   onClick={() => editionMode('')}
                 >
                   Cancelar
@@ -605,7 +596,7 @@ const Profile = ({
               <br />
               {largeWidth ? (
                 <button
-                  className="btn w-25 btn-success btn-update"
+                  className="btn w-25 btn-success btn-round btn-update"
                   disabled={error.password}
                   onClick={handlePasswordSubmit}
                   type="submit"
@@ -628,7 +619,7 @@ const Profile = ({
               {largeWidth && (
                 <button
                   type="submit"
-                  className="btn w-25 btn-outline-danger"
+                  className="btn btn-outline-danger btn-round w-12"
                   onClick={() => editionMode('')}
                 >
                   Cancelar

@@ -99,6 +99,22 @@ input::-webkit-inner-spin-button {
   color: white!important;
 }
 
+.directory{
+  margin-right: 5px;
+}
+
+.btn-add-note{
+  background-color: #2185D0!important;
+}
+
+.btn-add-note:hover{
+  background-color: #1d6daa!important;
+}
+
+.w-12{
+  width: 12%!important;
+}
+
 .note-card{
   min-height: 150px;
   max-height: 250px;
