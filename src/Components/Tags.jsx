@@ -369,7 +369,14 @@ const Tags = ({
                 && (
                 <TableFooter>
                   <button
-                    onClick={() => openModal('tag', true)}
+                    onClick={() => {
+                      setEditTag(null);
+                      setNewTag({
+                        name: '',
+                        color: '',
+                      });
+                      openModal('tag', true);
+                    }}
                     type="button"
                     className="ui labeled icon button btn-round blue white m-3 mb-0"
                   >
@@ -405,12 +412,14 @@ const Tags = ({
                     </p>
                     <div className="all-center">
                       <button
-                        className="btn btn-round my-3 btn-sm btn-primary all-center create-btn"
-                        onClick={() => openModal('tag', true)}
+                        onClick={() => {
+                          openModal('tag', true);
+                        }}
                         type="button"
+                        className="ui labeled icon button btn-round blue white m-3 mb-0"
                       >
-                        <AddIcon />
-                    &nbsp;&nbsp;Crea tu primera etiqueta
+                        <i className="plus icon" />
+                        Crea tu primera etiqueta
                       </button>
                     </div>
                   </div>

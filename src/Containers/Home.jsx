@@ -147,6 +147,18 @@ const SettingsCollections = () => {
     greeting = 'Buenas noches';
   }
 
+  let noNotesMessage = '';
+
+  if (inputValue.length > 2) {
+    noNotesMessage = 'No hay coincidencias';
+  } else if (pathname === '/trash') {
+    noNotesMessage = 'No hay notas en la papelera';
+  } else if (pathname === '/archive') {
+    noNotesMessage = 'No hay notas archivadas';
+  } else {
+    noNotesMessage = 'No hay notas';
+  }
+
   const showSnackBar = (message, status, undo) => {
     if (status === 201) {
       setSnackbar({
@@ -485,8 +497,8 @@ const SettingsCollections = () => {
                       darkMode={users.darkMode}
                       editNote={editNote}
                       greeting={greeting}
-                      inputValue={inputValue}
                       largeWidth={largeWidth}
+                      message={noNotesMessage}
                       newNote={newNote}
                       notes={
                   filter !== false

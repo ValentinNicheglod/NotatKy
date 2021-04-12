@@ -10,8 +10,8 @@ const Notes = ({
   darkMode,
   editNote,
   greeting,
-  inputValue,
   largeWidth,
+  message,
   newNote,
   notes,
   onEdition,
@@ -186,33 +186,17 @@ const Notes = ({
             })
           ) : (
             <div className="all-center row w-75">
-              {inputValue.length > 3 ? (
-                <>
-                  <img
-                    draggable={false}
-                    src="svg/oops.svg"
-                    width="50%"
-                    alt="not-found"
-                    style={{ marginBottom: '10%' }}
-                  />
-                  <p className="all-center">
-                    <b>No hay coincidencias</b>
-                  </p>
-                </>
-              ) : (
-                <>
-                  <img
-                    draggable={false}
-                    src="svg/oops.svg"
-                    width="50%"
-                    alt="not-found"
-                    style={{ marginBottom: '10%' }}
-                  />
-                  <p className="all-center">
-                    <b>No hay notas</b>
-                  </p>
-                </>
-              )}
+              <img
+                draggable={false}
+                src="svg/oops.svg"
+                width="50%"
+                alt="not-found"
+                style={{ marginBottom: '10%' }}
+              />
+              <p className="all-center">
+                <b>{message}</b>
+              </p>
+
             </div>
           )}
         </div>

@@ -376,6 +376,14 @@ const Collections = ({
                     </p>
                     <div className="all-center">
                       <button
+                        onClick={() => openModal('col', true)}
+                        type="button"
+                        className="ui labeled icon button btn-round blue white m-3 mb-0"
+                      >
+                        <i className="plus icon" />
+                        Crea tu primera colección
+                      </button>
+                      <button
                         className="btn btn-round my-3 btn-sm btn-primary all-center create-btn"
                         onClick={() => openModal('col', true)}
                         type="button"

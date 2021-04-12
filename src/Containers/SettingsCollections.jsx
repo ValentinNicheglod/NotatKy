@@ -98,6 +98,11 @@ const SettingsCollections = ({ match }) => {
         open: true,
         message: 'Acción no permitida en modo invitado'
       });
+      setEditing({
+        ...editing,
+        tag: undefined,
+        col: undefined,
+      });
     } else {
       dispatch(deleteCollection(id));
       updateInformation();
@@ -144,6 +149,11 @@ const SettingsCollections = ({ match }) => {
       setSnackbar({
         open: true,
         message: 'Acción no permitida en modo invitado'
+      });
+      setEditing({
+        ...editing,
+        tag: undefined,
+        col: undefined,
       });
     } else {
       dispatch(deleteTag(id));
