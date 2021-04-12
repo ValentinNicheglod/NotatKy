@@ -7,7 +7,7 @@
 }
 
 .user-tag{
-  height: 90%!important;
+  height: 100%!important;
 }
 
 .profile-sidebar {
@@ -155,9 +155,8 @@
 }
 
 .conf-2{
-  height: 80%;
-  margin-bottom: 10%;
   overflow-y: auto;
+  height: 85%;
 }
 
 .user-data-card{
@@ -211,11 +210,25 @@
   width: 45%;
 }
 
+#tbody {
+  display: block!important;
+  height: 50vh!important;
+  overflow-y: auto!important;
+}
+
+#thead, .MuiTableRow-root {
+  display: table!important;
+  width: 100%;
+  table-layout: fixed!important;
+}
+
 #tab-col-table{
   box-shadow: none;
   width: 100%;
   padding: 0;
   overflow-x: hidden;
+  background-color: inherit;
+  color: inherit!important;
 }
 
 #settings-side-bar{
@@ -273,20 +286,11 @@
   color: #A333C8
 }
 
-#tab-col-table{
-  background-color: inherit;
-  color: inherit!important;
-}
-
 .MuiTableCell-head{
   color: inherit!important;
 }
 
 .MuiTableCell-body{
-  color: inherit!important;
-}
-
-.MuiTableCell-body button{
   color: inherit!important;
 }
 
@@ -400,6 +404,11 @@
 
   .input-profile{
     width: 100%!important;
+  }
+
+  #tbody {
+    height: auto!important;
+    max-height: 80vh!important;
   }
 
   .btn-outline-primary:hover {

@@ -93,7 +93,7 @@ const SettingsCollections = ({ match }) => {
   };
 
   const handleDeleteCollection = (id) => {
-    if (isGuest) {
+    if (isGuest && id < 5) {
       setSnackbar({
         open: true,
         message: 'Acción no permitida en modo invitado'
@@ -140,7 +140,7 @@ const SettingsCollections = ({ match }) => {
   };
 
   const handleDeleteTag = (id) => {
-    if (isGuest) {
+    if (isGuest && id < 8) {
       setSnackbar({
         open: true,
         message: 'Acción no permitida en modo invitado'

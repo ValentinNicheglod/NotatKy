@@ -1,3 +1,4 @@
+/* eslint-disable react/button-has-type */
 import React, { useState } from 'react';
 import {
   Button,
@@ -6,6 +7,7 @@ import {
   DialogContent,
   DialogContentText,
   DialogTitle,
+  Fab,
   IconButton,
   Modal,
   Paper,
@@ -13,11 +15,12 @@ import {
   TableBody,
   TableCell,
   TableContainer,
+  TableFooter,
   TableHead,
   TableRow,
   TextField,
 } from '@material-ui/core';
-import TocIcon from '@material-ui/icons/Toc';
+import CollectionsBookmarkOutlinedIcon from '@material-ui/icons/CollectionsBookmarkOutlined';
 import EditSharpIcon from '@material-ui/icons/EditSharp';
 import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
 import DeleteSharpIcon from '@material-ui/icons/DeleteSharp';
@@ -190,7 +193,7 @@ const Collections = ({
   );
 
   return (
-    <div className="user-profile user-tag m-5 row d-flex justify-content-center">
+    <div className="user-profile user-tag p-5 row d-flex justify-content-center">
       <h1 className="display-1 settings-title">
         {!largeWidth && (
           <IconButton
@@ -213,7 +216,7 @@ const Collections = ({
                   Usa las colecciones como si fueran libretas, puedes guardar todas
                   las notas relacionadas a un tema en especifico dentro de ellas.
                 </caption>
-                <TableHead>
+                <TableHead id="thead">
                   <TableRow>
                     <TableCell id="table-cell-">
                       <b>Nombre</b>
@@ -224,7 +227,7 @@ const Collections = ({
                     <TableCell />
                   </TableRow>
                 </TableHead>
-                <TableBody>
+                <TableBody id="tbody">
                   {collections.collections.map((collection, index) => (
                     <TableRow key={collection.id}>
                       <TableCell
@@ -246,7 +249,7 @@ const Collections = ({
                           />
                         ) : (
                           <>
-                            <TocIcon />
+                            <CollectionsBookmarkOutlinedIcon />
                             <p>
                               &nbsp;&nbsp;
                               {collection.name}
@@ -330,34 +333,22 @@ const Collections = ({
                       </TableCell>
                     </TableRow>
                   ))}
-                  <TableRow>
-                    <TableCell className="table-cell-col add">
-                      {!largeWidth && (
-                      <button
-                        className="btn p-0 my-2"
-                        type="button"
-                        style={{ opacity: 0 }}
-                      >
-                        A
-                      </button>
-                      )}
-                      <button
-                        className="btn p-0 mt-2 btn-add"
-                        onClick={() => openModal('col', true)}
-                        type="button"
-                      >
-                        <p>
-                          <AddIcon />
-                          {largeWidth
-                            ? '  Crear nueva colección'
-                            : '  Nueva colección'}
-                        </p>
-                      </button>
-                    </TableCell>
-                    <TableCell />
-                    <TableCell />
-                  </TableRow>
                 </TableBody>
+                {largeWidth
+                && (
+                <TableFooter>
+                  <button
+                    onClick={() => openModal('col', true)}
+                    type="button"
+                    className="ui labeled icon button btn-round blue white m-3 mb-0"
+                  >
+                    <i className="plus icon" />
+                    {largeWidth
+                      ? '  Crear nueva colección'
+                      : '  Nueva colección'}
+                  </button>
+                </TableFooter>
+                )}
               </Table>
             </TableContainer>
           )
@@ -397,6 +388,11 @@ const Collections = ({
                 </div>
               )
           )}
+        {!largeWidth && (
+          <Fab aria-label="add" className="fab-add btn" onClick={() => openModal('col', true)}>
+            <AddIcon className="add-icon" />
+          </Fab>
+        )}
         <Modal
           open={open.col}
           onClose={() => {

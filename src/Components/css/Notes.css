@@ -337,7 +337,7 @@ input::placeholder {
 }
 
 .fab-add{
-  position: absolute!important;
+  position: fixed!important;
   bottom: 3%;
   right: 4%;
   color: white!important;

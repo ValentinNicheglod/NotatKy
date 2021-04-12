@@ -38,7 +38,7 @@ export const usersReducer = (state = initialState, action) => {
     case GUEST_USER:
       return {
         ...state,
-        user: action.user,
+        message: action.message,
         response: action.response
       };
     case GET_ALL_MAILS:

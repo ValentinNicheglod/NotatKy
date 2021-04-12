@@ -533,11 +533,11 @@ const Profile = ({
                 />
               </FormControl>
               <FormControl className="input-profile" error={error.password}>
-                <InputLabel htmlFor="actual-password">
+                <InputLabel htmlFor="new-password-1">
                   Contraseña nueva
                 </InputLabel>
                 <Input
-                  id="new-password"
+                  id="new-password-1"
                   type={visiblePassword.newPassword ? 'text' : 'password'}
                   endAdornment={(
                     <InputAdornment position="end">
@@ -566,11 +566,11 @@ const Profile = ({
                 </FormHelperText>
               </FormControl>
               <FormControl className="input-profile mb-4">
-                <InputLabel htmlFor="actual-password">
+                <InputLabel htmlFor="actual-password-2">
                   Repite la nueva contraseña
                 </InputLabel>
                 <Input
-                  id="new-password"
+                  id="new-password-2"
                   type={visiblePassword.newPassword ? 'text' : 'password'}
                   spellcheck={false}
                   endAdornment={(

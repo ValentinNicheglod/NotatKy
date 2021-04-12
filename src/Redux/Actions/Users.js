@@ -21,7 +21,7 @@ export const chargeGuestUser = () => async (dispatch) => {
     axios.put('/guest/chargeData').then((response) => {
       dispatch({
         type: GUEST_USER,
-        user: response.data,
+        message: response.data,
         response: response.status
       });
     });

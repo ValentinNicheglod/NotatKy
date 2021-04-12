@@ -97,7 +97,7 @@ const SettingsProfile = () => {
   };
 
   const handleErrors = () => {
-    if (password.new1.length < 6) {
+    if (password.new1.length < 6 && password.new1.length > 0) {
       setError({
         ...error,
         password: true

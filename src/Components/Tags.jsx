@@ -6,6 +6,7 @@ import {
   DialogContent,
   DialogContentText,
   DialogTitle,
+  Fab,
   IconButton,
   Modal,
   Paper,
@@ -13,6 +14,7 @@ import {
   TableBody,
   TableCell,
   TableContainer,
+  TableFooter,
   TableHead,
   TableRow,
   TextField
@@ -226,7 +228,7 @@ const Tags = ({
   );
 
   return (
-    <div className="user-profile user-tag m-5 row d-flex justify-content-center">
+    <div className="user-profile user-tag p-5 row d-flex justify-content-center">
       <h1 className="display-1 settings-title">
         {!largeWidth && (
           <IconButton
@@ -248,7 +250,7 @@ const Tags = ({
                   Usa las etiquetas para ordenar tus notas por categoría, de esta
                   forma podrás encontrar la nota que buscas rapidamente.
                 </caption>
-                <TableHead>
+                <TableHead id="thead">
                   <TableRow>
                     <TableCell>
                       <b>Nombre</b>
@@ -259,7 +261,7 @@ const Tags = ({
                     <TableCell />
                   </TableRow>
                 </TableHead>
-                <TableBody>
+                <TableBody id="tbody">
                   {tags.tags.map((tag, index) => (
                     <TableRow key={tag.name}>
                       <TableCell
@@ -362,34 +364,22 @@ const Tags = ({
                       </TableCell>
                     </TableRow>
                   ))}
-                  <TableRow>
-                    <TableCell className="table-cell-col add">
-                      {!largeWidth && (
-                      <button
-                        className="btn p-0 my-2"
-                        type="button"
-                        style={{ opacity: 0 }}
-                      >
-                        A
-                      </button>
-                      )}
-                      <button
-                        className="btn p-0 mt-2 btn-add"
-                        onClick={() => openModal('tag', true)}
-                        type="button"
-                      >
-                        <p>
-                          <AddIcon />
-                          {largeWidth
-                            ? '  Crear nueva etiqueta'
-                            : '  Nueva etiqueta'}
-                        </p>
-                      </button>
-                    </TableCell>
-                    <TableCell />
-                    <TableCell />
-                  </TableRow>
                 </TableBody>
+                {largeWidth
+                && (
+                <TableFooter>
+                  <button
+                    onClick={() => openModal('tag', true)}
+                    type="button"
+                    className="ui labeled icon button btn-round blue white m-3 mb-0"
+                  >
+                    <i className="plus icon" />
+                    {largeWidth
+                      ? '  Crear nueva etiqueta'
+                      : '  Nueva etiqueta'}
+                  </button>
+                </TableFooter>
+                )}
               </Table>
             </TableContainer>
           )
@@ -486,6 +476,11 @@ const Tags = ({
         </Dialog>
 
       </div>
+      {!largeWidth && (
+      <Fab aria-label="add" className="fab-add btn" onClick={() => openModal('tag', true)}>
+        <AddIcon className="add-icon" />
+      </Fab>
+      )}
     </div>
   );
 };
