@@ -45,23 +45,28 @@ input::-webkit-inner-spin-button {
 
 .spinner-border-2{
   color: #645BCC!important;
-  width: 12vh!important;
-  height: 12vh!important;
-  position: absolute;
-}
-
-.spinner-border-3{
-  color: #A333C8!important;
   width: 14vh!important;
   height: 14vh!important;
   position: absolute;
+  animation-delay: .12s;
+  
+}
+
+.spinner-border-3{
+  color: hsl(285, 59%, 49%)!important;
+  width: 18vh!important;
+  height: 18vh!important;
+  position: absolute;
+  animation-direction: reverse;
 }
 
 .spinner-border-4{
   color: #645BCC!important;
-  width: 16vh!important;
-  height: 16vh!important;
+  width: 22vh!important;
+  height: 22vh!important;
   position: absolute;
+  animation-direction: reverse;
+  animation-delay: .12s;
 }
 
 .spinner-grow{

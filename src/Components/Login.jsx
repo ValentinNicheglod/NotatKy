@@ -145,7 +145,7 @@ const Login = () => {
               draggable="false"
             />
           </div>
-          <p className="login-p">Ingresa con tu correo...</p>
+          {/* <p className="login-p">Ingresa con tu correo...</p> */}
           <div className="d-flex align-items-end justify-content-between mb-4">
             <AlternateEmailIcon />
             <TextField

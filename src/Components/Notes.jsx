@@ -97,7 +97,7 @@ const Notes = ({
                 .split(' ');
               return (
                 <>
-                  {(updated[1] === 'hour' || updated[1] === 'hours')
+                  {((updated[1] === 'hour' || updated[1] === 'hours' || updated[1] === 'seconds' || updated[1] === 'minute' || updated[1] === 'minutes' || updated[1] === 'few') || (updated[0] === 'in'))
                     && !register.includes('today')
                     && (register.push('today'),
                     (

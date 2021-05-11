@@ -79,7 +79,7 @@ const ResetPassword = () => {
     }
   };
 
-  const steps = ['Ingresa tu correo', 'Ingresa el codigo de verificación', 'Cambia tu contraseña'];
+  const steps = ['Ingresa tu correo', 'Ingresa el código de verificación', 'Cambia tu contraseña'];
   const stepsMobile = ['Correo', 'Verificación', 'Contraseña'];
 
   const handleChange = (e) => {
@@ -116,7 +116,7 @@ const ResetPassword = () => {
       });
     } else if (code.join('') === users.code) {
       setSnackbar({
-        message: 'Codigo de verificación correcto',
+        message: 'Código de verificación correcto',
         open: true
       });
       setTimeout(() => {
@@ -124,7 +124,7 @@ const ResetPassword = () => {
       }, 1000);
     } else {
       setSnackbar({
-        message: 'Codigo de verificación incorrecto',
+        message: 'Código de verificación incorrecto',
         open: true
       });
     }

@@ -23,8 +23,8 @@ const SignUp = () => {
   const dispatch = useDispatch();
   const token = sessionStorage.getItem('token') || localStorage.getItem('token');
 
-  const [onSnackbar, setOnSnackbar] = useState(false);
-  const [onModal, setOnModal] = useState(false);
+  const [openSnackbar, setOpenSnackbar] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
 
   const [data, setData] = useState({
     name: '',
@@ -53,8 +53,8 @@ const SignUp = () => {
 
   useEffect(() => {
     if (data.name) {
-      setOnModal(true);
-      setOnSnackbar(false);
+      setOpenModal(true);
+      setOpenSnackbar(false);
     }
   }, [users.user]);
 
@@ -92,10 +92,10 @@ const SignUp = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (data.name === '' || data.lastname === '' || data.email === '' || data.password === '' || data.confirmPassword === '') {
-      setOnSnackbar(1);
+      setOpenSnackbar(1);
     } else {
       dispatch(createUser(data));
-      setOnSnackbar(2);
+      setOpenSnackbar(2);
     }
   };
 
@@ -130,7 +130,7 @@ const SignUp = () => {
                   className="textfield button my-2 w-75"
                   id="login-submit"
                   onClick={() => history.push('/login')}
-                  ty="button"
+                  type="button"
                 >
                   INICIA SESIÓN
                 </Button>
@@ -193,7 +193,7 @@ const SignUp = () => {
               className="textfield name"
               InputProps={{
                 autoComplete: 'given-name',
-                sllCheck: false
+                spellCheck: false
               }}
               label="Nombre"
               name="name"
@@ -204,7 +204,7 @@ const SignUp = () => {
               className="textfield name"
               InputProps={{
                 autoComplete: 'family-name',
-                sllCheck: false
+                spellCheck: false
               }}
               label="Apellido"
               name="lastname"
@@ -217,12 +217,12 @@ const SignUp = () => {
             <TextField
               className="textfield"
               error={error.email || error.duplicatedEmail}
-              helrText={
+              helperText={
                 error.duplicatedEmail !== '' && data.email.length > 5 && (
                   error.email
                     ? 'Ingrese un correo válido'
                     : error.duplicatedEmail
-                      ? 'Este correo electrónico rtenece a otra cuenta'
+                      ? 'Este correo electrónico pertenece a otra cuenta'
                       : 'Este correo electrónico se encuentra disponible'
                 )
               }
@@ -231,7 +231,7 @@ const SignUp = () => {
               onChange={handleChange}
               onBlur={handleFocusOut}
               value={data.email}
-              FormHelrTextProps={{
+              FormHelperTextProps={{
                 className: (!error.email && error.duplicatedEmail === false) && 'green-label'
               }}
               InputProps={{
@@ -255,14 +255,14 @@ const SignUp = () => {
             <TextField
               className="textfield"
               error={error.password}
-              helrText={error.password && 'La contraseña debe tener al menos seis caracteres'}
+              helperText={error.password && 'La contraseña debe tener al menos seis caracteres'}
               InputProps={{
                 autoComplete: 'new-password'
               }}
               label="Contraseña"
               name="password"
               onChange={handleChange}
-              ty="password"
+              type="password"
               value={data.password.one}
             />
           </div>
@@ -271,11 +271,11 @@ const SignUp = () => {
             <TextField
               className="textfield"
               error={error.confirmPassword}
-              helrText={error.confirmPassword && 'Las contraseñas no coínciden'}
+              helperText={error.confirmPassword && 'Las contraseñas no coínciden'}
               InputProps={{
                 autoComplete: 'new-password'
               }}
-              ty="password"
+              type="password"
               label="Repite la contraseña"
               name="confirmPassword"
               onChange={handleChange}
@@ -291,7 +291,7 @@ const SignUp = () => {
                 || error.confirmPassword || error.duplicatedEmail}
             id="login-submit"
             onClick={handleSubmit}
-            ty="submit"
+            type="submit"
           >
             REGISTRARSE
           </Button>
@@ -326,24 +326,24 @@ const SignUp = () => {
           vertical: 'bottom',
           horizontal: 'left',
         }}
-        on={onSnackbar}
+        open={openSnackbar}
         autoHideDuration={5000}
-        onClose={() => setOnSnackbar(false)}
-        message={onSnackbar === 1 ? 'Completa todos los campos' : 'Cargando...'}
+        onClose={() => setOpenSnackbar(false)}
+        message={openSnackbar === 1 ? 'Completa todos los campos' : 'Cargando...'}
         action={(
           <IconButton
             className="btn"
             size="small"
             color="inherit"
-            onClick={() => setOnSnackbar(false)}
+            onClick={() => setOpenSnackbar(false)}
           >
             <HighlightOffOutlinedIcon fontSize="small" />
           </IconButton>
         )}
       />
       <Modal
-        on={onModal}
-        onClose={() => setOnModal(false)}
+        open={openModal}
+        onClose={() => setOpenModal(false)}
         className="d-flex w-100 justify-content-center align-items-center"
       >
         {modal}
