@@ -184,7 +184,7 @@ const SettingsCollections = ({ match }) => {
 
   return (
     <div
-      className={largeWidth ? 'row full-height' : 'row full-height bs-gutter'}
+      className={largeWidth ? 'row full-height user-select' : 'row full-height bs-gutter'}
     >
       {largeWidth ? (
         <div className="col-md-2 login-bg p-0">

@@ -248,13 +248,11 @@ const Collections = ({
                             name="name"
                           />
                         ) : (
-                          <>
+                          <p>
                             <CollectionsBookmarkOutlinedIcon />
-                            <p>
-                              &nbsp;&nbsp;
-                              {collection.name}
-                            </p>
-                          </>
+                            &nbsp;&nbsp;
+                            {collection.name}
+                          </p>
                         )}
                       </TableCell>
                       <TableCell className="table-cell-col">
@@ -282,17 +280,26 @@ const Collections = ({
                               <IconButton
                                 className="p-2 btn"
                                 onClick={
-                        editing.col === index
-                          ? () => handleChange(editCollection)
-                          : () => {
-                            setEditCollection(collections.collections[index]);
-                            setEditing({
-                              ...editing,
-                              tag: undefined,
-                              col: index,
-                            });
-                          }
-                      }
+                                  editing.col === index
+                                    ? () => {
+                                      if (editCollection !== collection) {
+                                        handleChange(editCollection);
+                                      } else {
+                                        setEditing({
+                                          tag: undefined,
+                                          col: undefined
+                                        });
+                                      }
+                                    }
+                                    : () => {
+                                      setEditCollection(collections.collections[index]);
+                                      setEditing({
+                                        ...editing,
+                                        tag: undefined,
+                                        col: index,
+                                      });
+                                    }
+                                }
                               >
                                 {editing.col === index ? (
                                   <CheckSharpIcon
@@ -411,7 +418,7 @@ const Collections = ({
               description: '',
             });
           }}
-          className="d-flex w-100 justify-content-center align-items-center"
+          className="d-flex w-100 justify-content-center align-items-center modal"
         >
           {modal}
         </Modal>

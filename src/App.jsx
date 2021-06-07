@@ -4,7 +4,6 @@ import { Route, Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import 'semantic-ui-css/semantic.min.css';
-import './index.css';
 
 import Login from './Components/Login';
 import ResetPassword from './Components/ResetPassword';
@@ -15,6 +14,9 @@ import SettingsCollections from './Containers/SettingsCollections';
 import Home from './Containers/Home';
 import NotFound from './Components/NotFound';
 import { chargeGuestUser } from './Redux/Actions/Users';
+
+import './index.css';
+import './Components/css/SmallScreens.css';
 
 function App() {
   const dispatch = useDispatch();

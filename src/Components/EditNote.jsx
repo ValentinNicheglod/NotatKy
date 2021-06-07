@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import {
-  Badge, Chip, IconButton, Modal,
+  Badge, Chip, IconButton, Modal, Tooltip,
 } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import ArchiveOutlinedIcon from '@material-ui/icons/ArchiveOutlined';
@@ -100,6 +100,7 @@ const EditNote = ({
                 src="svg/empty.svg"
                 width="80%"
                 draggable={false}
+                className="scale-sm"
                 alt=""
               />
             </div>
@@ -195,6 +196,7 @@ const EditNote = ({
                 src="svg/empty.svg"
                 width="80%"
                 draggable={false}
+                className="scale-sm"
                 alt=""
               />
             </div>
@@ -250,14 +252,14 @@ const EditNote = ({
               <Modal
                 open={openColModal}
                 onClose={() => setOpenColModal(false)}
-                className="d-flex w-100 justify-content-center align-items-center"
+                className="d-flex w-100 justify-content-center align-items-center modal"
               >
                 {colModal}
               </Modal>
               <Modal
                 open={openTagModal}
                 onClose={() => setOpenTagModal(false)}
-                className="d-flex w-100 justify-content-center align-items-center"
+                className="d-flex w-100 justify-content-center align-items-center modal"
               >
                 {tagModal}
               </Modal>
@@ -321,14 +323,15 @@ const EditNote = ({
                     >
                       <div className="col d-flex align-items-center justify-content-between h-100 w-100">
                         <p className="overflow-hidden">{tag.name}</p>
-                        <IconButton
-                          className="p-0 btn"
-                          id="delete-tag"
-                          onClick={() => deleteTag(onEdition.id, tag.id)}
-                          title="Quitar etiqueta de la nota"
-                        >
-                          <HighlightOffOutlinedIcon />
-                        </IconButton>
+                        <Tooltip title="Quitar etiqueta de la nota" placement="right">
+                          <IconButton
+                            className="p-0 btn"
+                            id="delete-tag"
+                            onClick={() => deleteTag(onEdition.id, tag.id)}
+                          >
+                            <HighlightOffOutlinedIcon />
+                          </IconButton>
+                        </Tooltip>
                       </div>
                     </div>
                     ),
@@ -342,13 +345,14 @@ const EditNote = ({
                     <LocalOfferIcon />
                   </Badge>
                 )}
-                <IconButton
-                  className="btn"
-                  onClick={() => setOpenTagModal(true)}
-                  title="Añadir etiqueta"
-                >
-                  <AddIcon />
-                </IconButton>
+                <Tooltip title="Añadir etiqueta" placement="right">
+                  <IconButton
+                    className="btn"
+                    onClick={() => setOpenTagModal(true)}
+                  >
+                    <AddIcon />
+                  </IconButton>
+                </Tooltip>
               </div>
             )}
 
@@ -407,13 +411,14 @@ const EditNote = ({
               <div>
                 {pathname === '/home' && (
                   <>
-                    <IconButton
-                      className="btn"
-                      onClick={duplicate}
-                      title="Duplicar"
-                    >
-                      <FileCopyOutlinedIcon />
-                    </IconButton>
+                    <Tooltip title="Duplicar" placement="top">
+                      <IconButton
+                        className="btn"
+                        onClick={duplicate}
+                      >
+                        <FileCopyOutlinedIcon />
+                      </IconButton>
+                    </Tooltip>
                     {/* <IconButton
                         className="btn"
                         title="Favorito"
@@ -423,58 +428,64 @@ const EditNote = ({
                   </>
                 )}
                 {pathname === '/archive' ? (
-                  <IconButton
-                    className="btn"
-                    onClick={() => handleStateChange('main-dashboard', 'Nota desarchivada')}
-                    title="Desarchivar"
-                  >
-                    <UnarchiveOutlinedIcon />
-                  </IconButton>
+                  <Tooltip title="Desarchivar" placement="top">
+                    <IconButton
+                      className="btn"
+                      onClick={() => handleStateChange('main-dashboard', 'Nota desarchivada')}
+                    >
+                      <UnarchiveOutlinedIcon />
+                    </IconButton>
+                  </Tooltip>
                 ) : (
-                  <IconButton
-                    className="btn"
-                    onClick={() => handleStateChange('archive', 'Nota archivada')}
-                    title="Archivar"
-                  >
-                    <ArchiveOutlinedIcon />
-                  </IconButton>
+                  <Tooltip title="Archivar" placement="top">
+                    <IconButton
+                      className="btn"
+                      onClick={() => handleStateChange('archive', 'Nota archivada')}
+                    >
+                      <ArchiveOutlinedIcon />
+                    </IconButton>
+                  </Tooltip>
                 )}
                 {pathname === '/trash' ? (
                   <>
-                    <IconButton
-                      className="btn"
-                      onClick={() => setOpenDialog(true)}
-                      title="Eliminar nota"
-                    >
-                      <DeleteForeverOutlinedIcon />
-                    </IconButton>
-                    <IconButton
-                      className="btn"
-                      onClick={() => handleStateChange('main-dashboard', 'Nota restaurada')}
-                      title="Restaurar"
-                    >
-                      <RestoreFromTrashOutlinedIcon />
-                    </IconButton>
+                    <Tooltip title="Eliminar nota" placement="top">
+                      <IconButton
+                        className="btn"
+                        onClick={() => setOpenDialog(true)}
+                      >
+                        <DeleteForeverOutlinedIcon />
+                      </IconButton>
+                      <Tooltip title="Restaurar" placement="top" />
+                      <IconButton
+                        className="btn"
+                        onClick={() => handleStateChange('main-dashboard', 'Nota restaurada')}
+                      >
+                        <RestoreFromTrashOutlinedIcon />
+                      </IconButton>
+                    </Tooltip>
                   </>
                 ) : (
-                  <IconButton
-                    className="btn"
-                    onClick={() => handleStateChange('trash', 'Nota movida a papelera')}
-                    title="Mover a la papelera"
-                  >
-                    <DeleteOutlineOutlinedIcon />
-                  </IconButton>
+                  <Tooltip title="Mover a la papelera" placement="top">
+                    <IconButton
+                      className="btn"
+                      onClick={() => handleStateChange('trash', 'Nota movida a papelera')}
+                    >
+                      <DeleteOutlineOutlinedIcon />
+                    </IconButton>
+                  </Tooltip>
                 )}
                 {largeWidth && (
-                  <b title="Fecha de creación" style={{ cursor: 'default' }}>
-                    <small>
-                      {note.createdAt
-                        && moment(
-                          note.createdAt.slice(0, 10),
-                          'YYYY-MM-DD',
-                        ).format('DD/MM/YY')}
-                    </small>
-                  </b>
+                  <Tooltip title="Fecha de creación" placement="top">
+                    <b style={{ cursor: 'default' }}>
+                      <small>
+                        {note.createdAt
+                          && moment(
+                            note.createdAt.slice(0, 10),
+                            'YYYY-MM-DD',
+                          ).format('DD/MM/YY')}
+                      </small>
+                    </b>
+                  </Tooltip>
                 )}
               </div>
             </div>
@@ -488,6 +499,7 @@ const EditNote = ({
                 src="svg/add-note.svg"
                 alt=""
                 style={{ height: '75%' }}
+                className="scale-sm"
                 draggable={false}
               />
               <div className="all-center row">
@@ -508,6 +520,7 @@ const EditNote = ({
                 src="svg/not-found.svg"
                 alt=""
                 style={{ height: '80%' }}
+                className="scale-sm"
                 draggable={false}
               />
               <b className="all-center">No hemos encontrado resultados</b>
@@ -518,6 +531,7 @@ const EditNote = ({
                 src="svg/select.svg"
                 alt=""
                 style={{ height: '80%' }}
+                className="scale-sm"
                 draggable={false}
               />
               <b className="select-text">

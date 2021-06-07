@@ -179,7 +179,7 @@ const SignUp = () => {
           <hr />
           <div className="all-center">
             <img
-              src="svg/sign-up.svg"
+              src="https://valentinnicheglod.github.io/NotatKy/svg/sign-up.svg"
               width="90%"
               alt=""
               className="mb-2 img-card"

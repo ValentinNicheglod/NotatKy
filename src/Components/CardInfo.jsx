@@ -10,7 +10,7 @@ const CardInfo = ({
   const history = useHistory();
 
   return (
-    <div className="card card-info" style={{ backgroundColor: color }}>
+    <div className="card card-info scale-lg" style={{ backgroundColor: color }}>
       <div className="h-50 all-center">
         <img
           src={image}

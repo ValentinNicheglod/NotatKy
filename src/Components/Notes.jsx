@@ -1,7 +1,9 @@
 import React from 'react';
 import moment from 'moment';
 import momenttz from 'moment-timezone';
-import { Chip, Fab, IconButton } from '@material-ui/core';
+import {
+  Chip, Fab, IconButton, Tooltip
+} from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import NoteCard from './NoteCard';
 
@@ -52,14 +54,15 @@ const Notes = ({
               <h4 className="display-5 white">Notas</h4>
               {largeWidth
                 ? (
-                  <IconButton
-                    className="p-0 btn btn-add-note"
-                    style={{ width: 45, height: 45 }}
-                    onClick={newNote}
-                    title="Nueva nota"
-                  >
-                    <AddIcon className="w-75 h-75 white" />
-                  </IconButton>
+                  <Tooltip title="Nueva nota" placement="right">
+                    <IconButton
+                      className="p-0 btn btn-add-note"
+                      style={{ width: 45, height: 45 }}
+                      onClick={newNote}
+                    >
+                      <AddIcon className="w-75 h-75 white" />
+                    </IconButton>
+                  </Tooltip>
                 )
                 : (
                   <div className="d-flex row justify-content-end">

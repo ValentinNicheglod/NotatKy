@@ -283,12 +283,12 @@ const Tags = ({
                         ) : (
                           <p>
                             <LocalOfferOutlinedIcon />
-                        &nbsp;&nbsp;
+                            &nbsp;&nbsp;
                             {tag.name}
                           </p>
                         )}
                       </TableCell>
-                      <TableCell className="table-cell-col">
+                      <TableCell className="table-cell-col dots-cont">
                         {editing.tag === index ? (
                           colors.map((dot) => (
                             <IconButton
@@ -313,18 +313,27 @@ const Tags = ({
                               <IconButton
                                 className="p-2 btn"
                                 onClick={
-                        editing.tag === index
-                          ? () => handleChange(editTag)
-                          : () => {
-                            setEditTag(tags.tags[index]);
-                            setNewTag(tags.tags[index]);
-                            setEditing({
-                              ...editing,
-                              tag: index,
-                              col: undefined,
-                            });
-                          }
-                      }
+                                  editing.tag === index
+                                    ? () => {
+                                      if (editTag !== tag) {
+                                        handleChange(editTag);
+                                      } else {
+                                        setEditing({
+                                          tag: undefined,
+                                          col: undefined
+                                        });
+                                      }
+                                    }
+                                    : () => {
+                                      setEditTag(tags.tags[index]);
+                                      setNewTag(tags.tags[index]);
+                                      setEditing({
+                                        ...editing,
+                                        tag: index,
+                                        col: undefined,
+                                      });
+                                    }
+                                }
                               >
                                 {editing.tag === index ? (
                                   <CheckSharpIcon style={{ color: '#198754' }} />
@@ -436,7 +445,7 @@ const Tags = ({
               color: '',
             });
           }}
-          className="d-flex w-100 justify-content-center align-items-center"
+          className="d-flex w-100 justify-content-center align-items-center modal"
         >
           {modal}
         </Modal>

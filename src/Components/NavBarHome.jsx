@@ -6,7 +6,9 @@ import LoopOutlinedIcon from '@material-ui/icons/LoopOutlined';
 import MenuIcon from '@material-ui/icons/Menu';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import CloudUploadOutlinedIcon from '@material-ui/icons/CloudUploadOutlined';
-import { Avatar, Chip, IconButton } from '@material-ui/core';
+import {
+  Avatar, Chip, IconButton, Tooltip
+} from '@material-ui/core';
 
 const NavBarHome = ({
   closeNote,
@@ -59,25 +61,27 @@ const NavBarHome = ({
         {largeWidth && (loading
           ? onEdition.id && <LoopOutlinedIcon className="loop-out" />
           : onEdition.id && (
-          <IconButton
-            id="btn-home"
-            style={{ color: 'white' }}
-            className="btn white m-0"
-            onClick={() => {}}
-            title="Se han guardado los cambios"
-          >
-            <CloudUploadOutlinedIcon />
-          </IconButton>
+          <Tooltip title="Cambios guardados" placement="left">
+            <IconButton
+              id="btn-home"
+              style={{ color: 'white' }}
+              className="btn white m-0"
+              onClick={() => {}}
+            >
+              <CloudUploadOutlinedIcon />
+            </IconButton>
+          </Tooltip>
           ))}
         {largeWidth && (
-          <IconButton
-            id="btn-home"
-            className="btn white"
-            onClick={() => history.push('/edit profile')}
-            title="Configuración"
-          >
-            <SettingsOutlinedIcon />
-          </IconButton>
+          <Tooltip title="Configuración" placement="left">
+            <IconButton
+              id="btn-home"
+              className="btn white"
+              onClick={() => history.push('/edit profile')}
+            >
+              <SettingsOutlinedIcon />
+            </IconButton>
+          </Tooltip>
         )}
         {openNote && !largeWidth ? (
           <div className="all-center row m-1">

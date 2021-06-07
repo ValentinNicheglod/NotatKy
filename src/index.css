@@ -1,3 +1,5 @@
+@import './Components/css/SmallScreens.css';
+
 html, body, .App {
     height: 100%;
     box-sizing: border-box;
@@ -5,6 +7,8 @@ html, body, .App {
 
 img{
   pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 hr{
@@ -68,10 +72,19 @@ button:focus{
   border-radius: 15px;
   padding: 2rem;
   color: #383c3f;
+  user-select: none;
+}
+
+.modal{
+  backdrop-filter: blur(2px) grayscale(10%);
 }
 
 .white{
   color: white!important;
+}
+
+.user-select{
+  user-select: none;
 }
 
 .sticky-vert {

@@ -320,6 +320,7 @@ input::placeholder {
   position: relative;
   bottom: 11%;
   left: 25%;
+  user-select: none;
 }
 
 .home-sidebar{

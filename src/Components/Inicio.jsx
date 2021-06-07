@@ -72,7 +72,7 @@ const Inicio = () => {
   };
 
   const modal = (
-    <div className={largeWidth ? 'modal-col w-50' : 'modal-col w-100 h-100'}>
+    <div className={largeWidth ? 'modal-col w-50 guest-mode' : 'modal-col w-100 h-100'}>
       <>
         <h2 id="simple-modal-title" className="all-center display-6">
           MODO INVITADO
@@ -186,7 +186,7 @@ const Inicio = () => {
       <div
         className={
           largeWidth
-            ? 'd-flex row d-flex align-items-center h-90'
+            ? 'd-flex row d-flex align-items-center h-90 justify-content-between m-0'
             : 'd-flex row d-flex justify-content-center w-100 m-0 overflow-y'
         }
       >
@@ -208,6 +208,14 @@ const Inicio = () => {
           </div>
         ))}
       </div>
+      <a
+        href="https://valentinnicheglod.github.io/Portfolio"
+        className="personal-logo d-inline"
+        target="_blank"
+        rel="noreferrer noopener"
+      >
+        <img src="https://valentinnicheglod.github.io/Portfolio/logo-white.png" alt="logo" />
+      </a>
       {
         !largeWidth && (
         <div className="d-flex row d-flex justify-content-center w-100 m-0 overflow-y">
@@ -283,7 +291,7 @@ const Inicio = () => {
       <Modal
         open={openModal}
         onClose={() => setOpenModal(false)}
-        className="d-flex w-100 justify-content-center align-items-center"
+        className="d-flex w-100 justify-content-center align-items-center modal"
       >
         {modal}
       </Modal>

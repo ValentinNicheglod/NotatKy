@@ -26,6 +26,23 @@
     cursor: default;
 }
 
+.personal-logo{
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    display: flex;
+    justify-content: flex-end;
+    width: fit-content;
+    padding: 0;
+}
+
+.personal-logo img{
+    width: 7vh;
+    height: 7vh;
+    max-width: 150px;
+    max-height: 150px;
+}
+
 .textfield{
     width: 85%;
 }

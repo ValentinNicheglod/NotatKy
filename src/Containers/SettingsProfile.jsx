@@ -223,7 +223,7 @@ const SettingsProfile = () => {
 
   return (
     <div
-      className={largeWidth ? 'row full-height' : 'row full-height bs-gutter'}
+      className={largeWidth ? 'row full-height user-select' : 'row full-height bs-gutter'}
     >
       {loading
         ? <Loading />

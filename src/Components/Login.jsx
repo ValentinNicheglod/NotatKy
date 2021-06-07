@@ -266,7 +266,7 @@ const Login = () => {
       <Modal
         open={openModal}
         onClose={() => setOpenModal(false)}
-        className="d-flex w-100 justify-content-center align-items-center"
+        className="d-flex w-100 justify-content-center align-items-center modal"
       >
         {modal}
       </Modal>

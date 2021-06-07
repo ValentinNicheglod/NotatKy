@@ -201,7 +201,7 @@ const ResetPassword = () => {
                 <>
                   <div className="all-center">
                     <img
-                      src="svg/forgot_password.svg"
+                      src="https://valentinnicheglod.github.io/NotatKy/svg/forgot_password.svg"
                       width="90%"
                       alt=""
                       className="mb-3"
@@ -237,7 +237,7 @@ const ResetPassword = () => {
                 <>
                   <div className="all-center">
                     <img
-                      src="svg/mail-sent.svg"
+                      src="https://valentinnicheglod.github.io/NotatKy/svg/mail-sent.svg"
                       width="80%"
                       alt=""
                       className="mb-3"
@@ -285,7 +285,7 @@ const ResetPassword = () => {
                 <>
                   <div className="all-center">
                     <img
-                      src="svg/password.svg"
+                      src="https://valentinnicheglod.github.io/NotatKy/svg/password.svg"
                       width="100%"
                       alt=""
                       className="mb-3"

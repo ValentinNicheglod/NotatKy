@@ -21,7 +21,7 @@ const UserCard = ({
     && moment(user.createdAt.slice(0, 10), 'YYYY-MM-DD').format('DD/MM/YYYY');
 
   return (
-    <div className="card card-edit p-3" id={darkMode && 'dark-blue'}>
+    <div className="card card-edit p-3 scale-lg" id={darkMode && 'dark-blue'}>
       {user.profile_photo ? (
         <Avatar
           alt="profile_photo"
