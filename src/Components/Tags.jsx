@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+
 import {
   Button,
   Dialog,
@@ -59,6 +61,14 @@ const Tags = ({
   const [openDialog, setOpenDialog] = useState(false);
   const [loading, setLoading] = useState(true);
 
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname === '/collections tags/tag' && location.search === '?open=true') {
+      openModal('tag', true);
+    }
+  }, []);
+
   setTimeout(() => {
     setLoading(false);
   }, 2000);
@@ -106,10 +116,9 @@ const Tags = ({
   const modal = (
     <div className="modal-col">
       <div>
-        <h2 id="simple-modal-title" className="display-6">
+        <h2 id="simple-modal-title" className="mb-4">
           {editTag && !largeWidth ? 'Editar etiqueta' : 'Crear una etiqueta...'}
         </h2>
-        <hr />
       </div>
       <div className="all-center">
         <img
@@ -140,7 +149,7 @@ const Tags = ({
         <div className="d-flex justify-content-between w-100">
           {colors.map((dot) => (
             <IconButton
-              className={largeWidth ? 'p-2' : 'p-0'}
+              className={largeWidth ? 'p-1' : 'p-0'}
               id={newTag.color === dot ? 'selectedColor' : null}
               onClick={() => newColor(dot, 'create')}
               key={dot}
@@ -154,6 +163,32 @@ const Tags = ({
         </div>
       </div>
       <div className="modal-col-action d-flex justify-content-between my-3 w-100">
+        {editTag && !largeWidth
+        && (
+        <button
+          type="submit"
+          className="btn btn-outline-danger ml-3 btn-round cancel-btn-modal-edit"
+          onClick={() => {
+            setOpenDialog(true);
+          }}
+        >
+          Eliminar
+        </button>
+        )}
+        <button
+          type="submit"
+          className={editTag ? 'btn btn-outline-dark ml-3 btn-round cancel-btn-modal-edit' : 'btn btn-outline-danger ml-3 btn-round cancel-btn-modal'}
+          onClick={() => {
+            openModal('tag', false);
+            setEditTag(null);
+            setNewTag({
+              name: '',
+              color: '',
+            });
+          }}
+        >
+          Cancelar
+        </button>
         {editTag && !largeWidth ? (
           <button
             className="btn btn-success btn-round"
@@ -197,44 +232,18 @@ const Tags = ({
             Crear
           </button>
         )}
-        {editTag && !largeWidth
-        && (
-        <button
-          type="submit"
-          className="btn btn-outline-danger ml-3 btn-round cancel-btn-modal-edit"
-          onClick={() => {
-            setOpenDialog(true);
-          }}
-        >
-          Eliminar
-        </button>
-        )}
-        <button
-          type="submit"
-          className={editTag ? 'btn btn-outline-dark ml-3 btn-round cancel-btn-modal-edit' : 'btn btn-outline-danger ml-3 btn-round cancel-btn-modal'}
-          onClick={() => {
-            openModal('tag', false);
-            setEditTag(null);
-            setNewTag({
-              name: '',
-              color: '',
-            });
-          }}
-        >
-          Cancelar
-        </button>
       </div>
     </div>
   );
 
   return (
     <div className="user-profile user-tag p-5 row d-flex justify-content-center">
-      <h1 className="display-1 settings-title">
+      <h1 className="settings-title violet">
         {!largeWidth && (
           <IconButton
             onClick={() => setDrawerOpen(true)}
-            style={{ color: 'inherit' }}
-            className="btn mb-1 p-0"
+            style={{ color: 'inherit', transform: 'scale(1.3)' }}
+            className="btn mb-1 mx-2 p-0"
           >
             <MenuIcon className="menu-icon" />
           </IconButton>
@@ -306,7 +315,7 @@ const Tags = ({
                           </>
                         )}
                       </TableCell>
-                      <TableCell align="right" className="p-0">
+                      <TableCell align="right" className="p-0 actions-cont">
                         {largeWidth
                           ? (
                             <>
@@ -338,7 +347,7 @@ const Tags = ({
                                 {editing.tag === index ? (
                                   <CheckSharpIcon style={{ color: '#198754' }} />
                                 ) : (
-                                  <EditSharpIcon style={{ color: '#2185D0' }} />
+                                  <EditSharpIcon style={{ color: '#6435c9' }} />
                                 )}
                               </IconButton>
                               <IconButton
@@ -387,7 +396,7 @@ const Tags = ({
                       openModal('tag', true);
                     }}
                     type="button"
-                    className="ui labeled icon button btn-round blue white m-3 mb-0"
+                    className="ui labeled icon button btn-round violet white m-3 mb-1"
                   >
                     <i className="plus icon" />
                     {largeWidth
@@ -425,7 +434,7 @@ const Tags = ({
                           openModal('tag', true);
                         }}
                         type="button"
-                        className="ui labeled icon button btn-round blue white m-3 mb-0"
+                        className="ui labeled icon button btn-round violet white m-3 mb-0"
                       >
                         <i className="plus icon" />
                         Crea tu primera etiqueta

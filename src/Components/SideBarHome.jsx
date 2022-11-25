@@ -51,11 +51,11 @@ const SideBarHome = ({
         <List component="nav" className="white">
           <ListItem
             button
-            id={pathname === '/home' && 'home-select'}
+            id={pathname === '/home' ? 'home-select' : undefined}
             onClick={() => changeRoute('/home')}
           >
             <ListItemIcon>
-              <HomeOutlinedIcon className="white" />
+              <HomeOutlinedIcon className={pathname === '/home' ? 'violet' : 'white'} />
             </ListItemIcon>
             <ListItemText primary="Inicio" />
           </ListItem>
@@ -122,24 +122,24 @@ const SideBarHome = ({
 
           <ListItem
             button
-            id={pathname === '/archive' && 'home-select'}
+            id={pathname === '/archive' ? 'home-select' : undefined}
             onClick={() => changeRoute('/archive')}
           >
             <ListItemIcon>
-              <ArchiveOutlinedIcon className="white" />
+              <ArchiveOutlinedIcon className={pathname === '/archive' ? 'violet' : 'white'} />
             </ListItemIcon>
             <ListItemText primary="Notas archivadas" />
           </ListItem>
 
           <ListItem
             button
-            id={pathname === '/trash' && 'home-select'}
+            id={pathname === '/trash' ? 'home-select' : undefined}
             onClick={() => changeRoute('/trash')}
           >
             <ListItemIcon>
-              <DeleteOutlineOutlinedIcon className="white" />
+              <DeleteOutlineOutlinedIcon className={pathname === '/trash' ? 'violet' : 'white'} />
             </ListItemIcon>
-            <ListItemText primary="Papelera de reciclaje" />
+            <ListItemText primary="Notas eliminadas" />
           </ListItem>
           {!largeWidth && (
             <ListItem button onClick={() => changeRoute('/edit profile')}>

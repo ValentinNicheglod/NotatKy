@@ -3,7 +3,8 @@
 }
 
 .login-bg{
-    background-image: linear-gradient(to bottom right, #2185D0, #A333C8);
+    background: linear-gradient(143.35deg, #E0CFFC -6.18%, #CCDAFF 105.17%);;
+    background-size: cover;
 }
 
 .login-bs{
@@ -13,17 +14,18 @@
 }
 
 .sign-up-btn{
-    color: #A333C8;
-    border-color: #A333C8;
+    color: var(--violet);
+    border-color: var(--violet);
     border-radius: 30px;
+    font-weight: 500;
 }
 
 .MuiFormLabel-root.Mui-focused{
-    color: #A333C8!important;
+    color: var(--violet)!important;
 }
 
 .MuiInput-underline:after{
-    border-bottom: 2px solid #A333C8!important;
+    border-bottom: 2px solid var(--violet)!important;
 }
 
 .MuiFormLabel-root.Mui-error {
@@ -44,7 +46,7 @@
 
 .sign-up-btn:hover{
     color: white;
-    background-color: #A333C8;
+    background-color: var(--dark-violet);
 }
 
 .MuiStepper-root{
@@ -55,6 +57,14 @@
 .MuiStepIcon-root.MuiStepIcon-completed {
     color: #2185D0!important;
 }
+
+.card-round{
+    width: 400px;
+    border-radius: 15px;
+    padding: 2rem;
+    color: #383c3f;
+    user-select: none;
+  }
 
 #popper{
     border: 1px solid;
@@ -90,7 +100,7 @@
 .code-input {
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: flex-start;
 }
 
 .code-label {

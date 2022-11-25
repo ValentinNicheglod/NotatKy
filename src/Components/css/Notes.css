@@ -76,13 +76,13 @@ input::-webkit-inner-spin-button {
 
 #search-note{
   width: 300px;
-  color: white!important;
+  color: black!important;
   text-transform: capitalize;
   font-size: 16px;
 }
 
 #search-note::placeholder{
-  color: white!important;
+  color: gray!important;
 }
 
 .actions-note{
@@ -109,11 +109,11 @@ input::-webkit-inner-spin-button {
 }
 
 .btn-add-note{
-  background-color: #2185D0!important;
+  background-color: var(--violet)!important;
 }
 
 .btn-add-note:hover{
-  background-color: #1d6daa!important;
+  background-color: var(--dark-violet)!important;
 }
 
 .w-12{
@@ -181,6 +181,7 @@ input::placeholder {
 #notes-cont-3{
   padding-bottom: 10px;
   overflow-y: auto;
+  overflow-x: hidden;
   height: 90%;
 }
 
@@ -213,7 +214,6 @@ input::placeholder {
   font-size: 3rem;
   font-weight: 300;
   line-height: 1.2;
-  font-family: 'Lato';
 }
 
 .note-content{
@@ -233,7 +233,11 @@ input::placeholder {
 }
 
 .input-search{
-  height: 50%;
+  background: #fff;
+  color: #000;
+  padding: 4px 12px;
+  padding-right: 4px;
+  border-radius: 40px;
 }
 
 .input-title{
@@ -290,7 +294,7 @@ input::placeholder {
 }
 
 #home-select{
-  background-color: #AECFDF;
+  background-color: #DAD8F3;
   border-top-right-radius: 21px!important;
   border-bottom-right-radius: 21px!important;
 }
@@ -356,10 +360,10 @@ input::placeholder {
 
 @keyframes rotation {
   0% {
-    transform: rotate(360deg);
+    transform: rotate(0deg);
   }
   100% {
-    transform: rotate(0deg);
+    transform: rotate(360deg);
   }
 }
 
@@ -396,11 +400,6 @@ input::placeholder {
     width: 100%;
   }
 
-/*   .nav-notesel{
-    background-color: lightcoral;
-    height: 50px;
-  } */
-
   #btn-home{
     margin: 0px;
   }
@@ -409,7 +408,7 @@ input::placeholder {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #AECFDF;
+    background-color: #DAD8F3;
     height: 100%;
     padding-top: 10px;
     padding-left: 5px;
@@ -462,10 +461,10 @@ input::placeholder {
   }
 
   .actions-notes{
-    padding: 1!important;
     --bs-gutter-x: 0;
-    position: absolute;
-    bottom: 10px;
+    position: relative;
+    padding: 0 12px!important;
+    bottom: 0;
   }
 
   .tag-cont-show{

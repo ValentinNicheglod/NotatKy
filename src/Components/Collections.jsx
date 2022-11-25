@@ -1,5 +1,7 @@
 /* eslint-disable react/button-has-type */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+
 import {
   Button,
   Dialog,
@@ -49,6 +51,14 @@ const Collections = ({
   const [openDialog, setOpenDialog] = useState(false);
   const [loading, setLoading] = useState(true);
 
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname === '/collections tags/col' && location.search === '?open=true') {
+      openModal('col', true);
+    }
+  }, []);
+
   setTimeout(() => {
     setLoading(false);
   }, 2000);
@@ -80,8 +90,7 @@ const Collections = ({
   const modal = (
     <div className="modal-col">
       <div>
-        <h2 id="simple-modal-title" className="display-6">{editCollection && !largeWidth ? 'Editar colección' : 'Crear una colección...'}</h2>
-        <hr />
+        <h2 id="simple-modal-title" className="mb-4">{editCollection && !largeWidth ? 'Editar colección' : 'Crear una colección...'}</h2>
       </div>
       <div className="all-center">
         <img
@@ -119,6 +128,32 @@ const Collections = ({
         onChange={newData}
       />
       <div className="modal-col-action d-flex justify-content-between my-3 w-100">
+        {editCollection && !largeWidth
+          && (
+          <button
+            type="submit"
+            className="btn btn-outline-danger ml-3 btn-round cancel-btn-modal-edit"
+            onClick={() => {
+              setOpenDialog(true);
+            }}
+          >
+            Eliminar
+          </button>
+          )}
+        <button
+          className={editCollection && !largeWidth ? 'btn btn-round btn-outline-dark ml-3 cancel-btn-modal-edit' : 'btn btn-round btn-outline-danger ml-3 cancel-btn-modal'}
+          onClick={() => {
+            openModal('col', false);
+            setEditCollection(null);
+            setNewCollection({
+              name: '',
+              description: '',
+            });
+          }}
+          type="button"
+        >
+          Cancelar
+        </button>
         {editCollection && !largeWidth ? (
           <button
             className="btn btn-success btn-round"
@@ -162,45 +197,18 @@ const Collections = ({
             Crear
           </button>
         )}
-        {editCollection && !largeWidth
-        && (
-        <button
-          type="submit"
-          className="btn btn-outline-danger ml-3 btn-round cancel-btn-modal-edit"
-          onClick={() => {
-            setOpenDialog(true);
-          }}
-        >
-          Eliminar
-        </button>
-        )}
-        <button
-          className={editCollection && !largeWidth ? 'btn btn-round btn-outline-dark ml-3 cancel-btn-modal-edit' : 'btn btn-round btn-outline-danger ml-3 cancel-btn-modal'}
-          onClick={() => {
-            openModal('col', false);
-            setEditCollection(null);
-            setNewCollection({
-              name: '',
-              description: '',
-            });
-          }}
-          type="button"
-        >
-          Cancelar
-        </button>
       </div>
     </div>
   );
 
   return (
     <div className="user-profile user-tag p-5 row d-flex justify-content-center">
-      <h1 className="display-1 settings-title">
+      <h1 className="settings-title violet">
         {!largeWidth && (
           <IconButton
             onClick={() => setDrawerOpen(true)}
-            style={{ color: 'inherit' }}
-            className="btn mb-1 p-0"
-            iconStyle={{ width: '35px', height: '40px', marginRight: '5px' }}
+            style={{ color: 'inherit', transform: 'scale(1.3)' }}
+            className="btn mb-1 mx-2 p-0"
           >
             <MenuIcon className="menu-icon" />
           </IconButton>
@@ -229,7 +237,7 @@ const Collections = ({
                 </TableHead>
                 <TableBody id="tbody">
                   {collections.collections.map((collection, index) => (
-                    <TableRow key={collection.id}>
+                    <TableRow key={collection.id} id="col-table">
                       <TableCell
                         component="th"
                         scope="row"
@@ -273,9 +281,9 @@ const Collections = ({
                           <p>{collection.description}</p>
                         )}
                       </TableCell>
-                      <TableCell align="right" className="p-0">
-                        {largeWidth
-                          ? (
+                      {largeWidth
+                        ? (
+                          <TableCell align="right" className="p-0 actions-cont">
                             <>
                               <IconButton
                                 className="p-2 btn"
@@ -306,7 +314,7 @@ const Collections = ({
                                     style={{ color: '#198754' }}
                                   />
                                 ) : (
-                                  <EditSharpIcon style={{ color: '#2185D0' }} />
+                                  <EditSharpIcon style={{ color: '#6435c9' }} />
                                 )}
                               </IconButton>
                               <IconButton
@@ -321,23 +329,23 @@ const Collections = ({
                                 )}
                               </IconButton>
                             </>
-                          ) : (
-                            <IconButton
-                              className="p-2 btn"
-                              onClick={() => {
-                                setEditCollection(collections.collections[index]);
-                                setNewCollection({
-                                  ...newCollection,
-                                  name: collections.collections[index].name,
-                                  description: collections.collections[index].description
-                                });
-                                openModal('col', true);
-                              }}
-                            >
-                              <EditOutlinedIcon />
-                            </IconButton>
-                          )}
-                      </TableCell>
+                          </TableCell>
+                        ) : (
+                          <IconButton
+                            className="p-2 pr-0 btn action-btn"
+                            onClick={() => {
+                              setEditCollection(collections.collections[index]);
+                              setNewCollection({
+                                ...newCollection,
+                                name: collections.collections[index].name,
+                                description: collections.collections[index].description
+                              });
+                              openModal('col', true);
+                            }}
+                          >
+                            <EditOutlinedIcon />
+                          </IconButton>
+                        )}
                     </TableRow>
                   ))}
                 </TableBody>
@@ -347,7 +355,7 @@ const Collections = ({
                   <button
                     onClick={() => openModal('col', true)}
                     type="button"
-                    className="ui labeled icon button btn-round blue white m-3 mb-0"
+                    className="ui labeled icon button btn-round violet white mt-4 ml-1"
                   >
                     <i className="plus icon" />
                     {largeWidth
@@ -385,18 +393,10 @@ const Collections = ({
                       <button
                         onClick={() => openModal('col', true)}
                         type="button"
-                        className="ui labeled icon button btn-round blue white m-3 mb-0"
+                        className="ui labeled icon button btn-round violet white m-3 mb-0"
                       >
                         <i className="plus icon" />
                         Crea tu primera colección
-                      </button>
-                      <button
-                        className="btn btn-round my-3 btn-sm btn-primary all-center create-btn"
-                        onClick={() => openModal('col', true)}
-                        type="button"
-                      >
-                        <AddIcon />
-                    &nbsp;&nbsp;Crea tu primera colección
                       </button>
                     </div>
                   </div>

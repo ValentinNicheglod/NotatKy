@@ -12,7 +12,7 @@ const NoteCard = ({
 }) => (
   <div
     className="card note-card"
-    id={darkMode && 'dark-blue'}
+    id={darkMode ? 'dark-blue' : undefined}
     onClick={() => editNote(id)}
     onKeyDown={() => editNote(id)}
     role="button"
@@ -26,12 +26,12 @@ const NoteCard = ({
     </div>
     <div
       className="card-footer d-flex justify-content-between align-items-center px-0"
-      id={darkMode && 'dark-blue'}
+      id={darkMode ? 'dark-blue' : undefined}
     >
       <div className="w-50">
         {collection && (
           <span
-            style={{ backgroundColor: '#2185D0', borderRadius: 10 }}
+            style={{ backgroundColor: '#645BCC', borderRadius: 10, fontWeight: 500 }}
             className="uk-label col-label"
           >
             {collection.name}

@@ -1,8 +1,30 @@
 @import './Components/css/SmallScreens.css';
+@import url('https://fonts.googleapis.com/css2?family=Jost&family=Outfit:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600;700&display=swap');
+
+:root {
+  --violet: #6435c9;
+  --violet-2: hsl(259, 58%, 60%);
+  --dark-violet: #5829bb;
+}
 
 html, body, .App {
     height: 100%;
     box-sizing: border-box;
+}
+
+body, h1, h2, h3, h4, h5, h6, li, p, a, b, small, span, textarea, input, label, legend {
+  font-family: "Montserrat" !important;
+}
+
+button {
+  font-family: "Montserrat" !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.5px;
 }
 
 img{
@@ -15,6 +37,10 @@ hr{
   margin: 1rem 0!important;
 }
 
+input:-internal-autofill-selected {
+  background-color: #FFF!important;
+}
+
 .full-height {
   height: 100%;
 }
@@ -25,6 +51,10 @@ hr{
 
 .title-font{
     font-family: 'Yusei Magic', sans-serif;
+}
+
+#home-select *, .settings-select * {
+  color: var(--violet);
 }
 
 .MuiPaper-root{
@@ -42,6 +72,14 @@ hr{
 
 .pe{
   pointer-events: none!important;
+}
+
+.snackbar-text {
+  text-transform: capitalize!important;
+}
+
+.snackbar-text:hover {
+  color: #e1e1e1;
 }
 
 .khula{
@@ -65,14 +103,6 @@ button:focus{
 
 .overflow-y{
   overflow-y: auto;
-}
-
-.card-round{
-  width: 400px;
-  border-radius: 15px;
-  padding: 2rem;
-  color: #383c3f;
-  user-select: none;
 }
 
 .modal{
@@ -104,8 +134,8 @@ button:focus{
   justify-content: center;
   align-items: center;
   padding-top: 5px;
-  background-color: #AECFDF;
-  border-right: 10px dashed #FFFF;
+  background-color: #DAD8F3;
+  padding-right: 10px;
 }
 
 .unselectable {
@@ -121,7 +151,7 @@ button:focus{
 }
 
 #dark-border{
-  border-right: 10px dashed #343a40;
+  border-right: none;
 }
 
 #light{
@@ -171,13 +201,36 @@ textarea::placeholder {
 }
 
 #dark{
-  background-color: #343a40!important;
+  background-color: #1E103D!important;
   color: #FFFF
 }
 
+#dark .actions-notes svg, #dark .actions-cont svg, #dark .user-profile caption, #dark .violet  {
+  color: white!important;
+}
+
+#dark .profile-section * {
+  color: #E4E3E8!important;
+}
+
+#dark .MuiInput-underline:before, #dark .settings-title {
+  color: white !important;
+  border-color: white !important;
+}
+
 #dark-blue{
-  background-color: #1d3557;
+  background-color: #4E3B77;
   color: #FFFF
+}
+
+#dark .modal-col .MuiInput-underline:before {
+  color: inherit !important;
+  border-color: rgba(0, 0, 0, 0.42) !important;
+}
+
+#dark .blue-aside {
+  background-color: #B5B1E7;
+  color: white !important;
 }
 
 #dark-blue h1 h2 h3 h4 h5 h6 p b {

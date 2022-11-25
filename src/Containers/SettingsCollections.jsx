@@ -187,12 +187,12 @@ const SettingsCollections = ({ match }) => {
       className={largeWidth ? 'row full-height user-select' : 'row full-height bs-gutter'}
     >
       {largeWidth ? (
-        <div className="col-md-2 login-bg p-0">
+        <div className="col-md-2 purple-bg p-0">
           <SideBarSettings users={users} />
         </div>
       ) : (
         <Drawer open={drawerOpen} onClose={() => setDrawerOpen(false)}>
-          <div className="col-md-2 login-bg p-0 full-height">
+          <div className="col-md-2 purple-bg p-0 full-height">
             <SideBarSettings users={users} setDrawerOpen={setDrawerOpen} />
           </div>
         </Drawer>

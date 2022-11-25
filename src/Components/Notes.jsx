@@ -27,31 +27,17 @@ const Notes = ({
   return (
     <div
       className={largeWidth ? 'blue-aside notes-cont' : 'notes-cont'}
-      id={darkMode && 'dark-border'}
+      id={darkMode ? 'dark-border' : undefined}
     >
       <div className="row full-height w-100">
-        {/*
-          !largeWidth
-          && (
-          <div className="d-flex row justify-content-end">
-            <p className="m-0 d-flex justify-content-end">
-              {`${greeting},`}
-            </p>
-            <b className="m-0 d-flex justify-content-end">
-              {`${user.name}!`}
-            </b>
-            <hr className="my-1 w-25" />
-          </div>
-          )
-         */}
-        <div className="col d-flex justify-content-between align-items-center directory">
+        <div className="col d-flex justify-content-between align-items-center directory mb-2">
           {pathname === '/archive' ? (
-            <h4 className="display-6 white">Notas archivadas</h4>
+            <h1 className="violet m-0">Notas archivadas</h1>
           ) : pathname === '/trash' ? (
-            <h4 className="display-5 white">Papelera</h4>
+            <h1 className="violet m-0">Notas eliminadas</h1>
           ) : (
             <>
-              <h4 className="display-5 white">Notas</h4>
+              <h1 className="violet m-0">Notas</h1>
               {largeWidth
                 ? (
                   <Tooltip title="Nueva nota" placement="right">
@@ -79,9 +65,10 @@ const Notes = ({
           )}
         </div>
         {selectedFilter.name !== '' && (
-          <div className="row d-flex align-items-center my-3">
-            <div className="d-flex justify-content-between align-items-center">
-              <b className="m-0 white khula">{`${selectedFilter.type} seleccionada:`}</b>
+          <div className="row d-flex align-items-center my-3 px-4">
+            <b className="p-0">{`${selectedFilter.type} seleccionada`}</b>
+            <hr className="mt-0" />
+            <div className="d-flex justify-content-between align-items-center p-0">
               <Chip
                 label={selectedFilter.name}
                 onDelete={restartFilter}
@@ -91,7 +78,7 @@ const Notes = ({
             </div>
           </div>
         )}
-        <div id="notes-cont-3" className={notes.length === 0 && 'all-center'}>
+        <div id="notes-cont-3" className={notes.length === 0 ? 'all-center' : undefined}>
           {notes.length !== 0 ? (
             notes
             && notes.map((note) => {
@@ -99,7 +86,7 @@ const Notes = ({
                 .fromNow()
                 .split(' ');
               return (
-                <>
+                <div key={note.id}>
                   {((updated[1] === 'hour' || updated[1] === 'hours' || updated[1] === 'seconds' || updated[1] === 'minute' || updated[1] === 'minutes' || updated[1] === 'few') || (updated[0] === 'in'))
                     && !register.includes('today')
                     && (register.push('today'),
@@ -184,7 +171,7 @@ const Notes = ({
                       note.id === onEdition.id ? onEdition.title : note.title
                     }
                   />
-                </>
+                </div>
               );
             })
           ) : (

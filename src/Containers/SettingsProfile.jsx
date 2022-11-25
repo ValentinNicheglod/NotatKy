@@ -196,24 +196,6 @@ const SettingsProfile = () => {
       });
   };
 
-  const mouseEnter = (e) => {
-    if (largeWidth) {
-      const children = e.target.children[0];
-      if (children) {
-        children.className = 'btn btn-round mx-3 btn-sm btn-outline-primary profile-edit-active';
-      }
-    }
-  };
-
-  const mouseLeave = (e) => {
-    if (largeWidth) {
-      const children = e.target.children[0];
-      if (children) {
-        children.className = 'btn btn-round mx-3 btn-sm btn-outline-primary profile-edit';
-      }
-    }
-  };
-
   const visibilityPassword = (type) => {
     setVisiblePassword({
       ...visiblePassword,
@@ -230,18 +212,18 @@ const SettingsProfile = () => {
         : (
           <>
             {largeWidth ? (
-              <div className="col-md-2 login-bg p-0">
+              <div className="col-md-2 purple-bg p-0">
                 <SideBarSettings />
               </div>
             ) : (
               <Drawer open={drawerOpen} onClose={() => setDrawerOpen(false)} id="hidden-overflow">
-                <div className="col-md-2 login-bg p-0 full-height">
+                <div className="col-md-2 purple-bg p-0 full-height">
                   <SideBarSettings setDrawerOpen={setDrawerOpen} />
                 </div>
               </Drawer>
             )}
             {largeWidth && (
-              <div className="col-md-3 blue-aside" id={darkMode && 'dark-border'}>
+              <div className="col-md-3 blue-aside" id={darkMode ? 'dark-border' : undefined}>
                 <UserCard
                   darkMode={darkMode}
                   handleDelete={handleDeletePhoto}
@@ -252,7 +234,7 @@ const SettingsProfile = () => {
             )}
             <div
               className={largeWidth ? 'col-md-7 h-100' : 'bs-gutter'}
-              id={darkMode && 'dark'}
+              id={darkMode ? 'dark' : undefined}
             >
               <Profile
                 closeSnackbar={closeSnackbar}
@@ -267,8 +249,6 @@ const SettingsProfile = () => {
                 handleSubmit={handleSubmit}
                 information={information}
                 largeWidth={largeWidth}
-                mouseEnter={mouseEnter}
-                mouseLeave={mouseLeave}
                 password={password}
                 setDrawerOpen={setDrawerOpen}
                 snackbar={snackbar}

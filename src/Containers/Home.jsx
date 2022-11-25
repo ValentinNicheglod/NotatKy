@@ -70,6 +70,7 @@ const SettingsCollections = () => {
   const [inputValue, setInputValue] = useState('');
   const [openTagModal, setOpenTagModal] = useState(false);
   const [openColModal, setOpenColModal] = useState(false);
+  const [newNoteCreated, setNewNoteCreated] = useState(false);
 
   const userId = sessionStorage.getItem('id') || localStorage.getItem('id');
   const token = sessionStorage.getItem('token') || localStorage.getItem('token');
@@ -152,7 +153,7 @@ const SettingsCollections = () => {
   if (inputValue.length > 2) {
     noNotesMessage = 'No hay coincidencias';
   } else if (pathname === '/trash') {
-    noNotesMessage = 'No hay notas en la papelera';
+    noNotesMessage = 'No hay notas eliminadas';
   } else if (pathname === '/archive') {
     noNotesMessage = 'No hay notas archivadas';
   } else {
@@ -250,6 +251,7 @@ const SettingsCollections = () => {
         userId,
       ),
     );
+    setNewNoteCreated(true);
   };
 
   const duplicateNote = () => {
@@ -286,6 +288,13 @@ const SettingsCollections = () => {
       if (!largeWidth) setOpenNote(true);
     }, 500);
   };
+
+  useEffect(() => {
+    if (newNoteCreated) {
+      editNote(notes.note.id);
+      setNewNoteCreated(false);
+    }
+  }, [notes]);
 
   const filterCollections = (id) => {
     setDrawerOpen(false);
@@ -398,7 +407,7 @@ const SettingsCollections = () => {
         : (
           <>
             {largeWidth ? (
-              <div className="col-md-2 login-bg full-height p-0">
+              <div className="col-md-2 purple-bg full-height p-0">
                 <SideBarHome
                   changeRoute={changeRoute}
                   filterTags={filterTags}
@@ -411,7 +420,7 @@ const SettingsCollections = () => {
               </div>
             ) : (
               <Drawer open={drawerOpen} onClose={() => setDrawerOpen(false)}>
-                <div className="col-md-2 login-bg full-height">
+                <div className="col-md-2 purple-bg full-height">
                   <SideBarHome
                     changeRoute={changeRoute}
                     filterTags={filterTags}
@@ -624,7 +633,7 @@ const SettingsCollections = () => {
                 <>
                   {snackbar.undo && snackbar.message !== 'Acción desecha' ? (
                     <Button
-                      className="btn"
+                      className="btn snackbar-text"
                       color="inherit"
                       size="small"
                       onClick={() => {
@@ -637,7 +646,7 @@ const SettingsCollections = () => {
                       Deshacer
                     </Button>
                   ) : null}
-                  <IconButton className="btn" size="small" color="inherit" onClick={closeSnackbar}>
+                  <IconButton className="btn snackbar-text" size="small" color="inherit" onClick={closeSnackbar}>
                     <HighlightOffOutlinedIcon fontSize="small" />
                   </IconButton>
                 </>

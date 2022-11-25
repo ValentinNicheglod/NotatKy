@@ -1,3 +1,7 @@
+.button {
+  border-radius: 35px !important;
+}
+
 .profile{
   width: 100%;
 }
@@ -149,9 +153,11 @@
 }
 
 .settings-title{
-  border-bottom: 3px solid #2185D0;
-  height: 15%;
-  margin-bottom: 0px;
+  border-bottom: 3px solid var(--violet);
+  margin-bottom: 24px;
+  padding: unset;
+  padding-bottom: 12px;
+  font-size: 3rem;
 }
 
 .conf-2{
@@ -184,20 +190,21 @@
 }
 
 .profile-section{
-  cursor: pointer;
-  color:  #2185D0;
+  color:  var(--violet-2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .btn-outline-primary{
-  background-color:  #2185D0;
+  background-color: var(--violet);
   color: #fff;
-  border-color:  #2185D0;
+  border-color:  var(--violet);
 }
 
 .btn-outline-primary:hover{
-  background-color: transparent;
-  color:  #2185D0;
-  border: 2px solid  #2185D0;
+  background-color: var(--dark-violet);
+  border: 2px solid  var(--dark-violet);
 }
 
 .cancel-btn-modal-edit{
@@ -239,17 +246,9 @@
   padding-left: 26px;
 }
 
-.settings-select-blue{
-  background-color: #AECFDF!important;
-  padding-left: 26px!important;
-  border-top-right-radius: 21px!important;
-  border-bottom-right-radius: 21px!important;
-}
-
 .settings-select{
-  background-color: #FFFF!important;
+  background-color: #DAD8F3!important;
   padding-left: 26px!important;
-  color: #A333C8!important;
   border-top-right-radius: 21px!important;
   border-bottom-right-radius: 21px!important;
 }
@@ -263,7 +262,11 @@
 }
 
 .settings-select span{
-  font-weight: bold!important;
+  font-weight: 600 !important;
+}
+
+#home-select span {
+  font-weight: 600 !important;
 }
 
 .settings-select-dark span{
@@ -283,7 +286,23 @@
 }
 
 .violet{
-  color: #A333C8
+  color: var(--violet)
+}
+
+.purple {
+  color: #A333C8;
+}
+
+.purple-bg {
+  background-color: #645BCC;
+}
+
+.add-phone {
+  padding: 0;
+}
+
+.add-phone:hover {
+  color: var(--dark-violet);
 }
 
 .MuiTableCell-head{
@@ -393,7 +412,17 @@
   border: 3px solid;
 }
 
+.inicio-logo {
+  margin-left: 12px;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 600px){
+  .inicio-logo {
+    margin: unset;
+    margin-bottom: 24px;
+  }
+
   .user-profile{
     margin: 0!important;
     padding: 1rem!important;
@@ -419,6 +448,24 @@
 
   .no-data-cont{
     height: 85vh;
+  }
+
+  #col-table {
+    display: flex!important;
+    width: 100%;
+    table-layout: fixed!important;
+  }
+
+  #col-table {
+    display: table-row!important;
+    position: relative;
+  }
+
+  .action-btn {
+    position: relative!important;
+    inset: 0;
+    width: 50px;
+    margin-left: auto!important;
   }
 
   .btn-add{
@@ -450,10 +497,6 @@
 
   .user-profile form{
     --bs-gutter-x: 1.5rem;
-  }
-
-  .profile-section{
-    margin: 0!important;
   }
 
   .info-cont-settings{

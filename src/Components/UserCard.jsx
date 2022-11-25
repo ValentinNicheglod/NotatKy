@@ -21,7 +21,7 @@ const UserCard = ({
     && moment(user.createdAt.slice(0, 10), 'YYYY-MM-DD').format('DD/MM/YYYY');
 
   return (
-    <div className="card card-edit p-3 scale-lg" id={darkMode && 'dark-blue'}>
+    <div className="card card-edit p-3 scale-lg" id={darkMode ? 'dark-blue' : undefined}>
       {user.profile_photo ? (
         <Avatar
           alt="profile_photo"
@@ -29,7 +29,7 @@ const UserCard = ({
           imgProps={{
             draggable: false
           }}
-          sizes={180}
+          sizes="180"
           src={`data:${
             user.profile_photo && user.profile_photo.contentType
           };base64, ${user.profile_photo && user.profile_photo.image}`}
@@ -123,9 +123,9 @@ const UserCard = ({
           </button>
         )
       )}
-      <h1 className="display-6 mb-0">{user.name}</h1>
-      <h1 className="display-6 mt-0">{user.lastname}</h1>
-      <div className="user-data-card w-100 my-4">
+      <h1 className="mb-0 mt-3">{user.name}</h1>
+      <h1 className="mt-0">{user.lastname}</h1>
+      <div className="user-data-card w-100 my-3">
         {user.ocupation && (
           <div className="my-2">
             <b className="d-inline px-2">Ocupación:&nbsp;&nbsp;</b>

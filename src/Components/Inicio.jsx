@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { Button } from 'semantic-ui-react';
 import { useDispatch } from 'react-redux';
-import LoopOutlinedIcon from '@material-ui/icons/LoopOutlined';
+import AutorenewIcon from '@material-ui/icons/Autorenew';
 import { IconButton, Modal, Snackbar } from '@material-ui/core';
 import { chargeGuestUser, login } from '../Redux/Actions/Users';
 
@@ -15,22 +15,19 @@ const cards = [
     title: 'Lo importante en un solo lugar',
     description:
       'Sabemos que puedes necesitar tus notas o tareas en cualquier momento o lugar, con NotatKy tendrás acceso a ellas desde donde quieras.',
-    color: '#e76f51',
-    img: 1,
+    img: 'https://raw.githubusercontent.com/ValentinNicheglod/NotatKy-/2065c0c992d85d5e6516c3921bfb7d189f6a6eef/frontend/public/svg/card-img-1.svg',
   },
   {
     title: 'Aumenta tu productividad',
     description:
       'NotatKy te permite tomar notas de una forma muy sencilla, por lo tanto, confiamos en que tu productividad en el día a día aumentará.',
-    color: '#e9c46a',
-    img: 2,
+    img: 'https://raw.githubusercontent.com/ValentinNicheglod/NotatKy-/2065c0c992d85d5e6516c3921bfb7d189f6a6eef/frontend/public/svg/card-img-2.svg',
   },
   {
     title: 'Sincroniza todos tus dispositivos',
     description:
       'Ya sea que estes en la sala de tu casa o en la computadora de tu oficina, tus notas se sincronizarán en todos tus dispositivos.',
-    color: '#2a9d8f',
-    img: 3,
+    img: 'https://raw.githubusercontent.com/ValentinNicheglod/NotatKy-/2065c0c992d85d5e6516c3921bfb7d189f6a6eef/frontend/public/svg/card-img-3.svg',
   },
 ];
 
@@ -74,9 +71,9 @@ const Inicio = () => {
   const modal = (
     <div className={largeWidth ? 'modal-col w-50 guest-mode' : 'modal-col w-100 h-100'}>
       <>
-        <h2 id="simple-modal-title" className="all-center display-6">
-          MODO INVITADO
-        </h2>
+        <h1 id="simple-modal-title" className="all-center">
+          Modo Invitado
+        </h1>
         <hr />
         <div className="row w-100">
           <div className="w-50">
@@ -122,7 +119,7 @@ const Inicio = () => {
           </div>
           <div className="w-50 all-center">
             <img
-              src="svg/terms.svg"
+              src="https://raw.githubusercontent.com/ValentinNicheglod/NotatKy-/2065c0c992d85d5e6516c3921bfb7d189f6a6eef/frontend/public/svg/terms.svg"
               width="100%"
               alt=""
               className="mb-2"
@@ -145,21 +142,23 @@ const Inicio = () => {
           <div className="col-md-5 inicio-options">
             <div className="d-inline">
               <Link to="/login" className="inicio-link">
-                INICIAR SESIÓN
+                Iniciar Sesión
               </Link>
               <p className="inicio-link2">|</p>
               <Link to="/sign-up" className="inicio-link">
-                REGISTRARSE
+                Registrarse
               </Link>
             </div>
             <div className="d-inline">
-              <button
-                className="btn btn-outline-warning btn-round inicio-app px-4"
+              <Button
+                color="violet"
+                className={largeWidth ? 'textfield button my-2 w-100' : 'textfield button my-2 w-50'}
+                id="login-submit"
                 onClick={() => setOpenModal(true)}
-                type="submit"
+                type="button"
               >
-                INGRESAR COMO INVITADO
-              </button>
+                Ingresar Como Invitado
+              </Button>
             </div>
           </div>
         </div>
@@ -186,8 +185,8 @@ const Inicio = () => {
       <div
         className={
           largeWidth
-            ? 'd-flex row d-flex align-items-center h-90 justify-content-between m-0'
-            : 'd-flex row d-flex justify-content-center w-100 m-0 overflow-y'
+            ? 'd-flex row d-flex align-items-center h-75 justify-content-between m-0'
+            : 'd-flex row d-flex justify-content-center w-100 m-0'
         }
       >
         {cards.map((card) => (
@@ -199,10 +198,9 @@ const Inicio = () => {
             }
           >
             <CardInfo
-              image={`svg/card-img-${card.img}.svg`}
+              image={card.img}
               title={card.title}
               description={card.description}
-              color={card.color}
               largeWidth={largeWidth}
             />
           </div>
@@ -210,19 +208,18 @@ const Inicio = () => {
       </div>
       <a
         href="https://valentinnicheglod.github.io/Portfolio"
-        className="personal-logo d-inline"
+        className="personal-logo"
         target="_blank"
         rel="noreferrer noopener"
       >
-        <img src="https://valentinnicheglod.github.io/Portfolio/logo-white.png" alt="logo" />
+        <img src="https://valentinnicheglod.github.io/Portfolio/Small.svg" alt="logo" />
       </a>
       {
         !largeWidth && (
         <div className="d-flex row d-flex justify-content-center w-100 m-0 overflow-y">
-          <h6 className="display-6 all-center my-2 white">{midWidth ? 'MODO INVITADO' : 'INGRESAR COMO INVITADO'}</h6>
-          <hr />
-          <div className="all-center mb-2 w-100 row">
-            <div className="w-100 my-3 list-restrictions">
+          <div className="all-center mb-2 mt-4 w-100 row">
+            <h2 className="violet">{midWidth ? 'Modo Invitado' : 'Ingresar como invitado'}</h2>
+            <div className="w-100 list-restrictions my-2">
               <b>Al ingresar en modo invitado tendrás ciertas restricciones...</b>
             </div>
             <div className="list-restrictions">
@@ -244,9 +241,9 @@ const Inicio = () => {
               </ul>
             </div>
             <div className="my-3 d-flex justify-content-center w-100 row">
-              <small className="m-0 white">Si estas de acuerdo con esto puedes</small>
+              <small className="m-0">Si estas de acuerdo con esto puedes</small>
               <Button
-                color="yellow"
+                color="violet"
                 className="textfield button my-2 w-100"
                 id="login-submit"
                 onClick={handleSubmit}
@@ -256,11 +253,12 @@ const Inicio = () => {
               </Button>
               <small className="all-center m-0 line-aside">o</small>
               <Button
-                color="orange"
+                color="violet"
                 className="textfield button my-2 w-100"
                 id="login-submit"
                 onClick={() => history.push('/sign-up')}
                 type="button"
+                basic
               >
                 Crear una cuenta
               </Button>
@@ -284,7 +282,7 @@ const Inicio = () => {
             size="small"
             color="inherit"
           >
-            <LoopOutlinedIcon className="loop-out" />
+            <AutorenewIcon className="loop-out" />
           </IconButton>
             )}
       />

@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
 import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
-import LoopOutlinedIcon from '@material-ui/icons/LoopOutlined';
+import AutorenewIcon from '@material-ui/icons/Autorenew';
 import MenuIcon from '@material-ui/icons/Menu';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import CloudUploadOutlinedIcon from '@material-ui/icons/CloudUploadOutlined';
@@ -43,11 +43,6 @@ const NavBarHome = ({
         </div>
       )}
       <div className="ui transparent input input-search col-md-6">
-        {largeWidth && (
-        <SearchOutlinedIcon
-          style={{ color: '#FFF', marginRight: '20px', height: '100%' }}
-        />
-        )}
         <input
           type="text"
           placeholder="Buscar..."
@@ -55,11 +50,23 @@ const NavBarHome = ({
           id="search-note"
           value={inputValue}
         />
+        {largeWidth && (
+        <IconButton
+          id="btn-home"
+          style={{ color: 'white', backgroundColor: '#645BCC', borderRadius: '12px 50px 50px 12px' }}
+          className="btn white m-0"
+          onClick={() => {}}
+        >
+          <SearchOutlinedIcon
+            style={{ color: '#FFF' }}
+          />
+        </IconButton>
+        )}
       </div>
 
       <div className={largeWidth ? 'col-md-4 actions-note' : 'actions-note'}>
         {largeWidth && (loading
-          ? onEdition.id && <LoopOutlinedIcon className="loop-out" />
+          ? onEdition.id && <AutorenewIcon className="loop-out" />
           : onEdition.id && (
           <Tooltip title="Cambios guardados" placement="left">
             <IconButton
@@ -109,9 +116,9 @@ const NavBarHome = ({
           <>
             {largeWidth && (
               <div className="mx-3">
-                <b className="m-0 d-flex justify-content-end greeting white display-6">
+                <p className="m-0 d-flex justify-content-end greeting white">
                   {`${greeting},`}
-                </b>
+                </p>
                 <b className="m-0 d-flex justify-content-end greeting-name white">
                   {`${user.name}!`}
                 </b>

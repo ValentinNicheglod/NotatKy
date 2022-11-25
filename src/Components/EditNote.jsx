@@ -13,7 +13,6 @@ import HighlightOffOutlinedIcon from '@material-ui/icons/HighlightOffOutlined';
 import FileCopyOutlinedIcon from '@material-ui/icons/FileCopyOutlined';
 import LocalOfferIcon from '@material-ui/icons/LocalOffer';
 import CloseIcon from '@material-ui/icons/Close';
-// import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import CollectionsBookmarkOutlinedIcon from '@material-ui/icons/CollectionsBookmarkOutlined';
 import CheckSharpIcon from '@material-ui/icons/CheckSharp';
 
@@ -45,18 +44,16 @@ const EditNote = ({
   const colModal = (
     <div className="modal-col">
       <div>
-        <h2 id="simple-modal-title" className="display-6">
+        <h1 id="simple-modal-title" className="mb-4">
           {note.collectionId ? 'Editar colección' : 'Añadir colección'}
-        </h2>
-        <hr />
+        </h1>
       </div>
       <div className="tag-cont">
         {collections.length > 0 ? (
           collections
           && collections.map((col) => (
-            <>
+            <div key={col.id}>
               <div
-                key={col.id}
                 className="d-flex justify-content-between align-items-center px-2"
               >
                 <p className="d-flex m-0">
@@ -91,7 +88,7 @@ const EditNote = ({
                 )}
               </div>
               <hr />
-            </>
+            </div>
           ))
         ) : (
           <div className="all-center row w-100 m-0">
@@ -116,7 +113,7 @@ const EditNote = ({
           <div className="w-100 my-3">
             <button
               className="btn btn-outline-primary btn-round btn-sm px-3"
-              onClick={() => changeRoute('/collections tags/col')}
+              onClick={() => changeRoute('/collections tags/col?open=true')}
               type="button"
             >
               <p>
@@ -129,7 +126,7 @@ const EditNote = ({
           <div className="w-100 my-3 all-center">
             <button
               className="btn btn-success"
-              onClick={() => changeRoute('/collections tags/col')}
+              onClick={() => changeRoute('/collections tags/col?open=true')}
               type="button"
             >
               <p>
@@ -146,20 +143,16 @@ const EditNote = ({
   const tagModal = (
     <div className="modal-col">
       <div>
-        <h2 id="simple-modal-title" className="display-6">
+        <h1 id="simple-modal-title" className="mb-4">
           {largeWidth ? 'Añadir etiquetas' : 'Editar etiquetas'}
-        </h2>
-        <hr />
+        </h1>
       </div>
       <div className="tag-cont">
         {tags.length > 0 ? (
           tags
           && tags.map((tag) => (
-            <>
-              <div
-                key={tag.id}
-                className="d-flex justify-content-between align-items-center px-2"
-              >
+            <div key={tag.id}>
+              <div className="d-flex justify-content-between align-items-center px-2">
                 <p className="d-inline m-0">
                   <LocalOfferIcon style={{ color: tag.color }} />
                   &nbsp;&nbsp;&nbsp;
@@ -168,9 +161,10 @@ const EditNote = ({
                 {note.tags
                 && note.tags.map((tag) => tag.name).includes(tag.name) ? (
                     largeWidth ? (
-                      <CheckSharpIcon style={{ margin: 12, color: '#198754' }} />
+                      <CheckSharpIcon key={tag.name} style={{ margin: 12, color: '#198754' }} />
                     ) : (
                       <IconButton
+                        key={tag.name}
                         className="btn"
                         onClick={() => deleteTag(onEdition.id, tag.id)}
                       >
@@ -179,6 +173,7 @@ const EditNote = ({
                     )
                   ) : (
                     <IconButton
+                      key={tag.name}
                       className="btn"
                       onClick={() => addTag(onEdition.id, tag.id)}
                     >
@@ -187,7 +182,7 @@ const EditNote = ({
                   )}
               </div>
               <hr />
-            </>
+            </div>
           ))
         ) : (
           <div className="all-center row w-100 m-0">
@@ -210,7 +205,7 @@ const EditNote = ({
         <div className="w-100 d-flex justify-content-between align-items-center my-3">
           <button
             className="btn btn-outline-primary btn-round btn-sm px-3"
-            onClick={() => changeRoute('/collections tags')}
+            onClick={() => changeRoute('/collections tags/tag?open=true')}
             type="button"
           >
             <p>
@@ -230,7 +225,7 @@ const EditNote = ({
         <div className="w-100 all-center my-3">
           <button
             className="btn btn-success"
-            onClick={() => changeRoute('/collections tags')}
+            onClick={() => changeRoute('/collections tags/tag?open=true')}
             type="button"
           >
             <p>
@@ -419,12 +414,6 @@ const EditNote = ({
                         <FileCopyOutlinedIcon />
                       </IconButton>
                     </Tooltip>
-                    {/* <IconButton
-                        className="btn"
-                        title="Favorito"
-                    >
-                        <FavoriteBorderOutlinedIcon/>
-                    </IconButton> */}
                   </>
                 )}
                 {pathname === '/archive' ? (
@@ -455,7 +444,8 @@ const EditNote = ({
                       >
                         <DeleteForeverOutlinedIcon />
                       </IconButton>
-                      <Tooltip title="Restaurar" placement="top" />
+                    </Tooltip>
+                    <Tooltip title="Restaurar" placement="top">
                       <IconButton
                         className="btn"
                         onClick={() => handleStateChange('main-dashboard', 'Nota restaurada')}
@@ -465,7 +455,7 @@ const EditNote = ({
                     </Tooltip>
                   </>
                 ) : (
-                  <Tooltip title="Mover a la papelera" placement="top">
+                  <Tooltip title="Eliminar nota" placement="top">
                     <IconButton
                       className="btn"
                       onClick={() => handleStateChange('trash', 'Nota movida a papelera')}
@@ -476,7 +466,7 @@ const EditNote = ({
                 )}
                 {largeWidth && (
                   <Tooltip title="Fecha de creación" placement="top">
-                    <b style={{ cursor: 'default' }}>
+                    <b className="pl-2" style={{ cursor: 'default' }}>
                       <small>
                         {note.createdAt
                           && moment(

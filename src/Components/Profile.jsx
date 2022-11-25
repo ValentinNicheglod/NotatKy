@@ -1,5 +1,4 @@
 import React from 'react';
-import clsx from 'clsx';
 import {
   Avatar,
   FormControl,
@@ -52,8 +51,6 @@ const Profile = ({
   handleSubmit,
   information,
   largeWidth,
-  mouseEnter,
-  mouseLeave,
   password,
   setDrawerOpen,
   snackbar,
@@ -67,23 +64,22 @@ const Profile = ({
     && moment(user.createdAt.slice(0, 10), 'YYYY-MM-DD').format('DD/MM/YY');
 
   return (
-    <div className="user-profile pro m-4 row">
-      <h1 className="display-1 settings-title">
+    <div className="user-profile m-4 row">
+      <h1 className="settings-title violet">
         {!largeWidth && (
           <IconButton
             onClick={() => setDrawerOpen(true)}
-            style={{ color: 'inherit' }}
-            className="btn mb-1 p-0"
-            iconStyle={{ width: '35px', height: '40px', marginRight: '5px' }}
+            style={{ color: 'inherit', transform: 'scale(1.3)' }}
+            className="btn mb-1 mx-2 p-0"
           >
             <Menu className="menu-icon" />
           </IconButton>
         )}
-        &nbsp;Editar perfil
+        Editar perfil
       </h1>
       {!largeWidth && (
-        <div className="mobile-user-card-cont pt-4">
-          <div className="mobile-user-card login-bg row">
+        <div className="mobile-user-card-cont my-2">
+          <div className="mobile-user-card purple-bg row bs-gutter">
             <div className="mobile-user-card-1 all-center">
               {user.profile_photo ? (
                 <Avatar
@@ -92,8 +88,7 @@ const Profile = ({
                   imgProps={{
                     draggable: false
                   }}
-                  src={`data:${
-                    user.profile_photo && user.profile_photo.contentType
+                  src={`data:${user.profile_photo && user.profile_photo.contentType
                   };base64, ${user.profile_photo && user.profile_photo.image}`}
                 />
               ) : (
@@ -131,47 +126,45 @@ const Profile = ({
         </div>
       )}
       <div
-        className="pt-4 info-cont-settings"
+        className="info-cont-settings p-0"
         style={
           darkMode && largeWidth ? { overflowY: 'auto', height: 550 } : null
         }
       >
         <div>
-          <h1
-            className="display-6 profile-section"
-            onMouseEnter={(e) => mouseEnter(e)}
-            onMouseLeave={(e) => mouseLeave(e)}
-          >
-            {superSmallWidth ? 'Datos personales' : 'Información personal'}
-            {largeWidth ? (
-              !(editing === 'PersonalInformation') && (
-                <button
-                  className="btn btn-round mx-3 btn-sm btn-outline-primary profile-edit"
-                  onClick={() => editionMode('PersonalInformation')}
-                  type="button"
-                >
-                  Editar
-                </button>
-              )
-            ) : !(editing === 'PersonalInformation') ? (
+          <div className="profile-section mb-2">
+            <h2 className="m-0">{superSmallWidth ? 'Datos personales' : 'Información personal'}</h2>
+            {!(editing === 'PersonalInformation') ? (
               <IconButton
                 className="btn mx-1"
                 onClick={() => editionMode('PersonalInformation')}
                 type="button"
               >
-                <EditSharp style={{ color: '#2185D0' }} />
+                <EditSharp style={{ color: '#6435c9' }} />
               </IconButton>
             ) : (
-              <IconButton
-                className="btn mx-1"
-                onClick={() => editionMode('')}
-                type="button"
-              >
-                <ExpandLess style={{ color: '#2185D0' }} />
-              </IconButton>
+              <div className="d-flex all-center">
+                {largeWidth && (
+                  <div className="mx-2">
+                    <button
+                      className="btn btn-success btn-round btn-update"
+                      onClick={handleSubmit}
+                      type="submit"
+                    >
+                      Actualizar datos
+                    </button>
+                  </div>
+                )}
+                <IconButton
+                  className="btn mx-1"
+                  onClick={() => editionMode('')}
+                  type="button"
+                >
+                  <ExpandLess style={{ color: '#6435c9' }} />
+                </IconButton>
+              </div>
             )}
-          </h1>
-          <hr />
+          </div>
           {editing === 'PersonalInformation' ? (
             <form className={classes.root} noValidate autoComplete="off">
               <TextField
@@ -224,34 +217,16 @@ const Profile = ({
                 </RadioGroup>
               </FormControl>
               <br />
-              {largeWidth ? (
-                <button
-                  className="btn w-25 btn-success btn-round btn-update"
-                  onClick={handleSubmit}
-                  type="submit"
-                >
-                  Actualizar datos
-                </button>
-              )
-                : (
-                  <div className="w-100 all-center p-0 m-0">
-                    <button
-                      className="btn w-100 btn-success btn-update"
-                      onClick={handleSubmit}
-                      type="submit"
-                    >
-                      Actualizar
-                    </button>
-                  </div>
-                )}
-              {largeWidth && (
-                <button
-                  className="btn btn-outline-danger btn-round w-12"
-                  onClick={() => editionMode('')}
-                  type="button"
-                >
-                  Cancelar
-                </button>
+              {!largeWidth && (
+                <div className="w-100 all-center p-0 m-0">
+                  <button
+                    className="btn w-100 btn-success btn-update"
+                    onClick={handleSubmit}
+                    type="submit"
+                  >
+                    Actualizar Datos
+                  </button>
+                </div>
               )}
             </form>
           ) : (
@@ -303,41 +278,40 @@ const Profile = ({
           )}
         </div>
         <div className="mt-3">
-          <h1
-            className="display-6 profile-section"
-            onMouseEnter={(e) => mouseEnter(e)}
-            onMouseLeave={(e) => mouseLeave(e)}
-          >
-            {largeWidth ? 'Información de contacto' : 'Contacto'}
-            {largeWidth ? (
-              !(editing === 'ContactInformation') && (
-                <button
-                  className="btn btn-round mx-3 btn-sm btn-outline-primary profile-edit"
-                  onClick={() => editionMode('ContactInformation')}
-                  type="button"
-                >
-                  Editar
-                </button>
-              )
-            ) : !(editing === 'ContactInformation') ? (
+          <hr />
+          <div className="profile-section mb-2">
+            <h2 className="m-0">{largeWidth ? 'Información de contacto' : 'Contacto'}</h2>
+            {!(editing === 'ContactInformation') ? (
               <IconButton
                 className="btn mx-1"
                 onClick={() => editionMode('ContactInformation')}
                 type="button"
               >
-                <EditSharp style={{ color: '#2185D0' }} />
+                <EditSharp style={{ color: '#6435c9' }} />
               </IconButton>
             ) : (
-              <IconButton
-                className="btn mx-1"
-                onClick={() => editionMode('')}
-                type="button"
-              >
-                <ExpandLess style={{ color: '#2185D0' }} />
-              </IconButton>
+              <div className="d-flex all-center">
+                {largeWidth && (
+                  <div className="mx-2">
+                    <button
+                      className="btn btn-success btn-round btn-update"
+                      onClick={handleSubmit}
+                      type="submit"
+                    >
+                      Actualizar datos
+                    </button>
+                  </div>
+                )}
+                <IconButton
+                  className="btn mx-1"
+                  onClick={() => editionMode('')}
+                  type="button"
+                >
+                  <ExpandLess style={{ color: '#6435c9' }} />
+                </IconButton>
+              </div>
             )}
-          </h1>
-          <hr />
+          </div>
           {editing === 'ContactInformation' ? (
             <form className={classes.root} noValidate autoComplete="off">
               <TextField
@@ -352,40 +326,21 @@ const Profile = ({
                 className="input-profile mb-4"
                 id="phone-textfield"
                 label="Número de teléfono"
-                value={information.phone}
+                value={information.phone || undefined}
                 name="phone"
                 onChange={handleChange}
                 type="number"
               />
-              <br />
-              {largeWidth ? (
-                <button
-                  type="submit"
-                  className="btn w-25 btn-success btn-update btn-round"
-                  onClick={handleSubmit}
-                >
-                  Actualizar datos
-                </button>
-              )
-                : (
-                  <div className="w-100 all-center p-0 m-0">
-                    <button
-                      className="btn w-100 btn-success btn-update"
-                      onClick={handleSubmit}
-                      type="submit"
-                    >
-                      Actualizar
-                    </button>
-                  </div>
-                )}
-              {largeWidth && (
-                <button
-                  type="button"
-                  className="btn btn-outline-danger btn-round w-12"
-                  onClick={() => editionMode('')}
-                >
-                  Cancelar
-                </button>
+              {!largeWidth && (
+                <div className="w-100 all-center p-0 m-0">
+                  <button
+                    className="btn w-100 btn-success btn-update"
+                    onClick={handleSubmit}
+                    type="submit"
+                  >
+                    Actualizar Datos
+                  </button>
+                </div>
               )}
             </form>
           ) : (
@@ -400,65 +355,62 @@ const Profile = ({
                 <h4 className="d-inline mr-3 mb-0">
                   Celular:&nbsp;&nbsp;&nbsp;
                 </h4>
-                <p>
-                  {!user.phone ? (
-                    <button
-                      className="btn btn-round my-1 btn-sm btn-outline-primary"
-                      onClick={() => {
-                        editionMode('ContactInformation');
-                        setTimeout(() => {
-                          document.getElementById('phone-textfield').focus();
-                          document.getElementById('phone-textfield').click();
-                        }, 1000);
-                      }}
-                      type="button"
-                    >
-                      Agrega un celular
-                    </button>
-                  ) : (
-                    user.phone
-                  )}
-                </p>
+                {!user.phone ? (
+                  <button
+                    className="btn my-1 btn-sm violet add-phone"
+                    onClick={() => {
+                      editionMode('ContactInformation');
+                      setTimeout(() => {
+                        document.getElementById('phone-textfield').focus();
+                        document.getElementById('phone-textfield').click();
+                      }, 1000);
+                    }}
+                    type="button"
+                  >
+                    Agrega un celular
+                  </button>
+                ) : (
+                  <p>{user.phone}</p>
+                )}
               </div>
             </div>
           )}
         </div>
-        <div className="mt-3">
-          <h1
-            className="display-6 profile-section"
-            onMouseEnter={(e) => mouseEnter(e)}
-            onMouseLeave={(e) => mouseLeave(e)}
-          >
-            Contraseña
-            {largeWidth ? (
-              !(editing === 'password') && (
-                <button
-                  className="btn btn-round mx-3 btn-sm btn-outline-primary profile-edit"
-                  onClick={() => editionMode('password')}
-                  type="button"
-                >
-                  Editar
-                </button>
-              )
-            ) : !(editing === 'password') ? (
+        <div className="mt-4">
+          <hr />
+          <div className="profile-section mb-2">
+            <h2 className="m-0">Contraseña</h2>
+            {!(editing === 'password') ? (
               <IconButton
                 className="btn mx-1"
                 onClick={() => editionMode('password')}
                 type="button"
               >
-                <EditSharp style={{ color: '#2185D0' }} />
+                <EditSharp style={{ color: '#6435c9' }} />
               </IconButton>
             ) : (
-              <IconButton
-                className="btn mx-1"
-                onClick={() => editionMode('')}
-                type="button"
-              >
-                <ExpandLess style={{ color: '#2185D0' }} />
-              </IconButton>
+              <div className="d-flex all-center">
+                {largeWidth && (
+                  <div className="mx-2">
+                    <button
+                      className="btn btn-success btn-round btn-update"
+                      onClick={handlePasswordSubmit}
+                      type="submit"
+                    >
+                      Modificar Contraseña
+                    </button>
+                  </div>
+                )}
+                <IconButton
+                  className="btn mx-1"
+                  onClick={() => editionMode('')}
+                  type="button"
+                >
+                  <ExpandLess style={{ color: '#6435c9' }} />
+                </IconButton>
+              </div>
             )}
-          </h1>
-          <hr />
+          </div>
           {editing === 'password' ? (
             <form className={classes.root} noValidate autoComplete="off">
               <FormControl className="input-profile">
@@ -468,7 +420,7 @@ const Profile = ({
                 <Input
                   id="actual-password"
                   type={visiblePassword.password ? 'text' : 'password'}
-                  spellcheck={false}
+                  spellCheck={false}
                   endAdornment={(
                     <InputAdornment position="end">
                       <IconButton
@@ -529,7 +481,7 @@ const Profile = ({
                 <Input
                   id="new-password-2"
                   type={visiblePassword.newPassword ? 'text' : 'password'}
-                  spellcheck={false}
+                  spellCheck={false}
                   endAdornment={(
                     <InputAdornment position="end">
                       <IconButton
@@ -551,40 +503,22 @@ const Profile = ({
                 />
               </FormControl>
               <br />
-              {largeWidth ? (
-                <button
-                  className="btn w-25 btn-success btn-round btn-update"
-                  disabled={error.password}
-                  onClick={handlePasswordSubmit}
-                  type="submit"
-                >
-                  Modificar contraseña
-                </button>
-              )
-                : (
-                  <div className="w-100 all-center p-0 m-0">
-                    <button
-                      className="btn w-100 btn-success btn-update"
-                      disabled={error.password}
-                      onClick={handlePasswordSubmit}
-                      type="submit"
-                    >
-                      Modificar contraseña
-                    </button>
-                  </div>
-                )}
-              {largeWidth && (
-                <button
-                  type="submit"
-                  className="btn btn-outline-danger btn-round w-12"
-                  onClick={() => editionMode('')}
-                >
-                  Cancelar
-                </button>
+              {!largeWidth && (
+                <div className="w-100 all-center p-0 m-0">
+                  <button
+                    className="btn w-100 btn-success btn-update"
+                    disabled={error.password}
+                    onClick={handlePasswordSubmit}
+                    type="submit"
+                  >
+                    Modificar contraseña
+                  </button>
+                </div>
               )}
             </form>
           ) : null}
         </div>
+        <hr />
       </div>
       <Snackbar
         anchorOrigin={{

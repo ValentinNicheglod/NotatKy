@@ -40,13 +40,15 @@ export const getAllNotes = (userId) => (dispatch) => {
 
 export const createNote = (data, userId) => (dispatch) => {
   try {
-    axios.post(`/note/${userId}`, { data }).then((response) => dispatch({
-      message: response.data.message,
-      note: response.data.note,
-      notes: response.data.notes,
-      response: response.status,
-      type: CREATE_NOTE
-    }));
+    axios.post(`/note/${userId}`, { data }).then((response) => {
+      dispatch({
+        message: response.data.message,
+        note: response.data.note,
+        notes: response.data.notes,
+        response: response.status,
+        type: CREATE_NOTE
+      });
+    });
   } catch (err) {
     console.log(err);
   }
@@ -95,13 +97,11 @@ export const deleteNote = (noteId, userId) => (dispatch) => {
 
 export const addNoteTag = (noteId, tagId) => (dispatch) => {
   try {
-    // noteId && tagId
-    /* ? */ axios.post(`/tag/${noteId}/${tagId}`).then((response) => dispatch({
+    axios.post(`/tag/${noteId}/${tagId}`).then((response) => dispatch({
       type: ADD_NOTE_TAG,
       note: response.data,
       response: response.status,
     }));
-    // : console.log('No se ha proporcionado la información necesaria');
   } catch (err) {
     console.log(err);
   }
@@ -109,15 +109,13 @@ export const addNoteTag = (noteId, tagId) => (dispatch) => {
 
 export const deleteNoteTag = (noteId, tagId) => (dispatch) => {
   try {
-    /* noteId && tagId
-      ? */ axios
+    axios
       .delete(`/tag/${noteId}/${tagId}`)
       .then((response) => dispatch({
         type: DELETE_NOTE_TAG,
         note: response.data,
         response: response.status,
       }));
-    // : console.log('No se ha proporcionado la información necesaria');
   } catch (err) {
     console.log(err);
   }

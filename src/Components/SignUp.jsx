@@ -10,6 +10,7 @@ import VpnKeyIcon from '@material-ui/icons/VpnKey';
 import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
 import HighlightOffOutlinedIcon from '@material-ui/icons/HighlightOffOutlined';
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
+import AutorenewIcon from '@material-ui/icons/Autorenew';
 import FaceIcon from '@material-ui/icons/Face';
 import './css/Login.css';
 import { useHistory } from 'react-router';
@@ -41,6 +42,16 @@ const SignUp = () => {
     duplicatedEmail: ''
   });
 
+  const invalidInputEntry = error.email || error.password
+  || error.confirmPassword || error.duplicatedEmail;
+  const allInputsCompleted = Object.values(data).every((inputValue) => inputValue.length > 0);
+  const isEmailInvalid = error.email || error.duplicatedEmail !== '';
+  const emailErrorMessage = error.email
+    ? 'Ingrese un correo válido'
+    : error.duplicatedEmail
+      ? 'Este correo electrónico pertenece a otra cuenta'
+      : 'Este correo electrónico se encuentra disponible';
+
   useEffect(() => {
     if (token !== null) {
       history.push('/home');
@@ -59,31 +70,32 @@ const SignUp = () => {
   }, [users.user]);
 
   const handleChange = (e) => {
+    const inputValue = e.target.value;
+
     setData({
       ...data,
-      [e.target.name]: e.target.value,
+      [e.target.name]: inputValue,
     });
+
     if (e.target.name === 'password') {
-      e.target.value.length >= 6
-        ? setError({ ...error, password: false })
-        : setError({ ...error, password: true });
+      setError({ ...error, password: inputValue.length < 6 });
     }
     if (e.target.name === 'confirmPassword' && !error.password) {
-      e.target.value === data.password
-        ? setError({ ...error, confirmPassword: false })
-        : setError({ ...error, confirmPassword: true });
+      setError({ ...error, confirmPassword: inputValue !== data.password });
     }
   };
 
   const handleFocusOut = () => {
     if (data.email.length > 0) {
-      if (/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(data.email)) {
+      const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(data.email);
+      setError({ ...error, email: !isValidEmail });
+      if (isValidEmail) {
         setError({
           ...error,
           duplicatedEmail: users.users[0] && users.users.includes(data.email),
           email: false
         });
-      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(data.email)) {
+      } else {
         setError({ ...error, email: true });
       }
     }
@@ -91,11 +103,11 @@ const SignUp = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (data.name === '' || data.lastname === '' || data.email === '' || data.password === '' || data.confirmPassword === '') {
-      setOpenSnackbar(1);
-    } else {
+    if (allInputsCompleted) {
       dispatch(createUser(data));
       setOpenSnackbar(2);
+    } else {
+      setOpenSnackbar(1);
     }
   };
 
@@ -107,8 +119,7 @@ const SignUp = () => {
         parseInt(users.response, 10) === 201
           ? (
             <>
-              <h2 id="simple-modal-title" className="all-center display-6">¡FELICIDADES!</h2>
-              <hr />
+              <h2 id="simple-modal-title" className="all-center mb-4">¡FELICIDADES!</h2>
               <div className="all-center">
                 <img
                   src="svg/celebration.svg"
@@ -118,21 +129,21 @@ const SignUp = () => {
                   draggable="false"
                 />
               </div>
-              <div className="w-100 my-3">
+              <div className="w-100 mt-3 mb-2">
                 <b className="all-center">Tu cuenta ha sido creada exitosamente</b>
               </div>
-              <div className="w-100 my-3">
-                <b className="all-center">Bienvenido a NotatKy</b>
+              <div className="w-100">
+                <p className="all-center">Bienvenido a NotatKy</p>
               </div>
               <div className="my-3 all-center">
                 <Button
-                  color="purple"
-                  className="textfield button my-2 w-75"
+                  color="violet"
+                  className="textfield button my-2 w-50"
                   id="login-submit"
                   onClick={() => history.push('/login')}
                   type="button"
                 >
-                  INICIA SESIÓN
+                  Iniciar Sesión
                 </Button>
               </div>
             </>
@@ -215,16 +226,11 @@ const SignUp = () => {
           <div className="d-flex align-items-end justify-content-between field">
             <AlternateEmailIcon />
             <TextField
+              id={error.duplicatedEmail ? '' : 'green-input'}
               className="textfield"
               error={error.email || error.duplicatedEmail}
               helperText={
-                error.duplicatedEmail !== '' && data.email.length > 5 && (
-                  error.email
-                    ? 'Ingrese un correo válido'
-                    : error.duplicatedEmail
-                      ? 'Este correo electrónico pertenece a otra cuenta'
-                      : 'Este correo electrónico se encuentra disponible'
-                )
+                isEmailInvalid ? emailErrorMessage : ''
               }
               label="Correo electrónico"
               name="email"
@@ -285,41 +291,16 @@ const SignUp = () => {
         </form>
         <div className="all-center">
           <Button
-            color="purple"
-            className="textfield button my-2"
-            disabled={error.email || error.password
-                || error.confirmPassword || error.duplicatedEmail}
+            color="violet"
+            className="textfield button my-2 w-75"
+            disabled={invalidInputEntry || !allInputsCompleted}
             id="login-submit"
             onClick={handleSubmit}
             type="submit"
           >
-            REGISTRARSE
+            Registrarse
           </Button>
         </div>
-        {/* <div className="textfield row m-1 login-bs">
-            <div className="col-md-5 p-0">
-                <hr/>
-            </div>
-            <div className="col-md-2 d-flex justify-content-center">
-                <p className= "login-p">o</p>
-            </div>
-            <div className="col-md-5 p-0">
-                <hr/>
-            </div>
-        </div>
-        <div className= "my-1 textfield row d-flex justify-content-between login-bs">
-            <Button className= "col-md-5 button google-btn my-2">
-                <Icon name= "google"/>
-                Continúa con Google
-            </Button>
-            <Button
-                color= "facebook"
-                className= "col-md-5 button my-2"
-            >
-                <Icon name= "facebook"/>
-                Continúa con Facebook
-            </Button>
-        </div> */}
       </div>
       <Snackbar
         anchorOrigin={{
@@ -331,20 +312,32 @@ const SignUp = () => {
         onClose={() => setOpenSnackbar(false)}
         message={openSnackbar === 1 ? 'Completa todos los campos' : 'Cargando...'}
         action={(
-          <IconButton
-            className="btn"
-            size="small"
-            color="inherit"
-            onClick={() => setOpenSnackbar(false)}
-          >
-            <HighlightOffOutlinedIcon fontSize="small" />
-          </IconButton>
+          openSnackbar === 2
+            ? (
+              <IconButton
+                className="btn"
+                size="small"
+                color="inherit"
+              >
+                <AutorenewIcon className="loop-out" />
+              </IconButton>
+            )
+            : (
+              <IconButton
+                className="btn"
+                size="small"
+                color="inherit"
+                onClick={() => setOpenSnackbar(false)}
+              >
+                <HighlightOffOutlinedIcon fontSize="small" />
+              </IconButton>
+            )
         )}
       />
       <Modal
         open={openModal}
         onClose={() => setOpenModal(false)}
-        className="d-flex w-100 justify-content-center align-items-center"
+        className="d-flex w-100 justify-content-center align-items-center modal"
       >
         {modal}
       </Modal>

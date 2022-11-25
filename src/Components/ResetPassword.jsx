@@ -14,7 +14,7 @@ import { Button } from 'semantic-ui-react';
 import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
 import VpnKeyIcon from '@material-ui/icons/VpnKey';
 import HighlightOffOutlinedIcon from '@material-ui/icons/HighlightOffOutlined';
-import LoopOutlinedIcon from '@material-ui/icons/LoopOutlined';
+import AutorenewIcon from '@material-ui/icons/Autorenew';
 
 import './css/Login.css';
 import Logo from './Logo';
@@ -100,6 +100,7 @@ const ResetPassword = () => {
     } else if (/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
       dispatch(resetPassword(email));
     } else {
+      setSnackbar({ snackbar, open: false });
       setSnackbar({
         message: 'Ingrese un correo válido',
         open: true
@@ -221,12 +222,12 @@ const ResetPassword = () => {
                     />
                   </div>
                   <Button
-                    color="purple"
+                    color="violet"
                     className="total-width button mt-3"
                     id="login-submit"
                     onClick={sendMail}
                   >
-                    ENVIAR
+                    Enviar
                   </Button>
                 </>
                 )
@@ -268,13 +269,13 @@ const ResetPassword = () => {
                     })}
                   </div>
                   <Button
-                    color="purple"
+                    color="violet"
                     className="total-width button mt-3"
                     id="login-submit"
                     onClick={verifyCode}
                     value={email}
                   >
-                    VERIFICAR
+                    Verificar
                   </Button>
                 </>
                 )
@@ -322,13 +323,13 @@ const ResetPassword = () => {
                     />
                   </div>
                   <Button
-                    color="purple"
+                    color="violet"
                     className="total-width button mt-3"
-                    disabled={error.new1 || error.new2}
+                    disabled={error.new1 || error.new2 || !password.new1 || !password.new2}
                     id="login-submit"
                     onClick={changePassword}
                   >
-                    ACTUALIZAR
+                    Actualizar
                   </Button>
                 </>
                 )
@@ -377,7 +378,7 @@ const ResetPassword = () => {
                 size="small"
                 color="inherit"
               >
-                <LoopOutlinedIcon className="loop-out" />
+                <AutorenewIcon className="loop-out" />
               </IconButton>
             )
             : (
